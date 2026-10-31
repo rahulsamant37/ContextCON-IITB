@@ -169,3 +169,27 @@ def test_prune_removes_rows_a_rerun_no_longer_produces_but_keeps_manual_progress
     assert crm.counts("m1")["companies"] == 1
     assert crm.db.execute("SELECT stage FROM companies").fetchone()[0] == "Contacted"
     assert crm.prune_mission("m1", ["nothing"], [], [])["companies"] == 1 and crm.counts("m1")["companies"] == 0
+
+
+def test_human_edited_draft_survives_a_rerun_but_untouched_drafts_refresh():
+    ledger, comps, ceo = build()
+    crm = CRM(":memory:")
+    save(crm, "m1", ledger, comps, ceo)
+    draft = crm.db.execute("SELECT id, draft_text FROM crm_tasks WHERE task_type='outreach_draft'").fetchone()
+    assert crm.update_task("m1", draft["id"], draft_text="Edited by a human. [DRAFT — UNSENT.]")
+    crm.db.execute("UPDATE crm_tasks SET draft_text='stale generated text' WHERE task_type='outreach_draft' AND id<>?", (draft["id"],))
+    crm.db.commit()
+    save(crm, "m1", ledger, comps, ceo)  # re-run regenerates drafts
+    after = {r["id"]: r["draft_text"] for r in crm.db.execute("SELECT id, draft_text FROM crm_tasks WHERE task_type='outreach_draft'")}
+    assert after[draft["id"]] == "Edited by a human. [DRAFT — UNSENT.]"
+
+
+def test_old_database_without_draft_edited_column_is_migrated(tmp_path):
+    import sqlite3
+    p = tmp_path / "old.db"
+    db = sqlite3.connect(p)
+    db.execute("CREATE TABLE crm_tasks(id INTEGER PRIMARY KEY, mission_id TEXT NOT NULL, task_key TEXT NOT NULL, company_id INTEGER, "
+               "task_type TEXT, title TEXT, status TEXT, draft_text TEXT, UNIQUE(mission_id, task_key))")
+    db.commit(); db.close()
+    crm = CRM(p)
+    assert "draft_edited" in {r[1] for r in crm.db.execute("PRAGMA table_info(crm_tasks)")}

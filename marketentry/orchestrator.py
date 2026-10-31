@@ -2,10 +2,8 @@
 mission to partial/warnings but never discards results already gathered."""
 from __future__ import annotations
 
-import pickle
 import re
 import traceback
-from pathlib import Path
 from contextlib import contextmanager
 from dataclasses import dataclass, field
 from typing import Callable
@@ -24,6 +22,7 @@ from .exporters import export_all
 from .llm import LLMClient
 from .normalizers import (country_matches, merge_company, normalize_company, resolve_identify_entry, unwrap_envelope)
 from .scoring import score_and_rank
+from .serialize import save_mission
 from .sizing import compute_sizing
 from .verifier import VerificationReport, verify_mission
 
@@ -115,8 +114,9 @@ def dedupe(records: list[CompanyRecord]) -> tuple[list[CompanyRecord], int]:
 class Mission:
     def __init__(self, prompt: str, *, overrides: dict | None = None, settings: Settings | None = None,
                  client: CrustdataClient | None = None, llm: LLMClient | None = None,
-                 on_event: Callable[[dict], None] | None = None, write_crm: bool = True):
-        self.prompt, self.overrides = prompt, overrides
+                 on_event: Callable[[dict], None] | None = None, write_crm: bool = True,
+                 brief: MarketBrief | None = None):
+        self.prompt, self.overrides, self._preparsed = prompt, overrides, brief
         self.s = settings or get_settings()
         self.llm = llm or LLMClient(self.s)
         self._client, self._on_event, self.write_crm = client, on_event, write_crm
@@ -184,7 +184,7 @@ class Mission:
     def run(self) -> MissionData:
         d = self.d
         with self.step("A_brief") as st:
-            brief = parse_brief(self.prompt, self.llm, self.overrides)
+            brief = self._preparsed or parse_brief(self.prompt, self.llm, self.overrides)
             d.brief, d.mission_id = brief, mission_id_for(brief)
             d.ledger = EvidenceLedger(d.mission_id)
             for u in brief.unsupported_constraints:
@@ -197,13 +197,15 @@ class Mission:
             return self._finish(skip_rest=True)
 
         try:
-            self._client = self._client or CrustdataClient(d.mission_id, self.s, on_run=lambda r: self.emit(
-                "tool", f"{r.tool_name} {r.result_status}", credit=r.credit_cost, total=r.total_count, n=r.result_count))
+            self._client = self._client or CrustdataClient(d.mission_id, self.s)
         except Exception as e:
             d.warnings.append(f"client init failed: {e}")
             return self._finish(skip_rest=True)
         client = self._client
         client.mission_id = d.mission_id
+        if client._on_run is None:  # stream every Crustdata call into the trace, whoever built the client
+            client._on_run = lambda r: self.emit("tool", f"{r.tool_name} {r.result_status}", credit=r.credit_cost,
+                                                 total=r.total_count, n=r.result_count, http=r.http_status, error=r.error_type)
 
         with self.step("B_discovery") as st:
             self._discovery(client, st)
@@ -407,8 +409,8 @@ class Mission:
             crm.close()
         d.artifacts = export_all(d, self.s.out_dir)
         d.artifacts["marketentry.db"] = d.crm_db_path
-        try:  # lets the UI / scripts re-open this exact run without spending credits
-            (Path(self.s.out_dir) / d.mission_id / "mission.pkl").write_bytes(pickle.dumps(d))
+        try:  # JSON snapshot: the web app (and CLI runs) can re-open this exact run without spending credits
+            save_mission(d, self.s.out_dir)
         except Exception as e:
             d.warnings.append(f"could not save mission snapshot: {type(e).__name__}")
 
