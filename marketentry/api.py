@@ -59,8 +59,14 @@ def create_app(settings: Settings | None = None,
                client_factory: Callable[[Settings], CrustdataClient] | None = None) -> FastAPI:
     s = settings or get_settings()
     app = FastAPI(title="MarketEntry API", version="1.1")
-    app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"], allow_credentials=True,
-                       allow_methods=["GET", "POST", "PATCH"], allow_headers=["*"])
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
+        allow_origin_regex=r"https://.*\.vercel\.app",
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
     jobs = JobManager(s, client_factory=client_factory)
     out = Path(s.out_dir)
     auth = AuthStore(out / "app.db", s.session_days)
