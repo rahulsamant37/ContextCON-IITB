@@ -22,6 +22,7 @@ from .llm import LLMClient
 from .normalizers import (country_matches, merge_company, normalize_company, resolve_identify_entry, unwrap_envelope)
 from .scoring import score_and_rank
 from .sizing import compute_sizing
+from .verifier import VerificationReport, verify_mission
 
 STEPS = ["A_brief", "B_discovery", "C_enrichment", "E_buyers", "D_competitors", "F_sizing", "G_verification", "H_execution"]
 SEARCH_FIELDS = ["basic_info", "locations", "headcount"]
@@ -45,6 +46,7 @@ class MissionData:
     sizing: SizingResult = field(default_factory=SizingResult)
     warnings: list[str] = field(default_factory=list)
     verified_claim_fraction: float | None = None
+    verification: VerificationReport | None = None
     artifacts: dict[str, str] = field(default_factory=dict)
     crm_counts: dict[str, int] = field(default_factory=dict)
     crm_db_path: str | None = None
@@ -198,14 +200,29 @@ class Mission:
 
         with self.step("F_sizing"):
             self._sizing()
+        with self.step("G_verification") as st:
+            self._verify(st)
         return self._finish()
+
+    def _verify(self, st: StepStatus) -> None:
+        d, brief = self.d, self.d.brief
+        assert brief is not None and d.ledger is not None
+        shortlist = d.companies[: brief.max_target_accounts]
+        eligible = sum(1 for c in shortlist if c.wave is not None and c.identity.method != "unresolved" and c.icp_match is not False)
+        rep = verify_mission(brief, d.ledger, shortlist, d.people, d.sizing, eligible)
+        # competitors' own evidence was verified above; roll their status into nothing else (no record-level status field)
+        d.verified_claim_fraction = rep.verified_fraction
+        d.verification = rep
+        d.warnings.extend(rep.warnings())
+        if rep.arithmetic_errors or rep.score_mismatches:
+            st.status, st.warning = "warning", "numeric recomputation disagreed with stored values"
+        self.emit("G_verification", f"{rep.checked} claims checked: {rep.counts}; fraction supported {rep.verified_fraction}")
 
     def _optional_steps(self, client: CrustdataClient) -> None:
         with self.step("E_buyers") as st:
             self._buyers(client, st)
         with self.step("D_competitors") as st:
             self._competitors(client, st)
-        self.skip("G_verification", "not implemented yet")
 
     def _buyers(self, client: CrustdataClient, st: StepStatus) -> None:
         d, brief = self.d, self.d.brief
