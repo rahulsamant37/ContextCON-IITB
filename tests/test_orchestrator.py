@@ -91,7 +91,10 @@ def test_full_flow_offline(tmp_path):
     assert d.credit_used == round(1.29 * 2 + 2 + 3 * 0.69 + 1.15 + 1, 2)  # count+pool, enrich, 3 buyer searches, competitors, web
     assert d.crm_counts["companies"] == 3 and d.crm_counts["evidence"] == len(d.evidence) > 0
     assert d.crm_counts["tool_runs"] == len(d.tool_runs) >= 8
-    assert d.state == "completed_with_warnings"  # verifier not wired yet + buyer_not_found warnings
+    mk = next(e for e in d.evidence if e.subject_type == "market")
+    assert mk.status == "supported" and mk.value_observed == "2410" and mk.raw_ref and "company_search" in mk.raw_ref
+    assert d.verification.counts.get("unsupported", 0) == 0 and d.verified_claim_fraction == 1.0
+    assert d.state == "completed_with_warnings"  # buyer_not_found warnings
     # buyers: Auquan accepts the fixture people (employer id match); Bits/Synapse must reject them
     assert auq.buyer_status == "found" and {c.buyer_status for c in d.companies if c.company_id != "6507"} == {"buyer_not_found"}
     names = [(p.name, p.role_matched) for p in d.people["6507"]]

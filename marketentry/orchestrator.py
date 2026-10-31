@@ -119,6 +119,7 @@ class Mission:
         self.d = MissionData(started_at=utcnow())
         self._records: list[CompanyRecord] = []
         self._pages: list[tuple[str | None, str, int]] = []
+        self._count_ref: tuple[str | None, str] = (None, utcnow())
 
     # ---- infrastructure ----------------------------------------------------------------------
     def emit(self, step: str, msg: str, **extra) -> None:
@@ -269,6 +270,7 @@ class Mission:
         # observed count from a cheap filter-only call (ranked search reports total_count = null)
         cnt = client.company_search(filters, ["basic_info"], 1)
         total = cnt.body.get("total_count") if cnt.ok and isinstance(cnt.body, dict) else None
+        self._count_ref = (cnt.run.raw_path, cnt.retrieved_at) if cnt.ok else (None, utcnow())
         if total is None:
             d.warnings.append("B_discovery: provider returned no total_count; observed universe size unknown")
         query = brief.target_industry
@@ -296,7 +298,7 @@ class Mission:
             total_count=total, fetched=len(recs), filters_applied=filters, post_filters=post,
             coverage_note=(f"Fetched {len(recs)} of {total if total is not None else 'unknown'} indexed matches, ranked by relevance to "
                            f"'{query} companies' (hybrid). Counts are Crustdata-indexed companies, not all businesses in the market."),
-            retrieved_at=self._pages[0][1] if self._pages else utcnow())
+            retrieved_at=self._count_ref[1])
         d.companies = score_and_rank(recs, brief)
         self.emit("B_discovery", f"{len(recs)} candidates, indexed total {total}")
         if not recs:
@@ -340,7 +342,7 @@ class Mission:
         shortlist = d.companies[: brief.max_target_accounts]
         d.sizing = compute_sizing(brief, d.universe.total_count, shortlist, d.universe.post_filters)
         if d.universe.total_count is not None and d.ledger is not None:
-            ref = self._pages[0][0] if self._pages else None
+            ref = self._count_ref[0]  # the count query's own response, not the ranked pool (its total_count is null)
             d.ledger.add(subject_type="market", subject_id=d.mission_id,
                          claim=f"Observed indexed companies matching filters: {d.universe.total_count}",
                          source_kind="crustdata_company_search", field_path="total_count", raw_ref=ref,
