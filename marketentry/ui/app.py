@@ -75,12 +75,6 @@ if run:
     with st.spinner("Running mission end to end (no further input needed)…"):
         data = Mission(prompt, settings=s, on_event=on_event).run()
     st.session_state["data"], st.session_state["loaded"] = data, None
-    if data.mission_id:
-        try:
-            (Path(s.out_dir) / data.mission_id).mkdir(parents=True, exist_ok=True)
-            (Path(s.out_dir) / data.mission_id / "mission.pkl").write_bytes(pickle.dumps(data))
-        except Exception:
-            pass
 
 d = st.session_state.get("data")
 if d is None:

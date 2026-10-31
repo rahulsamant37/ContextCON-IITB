@@ -48,12 +48,17 @@ def role_rank(p: PersonRecord, roles: list[str]) -> int:
 
 
 def map_buyers(client: CrustdataClient, accounts: list[CompanyRecord], brief: MarketBrief, ledger: EvidenceLedger,
-               *, limit: int = 10) -> tuple[dict[str, list[PersonRecord]], dict[str, str], list[str]]:
-    """Returns (people by company_id, buyer_status by company_id, warnings). Only `accounts` are searched."""
+               *, limit: int = 10, stop_after_found: int | None = None
+               ) -> tuple[dict[str, list[PersonRecord]], dict[str, str], list[str]]:
+    """Returns (people by company_id, buyer_status by company_id, warnings). Accounts are searched in rank order and
+    the walk stops once `stop_after_found` accounts have verified buyers (empty searches cost no credits); accounts
+    never reached keep status not_searched."""
     people: dict[str, list[PersonRecord]] = {}
     status: dict[str, str] = {}
     warnings: list[str] = []
     for c in accounts:
+        if stop_after_found is not None and len(people) >= stop_after_found:
+            break
         if not c.company_id:
             warnings.append(f"buyers: {c.name} has no canonical id; not searched")
             continue

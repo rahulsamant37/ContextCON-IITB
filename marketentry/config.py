@@ -35,7 +35,7 @@ class Settings(BaseSettings):
     max_company_search_results: int = 100
     max_company_enrichments: int = 10
     max_person_results: int = 10
-    max_person_enrichments: int = 5
+    max_buyer_searches: int = 15  # accounts walked in rank order until max_buyer_accounts have buyers
     max_web_queries: int = 6
     search_page_size: int = 50
 

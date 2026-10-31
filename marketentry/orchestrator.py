@@ -2,8 +2,10 @@
 mission to partial/warnings but never discards results already gathered."""
 from __future__ import annotations
 
+import pickle
 import re
 import traceback
+from pathlib import Path
 from contextlib import contextmanager
 from dataclasses import dataclass, field
 from typing import Callable
@@ -228,8 +230,9 @@ class Mission:
     def _buyers(self, client: CrustdataClient, st: StepStatus) -> None:
         d, brief = self.d, self.d.brief
         assert brief is not None and d.ledger is not None
-        accounts = [c for c in d.companies if c.icp_match is not False][: brief.max_buyer_accounts]
-        people, status, warns = map_buyers(client, accounts, brief, d.ledger, limit=self.s.max_person_results)
+        accounts = [c for c in d.companies if c.icp_match is not False][: self.s.max_buyer_searches]
+        people, status, warns = map_buyers(client, accounts, brief, d.ledger, limit=self.s.max_person_results,
+                                           stop_after_found=brief.max_buyer_accounts)
         d.people = people
         d.warnings.extend(warns)
         if warns:
@@ -240,7 +243,7 @@ class Mission:
                 c = c.model_copy(update={"buyer_status": status[c.company_id]})
             updated.append(c)
         d.companies = score_and_rank(updated, brief)  # buyer availability is part of the rubric
-        self.emit("E_buyers", f"{len(people)}/{len(accounts)} accounts with verified buyers, "
+        self.emit("E_buyers", f"{len(people)}/{len(status)} searched accounts have verified buyers, "
                               f"{sum(len(v) for v in people.values())} contacts")
 
     def _competitors(self, client: CrustdataClient, st: StepStatus) -> None:
@@ -374,6 +377,10 @@ class Mission:
             crm.close()
         d.artifacts = export_all(d, self.s.out_dir)
         d.artifacts["marketentry.db"] = d.crm_db_path
+        try:  # lets the UI / scripts re-open this exact run without spending credits
+            (Path(self.s.out_dir) / d.mission_id / "mission.pkl").write_bytes(pickle.dumps(d))
+        except Exception as e:
+            d.warnings.append(f"could not save mission snapshot: {type(e).__name__}")
 
     def _finish(self, skip_rest: bool = False) -> MissionData:
         d = self.d

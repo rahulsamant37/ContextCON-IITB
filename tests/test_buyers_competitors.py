@@ -95,3 +95,30 @@ def test_competitor_search_failure_returns_empty_with_warning(tmp_path):
                         sleep=lambda x: None)
     comps, warns = find_competitors(c, brief(), EvidenceLedger("m"))
     assert comps == [] and "ranked company search failed" in warns[0]
+
+
+def test_buyer_walk_stops_after_enough_accounts_and_leaves_rest_unsearched(tmp_path):
+    import json
+    from marketentry.buyers import map_buyers
+    from marketentry.normalizers import normalize_company
+    people_fx = fixture("person_search_auquan_any")["body"]
+    calls = []
+
+    def h(req):
+        calls.append(json.loads(req.content)["filters"]["conditions"][0]["value"])
+        return httpx.Response(200, json=people_fx if "auquan" in calls[-1] else {"profiles": [], "total_count": 0})
+    s = Settings(_env_file=None, crustdata_api_key="k", out_dir=tmp_path, min_interval_s=0)
+    client = CrustdataClient("m", s, transport=httpx.MockTransport(h), sleep=lambda x: None)
+    mk = lambda i, dom: normalize_company({"crustdata_company_id": i, "basic_info": {"name": f"C{i}", "primary_domain": dom}})
+    accounts = [mk(1, "empty1.com"), mk(6507, "auquan.com"), mk(3, "never.com")]
+    b = brief(target_buyer_roles=["CEO"])
+    people, status, warns = map_buyers(client, accounts, b, EvidenceLedger("m"), stop_after_found=1)
+    assert calls == ["empty1.com", "auquan.com"]  # walked past the empty account, stopped once one was found
+    assert status == {"1": "buyer_not_found", "6507": "found"} and "3" not in status  # never reached => not_searched
+    assert [p.name for p in people["6507"]] == ["Chandini Jain"] and len(warns) == 1
+
+
+def test_hyphenated_terms_split_so_descriptions_can_match():
+    from marketentry.scoring import _tokens
+    assert {"fleet", "maintenance", "driven"} <= _tokens("AI-driven fleet-maintenance software")
+    assert "ai" not in _tokens("AI-driven")

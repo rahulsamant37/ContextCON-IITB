@@ -19,7 +19,7 @@ _STOP = {"software", "platform", "solution", "solutions", "service", "services",
 
 
 def _tokens(text: str) -> set[str]:
-    return {w for w in re.findall(r"[a-z][a-z0-9-]{3,}", text.lower()) if w not in _STOP}
+    return {w for w in re.findall(r"[a-z][a-z0-9]{3,}", text.lower()) if w not in _STOP}
 
 
 def brief_terms(brief: MarketBrief) -> set[str]:
