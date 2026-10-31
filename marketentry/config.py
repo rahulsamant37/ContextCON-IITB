@@ -14,7 +14,7 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=ROOT / ".env", extra="ignore")
 
     crustdata_api_key: SecretStr | None = None
-    anthropic_api_key: SecretStr | None = None
+    llm_api_key: SecretStr | None = None
 
     base_url: str = "https://api.crustdata.com"
     api_version: str = "2025-11-01"
@@ -44,12 +44,17 @@ class Settings(BaseSettings):
     out_dir: Path = ROOT / "out"
     record_raw: bool = True
 
-    # models (LLM = parsing + prose only)
-    parse_model: str = "claude-haiku-5-5"
-    prose_model: str = "claude-sonnet-5-5"
+    # LLM = parsing + prose only. Any OpenAI-compatible endpoint (default: Groq free tier).
+    llm_base_url: str = "https://api.groq.com/openai/v1"
+    llm_model: str = "llama-3.3-70b-versatile"
+    llm_timeout_s: float = 30.0
+    llm_disabled: bool = False  # force rules/template fallback
 
     def api_key(self) -> str | None:
         return self.crustdata_api_key.get_secret_value() if self.crustdata_api_key else None
+
+    def llm_key(self) -> str | None:
+        return self.llm_api_key.get_secret_value() if self.llm_api_key else None
 
 
 @lru_cache
