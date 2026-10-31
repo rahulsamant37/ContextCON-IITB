@@ -18,6 +18,7 @@ from .crm import CRM, account_key, mission_id_for
 from .crustdata_client import ConfigError, CrustdataClient
 from .drafts import plan_tasks
 from .evidence import EvidenceLedger, utcnow
+from .exporters import export_all
 from .llm import LLMClient
 from .normalizers import (country_matches, merge_company, normalize_company, resolve_identify_entry, unwrap_envelope)
 from .scoring import score_and_rank
@@ -363,6 +364,8 @@ class Mission:
             d.crm_counts, d.crm_db_path = crm.counts(d.mission_id), str(self.s.crm_path)
         finally:
             crm.close()
+        d.artifacts = export_all(d, self.s.out_dir)
+        d.artifacts["marketentry.db"] = d.crm_db_path
 
     def _finish(self, skip_rest: bool = False) -> MissionData:
         d = self.d

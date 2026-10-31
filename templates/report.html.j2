@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Market Entry Report — {{ brief.product_name }} — {{ brief.target_country }}</title>
+<style>
+ @page { size: A4; margin: 16mm 14mm; }
+ body { font: 10.5pt/1.45 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; color: #1c1f26; }
+ h1 { font-size: 20pt; margin: 0 0 2pt; } h2 { font-size: 13pt; margin: 18pt 0 6pt; border-bottom: 1px solid #c9ced8; padding-bottom: 3pt; }
+ .meta { color: #5b6270; font-size: 9pt; } .verdict { background: #eef3ff; border-left: 4px solid #3b5bdb; padding: 8pt 10pt; margin: 8pt 0; }
+ table { border-collapse: collapse; width: 100%; font-size: 8.8pt; margin: 6pt 0; } th, td { border: 1px solid #d5d9e2; padding: 3pt 5pt; text-align: left; vertical-align: top; }
+ th { background: #f3f5f9; } .unk { color: #8a5a00; } .warn { color: #9c2a2a; } code { font-size: 8.5pt; }
+ .pill { padding: 0 5pt; border-radius: 8pt; background: #e9ecf2; font-size: 8.5pt; } .ok { background: #dff3e4; } .bad { background: #fbe0e0; } .mid { background: #fff0cc; }
+ .note { font-size: 8.8pt; color: #4a5160; } pre { white-space: pre-wrap; background: #f6f7fa; padding: 6pt; font-size: 9pt; }
+</style></head><body>
+<h1>Market Entry Report: {{ brief.product_name }} in {{ brief.target_country }}</h1>
+<div class="meta">Mission {{ d.mission_id }} · generated {{ generated }} UTC · state: {{ d.state }} · {{ n_calls }} Crustdata calls · credits used: {{ credits if credits is not none else "unknown" }}</div>
+
+<h2>1. Executive recommendation</h2>
+<div class="verdict"><b>{{ rec.verdict }}</b><br>{{ rec.text }}</div>
+<p class="note">Request: “{{ brief.raw_prompt }}”</p>
+
+<h2>2. Segmentation and account shortlist</h2>
+<p>Target customer: <b>{{ brief.target_industry }}</b> companies in <b>{{ brief.target_country }}</b>,
+ {% if brief.employee_min is not none or brief.employee_max is not none %}{{ brief.employee_min if brief.employee_min is not none else "any" }}–{{ brief.employee_max if brief.employee_max is not none else "any" }} employees{% else %}any size{% endif %}.
+ Sector, country and size are applied as Crustdata search filters. Scores use only observed values; missing values are shown as <span class="unk">unknown</span> and lower <i>coverage</i>, not the score.</p>
+<table><tr><th>Segment</th><th>Accounts</th><th>Meaning</th></tr>
+{% for k, desc in [("Wave 1","High fit with a verified buyer: launch first"),("Wave 2","Fit confirmed; buyer or data still pending"),("Research Needed","Low fit, thin data or unresolved identity")] %}
+<tr><td>{{ k }}</td><td>{{ waves[k]|length }}</td><td>{{ desc }}</td></tr>{% endfor %}</table>
+<table><tr><th>#</th><th>Company</th><th>ID / domain</th><th>Headcount</th><th>6m growth</th><th>Open roles</th><th>Fit</th><th>Coverage</th><th>Wave</th><th>Buyer</th><th>Verified</th><th>Evidence</th></tr>
+{% for c in sl %}<tr><td>{{ loop.index }}</td><td>{{ c.name }}</td><td>{{ c.company_id or "unknown" }}<br>{{ c.domain or "unknown" }}</td>
+<td>{{ c.employee_count if c.employee_count is not none else "unknown" }}</td>
+<td>{% if c.headcount_growth_6m is not none %}{{ "%.1f"|format(c.headcount_growth_6m) }}%{% else %}<span class="unk">unknown</span>{% endif %}</td>
+<td>{% if c.open_roles is not none %}{{ c.open_roles }}{% else %}<span class="unk">unknown</span>{% endif %}</td>
+<td>{{ c.fit_score if c.fit_score is not none else "unknown" }}</td><td>{{ "%.0f"|format(c.data_coverage*100) }}% ({{ c.confidence }})</td>
+<td>{{ c.wave or "out of ICP" }}</td><td>{{ c.buyer_status }}</td>
+<td><span class="pill {{ 'ok' if c.verification_status=='supported' else 'bad' if c.verification_status in ('unsupported','conflicting') else 'mid' }}">{{ c.verification_status }}</span></td>
+<td><code>{{ c.evidence_ids[:3]|join(", ") }}{% if c.evidence_ids|length > 3 %} +{{ c.evidence_ids|length - 3 }}{% endif %}</code></td></tr>{% endfor %}</table>
+
+<h2>3. Competitor overview</h2>
+{% if d.competitors %}<table><tr><th>Competitor</th><th>Class</th><th>Provider-reported positioning</th><th>Size</th><th>Evidence</th></tr>
+{% for c in d.competitors %}<tr><td>{{ c.name }}<br><code>{{ c.domain or "unknown" }}</code></td><td>{{ c.classification }}</td><td>{{ c.positioning_claim or "unknown" }}</td>
+<td>{{ c.employee_count if c.employee_count is not none else "unknown" }}</td><td><code>{{ c.evidence_ids|join(", ") }}</code></td></tr>{% endfor %}</table>
+<p class="note">confirmed = description matches the product category AND an independent web result mentions the company; possible = one of the two; insufficient_evidence = neither. Differentiators and pricing are not assessed and are not inferred.</p>
+{% else %}<p class="unk">No competitor data was available for this run.</p>{% endif %}
+
+<h2>4. Bottom-up market sizing</h2>
+<pre>{{ d.sizing.formula_text }}</pre>
+<table><tr><th>Input</th><th>Value</th><th>Source</th></tr>
+<tr><td>Observed indexed companies</td><td>{{ "{:,}".format(d.universe.total_count) if d.universe.total_count is not none else "unknown" }}</td><td>Crustdata /company/search total_count, retrieved {{ d.universe.retrieved_at or "unknown" }}</td></tr>
+<tr><td>Annual contract value</td><td>{% if brief.annual_contract_value is not none %}{{ brief.currency or "" }} {{ "{:,.0f}".format(brief.annual_contract_value) }}{% else %}<span class="unk">not supplied</span>{% endif %}</td><td>Client-supplied assumption</td></tr></table>
+<p class="note">Filters applied: <code>{{ d.universe.filters_applied|tojson }}</code></p>
+<p class="note">{{ d.universe.coverage_note }}</p>
+<ul>{% for c in d.sizing.caveats %}<li class="note">{{ c }}</li>{% endfor %}{% for p in d.universe.post_filters %}<li class="note">Post-filter: {{ p }}</li>{% endfor %}</ul>
+
+<h2>5. Buyer map</h2>
+<table><tr><th>Account</th><th>Contact</th><th>Title</th><th>Role matched</th><th>Employer verified</th><th>Flags</th></tr>
+{% for c in sl if c.buyer_status != "not_searched" %}{% set pl = people.get(c.company_id, []) %}
+{% if pl %}{% for p in pl %}<tr><td>{{ c.name }}</td><td>{{ p.name }}</td><td>{{ p.current_title or "unknown" }}</td><td>{{ p.role_matched or "unknown" }}</td><td>{{ p.verification_method }}</td><td class="note">{{ p.missing_flags|join(", ") }}</td></tr>{% endfor %}
+{% else %}<tr><td>{{ c.name }}</td><td colspan="5" class="unk">buyer_not_found: no verified contact in the target roles</td></tr>{% endif %}{% endfor %}</table>
+<p class="note">No email addresses are collected. Outreach exists only as unsent drafts in the local CRM.</p>
+
+<h2>6. Assumptions</h2>
+<table><tr><th>Field</th><th>Value</th><th>Source</th><th>Note</th></tr>
+{% for a in brief.assumptions %}<tr><td>{{ a.field }}</td><td>{{ a.value if a.value is not none else "unknown" }}</td><td>{{ a.source }}</td><td>{{ a.note }}</td></tr>{% endfor %}</table>
+{% if brief.unsupported_constraints %}<p class="warn">Unsupported constraints: {{ brief.unsupported_constraints|join("; ") }}</p>{% endif %}
+
+<h2>7. Key risks and limitations</h2>
+<ul>{% for r in risks %}<li>{{ r }}</li>{% endfor %}</ul>
+
+<h2>8. Prioritised launch plan</h2>
+<ol>
+<li><b>Wave 1 ({{ waves["Wave 1"]|length }} accounts):</b> {{ waves["Wave 1"]|map(attribute="name")|join(", ") or "none qualified" }}. Review the unsent drafts in the local CRM, then personalise before any human sends them.</li>
+<li><b>Wave 2 ({{ waves["Wave 2"]|length }}):</b> complete buyer verification, then promote to Wave 1.</li>
+<li><b>Research Needed ({{ waves["Research Needed"]|length }}):</b> close the data gaps listed in each CRM research task.</li>
+<li>Confirm the ACV assumption with the client before sharing any sizing figure externally.</li>
+</ol>
+
+<h2>9. Verification and audit</h2>
+{% if d.verification %}<p>{{ d.verification.checked }} claims checked against saved raw responses: {% for k, v in d.verification.counts.items() %}{{ k }} {{ v }}{{ ", " if not loop.last }}{% endfor %}.
+ Supported fraction: <b>{{ d.verified_claim_fraction if d.verified_claim_fraction is not none else "unknown" }}</b>.</p>
+{% if d.verification.contradictions %}<p class="warn">Contradictions: {{ d.verification.contradictions|join("; ") }}</p>{% endif %}{% endif %}
+{% if d.warnings %}<p><b>Warnings</b></p><ul>{% for w in d.warnings %}<li class="note">{{ w }}</li>{% endfor %}</ul>{% endif %}
+<p class="note">Full provenance (source, field path, retrieved-at, status) is in Evidence_Log.json. CRM: {{ d.crm_db_path or "not written" }} {{ d.crm_counts }}.</p>
+</body></html>
