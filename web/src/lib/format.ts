@@ -60,3 +60,4 @@ export const COMPETITOR: Record<string, { label: string; tone: "bad" | "warn" | 
   insufficient_evidence: { label: "Unclear", tone: "neutral", help: "Not enough public information to tell." },
 };
 export const sentenceCase = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
+export const score = (v: number | null | undefined) => (v == null ? "—" : String(Math.round(v)));

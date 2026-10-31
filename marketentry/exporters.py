@@ -60,8 +60,10 @@ def risks(d) -> list[str]:
     if nb:
         out.append(f"No decision-maker in your buyer roles was found at {nb} of the companies searched.")
     if ns:
-        out.append(f"{ns} lower-ranked compan{'y was' if ns == 1 else 'ies were'} not searched for decision-makers; the search stops once "
-                   f"{d.brief.max_buyer_accounts} companies have a confirmed contact, to keep costs down.")
+        searched = sum(1 for r in d.tool_runs if r.tool_name == "person_search" and r.result_status in ("ok", "empty", "replayed"))
+        out.append(f"{ns} of the shortlisted compan{'y has' if ns == 1 else 'ies have'} not been searched for decision-makers yet. "
+                   f"This research searched {searched} compan{'y' if searched == 1 else 'ies'}, highest-ranked first, to keep costs down; "
+                   f"companies where a search found no one move down the list.")
     unk = sum(1 for c in sl if "unknown:hiring" in c.flags)
     if unk:
         out.append(f"Hiring activity isn't available for {unk} compan{'y' if unk == 1 else 'ies'}. That means no job data was found, not that they aren't hiring.")

@@ -6,7 +6,7 @@ import { useParams } from "next/navigation";
 import { useState } from "react";
 import { Button, Card, CardHeader, Field, Notice, PageHeader, Pill, Segmented, SidePanel, Skeleton, inputCls, useToast } from "@/components/ui";
 import { api } from "@/lib/api";
-import { priority } from "@/lib/format";
+import { priority, score } from "@/lib/format";
 import type { Crm, CrmCompany, CrmTask } from "@/lib/types";
 
 function DraftEditor({ id, t }: { id: string; t: CrmTask }) {
@@ -84,7 +84,7 @@ export default function PipelinePage() {
                     <div key={c.id} role="button" tabIndex={0} draggable onDragStart={() => setDragId(c.id)} onDragEnd={() => setDragId(null)}
                       onClick={() => setOpenId(c.id)} onKeyDown={(e) => e.key === "Enter" && setOpenId(c.id)} data-testid="company-card"
                       className="cursor-pointer rounded-md border border-line bg-surface p-3 shadow-[0_1px_2px_rgba(0,0,0,0.04)] hover:border-line-strong">
-                      <div className="flex items-start justify-between gap-2"><div className="min-w-0 text-sm font-medium leading-snug text-ink">{c.name}</div><span className="tabular text-xs font-semibold text-ink-2">{c.fit_score ?? "—"}</span></div>
+                      <div className="flex items-start justify-between gap-2"><div className="min-w-0 text-sm font-medium leading-snug text-ink">{c.name}</div><span className="tabular text-xs font-semibold text-ink-2">{score(c.fit_score)}</span></div>
                       <div className="mt-0.5 truncate text-xs text-muted">{c.domain ?? "No website"}</div>
                       <div className="mt-2.5 flex items-center justify-between gap-2"><Pill tone={p.tone}>{p.label}</Pill>{drafts > 0 && <span className="flex items-center gap-1 text-xs text-muted"><Mail size={12} />{drafts}</span>}</div>
                     </div>);
@@ -108,7 +108,7 @@ export default function PipelinePage() {
           <div className="space-y-6">
             <div className="grid grid-cols-2 gap-4">
               <Field label="Stage" htmlFor="stage"><select id="stage" data-testid="stage-select" className={inputCls} value={open.stage} onChange={(e) => move.mutate({ rowId: open.id, stage: e.target.value })}>{crm.stages.map((s) => <option key={s}>{s}</option>)}</select></Field>
-              <div><div className="mb-1.5 text-[13px] font-medium text-ink-2">Priority</div><Pill tone={priority(open.segment).tone}>{priority(open.segment).label}</Pill><div className="mt-1 text-xs text-muted">Match score {open.fit_score ?? "—"}</div></div>
+              <div><div className="mb-1.5 text-[13px] font-medium text-ink-2">Priority</div><Pill tone={priority(open.segment).tone}>{priority(open.segment).label}</Pill><div className="mt-1 text-xs text-muted">Match score {score(open.fit_score)}</div></div>
             </div>
             <section>
               <h3 className="mb-2 text-sm font-semibold">Decision-makers</h3>

@@ -4,7 +4,7 @@ import { Check, ChevronRight, ExternalLink, HelpCircle, X } from "lucide-react";
 import { useState } from "react";
 import { LinkButton, Pill, SidePanel, Skeleton } from "@/components/ui";
 import { api } from "@/lib/api";
-import { COMPONENT_LABEL, money, num, pct, priority, SOURCE_STATUS, UNKNOWN } from "@/lib/format";
+import { COMPONENT_LABEL, money, num, pct, priority, score, SOURCE_STATUS, UNKNOWN } from "@/lib/format";
 import { SourceViewer } from "./source-viewer";
 
 export function CompanyPanel({ missionId, companyId, onClose }: { missionId: string; companyId: string | null; onClose: () => void }) {
@@ -27,7 +27,7 @@ export function CompanyPanel({ missionId, companyId, onClose }: { missionId: str
           </div>
 
           <section>
-            <div className="flex items-baseline justify-between"><h3 className="text-sm font-semibold">Why it&apos;s a match</h3><span className="tabular text-sm"><b>{a.fit_score ?? "—"}</b><span className="text-muted"> / 100</span></span></div>
+            <div className="flex items-baseline justify-between"><h3 className="text-sm font-semibold">Why it&apos;s a match</h3><span className="tabular text-sm"><b>{score(a.fit_score)}</b><span className="text-muted"> / 100</span></span></div>
             <p className="mt-1 text-[13px] text-muted">Scored only on information we could find. Missing information isn&apos;t counted against the company; it lowers data completeness ({Math.round(a.data_coverage * 100)}%) instead.</p>
             <ul className="mt-3 divide-y divide-line rounded-md border border-line">
               {q.data.breakdown.map((b) => {

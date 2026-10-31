@@ -1,7 +1,7 @@
 "use client";
 import { ArrowRight, ShieldCheck } from "lucide-react";
 import { Card, CardHeader, Metric, Notice, Pill } from "@/components/ui";
-import { money, num, PRIORITY, priority } from "@/lib/format";
+import { money, num, PRIORITY, priority, score } from "@/lib/format";
 import type { Mission } from "@/lib/types";
 
 export function recommendation(m: Mission) {
@@ -52,7 +52,7 @@ export function Overview({ m, onOpenCompany, onShowAll }: { m: Mission; onOpenCo
                   <div className="grid h-9 w-9 shrink-0 place-items-center rounded-md bg-subtle text-sm font-semibold text-ink-2">{a.name.charAt(0)}</div>
                   <div className="min-w-0 flex-1"><div className="truncate text-sm font-medium text-ink">{a.name}</div><div className="truncate text-[13px] text-muted">{a.domain ?? "No website"} · {num(a.employee_count)} employees</div></div>
                   <Pill tone={p.tone}>{p.label}</Pill>
-                  <span className="tabular w-10 text-right text-sm font-semibold">{a.fit_score ?? "—"}</span>
+                  <span className="tabular w-10 text-right text-sm font-semibold">{score(a.fit_score)}</span>
                 </button>
               </li>);
           })}</ul>

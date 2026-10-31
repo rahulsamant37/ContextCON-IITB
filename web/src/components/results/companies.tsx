@@ -2,7 +2,7 @@
 import { Search } from "lucide-react";
 import { useMemo, useState } from "react";
 import { Bar, EmptyState, Pill, inputBase, inputCls, td, th } from "@/components/ui";
-import { CONTACT, num, priority } from "@/lib/format";
+import { CONTACT, num, priority, score } from "@/lib/format";
 import type { Account } from "@/lib/types";
 
 type Sort = "score" | "size" | "growth" | "name";
@@ -38,7 +38,7 @@ export function Companies({ accounts, onOpen }: { accounts: Account[]; onOpen: (
                   <td className={`${td} tabular text-right`}>{num(a.employee_count)}</td>
                   <td className={`${td} tabular text-right ${a.headcount_growth_6m == null ? "text-muted" : a.headcount_growth_6m > 0 ? "text-ok" : a.headcount_growth_6m < 0 ? "text-bad" : ""}`}>{a.headcount_growth_6m == null ? "—" : `${a.headcount_growth_6m > 0 ? "+" : ""}${a.headcount_growth_6m.toFixed(1)}%`}</td>
                   <td className={`${td} tabular text-right ${a.open_roles == null ? "text-muted" : ""}`} title={a.open_roles == null ? "No job postings tracked for this company" : undefined}>{a.open_roles ?? "—"}</td>
-                  <td className={td}><div className="flex items-center gap-2.5"><Bar value={a.fit_score} tone={(a.fit_score ?? 0) >= 60 ? "ok" : "accent"} /><span className="tabular w-7 text-right font-medium">{a.fit_score ?? "—"}</span></div></td>
+                  <td className={td}><div className="flex items-center gap-2.5"><Bar value={a.fit_score} tone={(a.fit_score ?? 0) >= 60 ? "ok" : "accent"} /><span className="tabular w-7 text-right font-medium">{score(a.fit_score)}</span></div></td>
                   <td className={td}><Pill tone={p.tone}>{p.label}</Pill></td>
                   <td className={td}><Pill tone={c.tone} dot={false}>{c.label}</Pill></td>
                 </tr>);
