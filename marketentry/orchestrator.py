@@ -9,6 +9,8 @@ from dataclasses import dataclass, field
 from typing import Callable
 
 from .brief_parser import parse_brief
+from .buyers import map_buyers
+from .competitors import find_competitors
 from .config import Settings, get_settings
 from .contracts import (Assumption, CompanyRecord, CompetitorRecord, Evidence, MarketBrief, MissionResult, PersonRecord,
                         SizingResult, StepStatus, ToolRun, UniverseSummary)
@@ -198,10 +200,40 @@ class Mission:
             self._sizing()
         return self._finish()
 
-    # hooks filled in by later modules (buyers / competitors / verifier); no-ops until wired
     def _optional_steps(self, client: CrustdataClient) -> None:
-        for name in ("E_buyers", "D_competitors", "G_verification"):
-            self.skip(name, "not implemented yet")
+        with self.step("E_buyers") as st:
+            self._buyers(client, st)
+        with self.step("D_competitors") as st:
+            self._competitors(client, st)
+        self.skip("G_verification", "not implemented yet")
+
+    def _buyers(self, client: CrustdataClient, st: StepStatus) -> None:
+        d, brief = self.d, self.d.brief
+        assert brief is not None and d.ledger is not None
+        accounts = [c for c in d.companies if c.icp_match is not False][: brief.max_buyer_accounts]
+        people, status, warns = map_buyers(client, accounts, brief, d.ledger, limit=self.s.max_person_results)
+        d.people = people
+        d.warnings.extend(warns)
+        if warns:
+            st.status, st.warning = "warning", f"{len(warns)} account(s) without verified buyers or with failed searches"
+        updated = []
+        for c in d.companies:
+            if c.company_id in status:
+                c = c.model_copy(update={"buyer_status": status[c.company_id]})
+            updated.append(c)
+        d.companies = score_and_rank(updated, brief)  # buyer availability is part of the rubric
+        self.emit("E_buyers", f"{len(people)}/{len(accounts)} accounts with verified buyers, "
+                              f"{sum(len(v) for v in people.values())} contacts")
+
+    def _competitors(self, client: CrustdataClient, st: StepStatus) -> None:
+        d, brief = self.d, self.d.brief
+        assert brief is not None and d.ledger is not None
+        d.competitors, warns = find_competitors(client, brief, d.ledger)
+        d.warnings.extend(warns)
+        if warns:
+            st.status, st.warning = "warning", warns[0]
+        self.emit("D_competitors", f"{len(d.competitors)} candidates: " + ", ".join(
+            f"{k}={sum(c.classification == k for c in d.competitors)}" for k in ("confirmed", "possible", "insufficient_evidence")))
 
     # ---- steps -------------------------------------------------------------------------------
     def _discovery(self, client: CrustdataClient, st: StepStatus) -> None:

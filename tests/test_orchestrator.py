@@ -26,6 +26,12 @@ def make_handler(enrich_status=200, search_body=None, categories=("FinTech",), l
             log.append((req.url.path, body))
         if req.url.path.endswith("/autocomplete"):
             return httpx.Response(200, json={"suggestions": [{"value": c} for c in categories]})
+        if req.url.path == "/company/search" and body and "search" in body:
+            return httpx.Response(200, json=fixture("cs_ranked_competitors")["body"], headers={"x-credits-used": "1.15"})
+        if req.url.path == "/person/search":  # same people returned for every domain: only Auquan may accept them
+            return httpx.Response(200, json=fixture("person_search_auquan_any")["body"], headers={"x-credits-used": "0.69"})
+        if req.url.path == "/web/search/live":
+            return httpx.Response(200, json=fixture("web_search_competitors")["body"], headers={"x-credits-used": "1"})
         if req.url.path == "/company/search":
             return httpx.Response(200, json=search, headers={"x-credits-used": "1.29"})
         if req.url.path == "/company/enrich":
@@ -75,14 +81,26 @@ def test_full_flow_offline(tmp_path):
     auq = next(c for c in d.companies if c.company_id == "6507")
     assert auq.enriched and auq.open_roles is not None and auq.identity.method == "company_id"
     sent = [p for p, _ in log]
-    assert sent.count("/company/enrich") == 1 and sent.count("/company/search") == 1
+    plain_searches = [b for p, b in log if p == "/company/search" and "search" not in b]
+    assert sent.count("/company/enrich") == 1 and len(plain_searches) == 1
     enrich_body = next(b for p, b in log if p == "/company/enrich")
     assert enrich_body["crustdata_company_ids"] and "technographics" not in enrich_body["fields"]
     assert d.sizing.pool == 2410 * 12000 and "2,410 indexed companies × GBP 12,000" in d.sizing.formula_text
-    assert d.credit_used == 3.29
+    assert d.credit_used == round(1.29 + 2 + 3 * 0.69 + 1.15 + 1, 2)  # search, enrich, 3 buyer searches, competitors, web
     assert d.crm_counts["companies"] == 3 and d.crm_counts["evidence"] == len(d.evidence) > 0
-    assert d.crm_counts["tool_runs"] == len(d.tool_runs) >= 3
-    assert d.state == "completed_with_warnings"  # buyers/competitors/verifier not wired yet
+    assert d.crm_counts["tool_runs"] == len(d.tool_runs) >= 8
+    assert d.state == "completed_with_warnings"  # verifier not wired yet + buyer_not_found warnings
+    # buyers: Auquan accepts the fixture people (employer id match); Bits/Synapse must reject them
+    assert auq.buyer_status == "found" and {c.buyer_status for c in d.companies if c.company_id != "6507"} == {"buyer_not_found"}
+    names = [(p.name, p.role_matched) for p in d.people["6507"]]
+    assert names == [("Chandini Jain", "CEO"), ("Shub Jain", "CTO")]  # duplicate Chandini profile merged
+    assert any(f.startswith("duplicate_profiles_merged") for f in d.people["6507"][0].missing_flags)
+    assert "6507" in d.people and set(d.people) == {"6507"}
+    assert all(p.employer_verified and p.verification_status == "supported" for p in d.people["6507"])
+    assert d.crm_counts["people"] == 2 and d.crm_counts["unsent_drafts"] == 2
+    # competitors came from canonical company records, classified conservatively
+    assert d.competitors and all(c.company_id for c in d.competitors)
+    assert {c.classification for c in d.competitors} <= {"confirmed", "possible", "insufficient_evidence"}
     r = d.result()
     assert r.company_records == 3 and r.mission_id == d.mission_id
 

@@ -1,0 +1,219 @@
+{
+  "name": "cs_ranked_competitors",
+  "endpoint": "POST /company/search",
+  "request": {
+    "search": {
+      "query": "security compliance automation software",
+      "mode": "hybrid"
+    },
+    "fields": [
+      "basic_info",
+      "headcount"
+    ],
+    "limit": 5
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "30",
+    "x-ratelimit-remaining": "27",
+    "x-ratelimit-reset": "17",
+    "x-credits-used": "1.15"
+  },
+  "duration_ms": 3277,
+  "retrieved_at_utc": "2026-10-31T06:12:25.510097+00:00",
+  "body": {
+    "companies": [
+      {
+        "crustdata_company_id": 1078818,
+        "basic_info": {
+          "name": "Autodit",
+          "crustdata_company_id": 1078818,
+          "primary_domain": "autodit.com",
+          "all_domains": [
+            "autodit.com"
+          ],
+          "website": "http://www.autodit.com",
+          "professional_network_url": "https://www.linkedin.com/company/autoditofficial",
+          "professional_network_id": "82170265",
+          "profile_name": "Autodit",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/f683b6a83f539e7961640661300f9d6e7800611798ac90ddadcc76aeab7519fd.jpg",
+          "description": "🔒 Unlock your business's true potential with Autodit! Here's the ultimate solution for automated security compliance. Embrace hassle-free operations with our cutting-edge platform, effortlessly ensuring compliance with SOC 2, ISO 27001, GDPR, PCI DSS, and more. 💪We're not just here to streamline your compliance journey. We seamlessly integrate with your existing systems, effortlessly manage vendors, automate Security RFP responses, and enhance employee awareness & endpoint monitoring. 🚀Don't let compliance hold you back—let Autodit propel your business forward. ✨Join us today and revolutionize your security compliance. 🌟Together, we'll take your business to new heights. 🚀",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 2022,
+          "employee_count_range": "11-50",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 7,
+          "largest_headcount_country": "IND",
+          "growth_percent": {
+            "1m": 0.0,
+            "3m": 0.0,
+            "6m": 0.0,
+            "12m": 0.0
+          },
+          "growth_absolute": {
+            "1m": 0,
+            "3m": 0,
+            "6m": 0,
+            "12m": 0
+          }
+        }
+      },
+      {
+        "crustdata_company_id": 633412,
+        "basic_info": {
+          "name": "Secureframe",
+          "crustdata_company_id": 633412,
+          "primary_domain": "secureframe.com",
+          "all_domains": [
+            "secureframe.com"
+          ],
+          "website": "https://secureframe.com/cmmc",
+          "professional_network_url": "https://www.linkedin.com/company/secureframe",
+          "professional_network_id": "36166746",
+          "profile_name": "Secureframe",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/58759269c394e20de388396ee2837d81d8aa894fca56199f3ae751ccc87ca4d8.jpg",
+          "description": "Secureframe is an award-winning security and compliance automation platform trusted by organizations ranging from startups and SMBs to contractors across the defense industrial base, including Nasdaq, Fivetran, Base Power, Hawkeye360, and OpenEvidence. Through 400+ integrations with platforms like Microsoft GCC High, Azure Government, AWS GovCloud, and Google Workspace, Secureframe uses AI to automatically collect and verify audit evidence, monitor security controls, and generate critical documentation like SSPs and POA&Ms. Teams use Secureframe to stay assessment-ready across frameworks including CMMC, FedRAMP 20x, NIST, SOC 2, and ISO 27001. Backed by Kleiner Perkins, Accomplice, and In-Q-Tel.",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 2020,
+          "employee_count_range": "201-500",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 130,
+          "largest_headcount_country": "USA",
+          "growth_percent": {
+            "1m": -1.5151515151515151,
+            "3m": -0.7633587786259541,
+            "6m": 2.3622047244094486,
+            "12m": -0.7633587786259541
+          },
+          "growth_absolute": {
+            "1m": -2,
+            "3m": -1,
+            "6m": 3,
+            "12m": -1
+          }
+        }
+      },
+      {
+        "crustdata_company_id": 1977897,
+        "basic_info": {
+          "name": "Ciphrix",
+          "crustdata_company_id": 1977897,
+          "primary_domain": "ciphrix.com",
+          "all_domains": [
+            "ciphrix.com"
+          ],
+          "website": "http://www.ciphrix.com",
+          "professional_network_url": "https://www.linkedin.com/company/ciphrix",
+          "professional_network_id": "100928788",
+          "profile_name": "Ciphrix",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/cda896d978a1c39999892d5edabee0b32ada7f493121a832c61afbcc45b5b65b.jpg",
+          "description": "Transform your compliance journey from a 6-month burden into a 6-week advantage.Built by AWS Security Leaders, Ciphrix helps digital-first companies achieve and maintain SOC 2 and ISO 27001 compliance through AI-powered automation:• 4X faster implementation with automated evidence collection• AI-powered policy generation and controls• Real-time gap assessment and monitoring• Continuous compliance stateOur platform is designed for modern tech stacks and cloud-native architectures, making enterprise-grade compliance accessible and efficient.Backed by AWS Activate, Microsoft for Startups, and Google Cloud Program.Visit ciphrix.com to learn more about our upcoming compliance automation tools.",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 2024,
+          "employee_count_range": "2-10",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 8,
+          "largest_headcount_country": "AUS",
+          "growth_percent": {
+            "1m": 0.0,
+            "3m": -20.0,
+            "6m": -20.0,
+            "12m": 14.285714285714285
+          },
+          "growth_absolute": {
+            "1m": 0,
+            "3m": -2,
+            "6m": -2,
+            "12m": 1
+          }
+        }
+      },
+      {
+        "crustdata_company_id": 17163817,
+        "basic_info": {
+          "name": "SecurAutomation",
+          "crustdata_company_id": 17163817,
+          "primary_domain": "securautomation.com",
+          "all_domains": [
+            "securautomation.com"
+          ],
+          "website": "https://securautomation.com",
+          "professional_network_url": "https://www.linkedin.com/company/securautomation",
+          "professional_network_id": "108785391",
+          "profile_name": "SecurAutomation",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/012117f81214873915875dbb255cd354a1e695d35646af4bf634ad7cd75f7e72.jpg",
+          "description": "At SecurAutomation, we provide  automation solutions that grow with your business. By automating onboarding, compliance, and secretarial processes, we reduce manual workload and deliver consistent, reliable outcomes.",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 2025,
+          "employee_count_range": "myself only",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 1,
+          "largest_headcount_country": "",
+          "growth_percent": {
+            "1m": 0.0,
+            "3m": 0.0,
+            "6m": 0.0,
+            "12m": 0.0
+          },
+          "growth_absolute": {
+            "1m": 0,
+            "3m": 0,
+            "6m": 0,
+            "12m": 0
+          }
+        }
+      },
+      {
+        "crustdata_company_id": 74805478,
+        "basic_info": {
+          "name": "GrayviX",
+          "crustdata_company_id": 74805478,
+          "primary_domain": "grayvix.com",
+          "all_domains": [
+            "grayvix.com"
+          ],
+          "website": "https://grayvix.com/",
+          "professional_network_url": "https://www.linkedin.com/company/grayvix-official",
+          "professional_network_id": "135325534",
+          "profile_name": "GrayviX",
+          "logo_permalink": "",
+          "description": "GrayviX is a modern Governance, Risk, and Compliance (GRC) and Security Automation platform developed and backed by GrayXploit.We help organizations simplify compliance, strengthen security, and manage risks through a centralized platform built for today's evolving regulatory and cybersecurity landscape.GrayviX enables businesses to streamline compliance processes, manage risk assessments, track security findings, organize audit evidence, automate repetitive workflows, and gain clear visibility into their security and compliance posture.Our platform integrates with 150+ security, cloud, DevOps, productivity, and business tools, allowing teams to connect their existing technology stack without disrupting operations.Beyond the platform, our experienced in-house cybersecurity professionals deliver penetration testing and practical remediation guidance, helping organizations identify vulnerabilities and strengthen their security posture with confidence.Whether you're preparing for compliance audits, improving governance, managing enterprise risks, or building a mature cybersecurity program, GrayviX provides the technology and expertise to support your journey.What We Do?• Governance, Risk & Compliance (GRC)• Risk Management & Risk Assessments• Compliance Management• Audit Readiness & Evidence Management• Policy & Document Management• Security Workflow Automation• Vulnerability Management• Expert-Led Penetration Testing• Remediation Support• 150+ Integrations• Centralized Dashboards & ReportingOur mission is to make governance, risk, compliance, and cybersecurity management simpler, faster, and more accessible helping organizations stay secure, audit-ready, and focused on growth.",
+          "company_type": "Partnership",
+          "status": "active",
+          "year_founded": 2026,
+          "employee_count_range": "2-10",
+          "markets": []
+        },
+        "headcount": {
+          "total": null,
+          "largest_headcount_country": "",
+          "growth_percent": null,
+          "growth_absolute": null
+        }
+      }
+    ],
+    "next_cursor": "eyJzZXNzaW9uIjoiMjFiZmMwZDIyNDFkNDhkZjhlNmMxZDZhZWI5MDU5YmQiLCJvZmZzZXQiOjUsInF1ZXJ5IjoiYzZmYzlhNmVhYTA4NmJkNjcwN2FiZTE3ZDIwMDU4NzcwNDdlM2ZiYzU0NDNjODA0OTBmOGRkMzkyZWYxMDFiMSIsInRhaWxfaGFzaCI6bnVsbH0:1xN2KH:OmkBHCX7-i04ebh4y2NvjwvRNMHLXXz_-ssqPAn9mdw",
+    "total_count": null
+  }
+}

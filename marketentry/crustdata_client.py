@@ -361,6 +361,14 @@ class CrustdataClient:
             body["exact_match"] = exact_match
         return self.request("company_enrich", "POST", "/company/enrich", body)
 
+    def company_ranked_search(self, query: str, fields: Iterable[str] | None = None, limit: int = 10,
+                              mode: str = "hybrid") -> CallResult:
+        """Ranked (relevance) search. total_count is always null for ranked search, per provider docs."""
+        body: dict[str, Any] = {"search": {"query": query, "mode": mode}, "limit": limit}
+        if fields:
+            body["fields"] = list(fields)
+        return self.request("competitor_search", "POST", "/company/search", body)
+
     def person_search(self, filters: dict, fields: Iterable[str] | None = None, limit: int = 10,
                       cursor: str | None = None, sorts: list[dict] | None = None) -> CallResult:
         body: dict[str, Any] = {"filters": filters, "limit": limit}
