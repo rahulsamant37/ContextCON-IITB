@@ -1,0 +1,109 @@
+{
+  "name": "cs_page2",
+  "endpoint": "POST /company/search",
+  "request": {
+    "filters": {
+      "op": "and",
+      "conditions": [
+        {
+          "field": "locations.country",
+          "type": "=",
+          "value": "United Kingdom"
+        },
+        {
+          "field": "taxonomy.categories",
+          "type": "in",
+          "value": [
+            "FinTech"
+          ]
+        },
+        {
+          "field": "headcount.total",
+          "type": "=>",
+          "value": 50
+        },
+        {
+          "field": "headcount.total",
+          "type": "=<",
+          "value": 500
+        }
+      ]
+    },
+    "fields": [
+      "basic_info"
+    ],
+    "limit": 2,
+    "sorts": [
+      {
+        "field": "headcount.total",
+        "order": "desc"
+      }
+    ],
+    "cursor": "H4sIAD2B5WoC_xWMMQ7CMAwAvxJl7oDdNHb4CkKVncTqgIho0wEh_k4Y7066j3-ddX-vmxybvzqfS1S9CJnWCkjMMGi2pMzBhMDEZomFKgsuURmrIVpOQahkAfWT80fb-3jdQoLJAcQAEe_D99blseZ2Pv95Afr-AH84KTB-AAAA"
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "30",
+    "x-ratelimit-remaining": "23",
+    "x-ratelimit-reset": "43",
+    "x-credits-used": "0.66"
+  },
+  "duration_ms": 1095,
+  "retrieved_at_utc": "2026-10-31T05:48:47.341979+00:00",
+  "body": {
+    "companies": [
+      {
+        "crustdata_company_id": 662474,
+        "basic_info": {
+          "name": "ClearScore",
+          "crustdata_company_id": 662474,
+          "primary_domain": "clearscore.com",
+          "all_domains": [
+            "clearscore.com",
+            "freedomfinance.co.uk"
+          ],
+          "website": "http://clearscore.com",
+          "professional_network_url": "https://www.linkedin.com/company/clearscore",
+          "professional_network_id": "9320086",
+          "profile_name": "ClearScore",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/34a9599fcd3845fe25344b53b3a70f60ef01d62898284493393c1be21eac7a96.jpg",
+          "description": "Exceptional careers for extraordinary people.Here at ClearScore, we're dedicated to helping our users improve their financial well-being. We help over 24 million people access credit, insurance and other financial products with greater transparency, fairness and control.Our flagship UK business is the UK's #1 credit score and report app, and a leading credit marketplace. The Group combines user-permissioned data at scale, cutting-edge technology and strong consumer brands to match consumers with the right products at the right time. The Group’s extensive API integrations with financial institution partners help those partners convert more customers, boost revenue and manage risk, with over 200 partner relationships across five markets. ClearScore is profitable, growing, and on a mission to make personal finance clearer, calmer and easier to understand for millions of people around the world. If you want to build something that matters, join us for the experience of a lifetime and bring your passion, talent and drive to ClearScore: https://boards.eu.greenhouse.io/clearscoretechnologylimited",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 2015,
+          "employee_count_range": "201-500",
+          "markets": [
+            "PRIVATE"
+          ]
+        }
+      },
+      {
+        "crustdata_company_id": 662480,
+        "basic_info": {
+          "name": "Payhawk",
+          "crustdata_company_id": 662480,
+          "primary_domain": "payhawk.com",
+          "all_domains": [
+            "payhawk.com"
+          ],
+          "website": "https://payhawk.com",
+          "professional_network_url": "https://www.linkedin.com/company/payhawk",
+          "professional_network_id": "18845983",
+          "profile_name": "Payhawk",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/076cc0ac10227f87509c7bf61e7aa72653dae366c5622d0726cc3ae0685e8f2e.jpg",
+          "description": "Payhawk is an AI-native spend management platform that orchestrates global money across Bills, Cards, Expenses, Travel, and Procurement for maximum control, automation and savings. It provides a global money account on top of your ERP combined with agents enforcing rules, policies and budgets on every payment while giving employees effortless spending experience. Headquartered in London with 9 offices across Europe and the US, Payhawk serves mid-market and enterprise companies in 32+ countries.",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 2018,
+          "employee_count_range": "501-1000",
+          "markets": [
+            "PRIVATE"
+          ]
+        }
+      }
+    ],
+    "next_cursor": "H4sIAD-B5WoC_xWMMQrDMAwAv2I0Z4gVx1L6lVKCZFtkKDVNnCGU_r3ueHdwH3ifZb_WTY4Nbg5SjqqjkGkpHonZd5psUeZgQt7EJomZCgvOURmLIVpaglBO4hUGB0fdW3_dA-HgYsTA46PrVps811TP17_Onr4_i51l1X0AAAA=",
+    "total_count": 517
+  }
+}

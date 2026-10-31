@@ -1,0 +1,65 @@
+{
+  "name": "autocomplete_taxonomy_categories_health",
+  "endpoint": "POST /company/search/autocomplete",
+  "request": {
+    "field": "taxonomy.categories",
+    "query": "health",
+    "limit": 15
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "300",
+    "x-ratelimit-remaining": "292",
+    "x-ratelimit-reset": "49",
+    "x-credits-used": "0"
+  },
+  "duration_ms": 1085,
+  "retrieved_at_utc": "2026-10-31T05:48:06.451520+00:00",
+  "body": {
+    "suggestions": [
+      {
+        "value": "Health Care"
+      },
+      {
+        "value": "Mental Health"
+      },
+      {
+        "value": "Health Diagnostics"
+      },
+      {
+        "value": "Healthcare"
+      },
+      {
+        "value": "Personal Health"
+      },
+      {
+        "value": "Healthcare Services & Hospitals"
+      },
+      {
+        "value": "Health Insurance"
+      },
+      {
+        "value": "Home Health Care"
+      },
+      {
+        "value": "Electronic Health Record (EHR)"
+      },
+      {
+        "value": "Health Care Products Manufacturing"
+      },
+      {
+        "value": "Hospitals & Health Clinics"
+      },
+      {
+        "value": "Drug & Health Stores"
+      },
+      {
+        "value": "Healthcare Services & Hospital"
+      },
+      {
+        "value": "Health, Beauty & Fitness"
+      }
+    ]
+  }
+}

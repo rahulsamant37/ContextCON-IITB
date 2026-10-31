@@ -1,0 +1,29 @@
+{
+  "name": "autocomplete_basic_info_industries_logistics",
+  "endpoint": "POST /company/search/autocomplete",
+  "request": {
+    "field": "basic_info.industries",
+    "query": "logistics",
+    "limit": 15
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "300",
+    "x-ratelimit-remaining": "299",
+    "x-ratelimit-reset": "60",
+    "x-credits-used": "0"
+  },
+  "duration_ms": 2050,
+  "retrieved_at_utc": "2026-10-31T05:47:56.048259+00:00",
+  "body": {
+    "suggestions": [
+      {
+        "value": "Transportation, Logistics, Supply Chain and Storage"
+      },
+      {
+        "value": "Logistics & Supply Chain"
+      }
+    ]
+  }
+}

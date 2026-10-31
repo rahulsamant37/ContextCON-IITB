@@ -1,0 +1,26 @@
+{
+  "name": "autocomplete_taxonomy_categories_supply chain",
+  "endpoint": "POST /company/search/autocomplete",
+  "request": {
+    "field": "taxonomy.categories",
+    "query": "supply chain",
+    "limit": 15
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "300",
+    "x-ratelimit-remaining": "293",
+    "x-ratelimit-reset": "50",
+    "x-credits-used": "0"
+  },
+  "duration_ms": 1131,
+  "retrieved_at_utc": "2026-10-31T05:48:05.289769+00:00",
+  "body": {
+    "suggestions": [
+      {
+        "value": "Supply Chain Management"
+      }
+    ]
+  }
+}

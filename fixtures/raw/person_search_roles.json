@@ -1,0 +1,331 @@
+{
+  "name": "person_search_roles",
+  "endpoint": "POST /person/search",
+  "request": {
+    "filters": {
+      "op": "and",
+      "conditions": [
+        {
+          "field": "experience.employment_details.current.company_website_domain",
+          "type": "=",
+          "value": "auquan.com"
+        },
+        {
+          "op": "or",
+          "conditions": [
+            {
+              "field": "experience.employment_details.current.title",
+              "type": "(.)",
+              "value": "chief"
+            },
+            {
+              "field": "experience.employment_details.current.title",
+              "type": "(.)",
+              "value": "head"
+            }
+          ]
+        }
+      ]
+    },
+    "fields": [
+      "basic_profile",
+      "experience.employment_details.current"
+    ],
+    "limit": 5
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "30",
+    "x-ratelimit-remaining": "29",
+    "x-ratelimit-reset": "60",
+    "x-credits-used": "0.69"
+  },
+  "duration_ms": 1027,
+  "retrieved_at_utc": "2026-10-31T05:48:48.469863+00:00",
+  "body": {
+    "profiles": [
+      {
+        "crustdata_person_id": 96842,
+        "basic_profile": {
+          "current_title": "Chief Executive Officer",
+          "headline": "Chief Executive Officer at Auquan",
+          "location": {
+            "city": "London",
+            "continent": "Europe",
+            "country": "United Kingdom",
+            "full_location": "London, England, United Kingdom",
+            "raw": "London, England, United Kingdom",
+            "state": "England"
+          },
+          "name": "Chandini Jain",
+          "professional_network_name": "Chandini Jain",
+          "profile_picture_permalink": "",
+          "normalized_title": null
+        },
+        "experience": {
+          "employment_details": {
+            "current": [
+              {
+                "business_email_verified": true,
+                "company_headcount_latest": 74,
+                "company_headcount_range": "11-50",
+                "company_headquarters_country": "United Kingdom",
+                "company_hq_location": "London, England, United Kingdom",
+                "company_hq_location_address_components": [
+                  "London",
+                  "London",
+                  "Greater London",
+                  "England",
+                  "United Kingdom"
+                ],
+                "company_industries": [
+                  "Financial Services"
+                ],
+                "company_professional_network_industry": "Financial Services",
+                "company_professional_network_profile_url": "https://www.linkedin.com/company/auquan",
+                "company_profile_picture_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/9be83f7b8ed39aa3a4e8cd9941af9ee36ae9486624e206a5de9339ce57ceb09b.jpg",
+                "company_status": "active",
+                "company_type": "Privately Held",
+                "company_website": "http://auquan.com",
+                "crustdata_company_id": 6507,
+                "description": "",
+                "employment_type": "",
+                "end_date": null,
+                "function_category": "",
+                "is_default": true,
+                "name": "Auquan",
+                "position_id": 1709201809,
+                "professional_network_id": "13238839",
+                "seniority_level": "CXO",
+                "start_date": null,
+                "title": "Chief Executive Officer",
+                "years_at_company": "",
+                "years_at_company_raw": 0
+              }
+            ]
+          }
+        }
+      },
+      {
+        "crustdata_person_id": 2326903,
+        "basic_profile": {
+          "current_title": "Head of Sales",
+          "headline": "Head of Sales -\nAgentic workflows for institutional finance",
+          "location": {
+            "city": "London",
+            "continent": "Europe",
+            "country": "United Kingdom",
+            "full_location": "London Area, United Kingdom",
+            "raw": "London Area, United Kingdom",
+            "state": "England"
+          },
+          "name": "Dave Rakusen",
+          "normalized_title": {
+            "confident": true,
+            "department": "Sales & Revenue",
+            "matched_title": "Head of Sales",
+            "similarity": 0.9999,
+            "sub_department": "Field & Regional Sales"
+          },
+          "professional_network_name": "Dave Rakusen",
+          "profile_picture_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/person/10fc1e4566c852a480e4b6a666aabe0053457d65f1cecd3cbe4ffcbcb562477f.jpg"
+        },
+        "experience": {
+          "employment_details": {
+            "current": [
+              {
+                "business_email_verified": true,
+                "company_headcount_latest": 74,
+                "company_headcount_range": "11-50",
+                "company_headquarters_country": "United Kingdom",
+                "company_hq_location": "London, England, United Kingdom",
+                "company_hq_location_address_components": [
+                  "London",
+                  "London",
+                  "Greater London",
+                  "England",
+                  "United Kingdom"
+                ],
+                "company_industries": [
+                  "Financial Services"
+                ],
+                "company_professional_network_industry": "Financial Services",
+                "company_professional_network_profile_url": "https://www.linkedin.com/company/auquan",
+                "company_profile_picture_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/9be83f7b8ed39aa3a4e8cd9941af9ee36ae9486624e206a5de9339ce57ceb09b.jpg",
+                "company_status": "active",
+                "company_type": "Privately Held",
+                "company_website": "http://auquan.com",
+                "crustdata_company_id": 6507,
+                "description": "",
+                "employment_type": "",
+                "end_date": null,
+                "function_category": "Sales",
+                "is_default": true,
+                "location": {
+                  "raw": "London Area, United Kingdom"
+                },
+                "name": "Auquan",
+                "position_id": 2514848621,
+                "professional_network_id": "13238839",
+                "seniority_level": "Director",
+                "start_date": "2024-11-01T00:00:00",
+                "title": "Head of Sales",
+                "years_at_company": "1 to 2 years",
+                "years_at_company_raw": 1
+              }
+            ]
+          }
+        }
+      },
+      {
+        "crustdata_person_id": 172996753,
+        "basic_profile": {
+          "current_title": "Head of People and Talent",
+          "headline": "Head of People and Talent at Auquan I Strategy Advisor I Executive Coach",
+          "location": {
+            "continent": "North America",
+            "country": "United States",
+            "full_location": "New York City Metropolitan Area",
+            "raw": "New York City Metropolitan Area",
+            "city": null,
+            "state": null
+          },
+          "name": "Hannah Van Campen",
+          "normalized_title": {
+            "confident": true,
+            "department": "People & HR",
+            "matched_title": "VP, People & Talent",
+            "similarity": 0.9978,
+            "sub_department": "HR Operations & Administration"
+          },
+          "professional_network_name": "Hannah Van Campen, ACC",
+          "profile_picture_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/person/fa54d5bb9dbfd9eb369457060be68538abe614e8ec549742f3cffb8df3e3e575.jpg"
+        },
+        "experience": {
+          "employment_details": {
+            "current": [
+              {
+                "business_email_verified": false,
+                "company_headcount_latest": 74,
+                "company_headcount_range": "11-50",
+                "company_headquarters_country": "United Kingdom",
+                "company_hq_location": "London, England, United Kingdom",
+                "company_hq_location_address_components": [
+                  "London",
+                  "London",
+                  "Greater London",
+                  "England",
+                  "United Kingdom"
+                ],
+                "company_industries": [
+                  "Financial Services"
+                ],
+                "company_professional_network_industry": "Financial Services",
+                "company_professional_network_profile_url": "https://www.linkedin.com/company/auquan",
+                "company_profile_picture_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/9be83f7b8ed39aa3a4e8cd9941af9ee36ae9486624e206a5de9339ce57ceb09b.jpg",
+                "company_status": "active",
+                "company_type": "Privately Held",
+                "company_website": "http://auquan.com",
+                "crustdata_company_id": 6507,
+                "description": "",
+                "employment_type": "",
+                "end_date": null,
+                "function_category": "",
+                "is_default": true,
+                "name": "Auquan",
+                "position_id": 2931167354,
+                "professional_network_id": "13238839",
+                "seniority_level": "Director",
+                "start_date": "2026-05-01T00:00:00",
+                "title": "Head of People and Talent",
+                "years_at_company": "Less than 1 year",
+                "years_at_company_raw": 0
+              },
+              {
+                "business_email_verified": false,
+                "company_headcount_latest": 53,
+                "company_headcount_range": "2-10",
+                "company_headquarters_country": "United States",
+                "company_hq_location": "New York, New York, United States",
+                "company_hq_location_address_components": [
+                  "New York",
+                  "New York",
+                  "United States"
+                ],
+                "company_industries": [
+                  "Venture Capital and Private Equity Principals",
+                  "Capital Markets",
+                  "Financial Services"
+                ],
+                "company_professional_network_industry": "Venture Capital and Private Equity Principals",
+                "company_professional_network_profile_url": "https://www.linkedin.com/company/hatzimemos-libby",
+                "company_profile_picture_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/671557e7282ba9fe8b270d25c72cadc1facafbfb54a0d6dda9fd7475161b96b5.jpg",
+                "company_status": "active",
+                "company_type": "Partnership",
+                "company_website": "http://www.h-l.vc",
+                "crustdata_company_id": 982676,
+                "description": "",
+                "employment_type": "",
+                "end_date": null,
+                "function_category": "",
+                "is_default": false,
+                "name": "H/L Ventures",
+                "position_id": 2595799004,
+                "professional_network_id": "5152973",
+                "seniority_level": "Senior",
+                "start_date": "2025-03-01T00:00:00",
+                "title": "Expert in Residence, Workplace Strategy",
+                "years_at_company": "1 to 2 years",
+                "years_at_company_raw": 1
+              },
+              {
+                "business_email_verified": true,
+                "company_headcount_latest": 1,
+                "company_headcount_range": "myself only",
+                "company_headquarters_country": "United States",
+                "company_hq_location": "New York, New York, United States",
+                "company_hq_location_address_components": [
+                  "New York",
+                  "New York",
+                  "United States"
+                ],
+                "company_industries": [
+                  "Business Consulting and Services",
+                  "Professional Services"
+                ],
+                "company_professional_network_industry": "Business Consulting and Services",
+                "company_professional_network_profile_url": "https://www.linkedin.com/company/van-campen-group",
+                "company_profile_picture_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/227fa2d819d08a84fc93240a8090111e6a8cbc740414c856de94f03f705ecadb.jpg",
+                "company_status": "active",
+                "company_type": "Privately Held",
+                "company_website": "http://www.vancampengroup.com",
+                "crustdata_company_id": 6057906,
+                "description": "VCG offers a wide range of solutions aimed at supporting businesses in managing their HR functions effectively. Hannah and her team work with clients to evaluate opportunities and develop customized solutions.\n\nThe Van Campen Method focuses on partnering with clients to understand the root cause of challenges and providing sustainable solutions that enable clients to achieve their goals and maximize their impact.",
+                "employment_type": "",
+                "end_date": null,
+                "function_category": "Consulting",
+                "is_default": false,
+                "location": {
+                  "raw": "New York, NY"
+                },
+                "name": "Van Campen Group \"VCG\"",
+                "position_id": 2352471945,
+                "professional_network_id": "102606875",
+                "seniority_level": "Strategic",
+                "start_date": "2024-03-01T00:00:00",
+                "title": "People and Talent Strategy Advisor",
+                "years_at_company": "3 to 5 years",
+                "years_at_company_raw": 2
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "next_cursor": null,
+    "total_count": 3,
+    "total_count_relation": null,
+    "remarks": []
+  }
+}

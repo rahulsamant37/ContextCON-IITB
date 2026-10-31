@@ -1,0 +1,29 @@
+{
+  "name": "autocomplete_taxonomy_categories_ecommerce",
+  "endpoint": "POST /company/search/autocomplete",
+  "request": {
+    "field": "taxonomy.categories",
+    "query": "ecommerce",
+    "limit": 15
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "300",
+    "x-ratelimit-remaining": "291",
+    "x-ratelimit-reset": "47",
+    "x-credits-used": "0"
+  },
+  "duration_ms": 1005,
+  "retrieved_at_utc": "2026-10-31T05:48:07.529696+00:00",
+  "body": {
+    "suggestions": [
+      {
+        "value": "E-Commerce"
+      },
+      {
+        "value": "E-Commerce Platforms"
+      }
+    ]
+  }
+}

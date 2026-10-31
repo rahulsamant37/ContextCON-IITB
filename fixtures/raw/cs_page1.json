@@ -1,0 +1,107 @@
+{
+  "name": "cs_page1",
+  "endpoint": "POST /company/search",
+  "request": {
+    "filters": {
+      "op": "and",
+      "conditions": [
+        {
+          "field": "locations.country",
+          "type": "=",
+          "value": "United Kingdom"
+        },
+        {
+          "field": "taxonomy.categories",
+          "type": "in",
+          "value": [
+            "FinTech"
+          ]
+        },
+        {
+          "field": "headcount.total",
+          "type": "=>",
+          "value": 50
+        },
+        {
+          "field": "headcount.total",
+          "type": "=<",
+          "value": 500
+        }
+      ]
+    },
+    "fields": [
+      "basic_info"
+    ],
+    "limit": 2,
+    "sorts": [
+      {
+        "field": "headcount.total",
+        "order": "desc"
+      }
+    ]
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "30",
+    "x-ratelimit-remaining": "24",
+    "x-ratelimit-reset": "44",
+    "x-credits-used": "0.66"
+  },
+  "duration_ms": 1039,
+  "retrieved_at_utc": "2026-10-31T05:48:46.151763+00:00",
+  "body": {
+    "companies": [
+      {
+        "crustdata_company_id": 1163512,
+        "basic_info": {
+          "name": "Transact",
+          "crustdata_company_id": 1163512,
+          "primary_domain": "transact-online.co.uk",
+          "all_domains": [
+            "transact-online.co.uk"
+          ],
+          "website": "http://www.transact-online.co.uk",
+          "professional_network_url": "https://www.linkedin.com/company/transact",
+          "professional_network_id": "1858140",
+          "profile_name": "Transact",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/0be36593fbc8e58a95f563ea3b4b160a204640d1a622dbef90c05dd30ef65476.jpg",
+          "description": "Transact is a leading UK investment wrap platform for financial advisers and their clients. Our culture is collaborative, inclusive and open-minded. We work hard to continually challenge the way we do things to maintain our market leading status.The Transact platform enables clients and their financial advisers to hold and manage their financial portfolio in one single online place, and is supported by unrivalled personal service. Our goal is to make all aspects of portfolio management as easy and efficient as possible for everyone involved. This includes integrating with other software providers via our range of APIs to share data in a faster and more secure way.As a customer-centric and client focused business we put our clients, like Mrs Miggins, at the heart of everything we do. Our purpose: We enable the Miggins family and their adviser to hold their investments on a single platform across wrappers. We provide custody, tax wrapping, trading and reporting. Our strategy: We make financial planning easier for advisers by delivering great service. Our platform helps advisers grow revenues and reduce risk and cost in their business. We will always have control of our technology, wrappers and service.  Our values: We do the right thing for customers, advisers, staff, shareholders, suppliers and the wider community.Transact's parent company, IntegraFin Holdings plc, is listed on the London Stock Exchange and is a constituent of the FTSE 250 index. Established in 2000, today we have over £74.2 billion of funds under direction on behalf of over 246,000 clients (as at 30 September 2025).",
+          "company_type": "Public Company",
+          "status": "active",
+          "year_founded": 2000,
+          "employee_count_range": "201-500",
+          "markets": [
+            "PRIVATE"
+          ]
+        }
+      },
+      {
+        "crustdata_company_id": 1164162,
+        "basic_info": {
+          "name": "Financial Reporting Council",
+          "crustdata_company_id": 1164162,
+          "primary_domain": "frc.org.uk",
+          "all_domains": [
+            "frc.org.uk"
+          ],
+          "website": "http://www.frc.org.uk",
+          "professional_network_url": "https://www.linkedin.com/company/financial-reporting-council",
+          "professional_network_id": "427478",
+          "profile_name": "Financial Reporting Council",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/bc75adda3f29e52fdc7b644fe56f7f65fa7402afcd0c7352ce7d3fb3c1c2ae86.jpg",
+          "description": "The purpose of the FRC is to serve the public interest and support UK economic growth by upholding high standards of corporate governance, corporate reporting, audit and actuarial work.We set the UK Corporate Governance and Stewardship Codes as well as UK standards for accounting, auditing and actuarial work. We represent UK interests in international standard-setting.  We also monitor and take action to promote the quality of corporate reporting and auditing.  We operate independent disciplinary arrangements for accountants and actuaries; and oversee the regulatory activities of the accountancy and actuarial professional bodies.",
+          "company_type": "Government Agency",
+          "status": "active",
+          "year_founded": 1991,
+          "employee_count_range": "201-500",
+          "markets": [
+            "PRIVATE"
+          ]
+        }
+      }
+    ],
+    "next_cursor": "H4sIAD2B5WoC_xWMMQ7CMAwAvxJl7oDdNHb4CkKVncTqgIho0wEh_k4Y7066j3-ddX-vmxybvzqfS1S9CJnWCkjMMGi2pMzBhMDEZomFKgsuURmrIVpOQahkAfWT80fb-3jdQoLJAcQAEe_D99blseZ2Pv95Afr-AH84KTB-AAAA",
+    "total_count": 517
+  }
+}

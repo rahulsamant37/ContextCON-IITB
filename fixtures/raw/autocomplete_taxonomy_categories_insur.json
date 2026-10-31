@@ -1,0 +1,53 @@
+{
+  "name": "autocomplete_taxonomy_categories_insur",
+  "endpoint": "POST /company/search/autocomplete",
+  "request": {
+    "field": "taxonomy.categories",
+    "query": "insur",
+    "limit": 15
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "300",
+    "x-ratelimit-remaining": "290",
+    "x-ratelimit-reset": "46",
+    "x-credits-used": "0"
+  },
+  "duration_ms": 1028,
+  "retrieved_at_utc": "2026-10-31T05:48:08.631138+00:00",
+  "body": {
+    "suggestions": [
+      {
+        "value": "Insurance"
+      },
+      {
+        "value": "Health Insurance"
+      },
+      {
+        "value": "Life Insurance"
+      },
+      {
+        "value": "Auto Insurance"
+      },
+      {
+        "value": "Commercial Insurance"
+      },
+      {
+        "value": "Property Insurance"
+      },
+      {
+        "value": "InsurTech"
+      },
+      {
+        "value": "Insurance Agencies & Brokerages"
+      },
+      {
+        "value": "Insurance Carriers"
+      },
+      {
+        "value": "Insurance Agencies & Brokerage"
+      }
+    ]
+  }
+}

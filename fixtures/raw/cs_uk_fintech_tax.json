@@ -1,0 +1,77 @@
+{
+  "name": "cs_uk_fintech_tax",
+  "endpoint": "POST /company/search",
+  "request": {
+    "filters": {
+      "op": "and",
+      "conditions": [
+        {
+          "field": "locations.country",
+          "type": "=",
+          "value": "United Kingdom"
+        },
+        {
+          "field": "taxonomy.categories",
+          "type": "in",
+          "value": [
+            "FinTech"
+          ]
+        },
+        {
+          "field": "headcount.total",
+          "type": "=>",
+          "value": 50
+        },
+        {
+          "field": "headcount.total",
+          "type": "=<",
+          "value": 500
+        }
+      ]
+    },
+    "fields": [
+      "basic_info"
+    ],
+    "limit": 1
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "30",
+    "x-ratelimit-remaining": "29",
+    "x-ratelimit-reset": "60",
+    "x-credits-used": "0.33"
+  },
+  "duration_ms": 2590,
+  "retrieved_at_utc": "2026-10-31T05:48:30.377447+00:00",
+  "body": {
+    "companies": [
+      {
+        "crustdata_company_id": 713,
+        "basic_info": {
+          "name": "Bits",
+          "crustdata_company_id": 713,
+          "primary_domain": "getbits.app",
+          "all_domains": [
+            "getbits.app"
+          ],
+          "website": "http://www.getbits.app",
+          "professional_network_url": "https://www.linkedin.com/company/getsbit",
+          "professional_network_id": "14066230",
+          "profile_name": "Bits",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/c5143f41726d02990222324a40fb05fb10a78a1ca67a54858b2c3c71e27155cc.jpg",
+          "description": "Bits is a Y Combinator backed startup based in London, UK, that offers a host of consumer financial products, such as the Bits Credit Card, Store Card and more.",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 2018,
+          "employee_count_range": "11-50",
+          "markets": [
+            "BSE"
+          ]
+        }
+      }
+    ],
+    "next_cursor": "H4sIAC6B5WoC_xXMMQ6DMAxA0asgz11sN7HpVaoKBccRQ9WoEAZU9e6E8b_h_-C7-3pMS9oWeAyQxAVHnl1jUYuWs2q-szkysVGyQim7IhF7MBeJI0rBGDJ1mxluA2x1bf31FORXz1Zbek9W98-lAeV_AgKjb_N1AAAA",
+    "total_count": 517
+  }
+}

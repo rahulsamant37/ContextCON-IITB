@@ -60,5 +60,15 @@ Person Search cost ~0.23/result with default fields; empty results free (V: 0.69
 - `POST /web/search/live` `{query, location(ISO2), sources[], page}` -> `{success, results[{source,title,url,snippet,position}], metadata.total_results}` (V). 1 credit/query. **URLs are Google `goto?url=` redirects** (V); store as given.
 - `POST /web/enrich/live` `{urls[<=10]}` -> array `{success,url,timestamp,title,content}` (D), 1 credit/page.
 
-## E. Still unverified (do not code against)
-Person Enrich body/shape, Web Fetch live shape, Job Search, cursor pagination across pages, `taxonomy.categories = "FinTech"` as a filter, 429 body.
+## E. Verified live 11:20–11:35 IST (fixtures `cs_*`, `person_search_roles`, `web_fetch_example`)
+- **Sector filter**: `taxonomy.categories` `in [...]` works (V). UK + `FinTech` + headcount 50–500 => `total_count` 517 (vs 2,410 for broad `basic_info.industries = Financial Services`). Using the taxonomy group in a filter adds ~0.1 credit/result.
+- **Industry value discovery is free and generalises**: `POST /company/search/autocomplete {field, query, limit}` -> `suggestions[].value` (V, 0 credits). `basic_info.industries` lacks some sectors (e.g. no "e-commerce"); `taxonomy.categories` has `E-Commerce`, `Logistics`, `Healthcare`, `FinTech`, `InsurTech`. Resolve the brief's industry via autocomplete, record as an assumption.
+- **Pagination** (V): `limit` + `sorts:[{field,order}]` + `cursor` = prior `next_cursor`; page 2 returned different companies, `total_count` stable (517). Cost ~0.33/result with `fields:["basic_info"]` + taxonomy filter. Always send `sorts` when paginating.
+- **Demo-market coverage (limit 1)**: Germany + logistics (industries) 100–1000 => 290; Germany + logistics (taxonomy) => 413; India + Hospitals and Health Care 50–300 => 2,971; Singapore + E-Commerce 50–500 => 179.
+- **Person Search by role** (V): `and[ current.company_website_domain = d , or[ current.title (.) "chief", current.title (.) "head" ]]` works, 0.23/result. `(.)` is loose ("head" matched "Head of Sales"), so **role matching is done in Python (`match_role`)**, the query only narrows.
+- **Person Enrich is NOT usable**: requires `professional_network_profile_urls` (LinkedIn URLs, 1+ credit each); Person Search responses carry no profile URL. Dropped (cut-list #7). Person Enrich never returns emails.
+- **Web Fetch** (V): `{urls:[...]}` -> `[{success,url,timestamp,title,content(full HTML)}]`, 1 credit/page, **~20 s latency** => use sparingly; strip HTML to text in Python before evidence.
+- **Web Search URLs are Google redirects**; competitor identity must come from company search/identify by domain, not from the URL.
+
+## F. Still unverified (do not code against)
+Job Search, 429 response body, `Retry-After` presence, Company Search `fields` for `hiring` (hiring only confirmed on Enrich).

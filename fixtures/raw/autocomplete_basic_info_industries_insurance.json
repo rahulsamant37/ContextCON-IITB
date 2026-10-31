@@ -1,0 +1,35 @@
+{
+  "name": "autocomplete_basic_info_industries_insurance",
+  "endpoint": "POST /company/search/autocomplete",
+  "request": {
+    "field": "basic_info.industries",
+    "query": "insurance",
+    "limit": 15
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "300",
+    "x-ratelimit-remaining": "295",
+    "x-ratelimit-reset": "53",
+    "x-credits-used": "0"
+  },
+  "duration_ms": 2246,
+  "retrieved_at_utc": "2026-10-31T05:48:03.006197+00:00",
+  "body": {
+    "suggestions": [
+      {
+        "value": "Insurance"
+      },
+      {
+        "value": "Insurance Agencies and Brokerages"
+      },
+      {
+        "value": "Insurance and Employee Benefit Funds"
+      },
+      {
+        "value": "Insurance Carriers"
+      }
+    ]
+  }
+}

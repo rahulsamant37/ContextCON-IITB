@@ -1,0 +1,26 @@
+{
+  "name": "autocomplete_basic_info_industries_freight",
+  "endpoint": "POST /company/search/autocomplete",
+  "request": {
+    "field": "basic_info.industries",
+    "query": "freight",
+    "limit": 15
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "300",
+    "x-ratelimit-remaining": "298",
+    "x-ratelimit-reset": "57",
+    "x-credits-used": "0"
+  },
+  "duration_ms": 2198,
+  "retrieved_at_utc": "2026-10-31T05:47:58.324964+00:00",
+  "body": {
+    "suggestions": [
+      {
+        "value": "Freight and Package Transportation"
+      }
+    ]
+  }
+}

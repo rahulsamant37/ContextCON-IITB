@@ -1,0 +1,78 @@
+{
+  "name": "cs_sg_ecom_tax",
+  "endpoint": "POST /company/search",
+  "request": {
+    "filters": {
+      "op": "and",
+      "conditions": [
+        {
+          "field": "locations.country",
+          "type": "=",
+          "value": "Singapore"
+        },
+        {
+          "field": "taxonomy.categories",
+          "type": "in",
+          "value": [
+            "E-Commerce",
+            "E-Commerce Platforms"
+          ]
+        },
+        {
+          "field": "headcount.total",
+          "type": "=>",
+          "value": 50
+        },
+        {
+          "field": "headcount.total",
+          "type": "=<",
+          "value": 500
+        }
+      ]
+    },
+    "fields": [
+      "basic_info"
+    ],
+    "limit": 1
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "30",
+    "x-ratelimit-remaining": "25",
+    "x-ratelimit-reset": "56",
+    "x-credits-used": "0.33"
+  },
+  "duration_ms": 1033,
+  "retrieved_at_utc": "2026-10-31T05:48:34.842385+00:00",
+  "body": {
+    "companies": [
+      {
+        "crustdata_company_id": 6182,
+        "basic_info": {
+          "name": "FlixStock",
+          "crustdata_company_id": 6182,
+          "primary_domain": "flixstock.com",
+          "all_domains": [
+            "flixstock.com"
+          ],
+          "website": "https://www.flixstock.com/",
+          "professional_network_url": "https://www.linkedin.com/company/flixstock",
+          "professional_network_id": "3744941",
+          "profile_name": "FlixStock",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/9812d91c4efd0b7bc1f384650017fc4d7f8f0e4a11bf7b65632de16797d1d1d8.jpg",
+          "description": "Headquartered in Singapore and with offices around the globe, FlixStock was founded in 2015 by Dr. Harindar Keer. FlixStock helps Fashion Brands and Retailers generate high-quality catalogs ready on model images through its proprietary AI technology thus helping them take their product to the market faster.During the last couple of years, FlixStock has developed itself as the only Full Stack Fashion Supply Chain solution provider with services and products that help organizations with designing products, virtual sampling, catalog imagery, on-model imagery, and many other solutions. FlixStock has helped brands and retailers digitize their supply chain process across the globe, enabling them to get their products to the market faster and more cost-effectively.FlixStudio - FlixStudio is an End to End AI-enabled Studio that makes it easy to get high-quality catalog-ready images for your products at a lower cost and faster TAT. https://flixstudio.io/How it works - Send your samples to our nearest studio and we take care of everything else. You get High-Quality, eCommerce ready Imagery of all types.FlixModel - Smart technology that transforms fashion e-commerce visually by creating consistent & high-quality dynamic on-model images in a simple & scalable process. Perfectly suited for high throughput online fast fashion.  https://www.flixstock.com/flixmodel/How it works - Give us your On-Dummy/Ghost images and get eCommerce ready On-Model Imagery in 12 to 48HrsFlix3D - Flix3D can help you generate virtual garments from the tech pack at scale. We can of course go a step further and provide animation, ghost mannequins and on-model PDP images too from 3D.  https://flix3d.flixstock.com/How it works - Give us your Digital Patterns / 3D Files, Tech Pack, an image of the garment and get eCommerce ready On-Model and Ghost mannequin Imagery",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 2015,
+          "employee_count_range": "51-200",
+          "markets": [
+            "PRIVATE"
+          ]
+        }
+      }
+    ],
+    "next_cursor": "H4sIADKB5WoC_xXMPQ7CMAxA4atUnhli58_hKghVieOoQ9WINh0Q4u6U8X3D-8Dr1P09L_lY4D6BTbmZYJx6w8U1YSdREYlVOXjCUlMmo16VGgvamsX5UCtFi1yKhdsER9_H9XoEZHpePfrI6yz93P6MMX1_CB8rsXYAAAA=",
+    "total_count": 179
+  }
+}
