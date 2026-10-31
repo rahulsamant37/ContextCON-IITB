@@ -85,6 +85,21 @@ def create_app(settings: Settings | None = None,
                 "max_company_enrichments": s.max_company_enrichments, "max_company_search_results": s.max_company_search_results,
                 "max_buyer_searches": s.max_buyer_searches}, "estimate": estimate_credits(s)}
 
+    @app.get("/api/options")
+    def options() -> dict:
+        """Choices for the guided form. Countries are the ones the engine can map reliably; sectors and roles are
+        suggestions only (free text is accepted and mapped to Crustdata categories at run time)."""
+        from .brief_parser import COUNTRY_ALIASES
+        return {
+            "countries": sorted(set(COUNTRY_ALIASES.values())),
+            "currencies": ["USD", "EUR", "GBP", "INR", "SGD", "AUD", "CAD", "AED", "CHF", "SEK", "JPY", "BRL"],
+            "sectors": ["FinTech", "InsurTech", "Logistics", "Supply Chain Management", "Healthcare", "E-Commerce",
+                        "Cybersecurity", "SaaS", "EdTech", "Manufacturing", "Real Estate", "Retail", "Telecommunications"],
+            "roles": ["CEO", "CTO", "COO", "CFO", "CISO", "Head of Operations", "Head of Compliance", "VP Sales",
+                      "VP Operations", "Head of Fleet", "Head of Procurement", "Head of Marketing"],
+            "size_presets": [[1, 50], [50, 200], [200, 1000], [1000, None]],
+        }
+
     @app.post("/api/briefs/preview")
     def preview(body: PreviewIn) -> dict:
         run_s = jobs.run_settings(replay=False, simulate=False, use_llm=body.use_llm, caps=None)
@@ -120,11 +135,13 @@ def create_app(settings: Settings | None = None,
             raise HTTPException(404, "unknown mission")
         job = jobs.get(mid)
         if job:
-            return {"mission_id": mid, "status": job.status, "state": job.state, "error": job.error, "events": len(job.events)}
+            return {"mission_id": mid, "status": job.status, "state": job.state, "error": job.error, "events": len(job.events),
+                    "prompt": job.prompt}
         data = load_json(out, mid, "summary.json")
         if data is None:
             raise HTTPException(404, "unknown mission")
-        return {"mission_id": mid, "status": "done", "state": data.get("state"), "error": None, "events": 0}
+        return {"mission_id": mid, "status": "done", "state": data.get("state"), "error": None, "events": 0,
+                "prompt": data.get("prompt")}
 
     @app.get("/api/missions/{mid}/events")
     def events(mid: str, start: int = 0) -> StreamingResponse:

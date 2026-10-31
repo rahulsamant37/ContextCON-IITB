@@ -189,3 +189,23 @@ def test_missing_key_is_a_clear_400_unless_replay(tmp_path):
 def test_caps_are_clamped_and_unknown_caps_ignored():
     assert clamp_caps({"max_credits_per_mission": 1e9, "max_company_enrichments": 0, "evil": 5, "max_buyer_searches": True}) == {
         "max_credits_per_mission": 1000.0, "max_company_enrichments": 1}
+
+
+def test_options_for_guided_form(tmp_path):
+    c, _ = build(tmp_path)
+    o = c.get("/api/options").json()
+    assert "Germany" in o["countries"] and "United Kingdom" in o["countries"] and "EUR" in o["currencies"]
+    assert "Logistics" in o["sectors"] and "CTO" in o["roles"] and o["size_presets"][0] == [1, 50]
+
+
+def test_structured_overrides_set_exact_values(tmp_path):
+    c, _ = build(tmp_path)
+    r = c.post("/api/missions", json={"prompt": "We sell compliance tooling to FinTech companies. Evaluate entry into United Kingdom.",
+                                      "overrides": {"employee_min": 50, "employee_max": 500, "annual_contract_value": 12000,
+                                                    "currency": "GBP", "target_buyer_roles": ["CEO", "CTO"],
+                                                    "product_name": "ComplianceCloud"}})
+    mid = r.json()["mission_id"]
+    assert wait_done(c, mid)["status"] == "done"
+    b = c.get(f"/api/missions/{mid}").json()["brief"]
+    assert (b["employee_min"], b["employee_max"], b["annual_contract_value"], b["currency"]) == (50, 500, 12000, "GBP")
+    assert b["product_name"] == "ComplianceCloud" and b["target_buyer_roles"] == ["CEO", "CTO"]

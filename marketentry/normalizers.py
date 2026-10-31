@@ -27,12 +27,26 @@ COMPANY_FIELDS: dict[str, tuple[str, tuple[str, ...]]] = {
     "last_funding_date": ("text", ("funding.last_fundraise_date",)),
 }
 CLAIM_LABEL = {
-    "name": "Company name", "domain": "Primary domain", "country": "HQ country (provider code)",
-    "industry": "Industry", "employee_count": "Headcount (total)", "employee_range": "Employee range",
-    "headcount_growth_6m": "6-month headcount growth %", "headcount_growth_12m": "12-month headcount growth %",
-    "open_roles": "Open roles", "funding_total": "Total funding (USD)", "last_funding_date": "Last fundraise date",
-    "linkedin_url": "Professional-network URL", "hq_location": "HQ location", "description": "Description",
+    "name": "Company name", "domain": "Website", "country": "Country (ISO code)",
+    "industry": "Industry", "employee_count": "Headcount", "employee_range": "Employee range",
+    "headcount_growth_6m": "Team growth, last 6 months", "headcount_growth_12m": "Team growth, last 12 months",
+    "open_roles": "Open jobs", "funding_total": "Total funding (USD)", "last_funding_date": "Last funding date",
+    "linkedin_url": "LinkedIn page", "hq_location": "Headquarters", "description": "Company description",
 }
+
+
+def _readable(field: str, value: Any) -> str:
+    """Display form of a value inside a claim sentence; the exact value is kept in Evidence.value_observed."""
+    if isinstance(value, float):
+        if field.startswith("headcount_growth"):
+            return f"{value:+.1f}%"
+        if field == "funding_total":
+            return f"{value:,.0f}"
+        return f"{value:,.1f}"
+    if isinstance(value, int):
+        return f"{value:,}"
+    text = str(value)
+    return text if len(text) <= 120 else text[:117] + "..."
 COVERAGE_FIELDS = ("domain", "country", "industry", "employee_count", "headcount_growth_6m",
                    "open_roles", "funding_total", "description")
 # fields whose provider path is compared/merged across search+enrich
@@ -150,7 +164,7 @@ def company_evidence(raw: dict, rec: CompanyRecord, ledger: EvidenceLedger, *, s
         extra = {"retrieved_at_utc": retrieved_at} if retrieved_at else {}
         out.append(ledger.add(
             subject_type="company", subject_id=rec.company_id or rec.name,
-            claim=f"{CLAIM_LABEL.get(field, field)}: {value}", source_kind=source_kind,
+            claim=f"{CLAIM_LABEL.get(field, field)}: {_readable(field, value)}", source_kind=source_kind,
             source_record_id=rec.company_id, field_path=path, raw_ref=raw_ref,
             value_observed=str(value), status="supported", notes="provider-reported", **extra))
     return out

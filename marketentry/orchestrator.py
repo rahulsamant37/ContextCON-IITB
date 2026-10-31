@@ -252,7 +252,8 @@ class Mission:
         d.people = people
         d.warnings.extend(warns)
         if warns:
-            st.status, st.warning = "warning", f"{len(warns)} account(s) without verified buyers or with failed searches"
+            st.status, st.warning = "warning", (f"No decision-maker found at {len(warns)} "
+                                                f"compan{'y' if len(warns) == 1 else 'ies'}; they stay in the pipeline as tasks")
         updated = []
         for c in d.companies:
             if c.company_id in status:

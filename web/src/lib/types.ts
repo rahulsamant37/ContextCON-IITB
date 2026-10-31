@@ -63,3 +63,4 @@ export interface CrmTask { id: number; company_id: number | null; task_type: str
 export interface Crm { companies: CrmCompany[]; tasks: CrmTask[]; people: { id: number; company_id: number; name: string; title: string | null }[]; stages: string[]; task_statuses: string[]; counts: Record<string, number> }
 export interface AccountDetail { account: Account; breakdown: { component: string; max: number; points: number | string }[]; evidence: Evidence[]; people: Person[] }
 export interface SourceExcerpt { evidence_id: string; claim: string; status: EvStatus; notes: string; field_path: string | null; retrieved_at_utc: string; raw_file: string | null; claimed_value: string | null; value_in_source: unknown[] | null; note?: string }
+export interface Options { countries: string[]; currencies: string[]; sectors: string[]; roles: string[]; size_presets: [number, number | null][] }

@@ -1,31 +1,39 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
-import { CheckCircle2, XCircle } from "lucide-react";
-import { Callout, Card, CardHeader, Skeleton } from "@/components/ui";
+import { Card, CardHeader, Notice, PageHeader, Pill, Skeleton } from "@/components/ui";
 import { api } from "@/lib/api";
 
-const LABEL: Record<string, string> = { max_credits_per_mission: "Credit cap per mission", max_company_enrichments: "Accounts enriched", max_company_search_results: "Candidates fetched", max_buyer_searches: "Accounts searched for buyers" };
-
-const Row = ({ ok, label, hint }: { ok: boolean; label: string; hint: string }) => (
-  <li className="flex items-center gap-3 px-5 py-3 text-sm">{ok ? <CheckCircle2 className="text-good" size={18} /> : <XCircle className="text-bad" size={18} />}<div><div className="font-medium">{label}</div><div className="text-xs text-muted">{hint}</div></div></li>
-);
+const LIMITS: Record<string, [string, string]> = {
+  max_credits_per_mission: ["Spending limit per research", "Research stops requesting data at this limit and keeps what it found."],
+  max_company_search_results: ["Companies reviewed", "How many matching companies are scored per research."],
+  max_company_enrichments: ["Companies researched in depth", "Detailed data (growth, hiring, funding) is collected for the best matches."],
+  max_buyer_searches: ["Companies searched for decision-makers", "Searched in ranked order until enough contacts are found."],
+};
 
 export default function SettingsPage() {
   const q = useQuery({ queryKey: ["settings"], queryFn: api.settings });
   if (q.isLoading) return <Skeleton className="h-64" />;
-  if (q.error || !q.data) return <Callout tone="bad" title="Cannot reach the server">{(q.error as Error | null)?.message}</Callout>;
+  if (q.error || !q.data) return <Notice tone="bad" title="Can't reach the server">{(q.error as Error | null)?.message}</Notice>;
   const s = q.data;
   return (
-    <div className="mx-auto max-w-3xl space-y-5">
-      <h1 className="text-2xl font-semibold">Settings</h1>
-      <Card><CardHeader title="Connections" sub="Keys are read from the server environment. They are never sent to this page or stored in results." />
-        <ul className="divide-y divide-border">
-          <Row ok={s.crustdata_key_set} label="Crustdata API" hint={s.crustdata_key_set ? "Key configured on the server." : "Set CRUSTDATA_API_KEY on the server (or use offline replay)."} />
-          <Row ok={s.llm_key_set} label={`Language model (${s.llm_model})`} hint={s.llm_key_set ? "Used only to parse your text and polish draft wording; numbers and facts never come from it." : "Optional. Without a key, rules and templates are used."} />
-        </ul></Card>
-      <Card><CardHeader title="Cost controls" sub={`A typical mission costs about ${s.estimate.typical} credits.`} />
-        <dl className="divide-y divide-border">{Object.entries(s.caps).map(([k, v]) => <div key={k} className="flex justify-between px-5 py-2.5 text-sm"><dt className="text-muted">{LABEL[k] ?? k}</dt><dd className="font-medium tabular-nums">{v}</dd></div>)}</dl>
-        <p className="px-5 pb-4 text-xs text-muted">Caps are set on the server and enforced before every call; a run stops spending when it reaches the cap and keeps partial results.</p></Card>
+    <div className="max-w-3xl">
+      <PageHeader title="Settings" description="Connections and limits for this workspace." />
+      <div className="space-y-6">
+        <Card>
+          <CardHeader title="Connections" description="Keys are stored on the server and are never shown in the app or included in reports." />
+          <ul className="divide-y divide-line">
+            <li className="flex items-center justify-between gap-4 px-5 py-4"><div><div className="text-sm font-medium">Company and people data</div><div className="text-[13px] text-muted">Crustdata. Required for new research (demo mode works without it).</div></div>
+              <Pill tone={s.crustdata_key_set ? "ok" : "bad"}>{s.crustdata_key_set ? "Connected" : "Not connected"}</Pill></li>
+            <li className="flex items-center justify-between gap-4 px-5 py-4"><div><div className="text-sm font-medium">AI writing assistant</div><div className="text-[13px] text-muted">Optional. Reads free-text briefs and polishes draft messages. Never produces numbers or facts.</div></div>
+              <Pill tone={s.llm_key_set ? "ok" : "neutral"}>{s.llm_key_set ? "Connected" : "Off"}</Pill></li>
+          </ul>
+        </Card>
+        <Card>
+          <CardHeader title="Limits" description={`A typical research uses about ${Math.round(s.estimate.typical)} credits.`} />
+          <dl className="divide-y divide-line">{Object.entries(s.caps).map(([k, v]) => (
+            <div key={k} className="flex items-center justify-between gap-4 px-5 py-4"><div><dt className="text-sm font-medium">{LIMITS[k]?.[0] ?? k}</dt><dd className="text-[13px] text-muted">{LIMITS[k]?.[1]}</dd></div><div className="tabular text-sm font-semibold">{v.toLocaleString()}</div></div>))}</dl>
+        </Card>
+      </div>
     </div>
   );
 }

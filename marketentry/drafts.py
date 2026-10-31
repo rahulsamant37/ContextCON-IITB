@@ -12,6 +12,10 @@ from .llm import LLMClient
 FOOTER = "[DRAFT — UNSENT. Stored locally only; not sent to any external party.]"
 
 
+GAP_LABEL = {"hiring": "hiring", "growth": "team growth", "need": "product relevance", "buyer": "decision-maker",
+             "icp_country": "country", "icp_headcount": "company size", "icp_sector": "industry"}
+
+
 @dataclass
 class TaskSpec:
     task_key: str
@@ -68,9 +72,9 @@ def plan_tasks(companies: list[CompanyRecord], people: dict[str, list[PersonReco
                evidence: dict[str, Evidence], llm: LLMClient | None = None) -> list[TaskSpec]:
     """people is keyed by company_id (or account_key for unresolved)."""
     specs: list[TaskSpec] = [
-        TaskSpec("mission|checklist|acv", None, "launch_checklist", "Confirm the client-supplied ACV and currency before sharing sizing", "todo"),
-        TaskSpec("mission|checklist|buyers", None, "launch_checklist", "Manually verify buyer identities before any outreach", "todo"),
-        TaskSpec("mission|checklist|coverage", None, "launch_checklist", "Review accounts flagged 'unknown:*' and unresolved identities", "todo"),
+        TaskSpec("mission|checklist|acv", None, "launch_checklist", "Confirm your contract value before sharing the market estimate", "todo"),
+        TaskSpec("mission|checklist|buyers", None, "launch_checklist", "Check each decision-maker yourself before reaching out", "todo"),
+        TaskSpec("mission|checklist|coverage", None, "launch_checklist", "Review companies with missing information", "todo"),
     ]
     for c in companies:
         if c.wave is None:
@@ -78,12 +82,12 @@ def plan_tasks(companies: list[CompanyRecord], people: dict[str, list[PersonReco
         ak = account_key(c)
         contacts = [p for p in people.get(c.company_id or ak, []) if p.employer_verified][: brief.max_contacts_per_company]
         if c.wave == "Research Needed":
-            gaps = ", ".join(f[8:] for f in c.flags if f.startswith("unknown:")) or "identity/fit evidence"
-            specs.append(TaskSpec(f"{ak}|research", ak, "research", f"Complete research for {c.name}: missing {gaps}", "todo"))
+            gaps = ", ".join(GAP_LABEL.get(f[8:], f[8:]) for f in c.flags if f.startswith("unknown:")) or "company identity"
+            specs.append(TaskSpec(f"{ak}|research", ak, "research", f"Fill in missing information for {c.name} ({gaps})", "todo"))
             continue
-        specs.append(TaskSpec(f"{ak}|qualify", ak, "qualify", f"Review evidence and fit for {c.name} ({c.wave})", "todo"))
+        specs.append(TaskSpec(f"{ak}|qualify", ak, "qualify", f"Review {c.name} and decide whether to pursue", "todo"))
         if not contacts:
-            specs.append(TaskSpec(f"{ak}|find_buyer", ak, "research", f"Find a verified buyer at {c.name} (none found)", "todo"))
+            specs.append(TaskSpec(f"{ak}|find_buyer", ak, "research", f"Find a decision-maker at {c.name}", "todo"))
         for p in contacts:
             text, used = template_draft(c, p, brief, evidence)
             text = _safe_polish(text, used, llm) or text

@@ -90,7 +90,7 @@ def test_contradiction_between_search_and_enrich_is_detected():
     for e in ledger.items:
         e.status = "supported"
     found = find_contradictions(ledger.items)
-    assert any("Headcount (total)" in c for c in found)
+    assert any("Headcount" in c for c in found)
     conflicted = [e for e in ledger.items if e.status == "conflicting"]
     assert len(conflicted) == 2 and conflicted[0].contradiction_with == [conflicted[1].evidence_id]
 

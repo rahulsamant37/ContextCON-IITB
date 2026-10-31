@@ -1,4 +1,4 @@
-import type { AccountDetail, Crm, Evidence, Mission, Preview, PublicSettings, SourceExcerpt, Summary, ToolRun } from "./types";
+import type { Options, AccountDetail, Crm, Evidence, Mission, Preview, PublicSettings, SourceExcerpt, Summary, ToolRun } from "./types";
 
 export const API = process.env.NEXT_PUBLIC_API_URL ?? "http://127.0.0.1:8000";
 
@@ -25,12 +25,13 @@ export interface RunOptions { replay: boolean; simulate_failure: boolean; use_ll
 
 export const api = {
   settings: () => req<PublicSettings>("/api/settings"),
+  options: () => req<Options>("/api/options"),
   preview: (prompt: string, use_llm = true) => req<Preview>("/api/briefs/preview", { method: "POST", body: JSON.stringify({ prompt, use_llm }) }),
   create: (prompt: string, o: RunOptions, overrides?: Record<string, unknown>) =>
     req<{ mission_id: string; status: string }>("/api/missions", { method: "POST", body: JSON.stringify({ prompt, overrides, ...o }) }),
   list: () => req<{ running: { mission_id: string; status: string; prompt: string; created_at: string }[]; missions: Summary[] }>("/api/missions"),
   mission: (id: string) => req<Mission>(`/api/missions/${id}`),
-  status: (id: string) => req<{ status: string; state: string | null; error: string | null }>(`/api/missions/${id}/status`),
+  status: (id: string) => req<{ status: string; state: string | null; error: string | null; prompt?: string | null }>(`/api/missions/${id}/status`),
   account: (id: string, cid: string) => req<AccountDetail>(`/api/missions/${id}/accounts/${cid}`),
   evidence: (id: string, p: { subject?: string; status?: string; q?: string; limit?: number; offset?: number }) => {
     const qs = new URLSearchParams(Object.entries(p).filter(([, v]) => v !== undefined && v !== "").map(([k, v]) => [k, String(v)]));

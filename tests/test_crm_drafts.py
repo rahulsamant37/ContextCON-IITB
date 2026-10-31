@@ -135,7 +135,7 @@ def test_unverified_person_gets_no_draft():
     ceo2 = ceo.model_copy(update={"employer_verified": False})
     specs = plan_tasks(comps, {"6507": [ceo2]}, brief(), {e.evidence_id: e for e in ledger.items})
     assert not any(s.task_type == "outreach_draft" for s in specs)
-    assert any(s.task_type == "research" and "Find a verified buyer" in s.title for s in specs)
+    assert any(s.task_type == "research" and "Find a decision-maker" in s.title for s in specs)
 
 
 def _llm(text):

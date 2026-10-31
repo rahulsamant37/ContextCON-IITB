@@ -1,41 +1,40 @@
 "use client";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { ArrowLeft, Check, Copy, Save } from "lucide-react";
-import Link from "next/link";
+import clsx from "clsx";
+import { Check, Copy, Mail, Users } from "lucide-react";
 import { useParams } from "next/navigation";
 import { useState } from "react";
-import { Badge, Button, Callout, Card, CardHeader, Empty, Skeleton, statusTone, waveTone } from "@/components/ui";
+import { Button, Card, CardHeader, Field, Notice, PageHeader, Pill, Segmented, SidePanel, Skeleton, inputCls, useToast } from "@/components/ui";
 import { api } from "@/lib/api";
+import { priority } from "@/lib/format";
 import type { Crm, CrmCompany, CrmTask } from "@/lib/types";
 
-function DraftEditor({ id, t, who }: { id: string; t: CrmTask; who: string }) {
-  const qc = useQueryClient();
+function DraftEditor({ id, t }: { id: string; t: CrmTask }) {
+  const qc = useQueryClient(); const toast = useToast();
   const [text, setText] = useState(t.draft_text ?? "");
   const [copied, setCopied] = useState(false);
-  const save = useMutation({ mutationFn: (body: { status?: string; draft_text?: string }) => api.patchTask(id, t.id, body), onSuccess: () => qc.invalidateQueries({ queryKey: ["crm", id] }) });
-  const dirty = text !== (t.draft_text ?? "");
+  const save = useMutation({ mutationFn: () => api.patchTask(id, t.id, { draft_text: text }), onSuccess: () => { toast("Draft saved", "ok"); qc.invalidateQueries({ queryKey: ["crm", id] }); } });
   return (
-    <Card className="p-4" data-testid="draft-card">
-      <div className="mb-2 flex flex-wrap items-center justify-between gap-2"><div className="text-sm font-medium">{t.title}</div><Badge tone="warn">UNSENT draft · {who}</Badge></div>
-      <textarea aria-label={`Draft for ${t.title}`} value={text} onChange={(e) => setText(e.target.value)} rows={7} className="w-full resize-y rounded-lg border border-border bg-surface px-3 py-2 font-mono text-xs leading-relaxed focus:border-brand" />
-      <div className="mt-2 flex flex-wrap items-center gap-2">
-        <Button size="sm" disabled={!dirty || save.isPending} onClick={() => save.mutate({ draft_text: text })}><Save size={14} />Save edits</Button>
-        <Button size="sm" variant="secondary" onClick={async () => { await navigator.clipboard.writeText(text); setCopied(true); setTimeout(() => setCopied(false), 1500); }}>{copied ? <Check size={14} /> : <Copy size={14} />}{copied ? "Copied" : "Copy"}</Button>
-        <select aria-label="Task status" value={t.status} onChange={(e) => save.mutate({ status: e.target.value })} className="ml-auto rounded-lg border border-border bg-surface px-2 py-1 text-xs">
-          {["draft_unsent", "in_progress", "done", "skipped"].map((s) => <option key={s} value={s}>{s.replace("_", " ")}</option>)}</select>
+    <div className="rounded-md border border-line" data-testid="draft-card">
+      <div className="flex items-center justify-between gap-2 border-b border-line px-3 py-2"><span className="text-[13px] font-medium">{t.title.replace(/^Draft outreach to /, "To ")}</span><Pill tone="warn" dot={false}>Not sent</Pill></div>
+      <textarea aria-label={`Draft: ${t.title}`} value={text} onChange={(e) => setText(e.target.value)} rows={8} className="block w-full resize-y border-0 bg-surface px-3 py-2.5 text-[13px] leading-relaxed text-ink focus:outline-none" />
+      <div className="flex items-center gap-2 border-t border-line px-3 py-2">
+        <Button size="sm" disabled={text === (t.draft_text ?? "") || save.isPending} onClick={() => save.mutate()}>Save edits</Button>
+        <Button size="sm" variant="secondary" onClick={async () => { await navigator.clipboard.writeText(text); setCopied(true); toast("Copied to clipboard"); setTimeout(() => setCopied(false), 1500); }}>{copied ? <Check size={14} /> : <Copy size={14} />}Copy</Button>
+        <span className="ml-auto text-xs text-muted">Send it yourself from your email</span>
       </div>
-      <p className="mt-2 text-xs text-muted">Stored locally. There is no send button: a person reviews, personalises and sends from their own tools.</p>
-    </Card>
+    </div>
   );
 }
 
-export default function CrmPage() {
+export default function PipelinePage() {
   const { id } = useParams<{ id: string }>();
-  const qc = useQueryClient();
+  const qc = useQueryClient(); const toast = useToast();
   const q = useQuery({ queryKey: ["crm", id], queryFn: () => api.crm(id) });
-  const [seg, setSeg] = useState("all");
+  const mission = useQuery({ queryKey: ["mission", id], queryFn: () => api.mission(id) });
+  const [seg, setSeg] = useState<"all" | "Wave 1" | "Wave 2" | "Research Needed">("all");
   const [dragId, setDragId] = useState<number | null>(null);
-  const [allTasks, setAllTasks] = useState(false);
+  const [openId, setOpenId] = useState<number | null>(null);
   const move = useMutation({
     mutationFn: ({ rowId, stage }: { rowId: number; stage: string }) => api.setStage(id, rowId, stage),
     onMutate: async ({ rowId, stage }) => {
@@ -44,61 +43,90 @@ export default function CrmPage() {
       if (prev) qc.setQueryData<Crm>(["crm", id], { ...prev, companies: prev.companies.map((c) => (c.id === rowId ? { ...c, stage } : c)) });
       return { prev };
     },
-    onError: (_e, _v, ctx) => ctx?.prev && qc.setQueryData(["crm", id], ctx.prev),
+    onSuccess: (_d, v) => toast(`Moved to ${v.stage}`, "ok"),
+    onError: (_e, _v, ctx) => { if (ctx?.prev) qc.setQueryData(["crm", id], ctx.prev); toast("Couldn't update the stage", "bad"); },
     onSettled: () => qc.invalidateQueries({ queryKey: ["crm", id] }),
   });
+  const toggleTask = useMutation({ mutationFn: ({ t, done }: { t: CrmTask; done: boolean }) => api.patchTask(id, t.id, { status: done ? "done" : "todo" }), onSettled: () => qc.invalidateQueries({ queryKey: ["crm", id] }) });
 
-  if (q.isLoading) return <div className="space-y-3"><Skeleton className="h-10 w-1/3" /><Skeleton className="h-72" /></div>;
-  if (q.error || !q.data) return <Callout tone="bad" title="Could not load the CRM">{(q.error as Error | null)?.message}</Callout>;
-  const crm = q.data;
-  const byRow = new Map(crm.companies.map((c) => [c.id, c]));
+  if (q.isLoading) return <div className="space-y-4"><Skeleton className="h-8 w-64" /><Skeleton className="h-96" /></div>;
+  if (q.error || !q.data) return <Notice tone="bad" title="Couldn't load the pipeline">{(q.error as Error | null)?.message}</Notice>;
+  const crm = q.data; const b = mission.data?.brief;
+  const market = b ? `${b.target_industry} in ${b.target_country}` : "Research";
   const shown = crm.companies.filter((c) => seg === "all" || c.segment === seg);
-  const drafts = crm.tasks.filter((t) => t.task_type === "outreach_draft");
-  const others = crm.tasks.filter((t) => t.task_type !== "outreach_draft");
+  const tasksFor = (cid: number) => crm.tasks.filter((t) => t.company_id === cid);
+  const checklist = crm.tasks.filter((t) => t.company_id == null);
+  const open = crm.companies.find((c) => c.id === openId) ?? null;
+  const openTasks = open ? tasksFor(open.id) : [];
 
   return (
-    <div className="space-y-6">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div><Link href={`/missions/${id}`} className="inline-flex items-center gap-1 text-sm text-muted hover:text-text"><ArrowLeft size={14} />Back to results</Link>
-          <h1 className="mt-1 text-2xl font-semibold">CRM board</h1>
-          <p className="text-sm text-muted">{crm.counts.companies} accounts · {crm.counts.people} contacts · {crm.counts.unsent_drafts} unsent drafts. Changes are saved to the local database.</p></div>
-        <div className="flex gap-1.5" role="group" aria-label="Segment filter">{["all", "Wave 1", "Wave 2", "Research Needed"].map((s) => (
-          <button key={s} onClick={() => setSeg(s)} className={`rounded-full border px-3 py-1 text-xs font-medium ${seg === s ? "border-brand bg-brand-soft text-brand" : "border-border hover:bg-surface-2"}`}>{s === "all" ? "All segments" : s}</button>))}</div>
+    <>
+      <PageHeader crumbs={[{ href: "/", label: "Research" }, { href: `/missions/${id}`, label: market }, { label: "Pipeline" }]} title="Pipeline"
+        description="Track each company from first look to won. Drag cards between stages or open one to read and edit its draft message. Nothing is ever sent for you." />
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+        <Segmented label="Priority filter" value={seg} onChange={setSeg} options={[{ id: "all", label: `All (${crm.companies.length})` }, { id: "Wave 1", label: "Contact first" }, { id: "Wave 2", label: "Next in line" }, { id: "Research Needed", label: "Needs research" }]} />
+        <div className="flex gap-4 text-[13px] text-muted"><span className="flex items-center gap-1.5"><Users size={14} />{crm.counts.people} decision-makers</span><span className="flex items-center gap-1.5"><Mail size={14} />{crm.counts.unsent_drafts} drafts ready</span></div>
       </div>
 
-      <div className="grid gap-3 overflow-x-auto pb-2" style={{ gridTemplateColumns: `repeat(${crm.stages.length}, minmax(13rem, 1fr))` }} data-testid="board">
+      <div className="flex gap-3 overflow-x-auto pb-3" data-testid="board">
         {crm.stages.map((stage) => {
           const col = shown.filter((c) => c.stage === stage);
           return (
-            <div key={stage} data-testid={`col-${stage}`} onDragOver={(e) => e.preventDefault()} onDrop={() => { if (dragId != null && byRow.get(dragId)?.stage !== stage) move.mutate({ rowId: dragId, stage }); setDragId(null); }}
-              className="min-h-40 rounded-xl border border-border bg-surface-2 p-2">
-              <div className="mb-2 flex items-center justify-between px-1 text-xs font-semibold uppercase tracking-wide text-muted">{stage}<span className="rounded-full bg-surface px-1.5 py-0.5">{col.length}</span></div>
-              <div className="max-h-[32rem] space-y-2 overflow-y-auto pr-0.5">{col.map((c: CrmCompany) => (
-                <div key={c.id} draggable onDragStart={() => setDragId(c.id)} onDragEnd={() => setDragId(null)} data-testid="company-card"
-                  className="cursor-grab rounded-lg border border-border bg-surface p-3 shadow-sm active:cursor-grabbing">
-                  <div className="text-sm font-medium">{c.name}</div><div className="text-xs text-muted">{c.domain ?? "unknown"}</div>
-                  <div className="mt-2 flex flex-wrap items-center gap-1.5"><Badge tone={waveTone(c.segment)}>{c.segment ?? "n/a"}</Badge><Badge tone={statusTone(c.verification_status)}>{c.verification_status}</Badge>{c.fit_score != null && <span className="text-xs tabular-nums text-muted">fit {c.fit_score}</span>}</div>
-                  <select aria-label={`Stage for ${c.name}`} value={c.stage} onChange={(e) => move.mutate({ rowId: c.id, stage: e.target.value })} className="mt-2 w-full rounded-md border border-border bg-surface px-1.5 py-1 text-xs">{crm.stages.map((s) => <option key={s}>{s}</option>)}</select>
-                </div>))}</div>
+            <div key={stage} data-testid={`col-${stage}`} onDragOver={(e) => e.preventDefault()}
+              onDrop={() => { if (dragId != null && crm.companies.find((c) => c.id === dragId)?.stage !== stage) move.mutate({ rowId: dragId, stage }); setDragId(null); }}
+              className={clsx("flex w-64 shrink-0 flex-col rounded-lg border border-line bg-subtle/60", dragId != null && "border-dashed border-line-strong")}>
+              <div className="flex items-center justify-between px-3 py-2.5 text-[13px] font-medium text-ink-2">{stage}<span className="tabular text-muted">{col.length}</span></div>
+              <div className="max-h-[30rem] flex-1 space-y-2 overflow-y-auto px-2 pb-2">
+                {col.length === 0 && <div className="rounded-md border border-dashed border-line px-3 py-6 text-center text-xs text-muted">Drop companies here</div>}
+                {col.map((c: CrmCompany) => {
+                  const p = priority(c.segment); const ts = tasksFor(c.id); const drafts = ts.filter((t) => t.task_type === "outreach_draft").length;
+                  return (
+                    <div key={c.id} role="button" tabIndex={0} draggable onDragStart={() => setDragId(c.id)} onDragEnd={() => setDragId(null)}
+                      onClick={() => setOpenId(c.id)} onKeyDown={(e) => e.key === "Enter" && setOpenId(c.id)} data-testid="company-card"
+                      className="cursor-pointer rounded-md border border-line bg-surface p-3 shadow-[0_1px_2px_rgba(0,0,0,0.04)] hover:border-line-strong">
+                      <div className="flex items-start justify-between gap-2"><div className="min-w-0 text-sm font-medium leading-snug text-ink">{c.name}</div><span className="tabular text-xs font-semibold text-ink-2">{c.fit_score ?? "—"}</span></div>
+                      <div className="mt-0.5 truncate text-xs text-muted">{c.domain ?? "No website"}</div>
+                      <div className="mt-2.5 flex items-center justify-between gap-2"><Pill tone={p.tone}>{p.label}</Pill>{drafts > 0 && <span className="flex items-center gap-1 text-xs text-muted"><Mail size={12} />{drafts}</span>}</div>
+                    </div>);
+                })}
+              </div>
             </div>);
         })}
       </div>
 
-      <section>
-        <h2 className="mb-2 text-lg font-semibold">Outreach drafts <span className="text-sm font-normal text-muted">({drafts.length}, none sent)</span></h2>
-        {drafts.length === 0 ? <Empty title="No drafts yet">Drafts are created for accounts that have a verified buyer.</Empty> : (
-          <div className="grid gap-4 lg:grid-cols-2">{drafts.map((t) => <DraftEditor key={t.id} id={id} t={t} who={byRow.get(t.company_id ?? -1)?.name ?? "account"} />)}</div>)}
-      </section>
+      {checklist.length > 0 && (
+        <Card className="mt-6 max-w-2xl">
+          <CardHeader title="Before you reach out" description="A short checklist for this market." />
+          <ul className="divide-y divide-line" data-testid="tasks">{checklist.map((t) => (
+            <li key={t.id}><label className="flex cursor-pointer items-center gap-3 px-5 py-3 text-sm">
+              <input type="checkbox" className="h-4 w-4" checked={t.status === "done"} onChange={(e) => toggleTask.mutate({ t, done: e.target.checked })} />
+              <span className={t.status === "done" ? "text-muted line-through" : "text-ink"}>{t.title}</span></label></li>))}</ul>
+        </Card>)}
 
-      <section>
-        <Card><CardHeader title={`Tasks and checklist (${others.length})`} sub="Research gaps, qualification and launch-checklist items" />
-          <ul className="divide-y divide-border" data-testid="tasks">{(allTasks ? others : others.slice(0, 8)).map((t) => (
-            <li key={t.id} className="flex items-center gap-3 px-5 py-2.5 text-sm">
-              <input type="checkbox" aria-label={`Mark done: ${t.title}`} checked={t.status === "done"} onChange={(e) => api.patchTask(id, t.id, { status: e.target.checked ? "done" : "todo" }).then(() => qc.invalidateQueries({ queryKey: ["crm", id] }))} />
-              <span className={t.status === "done" ? "text-muted line-through" : ""}>{t.title}</span>
-              <Badge className="ml-auto" tone="neutral">{t.task_type.replace("_", " ")}</Badge></li>))}</ul>
-          {others.length > 8 && <button onClick={() => setAllTasks(!allTasks)} className="w-full border-t border-border px-5 py-2.5 text-sm font-medium text-brand hover:bg-surface-2">{allTasks ? "Show fewer" : `Show all ${others.length} tasks`}</button>}</Card>
-      </section>
-    </div>
+      <SidePanel open={!!open} onClose={() => setOpenId(null)} title={open?.name ?? ""} subtitle={open?.domain ?? undefined}>
+        {open && (
+          <div className="space-y-6">
+            <div className="grid grid-cols-2 gap-4">
+              <Field label="Stage" htmlFor="stage"><select id="stage" data-testid="stage-select" className={inputCls} value={open.stage} onChange={(e) => move.mutate({ rowId: open.id, stage: e.target.value })}>{crm.stages.map((s) => <option key={s}>{s}</option>)}</select></Field>
+              <div><div className="mb-1.5 text-[13px] font-medium text-ink-2">Priority</div><Pill tone={priority(open.segment).tone}>{priority(open.segment).label}</Pill><div className="mt-1 text-xs text-muted">Match score {open.fit_score ?? "—"}</div></div>
+            </div>
+            <section>
+              <h3 className="mb-2 text-sm font-semibold">Decision-makers</h3>
+              {crm.people.filter((p) => p.company_id === open.id).length === 0 ? <p className="text-[13px] text-muted">None found yet.</p> : (
+                <ul className="space-y-1.5">{crm.people.filter((p) => p.company_id === open.id).map((p) => (
+                  <li key={p.id} className="flex items-center justify-between rounded-md border border-line px-3 py-2 text-sm"><span className="font-medium">{p.name}</span><span className="text-[13px] text-muted">{p.title}</span></li>))}</ul>)}
+            </section>
+            {openTasks.filter((t) => t.task_type === "outreach_draft").length > 0 && (
+              <section className="space-y-3"><h3 className="text-sm font-semibold">Draft messages</h3>
+                {openTasks.filter((t) => t.task_type === "outreach_draft").map((t) => <DraftEditor key={`${t.id}-${t.draft_text?.length}`} id={id} t={t} />)}</section>)}
+            {openTasks.filter((t) => t.task_type !== "outreach_draft").length > 0 && (
+              <section><h3 className="mb-2 text-sm font-semibold">To do</h3>
+                <ul className="space-y-1">{openTasks.filter((t) => t.task_type !== "outreach_draft").map((t) => (
+                  <li key={t.id}><label className="flex cursor-pointer items-start gap-3 rounded-md px-1 py-1.5 text-sm hover:bg-subtle">
+                    <input type="checkbox" className="mt-0.5 h-4 w-4" checked={t.status === "done"} onChange={(e) => toggleTask.mutate({ t, done: e.target.checked })} />
+                    <span className={t.status === "done" ? "text-muted line-through" : ""}>{t.title}</span></label></li>))}</ul></section>)}
+          </div>)}
+      </SidePanel>
+    </>
   );
 }

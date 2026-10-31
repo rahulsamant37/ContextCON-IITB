@@ -52,22 +52,23 @@ def recommendation(d) -> dict[str, str]:
 
 def risks(d) -> list[str]:
     sl = d.companies[: d.brief.max_target_accounts]
-    out = ["Crustdata is an indexed company/person graph, not a registry: observed counts may under-cover the market.",
-           "Market size = observed indexed count x client-supplied ACV. It is illustrative, not TAM or forecast revenue.",
-           "Published professional data can be stale; unverified or missing buyers stay marked as such."]
+    out = ["Company counts come from Crustdata's database, which may not include every business in this market.",
+           "Market value is the number of companies found multiplied by your contract value. It is a rough guide, not a revenue forecast.",
+           "Public job and company data can be out of date. Check key details before you reach out."]
     nb = sum(c.buyer_status == "buyer_not_found" for c in sl)
     ns = sum(c.buyer_status == "not_searched" for c in sl)
     if nb:
-        out.append(f"{nb} searched account(s) have no verified buyer in the target roles (buyer_not_found).")
+        out.append(f"No decision-maker in your buyer roles was found at {nb} of the companies searched.")
     if ns:
-        out.append(f"{ns} shortlisted account(s) were not searched for buyers (the search stops once {d.brief.max_buyer_accounts} accounts have verified buyers, to cap cost).")
+        out.append(f"{ns} lower-ranked compan{'y was' if ns == 1 else 'ies were'} not searched for decision-makers; the search stops once "
+                   f"{d.brief.max_buyer_accounts} companies have a confirmed contact, to keep costs down.")
     unk = sum(1 for c in sl if "unknown:hiring" in c.flags)
     if unk:
-        out.append(f"Hiring signal is unknown for {unk} account(s): the provider reports no tracked postings, which is not the same as zero openings.")
+        out.append(f"Hiring activity isn't available for {unk} compan{'y' if unk == 1 else 'ies'}. That means no job data was found, not that they aren't hiring.")
     if d.verification and d.verification.contradictions:
-        out.append(f"{len(d.verification.contradictions)} contradictory data point(s) between sources are flagged in the evidence log.")
+        out.append(f"{len(d.verification.contradictions)} data point(s) differ between sources; both values are kept in the source log.")
     if d.brief.annual_contract_value is None:
-        out.append("No ACV was supplied, so no monetary estimates are shown.")
+        out.append("No contract value was given, so no market value is shown.")
     return out
 
 
