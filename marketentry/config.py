@@ -4,17 +4,17 @@ from __future__ import annotations
 from functools import lru_cache
 from pathlib import Path
 
-from pydantic import SecretStr
+from pydantic import AliasChoices, Field, SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 ROOT = Path(__file__).resolve().parent.parent
 
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=ROOT / ".env", extra="ignore")
+    model_config = SettingsConfigDict(env_file=ROOT / ".env", extra="ignore", populate_by_name=True)
 
     crustdata_api_key: SecretStr | None = None
-    llm_api_key: SecretStr | None = None
+    llm_api_key: SecretStr | None = Field(default=None, validation_alias=AliasChoices("LLM_API_KEY", "GROQ_API_KEY"))
 
     base_url: str = "https://api.crustdata.com"
     api_version: str = "2025-11-01"
@@ -50,7 +50,7 @@ class Settings(BaseSettings):
 
     # LLM = parsing + prose only. Any OpenAI-compatible endpoint (default: Groq free tier).
     llm_base_url: str = "https://api.groq.com/openai/v1"
-    llm_model: str = "llama-3.3-70b-versatile"
+    llm_model: str = "openai/gpt-oss-20b"
     llm_timeout_s: float = 30.0
     llm_disabled: bool = False  # force rules/template fallback
 
