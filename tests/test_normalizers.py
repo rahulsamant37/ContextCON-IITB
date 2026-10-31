@@ -179,3 +179,14 @@ def test_helpers():
     assert domain_from_url("http://www.getbits.app/x?y=1") == "getbits.app" and domain_from_url(None) is None
     assert country_matches("United Kingdom", "GBR") is True and country_matches("Germany", "GBR") is False
     assert country_matches("United Kingdom", None) is None and country_matches("Narnia", "XYZ") is None
+
+
+def test_role_match_requires_contiguous_words_not_scattered_ones():
+    # live false positives: these are Sales leaders, not Operations leaders
+    assert match_role("VP Sales and Operations Nordics and UK", ["VP Operations"]) is None
+    assert match_role("VP Global Sales Operations", ["VP Operations"]) is None
+    assert match_role("VP Operations, Nordics", ["VP Operations"]) == "VP Operations"
+    assert match_role("Senior Vice President Operations", ["VP Operations"]) == "VP Operations"
+    assert match_role("Co-Founder & CTO", ["CTO"]) == "CTO"
+    assert match_role("Head of Compliance and MLRO", ["Head of Compliance"]) == "Head of Compliance"
+    assert match_role("Compliance Head", ["Head of Compliance"]) is None

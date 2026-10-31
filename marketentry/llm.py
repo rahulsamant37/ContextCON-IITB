@@ -30,6 +30,8 @@ class LLMClient:
                       "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}]}
         if json_mode:
             body["response_format"] = {"type": "json_object"}
+        if "gpt-oss" in self.s.llm_model:  # reasoning model: hidden reasoning tokens count against max_tokens
+            body["reasoning_effort"] = "low"
         t0 = time.monotonic()
         err = None
         for attempt in (1, 2, 3):
@@ -38,6 +40,9 @@ class LLMClient:
                                     headers={"Authorization": f"Bearer {self.s.llm_key()}"})
                 if r.status_code == 200:
                     text = r.json()["choices"][0]["message"]["content"]
+                    if not (text or "").strip():
+                        err = "empty_response"
+                        break
                     self.runs.append({"purpose": purpose, "model": self.s.llm_model, "ok": True, "attempt": attempt,
                                       "duration_ms": int((time.monotonic() - t0) * 1000)})
                     return text
@@ -52,7 +57,7 @@ class LLMClient:
                           "duration_ms": int((time.monotonic() - t0) * 1000)})
         return None
 
-    def complete_json(self, system: str, user: str, *, purpose: str, max_tokens: int = 700) -> dict | None:
+    def complete_json(self, system: str, user: str, *, purpose: str, max_tokens: int = 1200) -> dict | None:
         text = self._chat(system, user, json_mode=True, max_tokens=max_tokens, purpose=purpose)
         if text is None:
             return None
@@ -63,6 +68,6 @@ class LLMClient:
             self.runs[-1].update(ok=False, error_type="invalid_json")
             return None
 
-    def complete_text(self, system: str, user: str, *, purpose: str, max_tokens: int = 400) -> str | None:
+    def complete_text(self, system: str, user: str, *, purpose: str, max_tokens: int = 1200) -> str | None:
         t = self._chat(system, user, json_mode=False, max_tokens=max_tokens, purpose=purpose)
         return t.strip() if t else None

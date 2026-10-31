@@ -226,22 +226,23 @@ _ABBREV = {"ciso": "chief information security officer", "cto": "chief technolog
 _STOP = {"of", "the", "and", "for", "&", "at"}
 
 
-def _tokens(text: str) -> set[str]:
-    words = re.findall(r"[a-z0-9]+", text.lower())
-    expanded: list[str] = []
-    for w in words:
-        expanded.extend(_ABBREV.get(w, w).split())
-    return {w for w in expanded if w not in _STOP}
+def _seq(text: str) -> list[str]:
+    """Lower-cased word sequence with abbreviations expanded and filler words removed (order preserved)."""
+    out: list[str] = []
+    for w in re.findall(r"[a-z0-9]+", text.lower()):
+        out.extend(_ABBREV.get(w, w).split())
+    return [w for w in out if w not in _STOP]
 
 
 def match_role(title: str | None, roles: list[str]) -> str | None:
-    """First target role whose tokens are all present in the title (abbreviations expanded)."""
+    """First target role whose words appear CONTIGUOUSLY and in order in the title (abbreviations expanded).
+    'VP Operations' matches 'VP Operations, Nordics' but not 'VP Sales and Operations' (a different function)."""
     if not title:
         return None
-    t = _tokens(title)
+    t = _seq(title)
     for role in roles:
-        r = _tokens(role)
-        if r and r <= t:
+        r = _seq(role)
+        if r and any(t[i:i + len(r)] == r for i in range(len(t) - len(r) + 1)):
             return role
     return None
 

@@ -413,6 +413,9 @@ class Mission:
                 d.state = "partial"
         else:
             self._status("H_execution").status = "skipped"
+        d.llm_runs = list(self.llm.runs)  # re-snapshot: draft polishing happens inside step H
+        d.warnings.extend(w for w in (f"LLM {r['purpose']} failed ({r.get('error_type')}); rules/template used"
+                                      for r in d.llm_runs if not r.get("ok")) if w not in d.warnings)
         d.finished_at = utcnow()
         return d
 
