@@ -1,0 +1,78 @@
+{
+  "name": "company_search_bc88efd338",
+  "endpoint": "POST /company/search",
+  "request": {
+    "filters": {
+      "op": "and",
+      "conditions": [
+        {
+          "field": "locations.country",
+          "type": "=",
+          "value": "Germany"
+        },
+        {
+          "field": "taxonomy.categories",
+          "type": "in",
+          "value": [
+            "Logistics",
+            "Transportation and logistics",
+            "Transportation & Logistics"
+          ]
+        },
+        {
+          "field": "headcount.total",
+          "type": "=>",
+          "value": 100
+        },
+        {
+          "field": "headcount.total",
+          "type": "=<",
+          "value": 1000
+        }
+      ]
+    },
+    "limit": 1,
+    "fields": [
+      "basic_info"
+    ]
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "30",
+    "x-ratelimit-remaining": "29",
+    "x-ratelimit-reset": "60",
+    "x-credits-used": "0.33"
+  },
+  "retrieved_at_utc": "2026-10-31T06:24:49.040975+00:00",
+  "body": {
+    "companies": [
+      {
+        "crustdata_company_id": 673409,
+        "basic_info": {
+          "name": "Forto",
+          "crustdata_company_id": 673409,
+          "primary_domain": "forto.com",
+          "all_domains": [
+            "forto.com"
+          ],
+          "website": "https://forto.com/en/?utm_source=linkedin&utm_medium=organic&utm_campaign=2026-profilebuttonwebsitevisit",
+          "professional_network_url": "https://www.linkedin.com/company/fortocompany",
+          "professional_network_id": "43352617",
+          "profile_name": "Forto",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/992545b6cd0f52b05b7c5a877db10a4e338a429e8b3443771388fa0e9f361e31.jpg",
+          "description": "Forto was founded with the vision to deliver a highly transparent, frictionless and sustainable digital supply chain. Forto platform technologies address the entire process stream, from offer, booking, document administration, tracking and tracing to pro-active exemption processing and analysis, supporting our customers with greater visibility, insight and control. Leading manufacturers and e-commerce brands are among the 2.500 customers using our tech-enabled offerings as part of their supply chain delivery. Headquartered in Berlin, Germany, we currently count more than 500 employees with 15 locations across Europe and Asia including offices in Berlin, Milan, Warsaw, Ho Chi Minh City, Singapore, Hong Kong, and Shanghai. Forto's privacy policy: https://forto.com/en/privacy-policy/Our imprint: https://forto.com/en/imprint/",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 2016,
+          "employee_count_range": "501-1000",
+          "markets": [
+            "PRIVATE"
+          ]
+        }
+      }
+    ],
+    "next_cursor": "H4sIALCJ5WoC_xXMTQqDMBBA4atI1l3U-TPTq5QiyZjBRWmoxoUU767dvg_eL3y3suzjnNY5PLqACiimBYAyAjCYMamQq00Se48s2YRYwQf3hNkZk0TCOBli4XDrwlqXdr2eMiDd9XWVVlt6j1a3zx-ox-ME-NVNSXgAAAA=",
+    "total_count": 413
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "name": "web_search_f1e53929bf",
+  "endpoint": "POST /web/search/live",
+  "request": {
+    "query": "AI-driven fleet-maintenance software vendors",
+    "sources": [
+      "web"
+    ],
+    "location": "DE"
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "10",
+    "x-ratelimit-remaining": "9",
+    "x-ratelimit-reset": "60",
+    "x-credits-used": "1"
+  },
+  "retrieved_at_utc": "2026-10-31T06:25:36.192468+00:00",
+  "body": {
+    "success": true,
+    "query": "AI-driven fleet-maintenance software vendors",
+    "timestamp": 1793427935828,
+    "results": [
+      {
+        "source": "web",
+        "title": "What are the top 25 AI fleet management tools in July 2026?",
+        "url": "https://www.google.com/goto?url=CAESegHrOzAVLjHS17kXN8_eeo4EdabwzeSiG_IardKHCcJvIE0a8nQdiQhkJ-l-dCSqY9huaJWiaQj32dtyOGB1kws4amfcdaZ9_jphMr2V0iPc1uy5xMuZwFUNHuSEhPO1ZRReaivad9dK12scR6FlN4tgk3skbeAl9dx-",
+        "snippet": "Intangles provides an AI-powered fleet management platform that leverages predictive analytics to monitor vehicle health, enhance safety, and optimize fleet ...",
+        "position": 1
+      },
+      {
+        "source": "web",
+        "title": "Best AI Tools for Fleet Management in 2026",
+        "url": "https://www.google.com/goto?url=CAESsAEB6zswFfxghJrsqvg1jKtDLpknvsVK6n95na2ixE_I4F2aabKKJNF_mObC5rqsRHTnbMfRW7KRklJeZ91CrrjYLFUFW9qcR2XF_v04s8BGgtFYNnUuZ3XCzC949C18h5vN917CTkqEyaXBNrw6v0291Dw951SKfPHJusWWCfTWuS9Bo2RzVUcbJUWdBb32zjqcG1s6W3uNaSJuMuykNTOVu_MHInUNvSOtMJzpspV5hA",
+        "snippet": "09.01.1405 AP — Compare the leading AI fleet management platforms including Samsara, Geotab, and Verizon Connect. Find the right solution for route optimization ...",
+        "position": 2
+      },
+      {
+        "source": "web",
+        "title": "Optimize Fleet Maintenance with AI-Powered Tools - HVI App",
+        "url": "https://heavyvehicleinspection.com/fleet-management/maintenance/maintenance-optimization-software-tools",
+        "snippet": "Revolutionize fleet maintenance with HVI's AI-powered optimization platform. Achieve 50% efficiency gains, 99.5% uptime, and 38% cost reduction through ...",
+        "position": 3
+      },
+      {
+        "source": "web",
+        "title": "Top Fleet Management Software Companies to Watch (2026)",
+        "url": "https://reach24.net/resources/blogs/top-fleet-management-software-companies/",
+        "snippet": "01.07.1404 AP — In 2026, Samsara continues to make noise with AI-driven updates, expanded safety camera integrations, and prominent customer case studies. Where ...",
+        "position": 4
+      },
+      {
+        "source": "web",
+        "title": "Best AI Tools for Fleet Management in 2026",
+        "url": "https://www.google.com/goto?url=CAEShAEB6zswFQLkTz6-QTkxXdngnXEGo6j7ltR2sutXHkpHnE-WM6GzvwwKGo_sVvxCG8LhT0b1s0Oczcv62SNIEiot6XLFnL90VqelqDvjhepQZ2Q7aAgn626QCzQIXvPOaKCim6K-TNV2m4Ld26QlriBfIPnF9wifSEy3jqQpn9wJPPp8Rb8",
+        "snippet": "18.05.1405 AP — Compare the best AI tools for fleet management by the operational problems they solve, integration fit, and the metrics that prove value ...",
+        "position": 5
+      },
+      {
+        "source": "web",
+        "title": "Fleet Maintenance Software - Prices & Reviews",
+        "url": "https://www.google.com/goto?url=CAESdgHrOzAVC1ulJgj7gu48Ffb_3joWNj_ZgDHH6T9QCLWCFIy3gf1mjD5LKprisl-SCiOgM8NVc4JZR2wB5XrnJEJM60Atz63erStiW598T850k4Xk5-fvRsLPkMW0TXKTNsFCqU-uKMS_G6IvEhAD2PEKOWsHPDo",
+        "snippet": "AI-driven maintenance & asset management platform. Mobile-first fleet maintenance software that streamlines vehicle repairs, preventive maintenance, & parts ...",
+        "position": 6
+      },
+      {
+        "source": "web",
+        "title": "It's time for fleets to move beyond dashboards",
+        "url": "https://www.google.com/goto?url=CAESzAEB6zswFfpelTnUWLK48qeGLNDHnGYVqM_81pfEoFiuukFBsWPbpWiiSWpbn8U4EXOvoeY-yMAgq_IWywJTARwCUp41ClP5AOoiqt68UsV8-2AU3PpqB--MBWMAgQ0DixABNxbP8nVzMNY6ZWoi8JXNe1w4k-d_RLMiF4jNaoI6J5Cqa3jN4gf5zq0PezcA5lT4T0E-DDGPOIBu4UjecekK3mKMumFSMe2-35SdvhHzOMVm5NexDhfVcpdvXLVsCZrG63hqJSmx7PWzLLc",
+        "snippet": "15.05.1405 AP — Fleet software is evolving beyond dashboards as AI helps automate repair approvals, maintenance workflows, and vehicle uptime decisions.",
+        "position": 7
+      },
+      {
+        "source": "web",
+        "title": "8 AI Solutions for Smarter Vehicle Maintenance in Logistics",
+        "url": "https://rtslabs.com/ai-vehicle-maintenance-logistics",
+        "snippet": "Discover how AI is revolutionizing vehicle maintenance in logistics with predictive analytics, real-time diagnostics, and automation.",
+        "position": 8
+      },
+      {
+        "source": "web",
+        "title": "Fleet management software in construction - MachineMax",
+        "url": "https://www.google.com/goto?url=CAESugEB6zswFX1j6t5zXvfE1ORlDOIYYs2ZSNdmx6391k0SaOEUcvFnb6Jm5wLFmRLOMrjCprtTItnlU5rETxRaEX0T_gab6AeRqB06qKgKwJPyrbFYBWmpXoVAHrhkTchhQ3h4sycKCGHNiKR00ZzxQypt8aiTmIPHRO_uEHBkmMKgP0Wag_QMGitThqFc7u9kLtd-Q6-IN_2NwjZvs5EOdIALJyXKso40Hz7DdvpP31QNY2CHCpwOaZhCHb8",
+        "snippet": "08.12.1402 AP — Fleet management software enhances fleet operations by providing real-time data and insights. IAV leveraged MachineMax to streamline ...",
+        "position": 9
+      },
+      {
+        "source": "web",
+        "title": "List of Top AI-Powered Fleet Maintenance Software",
+        "url": "https://www.google.com/goto?url=CAESdgHrOzAVJn4GQu_2_EgaMAQBQB95BiKoTnsO1UrHZU5NPDF9v15LKi6kjpItD5SEop-LqtKkxh0RM3KaRD7PYuFd7spgLcHJ6jcOTUcTZB-kFFmjTm1qFNzXAwrdmsPc_hrcbAlFNz61BhIk_8DOPQajj5Xkl1E",
+        "snippet": "Explore top AI fleet maintenance software to reduce downtime, improve vehicle health, and cut costs with AI-powered fleet tools.",
+        "position": 10
+      }
+    ],
+    "metadata": {
+      "total_results": 10,
+      "failed_pages": [],
+      "empty_pages": []
+    }
+  }
+}

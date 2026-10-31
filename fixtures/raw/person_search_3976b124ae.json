@@ -1,0 +1,67 @@
+{
+  "name": "person_search_3976b124ae",
+  "endpoint": "POST /person/search",
+  "request": {
+    "filters": {
+      "op": "and",
+      "conditions": [
+        {
+          "field": "experience.employment_details.current.company_website_domain",
+          "type": "=",
+          "value": "autokontor-bayern.de"
+        },
+        {
+          "op": "or",
+          "conditions": [
+            {
+              "field": "experience.employment_details.current.title",
+              "type": "(.)",
+              "value": "head fleet"
+            },
+            {
+              "field": "experience.employment_details.current.title",
+              "type": "(.)",
+              "value": "vp operations"
+            },
+            {
+              "field": "experience.employment_details.current.title",
+              "type": "(.)",
+              "value": "vice president operations"
+            },
+            {
+              "field": "experience.employment_details.current.title",
+              "type": "(.)",
+              "value": "cto"
+            },
+            {
+              "field": "experience.employment_details.current.title",
+              "type": "(.)",
+              "value": "chief technology officer"
+            }
+          ]
+        }
+      ]
+    },
+    "limit": 10,
+    "fields": [
+      "basic_profile",
+      "experience.employment_details.current"
+    ]
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "30",
+    "x-ratelimit-remaining": "19",
+    "x-ratelimit-reset": "40",
+    "x-credits-used": "0"
+  },
+  "retrieved_at_utc": "2026-10-31T06:25:19.781858+00:00",
+  "body": {
+    "profiles": [],
+    "next_cursor": null,
+    "total_count": 0,
+    "total_count_relation": null,
+    "remarks": []
+  }
+}

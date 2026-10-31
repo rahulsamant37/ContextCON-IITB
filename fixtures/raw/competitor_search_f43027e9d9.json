@@ -1,0 +1,400 @@
+{
+  "name": "competitor_search_f43027e9d9",
+  "endpoint": "POST /company/search",
+  "request": {
+    "search": {
+      "query": "AI-driven fleet-maintenance software",
+      "mode": "hybrid"
+    },
+    "limit": 10,
+    "fields": [
+      "basic_info",
+      "headcount"
+    ]
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "30",
+    "x-ratelimit-remaining": "26",
+    "x-ratelimit-reset": "19",
+    "x-credits-used": "2.3"
+  },
+  "retrieved_at_utc": "2026-10-31T06:25:30.915301+00:00",
+  "body": {
+    "companies": [
+      {
+        "crustdata_company_id": 2636688,
+        "basic_info": {
+          "name": "HVI App – Fleet Inspection & Maintenance Software",
+          "crustdata_company_id": 2636688,
+          "primary_domain": "heavyvehicleinspection.com",
+          "all_domains": [
+            "heavyvehicleinspection.com"
+          ],
+          "website": "https://www.heavyvehicleinspection.com/",
+          "professional_network_url": "https://www.linkedin.com/company/heavyvehicleinspection",
+          "professional_network_id": "11417099",
+          "profile_name": "HVI App – Fleet Inspection & Maintenance Software",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/ef27e52cfd84e66e617a4416082076a47f2a03fa5343d4575e253b0ea4073767.jpg",
+          "description": "HVI AI | AI-Powered Fleet Management SoftwareHVI AI is an all-in-one fleet management software designed for inspections, maintenance, compliance, dispatch, and cost control.Built for construction, trucking, logistics, mining, and field service fleets, HVI AI helps companies replace spreadsheets and disconnected tools with a single, intelligent platform.It is used by fleet owners, maintenance teams, and safety managers to reduce downtime, improve compliance, and gain real-time visibility across operations.Key Capabilities:Fleet Inspection & DVIR SoftwareDigitize inspections with customizable checklists, defect tracking, photos, and audit-ready reports.Preventive & Predictive Maintenance (CMMS)Plan maintenance, manage work orders, and reduce breakdowns using real-time alerts and asset history.Fuel, Tire & Cost ManagementTrack fuel usage, inventory, and expenses to reduce cost per mile and improve margins.HOS & Compliance (FMCSA / DOT / OSHA)Automate driver logs, ensure compliance, and stay audit-ready at all times.Dispatch & Load ManagementAssign loads, optimize routes, and track deliveries with real-time updates.Analytics & ReportingMonitor KPIs, utilization, downtime, and performance across your fleet.Integrations:GPS & Telematics | Fuel Cards | Accounting Software | SAP | OEM TelematicsIndustries:Construction | Transportation | Mining | Utilities | Oil & Gas | Waste Management | Agriculture | Government | WarehouseBuilt for:Fleet Managers | Maintenance Managers | Safety Teams | Drivers | Technicians | Operations Leaders👉 Explore HVI AI🌐 https://heavyvehicleinspection.com/📅 Demo: https://calendly.com/hviapp/hvi-ai-30-min-discussion",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 2015,
+          "employee_count_range": "51-200",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 14,
+          "largest_headcount_country": "IND",
+          "growth_percent": {
+            "1m": 0.0,
+            "3m": 7.6923076923076925,
+            "6m": 7.6923076923076925,
+            "12m": 27.27272727272727
+          },
+          "growth_absolute": {
+            "1m": 0,
+            "3m": 1,
+            "6m": 1,
+            "12m": 3
+          }
+        }
+      },
+      {
+        "crustdata_company_id": 2578756,
+        "basic_info": {
+          "name": "Simply Fleet",
+          "crustdata_company_id": 2578756,
+          "primary_domain": "simplyfleet.app",
+          "all_domains": [
+            "simplyfleet.app"
+          ],
+          "website": "http://www.simplyfleet.app",
+          "professional_network_url": "https://www.linkedin.com/company/simply-fleet",
+          "professional_network_id": "14633788",
+          "profile_name": "Simply Fleet",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/4ea4b80ce71ae7d68541f074308efc0fdedcfd7b0d87341552faa1b6f47d0c25.jpg",
+          "description": "Simply Fleet is fleet management and maintenance software for operations that want professional depth and modern AI in one platform — without the enterprise tax that usually comes with both.We run preventive maintenance, digital inspections, workshop management, parts inventory, GPS integrations, and multi-location reporting in one app — with AI that scans receipts, schedules service, and answers fleet questions in plain English.The results our customers see:- PM completion rates from ~70% to 98%+- 30% fewer emergency breakdowns- 35% better technician utilization- Typical payback in 4–6 monthsTrusted by fleets in construction, logistics, field services, and municipal operations — deployed in 2–3 weeks, no IT project required.🔧 Core operations- Automated preventive maintenance by time, mileage, or engine hours- Mobile DVIR and safety inspections- Digital work orders with technician labor tracking- Parts inventory with reorder alerts- Native integrations with Geotab, Samsara, Verizon Connect- Consolidated reporting across vehicles, teams, and locations🤖 AI that does real work- Ask your fleet questions in plain English, get answers instantly- AI-powered receipt scanning for fuel and expenses- Voice-to-log updates for technicians and drivers- Automated data structuring for cleaner records and audit readinessBook a demo: www.simplyfleet.app",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 2020,
+          "employee_count_range": "11-50",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 14,
+          "largest_headcount_country": "IND",
+          "growth_percent": {
+            "1m": 0.0,
+            "3m": 0.0,
+            "6m": 0.0,
+            "12m": 7.6923076923076925
+          },
+          "growth_absolute": {
+            "1m": 0,
+            "3m": 0,
+            "6m": 0,
+            "12m": 1
+          }
+        }
+      },
+      {
+        "crustdata_company_id": 893449,
+        "basic_info": {
+          "name": "FleetGuru.ai",
+          "crustdata_company_id": 893449,
+          "primary_domain": "fleetguru.ai",
+          "all_domains": [
+            "fleetguru.ai"
+          ],
+          "website": "https://www.fleetguru.ai",
+          "professional_network_url": "https://www.linkedin.com/company/fleetguru.ai",
+          "professional_network_id": "17938512",
+          "profile_name": "FleetGuru.ai",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/1e32fcfcda38ed119574e05273f65d1f0e050e188bd5ae90c0e45a7d9ba3da86.jpg",
+          "description": "FleetGuru.ai is an AI-powered fleet maintenance platform that unifies workflows across fleets, service providers, and drivers - streamlining maintenance management at scale. Our story starts with AutoGuru in 2014, when founder Eden Shirley set out to make booking a mechanic as easy as booking a hotel. AutoGuru achieved this mission, becoming Australia’s #1 auto services marketplace. From that foundation, FleetGuru was created - a B2B SaaS platform purpose-built to facilitate a seamless digital experience in the world of fleet maintenance. Today, FleetGuru.ai connects enterprise fleet partners, over 12,000 service providers, and drivers through a single intelligent platform. Streamlined bookings, approvals and payments. Powerful data insights. Less admin, more control.Built on the proven infrastructure and marketplace network pioneered by AutoGuru, FleetGuru.ai is redefining how fleet maintenance is managed at scale.",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 2014,
+          "employee_count_range": "51-200",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 80,
+          "largest_headcount_country": "AUS",
+          "growth_percent": {
+            "1m": 1.2658227848101267,
+            "3m": 2.564102564102564,
+            "6m": 14.285714285714285,
+            "12m": 21.21212121212121
+          },
+          "growth_absolute": {
+            "1m": 1,
+            "3m": 2,
+            "6m": 10,
+            "12m": 14
+          }
+        }
+      },
+      {
+        "crustdata_company_id": 61728787,
+        "basic_info": {
+          "name": "MaintainRO",
+          "crustdata_company_id": 61728787,
+          "primary_domain": "maintainro.com",
+          "all_domains": [
+            "maintainro.com"
+          ],
+          "website": "https://maintainro.com/",
+          "professional_network_url": "https://www.linkedin.com/company/maintainro",
+          "professional_network_id": "108052590",
+          "profile_name": "MaintainRO",
+          "logo_permalink": "",
+          "description": "MaintainRO is an advanced maintenance management platform designed to transform how organizations handle critical asset operations. Originally built to meet rigorous U.S. military standards, MaintainRO now serves aviation, logistics, and industrial sectors worldwide, providing unparalleled reliability and efficiency.Our AI-driven solution enables predictive maintenance, real-time dashboards, and automated compliance workflows—all from one intuitive interface. By leveraging advanced analytics, MaintainRO helps organizations reduce downtime by up to 30%, streamline maintenance processes, and ensure full regulatory compliance without the burden of manual reporting.From optimizing fleet maintenance schedules to improving asset life cycles, MaintainRO empowers businesses to make data-driven decisions that enhance operational resilience and reduce costs.Join the growing network of companies embracing digital transformation in maintenance management. With MaintainRO, your assets perform better, your operations run smoother, and your bottom line gets stronger.",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": null,
+          "employee_count_range": "11-50",
+          "markets": []
+        },
+        "headcount": {
+          "total": null,
+          "largest_headcount_country": "",
+          "growth_percent": null,
+          "growth_absolute": null
+        }
+      },
+      {
+        "crustdata_company_id": 16104978,
+        "basic_info": {
+          "name": "Fleetmind",
+          "crustdata_company_id": 16104978,
+          "primary_domain": "fleetmind.in",
+          "all_domains": [
+            "fleetmind.in"
+          ],
+          "website": "http://fleetmind.in",
+          "professional_network_url": "https://www.linkedin.com/company/fleetmind-ai",
+          "professional_network_id": "107553582",
+          "profile_name": "Fleetmind",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/1cbd021bf76a27e98801eb11c40e62af9a743eb6e43416985babcb740a89da95.jpg",
+          "description": "FleetMind is India's first AI-driven fleet management solution, bringing intelligent fleet monitoring and proactive alerts seamlessly into your WhatsApp. Our conversational AI simplifies fleet operations, prevents fuel theft, and delivers actionable insights through natural language interactions.  FleetMind helps you manage smarter, act faster, and operate safer—all from your daily chat.Welcome to the future of fleet management.",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": null,
+          "employee_count_range": "2-10",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 1,
+          "largest_headcount_country": "",
+          "growth_percent": {
+            "1m": 0.0,
+            "3m": 0.0,
+            "6m": 0.0,
+            "12m": 0.0
+          },
+          "growth_absolute": {
+            "1m": 0,
+            "3m": 0,
+            "6m": 0,
+            "12m": 0
+          }
+        }
+      },
+      {
+        "crustdata_company_id": 74600358,
+        "basic_info": {
+          "name": "Hauloop",
+          "crustdata_company_id": 74600358,
+          "primary_domain": "hauloop.com",
+          "all_domains": [
+            "hauloop.com"
+          ],
+          "website": "https://hauloop.com/",
+          "professional_network_url": "https://www.linkedin.com/company/hauloop",
+          "professional_network_id": "131173950",
+          "profile_name": "Hauloop",
+          "logo_permalink": "",
+          "description": "Your fleet generates a lot of data every day. The real question is whether that data is actually helping you make decisions, or just piling up.Hauloop is an AI-powered Fleet Management Software built for fleets of any size, across trucking, delivery, government, agriculture, food and beverage, waste and recycling, oil and gas, construction, and field service. Most tools tell you what already happened. Hauloop tells you what's coming and what to do about it, so your team can move first instead of reacting later.Seven core modules make that possible:🔹Live Tracking🔹Fuel Management🔹Driver Safety🔹Maintenance🔹Cargo and Delivery🔹Compliance🔹Fleet IntelligenceNo more digging through reports trying to connect the dots. Fleet and Operations Managers get a clear read on what needs attention, plus a recommended next step, right when they need it.Four ideas hold it all together: foresight, intelligence, connectivity, and execution. That combination turns scattered fleet data into decisions your team can actually use.Curious what that looks like for your fleet? Book a demo and see Hauloop in action.",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": null,
+          "employee_count_range": "11-50",
+          "markets": []
+        },
+        "headcount": {
+          "total": 2,
+          "largest_headcount_country": "",
+          "growth_percent": {
+            "1m": 0.0,
+            "3m": 0.0,
+            "6m": 0.0,
+            "12m": 0.0
+          },
+          "growth_absolute": {
+            "1m": 0,
+            "3m": 0,
+            "6m": 0,
+            "12m": 0
+          }
+        }
+      },
+      {
+        "crustdata_company_id": 12984901,
+        "basic_info": {
+          "name": "Axion Fleet AI",
+          "crustdata_company_id": 12984901,
+          "primary_domain": "",
+          "all_domains": [],
+          "website": "",
+          "professional_network_url": "https://www.linkedin.com/company/axion-fleet-ai",
+          "professional_network_id": "108092785",
+          "profile_name": "Axion Fleet AI",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/2ad1657b1cf6d54128a5c81afaa9f4825992dbef0a0037dbb99b0f3ba6d4b948.jpg",
+          "description": "Axion Fleet AI is a Canadian owned and operated technology company dedicated to transforming commercial fleet maintenance. Our cloud platform blends real‐time telematics, predictive analytics, and machine‐learning models to give operators a single, cost‐effective hub for every maintenance task—asset lifecycle tracking, automated work‐order creation, parts inventory, and regulatory compliance. Axion Fleet AI delivers customizable dashboards that cut downtime, lower emissions, and keep fleets ready for the demands of tomorrow’s mobility landscape.",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": null,
+          "employee_count_range": "2-10",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 2,
+          "largest_headcount_country": "PAK",
+          "growth_percent": {
+            "1m": 0.0,
+            "3m": 0.0,
+            "6m": 0.0,
+            "12m": 0.0
+          },
+          "growth_absolute": {
+            "1m": 0,
+            "3m": 0,
+            "6m": 0,
+            "12m": 0
+          }
+        }
+      },
+      {
+        "crustdata_company_id": 4944794,
+        "basic_info": {
+          "name": "Shift AI",
+          "crustdata_company_id": 4944794,
+          "primary_domain": "shiftfleet.ai",
+          "all_domains": [
+            "shiftfleet.ai"
+          ],
+          "website": "https://shiftfleet.ai/",
+          "professional_network_url": "https://www.linkedin.com/company/shift-fleet",
+          "professional_network_id": "104531018",
+          "profile_name": "Shift AI",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/042128c94e98d3aa443700503d82e1c56b476c5be065dc39f53b0dc2e2cfc50c.jpg",
+          "description": "Shift Technologies Canada Inc. has developed an AI-driven all-in-one fleet management platform to enable businesses to efficiently manage their fleet operations, providing advanced features such as real-time tracking, predictive maintenance, intelligent route planning, AI inspections and more. Shift simplifies fleet management, allowing businesses to focus on their core operations while handling the rest.Key Features of Shift:-Predictive Maintenance: Leveraging data from sensors and historical performance, Shift’s predictive maintenance capabilities forecast potential vehicle issues, allowing for proactive maintenance. This reduces downtime and maintenance costs, extending the overall lifespan of fleet vehicles.-AI Inspections: Through photo analysis, AI algorithms automatically detect damages and assess vehicle condition, streamlining the inspection process and providing accurate, real-time insights. Expanding into video analysis. -Real-Time Tracking and Route Optimization: Provides complete visibility into fleet activities, enabling operators to monitor vehicles, intelligent route planning and ensure efficient dispatching. This results in significant time and fuel savings, enhancing overall productivity.-AI Dashcam: Provide real-time driver monitoring, incident detection, and instant alerts, helping deter theft and unauthorized usage while ensuring comprehensive safety measures.-Seamless Integration with IoT Devices: Shift seamlessly integrates with Internet of Things (IoT) devices, enhancing overall connectivity and providing real-time data from sensors monitoring fuel, tire pressure, engine health, and more.",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 2023,
+          "employee_count_range": "11-50",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 11,
+          "largest_headcount_country": "",
+          "growth_percent": {
+            "1m": 0.0,
+            "3m": 0.0,
+            "6m": 0.0,
+            "12m": -21.428571428571427
+          },
+          "growth_absolute": {
+            "1m": 0,
+            "3m": 0,
+            "6m": 0,
+            "12m": -3
+          }
+        }
+      },
+      {
+        "crustdata_company_id": 73546901,
+        "basic_info": {
+          "name": "ORNG TECH",
+          "crustdata_company_id": 73546901,
+          "primary_domain": "orngtek.com",
+          "all_domains": [
+            "orngtek.com"
+          ],
+          "website": "https://orngtek.com",
+          "professional_network_url": "https://www.linkedin.com/company/orngtech",
+          "professional_network_id": "96120340",
+          "profile_name": "ORNG TECH",
+          "logo_permalink": "",
+          "description": "**Orng Tech AI | Smarter Fleet Management, Simplified**Orng Tech AI is an intelligent fleet operations platform designed to bring dispatch, HOS compliance, maintenance, DVIR, telematics, and cost management together in one centralized system.Built for logistics, construction, transportation, and field service fleets, Orng Tek AI helps operations teams reduce downtime, improve asset utilization, strengthen compliance, and make faster, data-driven decisions with less manual effort.**Key Capabilities****Predictive Maintenance**Forecast potential failures 2–6 weeks in advance using real-time diagnostics, OEM fault codes, and AI-driven maintenance insights.**Compliance & DVIR Automation**Digitize vehicle inspections, manage HOS logs, and keep drivers and assets aligned with operational and regulatory requirements.**Live Fleet Tracking**Monitor vehicles in real time through integrated telematics, route visibility, idle-time insights, and proactive alerts.**Fuel & Cost Management**Track fuel usage, operating expenses, and cost-per-mile to identify savings opportunities and reduce waste.**Driver & Asset Management**Centralize driver certifications, vehicle assignments, safety records, inspections, and asset history in one cloud-based platform.**Who Uses Orng Tech AI**Orng Tech AI is built for fleet operations, maintenance, safety, and compliance leaders managing fleets from 20 to 5,000+ vehicles. From regional carriers to national construction and field service organizations, the platform adapts to your fleet size, workflows, and growth goals.",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 2022,
+          "employee_count_range": "2-10",
+          "markets": []
+        },
+        "headcount": {
+          "total": null,
+          "largest_headcount_country": "",
+          "growth_percent": null,
+          "growth_absolute": null
+        }
+      },
+      {
+        "crustdata_company_id": 65990163,
+        "basic_info": {
+          "name": "FleetPredict",
+          "crustdata_company_id": 65990163,
+          "primary_domain": "fleetpredict.ca",
+          "all_domains": [
+            "fleetpredict.ca"
+          ],
+          "website": "http://fleetpredict.ca",
+          "professional_network_url": "https://www.linkedin.com/company/fleetpredictt",
+          "professional_network_id": "116018851",
+          "profile_name": "FleetPredict",
+          "logo_permalink": "",
+          "description": "FleetPredict is an AI-powered predictive maintenance platform designed to transform how commercial fleet maintenance is managed. By leveraging intelligent diagnostics and real-time vehicle monitoring, FleetPredict helps fleets identify mechanical failures weeks before they impact maintenance budgets, reducing unplanned downtime, cutting maintenance costs, and improving operational reliability across fleets of all sizes.Key features include:Advanced Predictive Diagnostics: AI-driven monitoring designed to flag vehicle issues weeks before breakdowns occur.Real-Time Fleet Insights: Continuous vehicle health monitoring and maintenance intelligence to support proactive decision-making.Downtime Reduction: Helps fleets eliminate costly disruptions, emergency repairs, and unexpected service interruptions.Seamless Integration: Built to work in sync with existing systems and easy to useSmarter Maintenance Operations: Supports data-driven maintenance planning to improve efficiency, reliability, and fleet performance.Our mission is to help transportation and logistics operations move from costly maintenance issues towards a smarter, more proactive future powered by predictive intelligence.",
+          "company_type": "Public Company",
+          "status": "active",
+          "year_founded": 2026,
+          "employee_count_range": "2-10",
+          "markets": []
+        },
+        "headcount": {
+          "total": 2,
+          "largest_headcount_country": "",
+          "growth_percent": {
+            "1m": 0.0,
+            "3m": 0.0,
+            "6m": 100.0,
+            "12m": 0.0
+          },
+          "growth_absolute": {
+            "1m": 0,
+            "3m": 0,
+            "6m": 1,
+            "12m": 0
+          }
+        }
+      }
+    ],
+    "next_cursor": "eyJzZXNzaW9uIjoiNjRiNWZmZjgzN2JkNDVhMWJhMDczNmMzOWQ2YWEwZTUiLCJvZmZzZXQiOjEwLCJxdWVyeSI6IjZmYjE0YmNhMjBiZDEyZTdhY2Q0YWNjY2QwMjZkMThkOTMwNTA0MDVlZmVjOTQyNWY4ZGI5NzNkMGRlZWRiZjMiLCJ0YWlsX2hhc2giOm51bGx9:1xN2Ww:BChgf7Ktk_V0TxiUrDWk2UYf4-1CczdmHazhLPOMqac",
+    "total_count": null
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "name": "person_search_3480888186",
+  "endpoint": "POST /person/search",
+  "request": {
+    "filters": {
+      "op": "and",
+      "conditions": [
+        {
+          "field": "experience.employment_details.current.company_website_domain",
+          "type": "=",
+          "value": "unitedheavylift.de"
+        },
+        {
+          "op": "or",
+          "conditions": [
+            {
+              "field": "experience.employment_details.current.title",
+              "type": "(.)",
+              "value": "head fleet"
+            },
+            {
+              "field": "experience.employment_details.current.title",
+              "type": "(.)",
+              "value": "vp operations"
+            },
+            {
+              "field": "experience.employment_details.current.title",
+              "type": "(.)",
+              "value": "vice president operations"
+            },
+            {
+              "field": "experience.employment_details.current.title",
+              "type": "(.)",
+              "value": "cto"
+            },
+            {
+              "field": "experience.employment_details.current.title",
+              "type": "(.)",
+              "value": "chief technology officer"
+            }
+          ]
+        }
+      ]
+    },
+    "limit": 10,
+    "fields": [
+      "basic_profile",
+      "experience.employment_details.current"
+    ]
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "30",
+    "x-ratelimit-remaining": "29",
+    "x-ratelimit-reset": "60",
+    "x-credits-used": "0.23"
+  },
+  "retrieved_at_utc": "2026-10-31T06:24:59.795188+00:00",
+  "body": {
+    "profiles": [
+      {
+        "crustdata_person_id": 120843983,
+        "basic_profile": {
+          "current_title": "CTO",
+          "headline": "Instead of thinking outside the box, get rid of the box.",
+          "location": {
+            "city": "Jork",
+            "continent": "Europe",
+            "country": "Germany",
+            "full_location": "Jork, Lower Saxony, Germany",
+            "raw": "Jork, Lower Saxony, Germany",
+            "state": "Lower Saxony"
+          },
+          "name": "Thomas Heck",
+          "professional_network_name": "Thomas Heck",
+          "profile_picture_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/person/de89c6699019d97b3c771a6c486a0b21605fde943f179ef50f73e2afef53692a.jpg",
+          "normalized_title": null
+        },
+        "experience": {
+          "employment_details": {
+            "current": [
+              {
+                "business_email_verified": false,
+                "company_headcount_latest": 128,
+                "company_headcount_range": "51-200",
+                "company_headquarters_country": "Germany",
+                "company_hq_location": "Hamburg Neustadt, Hamburg Kleiner Grasbrook, Hamburg Steinwerder, Hamburg Hamburg-Altstadt, Hamburg, Hamburg Klostertor, Hamburg, Germany",
+                "company_hq_location_address_components": [],
+                "company_industries": [
+                  "Maritime Transportation",
+                  "Transportation, Logistics, Supply Chain and Storage"
+                ],
+                "company_professional_network_industry": "Maritime Transportation",
+                "company_professional_network_profile_url": "https://www.linkedin.com/company/united-heavy-lift",
+                "company_profile_picture_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/a125e0cc8532bce51abaae77b08a179885f54a9310e8cdcd54765a5e7284bf98.jpg",
+                "company_status": "active",
+                "company_type": "Privately Held",
+                "company_website": "http://www.unitedheavylift.de",
+                "crustdata_company_id": 3560961,
+                "description": "",
+                "employment_type": "",
+                "end_date": null,
+                "function_category": "",
+                "is_default": true,
+                "location": {
+                  "raw": "Hamburg und Umgebung"
+                },
+                "name": "United Heavy Lift GmbH & Co. KG",
+                "position_id": 2876764936,
+                "professional_network_id": "9382975",
+                "seniority_level": "CXO",
+                "start_date": "2026-01-01T00:00:00",
+                "title": "CTO",
+                "years_at_company": "Less than 1 year",
+                "years_at_company_raw": 0
+              },
+              {
+                "business_email_verified": false,
+                "company_headcount_latest": 45,
+                "company_headcount_range": "11-50",
+                "company_headquarters_country": "",
+                "company_hq_location": "Hamburg Neustadt, Hamburg Kleiner Grasbrook, Hamburg Hamburg-Altstadt, Hamburg Steinwerder, Hamburg, Hamburg Klostertor, Hamburg, Germany",
+                "company_hq_location_address_components": [],
+                "company_industries": [
+                  "Maritime"
+                ],
+                "company_professional_network_industry": "Maritime",
+                "company_professional_network_profile_url": "https://www.linkedin.com/company/united-engineering-solutions",
+                "company_profile_picture_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/568d9927c79869e5b219e20fab07203907e090d441b589560b4eb4e76a7e0618.jpg",
+                "company_status": "active",
+                "company_type": "Privately Held",
+                "company_website": "http://www.united.engineering",
+                "crustdata_company_id": 3611389,
+                "description": "",
+                "employment_type": "",
+                "end_date": null,
+                "function_category": "",
+                "is_default": false,
+                "location": {
+                  "raw": "Hamburg, Deutschland"
+                },
+                "name": "United Engineering Solutions GmbH",
+                "position_id": 2179111813,
+                "professional_network_id": "18069484",
+                "seniority_level": "Director",
+                "start_date": "2023-03-01T00:00:00",
+                "title": "Managing Director",
+                "years_at_company": "3 to 5 years",
+                "years_at_company_raw": 3
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "next_cursor": null,
+    "total_count": 1,
+    "total_count_relation": null,
+    "remarks": []
+  }
+}

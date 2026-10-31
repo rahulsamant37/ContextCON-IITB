@@ -1,0 +1,287 @@
+{
+  "name": "person_search_294ef88e5a",
+  "endpoint": "POST /person/search",
+  "request": {
+    "filters": {
+      "op": "and",
+      "conditions": [
+        {
+          "field": "experience.employment_details.current.company_website_domain",
+          "type": "=",
+          "value": "ptvlogistics.com"
+        },
+        {
+          "op": "or",
+          "conditions": [
+            {
+              "field": "experience.employment_details.current.title",
+              "type": "(.)",
+              "value": "head fleet"
+            },
+            {
+              "field": "experience.employment_details.current.title",
+              "type": "(.)",
+              "value": "vp operations"
+            },
+            {
+              "field": "experience.employment_details.current.title",
+              "type": "(.)",
+              "value": "vice president operations"
+            },
+            {
+              "field": "experience.employment_details.current.title",
+              "type": "(.)",
+              "value": "cto"
+            },
+            {
+              "field": "experience.employment_details.current.title",
+              "type": "(.)",
+              "value": "chief technology officer"
+            }
+          ]
+        }
+      ]
+    },
+    "limit": 10,
+    "fields": [
+      "basic_profile",
+      "experience.employment_details.current"
+    ]
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "30",
+    "x-ratelimit-remaining": "24",
+    "x-ratelimit-reset": "50",
+    "x-credits-used": "0.69"
+  },
+  "retrieved_at_utc": "2026-10-31T06:25:09.813131+00:00",
+  "body": {
+    "profiles": [
+      {
+        "crustdata_person_id": 319715,
+        "basic_profile": {
+          "current_title": "VP Sales and Operations Nordics and UK",
+          "headline": "VP Sales and Operations Nordics and UK, \nBy making transport logistics more intelligent, efficient and sustainable we help our customers optimise their delivery operations saving time and costs",
+          "location": {
+            "city": "Malmö",
+            "continent": "Europe",
+            "country": "Sweden",
+            "full_location": "Greater Malmö Metropolitan Area",
+            "raw": "Greater Malmö Metropolitan Area",
+            "state": "Skåne County"
+          },
+          "name": "Lars Persson",
+          "normalized_title": {
+            "confident": true,
+            "department": "Sales & Revenue",
+            "matched_title": "SVP Sales and Operations",
+            "similarity": 0.8548,
+            "sub_department": "Sales Operations & Enablement"
+          },
+          "professional_network_name": "Lars Persson",
+          "profile_picture_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/person/146c38bc74a3b24eb309af229be6f35c2ead9ba2bbb08d8afe7fd6e7e3a1fef9.jpg"
+        },
+        "experience": {
+          "employment_details": {
+            "current": [
+              {
+                "business_email_verified": true,
+                "company_headcount_latest": 351,
+                "company_headcount_range": "201-500",
+                "company_headquarters_country": "Germany",
+                "company_hq_location": "Karlsruhe, Baden-Württemberg, Germany",
+                "company_hq_location_address_components": [
+                  "Karlsruhe",
+                  "Kreisfreie Stadt Karlsruhe",
+                  "Karlsruhe",
+                  "Baden-Württemberg",
+                  "Germany",
+                  "76"
+                ],
+                "company_industries": [
+                  "Software Development",
+                  "Technology, Information and Internet",
+                  "Technology, Information and Media"
+                ],
+                "company_professional_network_industry": "Software Development",
+                "company_professional_network_profile_url": "https://www.linkedin.com/company/ptvlogistics",
+                "company_profile_picture_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/6e0700b947bf80fe3f655291ec527d767e2ba314de39c1541f7923370649678d.jpg",
+                "company_status": "active",
+                "company_type": "Privately Held",
+                "company_website": "https://www.ptvlogistics.com/en-us",
+                "crustdata_company_id": 1123413,
+                "description": "Leading Sales and Business Development in UK and the Nordics",
+                "employment_type": "",
+                "end_date": null,
+                "function_category": "Sales",
+                "is_default": true,
+                "location": {
+                  "raw": "Sweden"
+                },
+                "name": "PTV Logistics",
+                "position_id": 2494087888,
+                "professional_network_id": "3043053",
+                "seniority_level": "Vice President",
+                "start_date": "2024-10-01T00:00:00",
+                "title": "VP Sales and Operations Nordics and UK",
+                "years_at_company": "3 to 5 years",
+                "years_at_company_raw": 2
+              }
+            ]
+          }
+        }
+      },
+      {
+        "crustdata_person_id": 17396709,
+        "basic_profile": {
+          "current_title": "Chief Product & Technology Officer",
+          "headline": "Chief Product & Technology Officer",
+          "location": {
+            "city": "Berlin",
+            "continent": "Europe",
+            "country": "Germany",
+            "full_location": "Berlin, Berlin, Germany",
+            "raw": "Berlin, Berlin, Germany",
+            "state": "Berlin"
+          },
+          "name": "Douglas Wilson",
+          "normalized_title": {
+            "confident": true,
+            "department": "Engineering & Technology",
+            "matched_title": "Chief Product & Technology Officer",
+            "similarity": 0.9999,
+            "sub_department": "Product Management Technical"
+          },
+          "professional_network_name": "Douglas Wilson",
+          "profile_picture_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/person/3e5bec0f9a57f15d4dc5d51db3e96454c2ddc099db8254a6031fdbde8095dacf.jpg"
+        },
+        "experience": {
+          "employment_details": {
+            "current": [
+              {
+                "business_email_verified": false,
+                "company_headcount_latest": 351,
+                "company_headcount_range": "201-500",
+                "company_headquarters_country": "Germany",
+                "company_hq_location": "Karlsruhe, Baden-Württemberg, Germany",
+                "company_hq_location_address_components": [
+                  "Karlsruhe",
+                  "Kreisfreie Stadt Karlsruhe",
+                  "Karlsruhe",
+                  "Baden-Württemberg",
+                  "Germany",
+                  "76"
+                ],
+                "company_industries": [
+                  "Software Development",
+                  "Technology, Information and Internet",
+                  "Technology, Information and Media"
+                ],
+                "company_professional_network_industry": "Software Development",
+                "company_professional_network_profile_url": "https://www.linkedin.com/company/ptvlogistics",
+                "company_profile_picture_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/6e0700b947bf80fe3f655291ec527d767e2ba314de39c1541f7923370649678d.jpg",
+                "company_status": "active",
+                "company_type": "Privately Held",
+                "company_website": "https://www.ptvlogistics.com/en-us",
+                "crustdata_company_id": 1123413,
+                "description": "",
+                "employment_type": "",
+                "end_date": null,
+                "function_category": "",
+                "is_default": true,
+                "location": {
+                  "raw": "Berlin, Germany"
+                },
+                "name": "PTV Logistics",
+                "position_id": 2950251425,
+                "professional_network_id": "3043053",
+                "seniority_level": "CXO",
+                "start_date": "2026-05-01T00:00:00",
+                "title": "Chief Product & Technology Officer",
+                "years_at_company": "Less than 1 year",
+                "years_at_company_raw": 0
+              }
+            ]
+          }
+        }
+      },
+      {
+        "crustdata_person_id": 65701521,
+        "basic_profile": {
+          "current_title": "VP Global Sales Operations",
+          "headline": "Global Sales Ops & Enablement | Driving Sales Success",
+          "location": {
+            "city": "Ulm",
+            "continent": "Europe",
+            "country": "Germany",
+            "full_location": "Ulm, Baden-Württemberg, Germany",
+            "raw": "Ulm, Baden-Württemberg, Germany",
+            "state": "Baden-Württemberg"
+          },
+          "name": "Céline Hechtberger",
+          "normalized_title": {
+            "confident": true,
+            "department": "Sales & Revenue",
+            "matched_title": "Director Global Sales Operations",
+            "similarity": 0.9971,
+            "sub_department": "Sales Operations & Enablement"
+          },
+          "professional_network_name": "Céline Hechtberger",
+          "profile_picture_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/person/17e67a118955e593cc0c93acc1459fcf988693d554317d51e1fda4fff025e07e.jpg"
+        },
+        "experience": {
+          "employment_details": {
+            "current": [
+              {
+                "business_email_verified": false,
+                "company_headcount_latest": 351,
+                "company_headcount_range": "201-500",
+                "company_headquarters_country": "Germany",
+                "company_hq_location": "Karlsruhe, Baden-Württemberg, Germany",
+                "company_hq_location_address_components": [
+                  "Karlsruhe",
+                  "Kreisfreie Stadt Karlsruhe",
+                  "Karlsruhe",
+                  "Baden-Württemberg",
+                  "Germany",
+                  "76"
+                ],
+                "company_industries": [
+                  "Software Development",
+                  "Technology, Information and Internet",
+                  "Technology, Information and Media"
+                ],
+                "company_professional_network_industry": "Software Development",
+                "company_professional_network_profile_url": "https://www.linkedin.com/company/ptvlogistics",
+                "company_profile_picture_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/6e0700b947bf80fe3f655291ec527d767e2ba314de39c1541f7923370649678d.jpg",
+                "company_status": "active",
+                "company_type": "Privately Held",
+                "company_website": "https://www.ptvlogistics.com/en-us",
+                "crustdata_company_id": 1123413,
+                "description": "",
+                "employment_type": "",
+                "end_date": null,
+                "function_category": "Sales",
+                "is_default": true,
+                "name": "PTV Logistics",
+                "position_id": 2802289552,
+                "professional_network_id": "3043053",
+                "seniority_level": "Vice President",
+                "start_date": "2026-01-01T00:00:00",
+                "title": "VP Global Sales Operations",
+                "years_at_company": "Less than 1 year",
+                "years_at_company_raw": 0
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "next_cursor": null,
+    "total_count": 3,
+    "total_count_relation": null,
+    "remarks": []
+  }
+}

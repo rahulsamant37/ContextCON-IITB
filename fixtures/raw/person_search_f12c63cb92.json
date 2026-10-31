@@ -1,0 +1,140 @@
+{
+  "name": "person_search_f12c63cb92",
+  "endpoint": "POST /person/search",
+  "request": {
+    "filters": {
+      "op": "and",
+      "conditions": [
+        {
+          "field": "experience.employment_details.current.company_website_domain",
+          "type": "=",
+          "value": "d-gl.de"
+        },
+        {
+          "op": "or",
+          "conditions": [
+            {
+              "field": "experience.employment_details.current.title",
+              "type": "(.)",
+              "value": "head fleet"
+            },
+            {
+              "field": "experience.employment_details.current.title",
+              "type": "(.)",
+              "value": "vp operations"
+            },
+            {
+              "field": "experience.employment_details.current.title",
+              "type": "(.)",
+              "value": "vice president operations"
+            },
+            {
+              "field": "experience.employment_details.current.title",
+              "type": "(.)",
+              "value": "cto"
+            },
+            {
+              "field": "experience.employment_details.current.title",
+              "type": "(.)",
+              "value": "chief technology officer"
+            }
+          ]
+        }
+      ]
+    },
+    "limit": 10,
+    "fields": [
+      "basic_profile",
+      "experience.employment_details.current"
+    ]
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "30",
+    "x-ratelimit-remaining": "18",
+    "x-ratelimit-reset": "38",
+    "x-credits-used": "0.23"
+  },
+  "retrieved_at_utc": "2026-10-31T06:25:21.834481+00:00",
+  "body": {
+    "profiles": [
+      {
+        "crustdata_person_id": 175670633,
+        "basic_profile": {
+          "current_title": "Chief Technology Officer / CTO",
+          "headline": "Chief Technology Officer / CTO",
+          "location": {
+            "city": "Bochum",
+            "continent": "Europe",
+            "country": "Germany",
+            "full_location": "Bochum, North Rhine-Westphalia, Germany",
+            "raw": "Bochum, North Rhine-Westphalia, Germany",
+            "state": "North Rhine-Westphalia"
+          },
+          "name": "René Abele",
+          "normalized_title": {
+            "confident": true,
+            "department": "Executive Leadership",
+            "matched_title": "Chief Technology Officer (CTO)",
+            "similarity": 0.9993,
+            "sub_department": "Technology & Engineering Leadership"
+          },
+          "professional_network_name": "René Abele",
+          "profile_picture_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/person/3166bc129c46ce7d9e9f0f10cd0c3f115ec0b375288acbb667df9e2e7e1a799a.jpg"
+        },
+        "experience": {
+          "employment_details": {
+            "current": [
+              {
+                "business_email_verified": false,
+                "company_headcount_latest": 146,
+                "company_headcount_range": "1001-5000",
+                "company_headquarters_country": "Germany",
+                "company_hq_location": "Lingen, Lower Saxony, Germany",
+                "company_hq_location_address_components": [
+                  "Lingen",
+                  "Emsland",
+                  "Lower Saxony",
+                  "Germany",
+                  "49"
+                ],
+                "company_industries": [
+                  "Truck Transportation",
+                  "Transportation, Logistics, Supply Chain and Storage"
+                ],
+                "company_professional_network_industry": "Truck Transportation",
+                "company_professional_network_profile_url": "https://www.linkedin.com/company/d-gl",
+                "company_profile_picture_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/e75697371bf8942e4eb58caaf46740f2737457dece9a887aa6f83fefee6f8f8b.jpg",
+                "company_status": "active",
+                "company_type": "Partnership",
+                "company_website": "https://www.d-gl.de",
+                "crustdata_company_id": 6530973,
+                "description": "",
+                "employment_type": "",
+                "end_date": null,
+                "function_category": "",
+                "is_default": true,
+                "location": {
+                  "raw": "Dortmund, Nordrhein-Westfalen, Deutschland"
+                },
+                "name": "DGL Deutsche Getränke Logistik GmbH & Co. KG",
+                "position_id": 0,
+                "professional_network_id": "100446182",
+                "seniority_level": "CXO",
+                "start_date": "2024-01-01T00:00:00",
+                "title": "Chief Technology Officer / CTO",
+                "years_at_company": "3 to 5 years",
+                "years_at_company_raw": 2
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "next_cursor": null,
+    "total_count": 1,
+    "total_count_relation": null,
+    "remarks": []
+  }
+}

@@ -1,0 +1,2767 @@
+{
+  "name": "company_search_e16665ba95",
+  "endpoint": "POST /company/search",
+  "request": {
+    "filters": {
+      "op": "and",
+      "conditions": [
+        {
+          "field": "locations.country",
+          "type": "=",
+          "value": "Germany"
+        },
+        {
+          "field": "taxonomy.categories",
+          "type": "in",
+          "value": [
+            "Logistics",
+            "Transportation and logistics",
+            "Transportation & Logistics"
+          ]
+        },
+        {
+          "field": "headcount.total",
+          "type": "=>",
+          "value": 100
+        },
+        {
+          "field": "headcount.total",
+          "type": "=<",
+          "value": 1000
+        }
+      ]
+    },
+    "limit": 50,
+    "search": {
+      "query": "Logistics companies",
+      "mode": "hybrid"
+    },
+    "fields": [
+      "basic_info",
+      "locations",
+      "headcount"
+    ]
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "30",
+    "x-ratelimit-remaining": "28",
+    "x-ratelimit-reset": "58",
+    "x-credits-used": "26.5"
+  },
+  "retrieved_at_utc": "2026-10-31T06:24:53.440040+00:00",
+  "body": {
+    "companies": [
+      {
+        "crustdata_company_id": 3622453,
+        "basic_info": {
+          "name": "REICHHART Logistics",
+          "crustdata_company_id": 3622453,
+          "primary_domain": "reichhart.eu",
+          "all_domains": [
+            "reichhart.eu"
+          ],
+          "website": "http://www.reichhart.eu",
+          "professional_network_url": "https://www.linkedin.com/company/reichhartlogistik",
+          "professional_network_id": "6131221",
+          "profile_name": "REICHHART Logistics",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/e98cb30f264cd4b36ad4c5cc7ceac0493b49e88126d2b311f18b58405926e810.jpg",
+          "description": "As a medium-sized logistics company, we have been designing tailor-made logistics solutions in the areas of transport, warehouse, factory and digital logistics as well as sequencing and assembly since 1967. Logistical excellence combined with close customer contact and the right level of innovation is our key to success. As an integral logistics partner, we manage smooth logistics that create productive added value and thus economic advantages for our clients.Designing tailor-made logistics solutions along the entire value chain efficiently and economically is our passion and strength.",
+          "company_type": "Public Company",
+          "status": "active",
+          "year_founded": 1967,
+          "employee_count_range": "501-1000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 155,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 0.0,
+            "3m": -0.641025641025641,
+            "6m": 4.026845637583892,
+            "12m": 5.442176870748299
+          },
+          "growth_absolute": {
+            "1m": 0,
+            "3m": -1,
+            "6m": 6,
+            "12m": 8
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Gilching, Bavaria, Germany",
+          "street_address": "Lilienthalstraße 2, Gilching, Bavaria",
+          "city": "Gilching",
+          "state": "Bavaria",
+          "all_office_addresses": []
+        }
+      },
+      {
+        "crustdata_company_id": 3189915,
+        "basic_info": {
+          "name": "STUTE Logistics (AG & Co.) KG",
+          "crustdata_company_id": 3189915,
+          "primary_domain": "stute.de",
+          "all_domains": [
+            "stute.de",
+            "kuehne-nagel.com"
+          ],
+          "website": "http://www.stute.de",
+          "professional_network_url": "https://www.linkedin.com/company/stute",
+          "professional_network_id": "14051945",
+          "profile_name": "STUTE Logistics (AG & Co.) KG",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/df506c406e30ac53c280bdf09db69f544850f59698d84f56366e216bf873449f.jpg",
+          "description": "LEIDENSCHAFT, DIE ZUKUNFT SCHAFFTMit Leidenschaft für Logistik: Die STUTE Logistics (AG & Co.) KG ist ein moderner Logistikdienstleister mit langer Tradition. Das Unternehmen wurde 1853 in Bremen gegründet und ist heute einer der führenden Dienstleister in den Bereichen Kontraktlogistik und Landverkehr.Zum Kundenstamm zählen namhafte Industrie- und Technologieunternehmen u.a. aus den Branchen Automotive, Aerospace, Maschinenbau, Baustoffe, Holzwirtschaft, Stahl- und Aluminiumindustrie. Seit 1996 ist STUTE zu 100 Prozent Teil des Kühne + Nagel Konzerns.BEI UNS KÖNNEN SIE WAS BEWEGENUnd zwar jede Menge: Logistik hat nichts mit Statik zu tun. Logistik ist permanente Bewegung, Veränderung und Weiterentwicklung. Das eröffnet Ihnen in unserem Unternehmen gleichzeitig faszinierende Perspektiven: Unser breitgefächertes Dienstleistungsportfolio bietet attraktive Zukunftschancen in vielfältigen Berufsfeldern – sowohl im kaufmännischen als auch im gewerblichen Bereich.",
+          "company_type": "Public Company",
+          "status": "active",
+          "year_founded": null,
+          "employee_count_range": "1001-5000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 151,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": -0.6578947368421052,
+            "3m": 0.0,
+            "6m": 2.027027027027027,
+            "12m": 0.0
+          },
+          "growth_absolute": {
+            "1m": -1,
+            "3m": 0,
+            "6m": 3,
+            "12m": 0
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Bremen, Bremen, Germany",
+          "street_address": "Hans-Böckler-Straße, Bremen, Bremen",
+          "city": "Bremen",
+          "state": "Bremen",
+          "all_office_addresses": []
+        }
+      },
+      {
+        "crustdata_company_id": 2769666,
+        "basic_info": {
+          "name": "EgeTrans",
+          "crustdata_company_id": 2769666,
+          "primary_domain": "egetrans.com",
+          "all_domains": [
+            "egetrans.com"
+          ],
+          "website": "https://www.egetrans.com/",
+          "professional_network_url": "https://www.linkedin.com/company/egetrans-internationale-spedition-gmbh",
+          "professional_network_id": "5370975",
+          "profile_name": "EgeTrans",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/f5e73f514e8473ba0edfec21564c25b5736a066c4381d86e7549990246260558.jpg",
+          "description": "In today’s world, where markets are no longer defined by geographic borders, the fast and efficient flow of goods is one of the most crucial factors for survival in the global economy. Professional logistics management and procurement logistics services are becoming increasingly important. These are areas in which we’ve established a reputation around the world as a professional logistics provider and a highly competent business partner.",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 1959,
+          "employee_count_range": "51-200",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 104,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": -2.803738317757009,
+            "3m": -4.587155963302752,
+            "6m": -1.8867924528301887,
+            "12m": 7.216494845360824
+          },
+          "growth_absolute": {
+            "1m": -3,
+            "3m": -5,
+            "6m": -2,
+            "12m": 7
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Marbach am Neckar, Baden-Württemberg, Germany",
+          "street_address": "Ludwigsburger Straße 70, Marbach am Neckar, Baden-Württemberg",
+          "city": "Marbach am Neckar",
+          "state": "Baden-Württemberg",
+          "all_office_addresses": []
+        }
+      },
+      {
+        "crustdata_company_id": 3569051,
+        "basic_info": {
+          "name": "Conceptum Logistics Group",
+          "crustdata_company_id": 3569051,
+          "primary_domain": "conceptum-logistics.com",
+          "all_domains": [
+            "conceptum-logistics.com"
+          ],
+          "website": "http://www.conceptum-logistics.com",
+          "professional_network_url": "https://www.linkedin.com/company/conceptum-logistics-group",
+          "professional_network_id": "10412196",
+          "profile_name": "Conceptum Logistics Group",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/e2784af9611adc5845b995d029d104b5ac783454e09f5d322f6448898e795b23.jpg",
+          "description": "Conceptum Logistics is an experienced premium concept logistics company, specializing in international overseas transportation and all types of global cargo project consignments.Extraordinary freight, extraordinary destinations, extraordinary conditions, conventional shipments or worldwide container services - the international Conceptum Logistics Group provides the complete range of logistics services from conventional container shipments, chartering solutions, and complex turnkey projects to the remotest locations with personal cargo care and supervision at all critical points of transport by sea, air or land. The combination of highly skilled logistics specialists, shipping and chartering managers, a global network of own offices and proven partnerships plus the will to go the extra mile for our customers is the reason for Conceptum not only finding and maintaining its place within the long existing and highly competitive logistics market but also for expanding at an extraordinary pace. YOU KNOW WHERE, WE KNOW HOW Services: • Project logistics and consultancy • Break bulk • Heavy haul and super loads • Part/-full charter • Global container services • Cross trades • Warehousing and Packing• Multimodal transport solutions • Centrally controlled, local field surveillance • Own procurement offices and long-standing joint ventures in global key markets • Individual analysis for all customers • Local project coordination and supervision• Port captains in all relevant ports of call • 24/7 project teams • Transport insurance and risk management",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 2002,
+          "employee_count_range": "51-200",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 108,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 0.9345794392523363,
+            "3m": 0.0,
+            "6m": 2.857142857142857,
+            "12m": 3.8461538461538463
+          },
+          "growth_absolute": {
+            "1m": 1,
+            "3m": 0,
+            "6m": 3,
+            "12m": 4
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Hamburg Altona-Altstadt, Hamburg, Hamburg Sankt Pauli, Hamburg Neustadt, Hamburg, Germany",
+          "street_address": "Zirkusweg 2, Hamburg Altona-Altstadt, Hamburg, Hamburg Sankt Pauli, Hamburg Neustadt, Hamburg",
+          "city": "Hamburg Altona-Altstadt, Hamburg, Hamburg Sankt Pauli, Hamburg Neustadt",
+          "state": "Hamburg",
+          "all_office_addresses": [
+            "25700 Interstate 45 N, Spring, TX, 77386, US"
+          ]
+        }
+      },
+      {
+        "crustdata_company_id": 2387487,
+        "basic_info": {
+          "name": "LGI Logistics Group International GmbH",
+          "crustdata_company_id": 2387487,
+          "primary_domain": "lgigroup.com",
+          "all_domains": [
+            "lgi.de",
+            "lgigroup.com"
+          ],
+          "website": "https://www.lgi.de/impressum",
+          "professional_network_url": "https://www.linkedin.com/company/lgi-logistics-group-international-gmbh",
+          "professional_network_id": "1160181",
+          "profile_name": "LGI Logistics Group International GmbH",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/25f46a0a7eebb642cb3475c0502428e037d5e33d8dbb75853d06a85757b94d80.jpg",
+          "description": "LGI Logistics Group International GmbH is a provider of industry-specific logistics solutions. LGI works with well-known customers from the automotive, electronics, fashion & lifestyle, health care & life science, and industrial sectors. The logistician employs a workforce of over 5.000 people located at more than 45 sites worldwide. LGI is part of the Swedish Elanders Group, a global provider of supply chain management, print & packaging and e-commerce.Sounds good? Even better:* LGI is one of the leading companies in contract logistics in Europe* Since we started as an outsourcing project out of Hewlett-Packard Germany, you can benefit from our industrial heritage combined with a pragmatic mid-sized company approach* LGI's solutions adopt to your needs and not the other way around",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 1995,
+          "employee_count_range": "1001-5000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 526,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 0.19047619047619047,
+            "3m": 0.0,
+            "6m": 0.0,
+            "12m": 1.153846153846154
+          },
+          "growth_absolute": {
+            "1m": 1,
+            "3m": 0,
+            "6m": 0,
+            "12m": 6
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Böblingen, Baden-Württemberg, Germany",
+          "street_address": "Konrad-Zuse-Str. 10, Böblingen, Baden-Württemberg",
+          "city": "Böblingen",
+          "state": "Baden-Württemberg",
+          "all_office_addresses": []
+        }
+      },
+      {
+        "crustdata_company_id": 2417083,
+        "basic_info": {
+          "name": "RIO | The Logistics Flow",
+          "crustdata_company_id": 2417083,
+          "primary_domain": "rio.cloud",
+          "all_domains": [
+            "rio.cloud"
+          ],
+          "website": "https://rio.cloud/",
+          "professional_network_url": "https://www.linkedin.com/company/rio-the-logistics-flow",
+          "professional_network_id": "16213141",
+          "profile_name": "RIO | The Logistics Flow",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/9573009569bdf593d59792c6b544d6dd43f9339605cadbc95349e8e747999a3c.jpg",
+          "description": "RIO is a Munich-based software company specializing in digital services for the logistics and transport industry. The product portfolio offers a variety of collaborative cloud solutions for transport service providers and shippers, including OEM-independent offerings in the areas of telematics, transport management and driver communication. The flagship product is the modular transport management system (TMS) Cartright with its driver app Pocket Driver, which was specially developed for small and medium-sized companies.A central service for shippers is the cloud-based supply chain solution, which enables suppliers, logistics service providers and industrial companies to securely exchange relevant data and make logistics processes more efficient across companies.RIO is a subsidiary of the TRATON GROUP and employs around 130 people at its sites in Munich and Paderborn. Every day, the company processes an average of 115 million status messages from 210,000 vehicles for over 82,500 users.",
+          "company_type": "Public Company",
+          "status": "active",
+          "year_founded": 2016,
+          "employee_count_range": "51-200",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 117,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 0.0,
+            "3m": 0.0,
+            "6m": -2.5,
+            "12m": -2.5
+          },
+          "growth_absolute": {
+            "1m": 0,
+            "3m": 0,
+            "6m": -3,
+            "12m": -3
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "München, Bavaria, Germany",
+          "street_address": "Oskar-Schlemmer-Str. 19-21, München, Bavaria",
+          "city": "Munich",
+          "state": "Bavaria",
+          "all_office_addresses": [
+            "Schulze-Delitzsch-Str. 48, Paderborn, 33100, DE"
+          ]
+        }
+      },
+      {
+        "crustdata_company_id": 3616345,
+        "basic_info": {
+          "name": "Hartmann International GmbH & Co. KG",
+          "crustdata_company_id": 3616345,
+          "primary_domain": "hartmann-international.de",
+          "all_domains": [
+            "hartmann-international.de"
+          ],
+          "website": "http://www.hartmann-international.de/",
+          "professional_network_url": "https://www.linkedin.com/company/hartmann-international-gmbh-&-co-kg",
+          "professional_network_id": "8693659",
+          "profile_name": "Hartmann International GmbH & Co. KG",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/6453aa34fcbc00c7c769a9ef28555e1e59d6b38a63379bb3c59eb8ae239598b0.jpg",
+          "description": "Hartmann International GmbH & Co. KG is a medium-sized, globally active logistics company based in Paderborn and Ibbenbüren. The company is now in its fifth generation of family ownership and is celebrating its 165th anniversary in 2021. Around 730 employees work in the company's forwarding and logistics divisions as well as in Air & Sea and private and commercial removals worldwide.Services:Freight forwarding: general cargo, part & full loads, European land transportation, procurement logisticsLogistics: Warehouse logistics, contract logistics, value added services, consulting, IT expertiseAir & Sea: Air freight, sea freight, servicesRemovals: Private removals, company removals, employee removals, file logisticsImprint: http://www.hartmann-international.de/impressum/",
+          "company_type": "Public Company",
+          "status": "active",
+          "year_founded": null,
+          "employee_count_range": "501-1000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 118,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": -0.8403361344537815,
+            "3m": -0.8403361344537815,
+            "6m": 0.0,
+            "12m": 4.424778761061947
+          },
+          "growth_absolute": {
+            "1m": -1,
+            "3m": -1,
+            "6m": 0,
+            "12m": 5
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Paderborn, North Rhine-Westphalia, Germany",
+          "street_address": "Halberstädter Straße 77, Paderborn, North Rhine-Westphalia",
+          "city": "Paderborn",
+          "state": "North Rhine-Westphalia",
+          "all_office_addresses": [
+            "Konrad-Zuse-Straße 1, Ibbenbüren, Nordrhein-Westfalen, 49479, DE"
+          ]
+        }
+      },
+      {
+        "crustdata_company_id": 2373508,
+        "basic_info": {
+          "name": "Lager Und Logistik",
+          "crustdata_company_id": 2373508,
+          "primary_domain": "logistik-bautzen.de",
+          "all_domains": [
+            "logistik-bautzen.de"
+          ],
+          "website": "http://logistik-bautzen.de",
+          "professional_network_url": "https://www.linkedin.com/company/lager-und-logistik",
+          "professional_network_id": "7425847",
+          "profile_name": "Lager Und Logistik",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/767a85a8090a5792f4439a5ec17614ed52ef0fc4e445c3fa756794b06ced9dfd.jpg",
+          "description": "Lager Und Logistik is a logistics and supply chain company based out of 32 Großdubrauer Straße, Bautzen, Germany.",
+          "company_type": "",
+          "status": "active",
+          "year_founded": null,
+          "employee_count_range": "",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 365,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 0.0,
+            "3m": 1.6713091922005572,
+            "6m": 3.6931818181818183,
+            "12m": 7.352941176470589
+          },
+          "growth_absolute": {
+            "1m": 0,
+            "3m": 6,
+            "6m": 13,
+            "12m": 25
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Bautzen, Saxony, Germany",
+          "street_address": "32 Großdubrauer Straße, Bautzen, Saxony",
+          "city": "Bautzen",
+          "state": "Saxony",
+          "all_office_addresses": []
+        }
+      },
+      {
+        "crustdata_company_id": 2115120,
+        "basic_info": {
+          "name": "GREIWING logistics group",
+          "crustdata_company_id": 2115120,
+          "primary_domain": "greiwing.de",
+          "all_domains": [
+            "greiwing.de",
+            "greiwing-group.de"
+          ],
+          "website": "http://www.greiwing-group.de",
+          "professional_network_url": "https://www.linkedin.com/company/greiwing-logistics-group",
+          "professional_network_id": "5968294",
+          "profile_name": "GREIWING logistics group",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/48eabc2ec661115cf47cf51caef27649ac2db79c8cc1c670a4013396f45de846.jpg",
+          "description": "Qualität, die verbindet.Die GREIWING logistics group bietet ein breites Angebot an Logistikdienstleistungen, unter anderem in den Branchen Chemie, Kunststoffe, Lebensmittel, Farben und Lacke sowie der Bauindustrie. Die Expertise der Unternehmensgruppe beinhaltet auch den Umgang mit wassergefährdenden Stoffen und Gefahrstoffen sowie den Umgang mit Spezialthemen wie der Abwicklung von Luftfracht und Zoll. Um die gesamte Wertschöpfungskette gebündelt abzuwickeln, ist die Unternehmensgruppe mit mehr als 20 Standorten in Deutschland und Belgien vertreten. Zur Unternehmensgruppe gehören die GREIWING logistics for you GmbH, die SEPARATION AG, die KTV Speditionsgesellschaft mbH und die GREIWING services for you GmbH.",
+          "company_type": "Public Company",
+          "status": "active",
+          "year_founded": 1930,
+          "employee_count_range": "501-1000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 150,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 0.0,
+            "3m": 0.0,
+            "6m": -2.5974025974025974,
+            "12m": -1.9607843137254901
+          },
+          "growth_absolute": {
+            "1m": 0,
+            "3m": 0,
+            "6m": -4,
+            "12m": -3
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Greven, North Rhine-Westphalia, Germany",
+          "street_address": "Carl-Benz-Str. 11-15, Greven, North Rhine-Westphalia",
+          "city": "Greven",
+          "state": "North Rhine-Westphalia",
+          "all_office_addresses": []
+        }
+      },
+      {
+        "crustdata_company_id": 3569270,
+        "basic_info": {
+          "name": "Vollers Group",
+          "crustdata_company_id": 3569270,
+          "primary_domain": "vollers.com",
+          "all_domains": [
+            "vollers.com",
+            "wonderlink.de"
+          ],
+          "website": "https://wonderl.ink/@vollersgroup",
+          "professional_network_url": "https://www.linkedin.com/company/vollersgroup",
+          "professional_network_id": "5051103",
+          "profile_name": "Vollers Group",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/ad05d0128eafdb926bd41794781ed9d0b915a77ea828c15df3ca0e0408e5170f.jpg",
+          "description": "As a company consisting of highly experienced logistics specialists focusing on coffee, cocoa, tea and other valuable commodities across Europe, we provide tailor-made and digitally powered logistics solutions for transport, warehousing and value-added services.Locations for your commodityWe are at home in many ports and locations! Our parent company is in Bremen at the River ‘Weser’ in the area of the inner harbour called ‘Überseestadt’. As an international logistics company with customers across the world, we offer our services for your commodity at a total of 13 locations in 8 countries across the whole of Europe.Port & Commodity LogisticsOur world revolves around port and commodity logistics. Today, we offer customers everything from transport and shipping, import services including document handling and customs clearance, storage as well as handling and processing such as blending, cleaning, flavouring, repackaging, right up to a full set of services for the outgoing goods.With our own vehicle fleet, warehouses, storage facilities and numerous added value services for your goods, products and raw materials, we at Vollers look after your commodity day by day.You would like to assume responsibility for our customers? Then you can find the following current job offers in the Vollers Group. Please also feel free to provide us with your conclusive unsolicited application by e-mail.https://www.vollers.com/career",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 1932,
+          "employee_count_range": "201-500",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 177,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 0.0,
+            "3m": 0.5681818181818182,
+            "6m": 0.5681818181818182,
+            "12m": 7.926829268292683
+          },
+          "growth_absolute": {
+            "1m": 0,
+            "3m": 1,
+            "6m": 1,
+            "12m": 13
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Bremen, Bremen, Germany",
+          "street_address": "Speicherhof 308, Bremen, Bremen",
+          "city": "Bremen",
+          "state": "Bremen",
+          "all_office_addresses": [
+            "Speicherhof 308, Bremen, 28217, DE",
+            "Rossweg 20, Hamburg, 20457, DE",
+            "Kaaien 218-220, Antwerpen, 2030, BE",
+            "Sardiniëweg 4, Amsterdam, 1044 AE, NL",
+            "Bunschotenweg 141, Rotterdam, Südholland, 3089, NL",
+            "General Castle Way, Bury Saint Edmunds, England, IP30 9, GB",
+            "Via Rivarolo, 2, Genua, Ligurien, 16161, IT",
+            "Viale Miramare, 5, Triest, Friaul, 34135, IT",
+            "Lindes, Salaspils pagasts, Salaspils novads, 2118, LV",
+            "Hoidla tee 4, Maardu, Kreis Harju, 74115, EE",
+            "ulitsa Avenariusa 5, Belyje Stolby, Moskau, 142050, RU",
+            "Via Boscofangone, Nola, Campania, 80035, IT"
+          ]
+        }
+      },
+      {
+        "crustdata_company_id": 1123413,
+        "basic_info": {
+          "name": "PTV Logistics",
+          "crustdata_company_id": 1123413,
+          "primary_domain": "ptvlogistics.com",
+          "all_domains": [
+            "ptvlogistics.com"
+          ],
+          "website": "https://www.ptvlogistics.com/en-us",
+          "professional_network_url": "https://www.linkedin.com/company/ptvlogistics",
+          "professional_network_id": "3043053",
+          "profile_name": "PTV Logistics",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/6e0700b947bf80fe3f655291ec527d767e2ba314de39c1541f7923370649678d.jpg",
+          "description": "PTV Logistics stands today as a dedicated brand focused entirely on solving modern logistics challenges — with full global autonomy and a clear mission.Built on more than 40 years of logistics expertise within the PTV ecosystem, PTV Logistics enables smarter, more efficient, and more transparent logistics operations worldwide.The company combines advanced routing, optimization, transport visibility, and AI‐driven intelligence on a unified technology foundation. Powerful algorithms and scalable APIs form the backbone of all PTV Logistics SaaS solutions, ensuring reliable performance and consistent capabilities across planning and execution.Together, these strengths position PTV Logistics as an end‐to‐end logistics technology provider, helping organizations plan, execute, and optimize transport operations with confidence.Across its solution portfolio, PTV Logistics supports organizations throughout the entire logistics lifecycle - enabling them to plan, optimize, execute, and continuously develop their transport operations. From strategic decision‐making to daily execution and ongoing improvement, PTV Logistics helps turn complexity into operational excellence.",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 1979,
+          "employee_count_range": "201-500",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 351,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 0.2857142857142857,
+            "3m": 0.8620689655172413,
+            "6m": 3.2352941176470593,
+            "12m": 12.5
+          },
+          "growth_absolute": {
+            "1m": 1,
+            "3m": 3,
+            "6m": 11,
+            "12m": 39
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Karlsruhe, Baden-Württemberg, Germany",
+          "street_address": "Stumpfstraße 1, Karlsruhe, Baden-Württemberg",
+          "city": "Karlsruhe",
+          "state": "Baden-Württemberg",
+          "all_office_addresses": [
+            "Voordries 41, Oosterzele, Oost-Vlaanderen, 9860, BE",
+            "Via Settevalli, 133c, Perugia, Umbria, 06129, IT",
+            "Corso Milano, 15, Monza, Lombardy, 20900, IT",
+            "54 Hagley Road, Birmingham, England, B16 8PE, GB"
+          ]
+        }
+      },
+      {
+        "crustdata_company_id": 9587224,
+        "basic_info": {
+          "name": "Haeger & Schmidt Logistics",
+          "crustdata_company_id": 9587224,
+          "primary_domain": "haegerundschmidt.com",
+          "all_domains": [
+            "haegerundschmidt.com"
+          ],
+          "website": "",
+          "professional_network_url": "https://www.linkedin.com/company/haeger&schmidtlogistics",
+          "professional_network_id": "22287860",
+          "profile_name": "Haeger & Schmidt Logistics",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/0e400cd1d3ccecc4f89caae2489777cfeae8aefedc62313f3a1e166b164df766.jpg",
+          "description": "Tradition und Innovation seit 130 Jahren!Die Haeger & Schmidt Logistics-Gruppe steht für Kompetenz in allen logistischen Prozessen. Wir realisieren für Sie innovative Lösungen für Ihre Transporte.",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": null,
+          "employee_count_range": "51-200",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 111,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 0.9090909090909091,
+            "3m": 0.9090909090909091,
+            "6m": 3.7383177570093453,
+            "12m": -0.8928571428571428
+          },
+          "growth_absolute": {
+            "1m": 1,
+            "3m": 1,
+            "6m": 4,
+            "12m": -1
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Duisburg, North Rhine-Westphalia, Germany",
+          "street_address": "Vinckeweg 22, Duisburg, North Rhine-Westphalia",
+          "city": "Duisburg",
+          "state": "North Rhine-Westphalia",
+          "all_office_addresses": []
+        }
+      },
+      {
+        "crustdata_company_id": 3594105,
+        "basic_info": {
+          "name": "STI Freight Management Group",
+          "crustdata_company_id": 3594105,
+          "primary_domain": "sti-freight-management.com",
+          "all_domains": [
+            "sti-freight-management.com",
+            "havi.com"
+          ],
+          "website": "http://www.sti-freight-management.com",
+          "professional_network_url": "https://www.linkedin.com/company/sti-freight-management-gmbh",
+          "professional_network_id": "3845845",
+          "profile_name": "STI Freight Management Group",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/26d0afa04dccb5f31a626351ebc6e5f327c02df639cdc5d590b6e37e54cf3a67.jpg",
+          "description": "🌟 Greetings and a warm welcome to STI Freight Management! 🌟At STI FM, we're more than just a logistics company – we're a dedicated team committed to excellence in temperature-controlled transport.Our mission? Taking quality the extra mile. We specialize in ensuring goods arrive safely, on time, and in perfect condition, serving industries where precision is paramount. From perishable foods to life-saving pharmaceuticals, we understand the importance of getting it right, every time.But it's not just about the goods. It's about the relationships too. We believe in trust, respect, and mutual understanding, whether we're collaborating with valued hauliers or supporting our incredible team.Speaking of our team, we recognize that our greatest asset is our people. That's why we're dedicated to providing them with the support and resources they need to thrive. From ongoing training and development opportunities to fostering a culture of inclusivity and respect, we're committed to creating a workplace where everyone feels valued and supported.Whether you're a potential partner or simply interested in learning more about what we do, we invite you to join us on our journey and connect with us. Looking forward to getting to know you.#STIFM #TakingQualityTheExtraMile #LogisticsExperts #JoinOurTeam",
+          "company_type": "Sole Proprietorship",
+          "status": "active",
+          "year_founded": 1983,
+          "employee_count_range": "201-500",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 133,
+          "largest_headcount_country": "FRA",
+          "growth_percent": {
+            "1m": -1.4814814814814816,
+            "3m": -1.4814814814814816,
+            "6m": -2.9197080291970803,
+            "12m": -2.9197080291970803
+          },
+          "growth_absolute": {
+            "1m": -2,
+            "3m": -2,
+            "6m": -4,
+            "12m": -4
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Duisburg, North Rhine-Westphalia, Germany",
+          "street_address": "Geitlingstrasse, 20, Duisburg, North Rhine-Westphalia",
+          "city": "Duisburg",
+          "state": "North Rhine-Westphalia",
+          "all_office_addresses": [
+            "Geitlingstrasse, 20, Duisburg, North Rhine-Westphalia, 47228, DE",
+            "Punchbowl 130, Punchbowl Park, Cherry Tree Lane, Hemel Hempstead, , Hertfordshire, HP2 7EQ, GB",
+            "ZAC du Bois Chaland, 10/12 rue du Bois Chaland, Lisses, 0, 91090, FR",
+            "Centre Européen de Fret de Bayonne, Mouguerre et Lahonce , Mouguerre, 0, 64990, FR",
+            "Z.A.C. du Chapotin, Parc d’activités de la vallée de l’Ozon  , Chaponnay, 0, 69970, FR",
+            "Tuna Gardsvag 4, Tumba, o, 14743, SE",
+            "Via Adige 250, Bomporto, Emilia-Romagna, 41030, IT",
+            "Ctra. Alcalá de Henares-Daganzo M118, Daganzo de Arriba - Madrid, 0, 28814, ES",
+            "123 Renfrew Road, Paisley, 0, PA3 4EA, GB",
+            "3/6 Novoorlovskaya st., Moscow, 0, 119633, RU",
+            "Prologis Ipari Park DC 2 , Gyál, Gyal, 2360, HU",
+            "ul. Daniszewska 25, 03-230, 0, Warsaw, PL"
+          ]
+        }
+      },
+      {
+        "crustdata_company_id": 903510,
+        "basic_info": {
+          "name": "Soloplan GmbH",
+          "crustdata_company_id": 903510,
+          "primary_domain": "soloplan.de",
+          "all_domains": [
+            "soloplan.de"
+          ],
+          "website": "http://www.soloplan.de",
+          "professional_network_url": "https://www.linkedin.com/company/soloplan-gmbh",
+          "professional_network_id": "6696100",
+          "profile_name": "Soloplan GmbH",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/0d222fa453fa14ea09ee18dfcbc3b48b712df293d1c2e574cbf55f5d11009dee.jpg",
+          "description": "Soloplan GmbH is THE software company for the logistics industry. As one of the leading German logistics software companies, we develop and distribute our innovative and flexible logistics software suite CarLo worldwide. Over the course of 30 years, Soloplan has developed into a medium-sized company that operates successfully with around 260 employees at its headquarters in Kempten/Allgäu and in other branches in Germany, Poland, France, South Africa and Spain. Our employees appreciate our fair, sustainable and future-orientated business practices as well as the pleasant working environment.CarLo is THE logistics software for the perfect handling of all transport processes: from order entry and planning - including automatic route planning - to freight calculation and fleet management through to BI systems for data analysis.More than 1,800 customers in over 50 countries worldwide benefit from direct sales of the CarLo product family, seminars at the in-house Soloplan Academy and the competent, efficient service team on site and on the internal hotline.Thanks to our success, our company is growing and we are looking to maintain our level of quality and performance in the future: Open-minded, team-orientated specialists in the areas of - software development- quality assurance- IT services- project management- product management- sales and marketing- administration",
+          "company_type": "Sole Proprietorship",
+          "status": "active",
+          "year_founded": 1991,
+          "employee_count_range": "201-500",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 155,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 1.9736842105263157,
+            "3m": 5.442176870748299,
+            "6m": 8.391608391608392,
+            "12m": 10.714285714285714
+          },
+          "growth_absolute": {
+            "1m": 3,
+            "3m": 8,
+            "6m": 12,
+            "12m": 15
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Kempten, Bavaria, Germany",
+          "street_address": "Illerhöhe 1, Kempten, Bavaria",
+          "city": "Kempten",
+          "state": "Bavaria",
+          "all_office_addresses": [
+            "Cottaer Straße 2, Dresden, Saxony, 01159, DE",
+            "ul. Dąbrówki, Katowice, Katowice, 40-081, PL",
+            "300 Janadel Avenue, Johannesburg, Gauteng, 1685, ZA",
+            "21B, Route de la Wantzenau, Hœnheim, Grand Est, 67800, FR",
+            "C/ Mercurio, N0 85, Murcia, 30500, ES",
+            "ul. Skarbowcow, Warschau, 53-025, PL"
+          ]
+        }
+      },
+      {
+        "crustdata_company_id": 2132956,
+        "basic_info": {
+          "name": "ITC Logistic",
+          "crustdata_company_id": 2132956,
+          "primary_domain": "itc-logistic.de",
+          "all_domains": [
+            "itc-logistic.de"
+          ],
+          "website": "http://www.itc-logistic.de",
+          "professional_network_url": "https://www.linkedin.com/company/itc-logistic",
+          "professional_network_id": "1721598",
+          "profile_name": "ITC Logistic",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/950831ce0e50e725c8bded277b18897368e51ea2ef866ba39bb35821ffc4e02c.jpg",
+          "description": "simply.professional",
+          "company_type": "Public Company",
+          "status": "active",
+          "year_founded": 1975,
+          "employee_count_range": "201-500",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 111,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": -0.8928571428571428,
+            "3m": 0.9090909090909091,
+            "6m": 0.9090909090909091,
+            "12m": 3.7383177570093453
+          },
+          "growth_absolute": {
+            "1m": -1,
+            "3m": 1,
+            "6m": 1,
+            "12m": 4
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Willich, North Rhine-Westphalia, Germany",
+          "street_address": "Linsellesstr. 97, Willich, North Rhine-Westphalia",
+          "city": "Willich",
+          "state": "North Rhine-Westphalia",
+          "all_office_addresses": [
+            "Klosterhofweg, Mönchengladbach Güdderath, NRW, 41199, DE",
+            "August-Horch-Str. 7a, Koblenz, Rheinland-Pfalz, 56070, DE",
+            "Ringstr. 39-41, Fellbach, Baden-Württemberg, 70736, DE",
+            "Gutenbergweg 4, Erkrath, NRW, 40699, DE"
+          ]
+        }
+      },
+      {
+        "crustdata_company_id": 2131141,
+        "basic_info": {
+          "name": "Kolibri360",
+          "crustdata_company_id": 2131141,
+          "primary_domain": "kolibri360.de",
+          "all_domains": [
+            "zeitfracht.de",
+            "kolibri360.de"
+          ],
+          "website": "https://kolibri360.de/",
+          "professional_network_url": "https://www.linkedin.com/company/https-kolibri360.de-",
+          "professional_network_id": "54100740",
+          "profile_name": "Kolibri360",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/90ff98555aaa04788d319cc9927a5c3ed9793fc90ea115cbec1f1bb5f5310a2a.jpg",
+          "description": "Kolibri360 – Logistics and eCommerce FulfillmentKolibri360 is one of the leading logistics service providers with comprehensive fulfillment solutions for companies in a wide range of product areas. From receiving and warehousing to picking and shipping, efficient returns processes, and customized value-added services, we offer a complete, worry-free package for your business success. Our modern, automated infrastructure guarantees maximum efficiency, reliability, and flexibility. With locations in Erfurt, Stuttgart, and Heeslingen, as well as one of Europe's largest and most modern logistics centers in Erfurt, we support companies from startups to international corporations with innovative logistics solutions.",
+          "company_type": "Public Company",
+          "status": "active",
+          "year_founded": 1976,
+          "employee_count_range": "1001-5000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 211,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 1.932367149758454,
+            "3m": 1.4423076923076923,
+            "6m": 0.0,
+            "12m": -4.090909090909091
+          },
+          "growth_absolute": {
+            "1m": 4,
+            "3m": 3,
+            "6m": 0,
+            "12m": -9
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Erfurt, Thuringia, Germany",
+          "street_address": "Ferdinand-Jühlke Straße, Erfurt, Thuringia",
+          "city": "Erfurt",
+          "state": "Thuringia",
+          "all_office_addresses": []
+        }
+      },
+      {
+        "crustdata_company_id": 3602932,
+        "basic_info": {
+          "name": "HGK Logistics and Intermodal GmbH",
+          "crustdata_company_id": 3602932,
+          "primary_domain": "hgk.de",
+          "all_domains": [
+            "neska.com",
+            "hgk.de"
+          ],
+          "website": "http://www.neska.com",
+          "professional_network_url": "https://www.linkedin.com/company/hgk-logistics-and-intermodal-gmbh",
+          "professional_network_id": "19125354",
+          "profile_name": "HGK Logistics and Intermodal GmbH",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/8842b67eb5b300f4176ac3606a74dc1fd733c1c655f24e091df37f4e84c193ac.jpg",
+          "description": "Ein Unternehmen für viele Wege Der schnelle und sichere Transport von Gütern aller Art ist unsere Leidenschaft. Wir vertrauen auf das Zusammenspiel verschiedener Spezialisten, technisch bestens ausgerüsteten Standorten und jahrzehntelang gewachsenem Know-how. Seit 1925 bieten wir unseren Kunden Logistiklösungen für Transport, Umschlag, Lagerung und Bearbeitung von Stück- und Massegütern sowie alle Dienstleistungen rund um Container. Hohe Anforderungen an Sicherheit, Umweltschutz und Qualität sind für uns selbstverständlich.  1993 haben wir ein umfangreiches Qualitätsmanagementsystem eingeführt und uns unsere hohen Standards seitdem von einer Vielzahl an Zertifizierungen bestätigen lassen. Neben internen Managementrichtlinien wie z.B. dem Riskmanagement und den internen Kontrollstandards (IKS) erfüllen die Unternehmen der neska-Gruppe je nach Anforderung die Standards zu Hafensicherheit (ISPS), Umweltschutz, Lebensmittelhygiene, der SQAS-Norm aus der chemischen Industrie sowie zum Zugelassenen Wirtschaftsbeteiligten (AEO-F).Zu Wasser wie zu Land profitieren wir von unserem umfassenden Netzwerk an wichtigen Knotenpunkten und schnellen Verbindungen. Der Wille zu mehr Effizienz und Sicherheit sowie das Wissen, dass jedes Gut besonders behandelt werden muss, begleitet uns jeden Tag und auf jedem Weg. Nur so können wir eine zuverlässige Transportkette garantieren, auf die sie sich jederzeit verlassen können. Wir wissen, worauf es ankommt.",
+          "company_type": "Public Company",
+          "status": "active",
+          "year_founded": 1925,
+          "employee_count_range": "501-1000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 125,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 0.0,
+            "3m": 3.3057851239669422,
+            "6m": 5.042016806722689,
+            "12m": 19.047619047619047
+          },
+          "growth_absolute": {
+            "1m": 0,
+            "3m": 4,
+            "6m": 6,
+            "12m": 20
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Duisburg, North Rhine-Westphalia, Germany",
+          "street_address": "Neumarkt 7-11, Duisburg, North Rhine-Westphalia",
+          "city": "Duisburg",
+          "state": "North Rhine-Westphalia",
+          "all_office_addresses": [
+            "Kiffward 6-20, Duisburg, Nordrhein-Westfalen, 47138, DE",
+            "Auf der Lausward 80, Düsseldorf, Nordrhein-Westfalen, 40221, DE",
+            "Stapelkai Becken III, Köln, Nordrhein-Westfalen, 50735, DE",
+            "Am Hafenkopf 8, Krefeld, Nordrhein-Westfalen, 47809, DE",
+            "Rheinkaistraße 19, Mannheim, Baden-Württemberg, 68159, DE"
+          ]
+        }
+      },
+      {
+        "crustdata_company_id": 3194027,
+        "basic_info": {
+          "name": "Rudolph Logistik Gruppe",
+          "crustdata_company_id": 3194027,
+          "primary_domain": "rudolph-log.com",
+          "all_domains": [
+            "rudolph-log.com"
+          ],
+          "website": "http://www.rudolph-log.com",
+          "professional_network_url": "https://www.linkedin.com/company/rudolph-logistik-gruppe",
+          "professional_network_id": "3851294",
+          "profile_name": "Rudolph Logistik Gruppe",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/b210dfc0992b296d9aff1f75bc1720bc3739010adc612b1587ca1dd295684499.jpg",
+          "description": "The Rudolph Logistics Group is an international logistics service provider with approximatley 4,500 employees working at 42 locations in Germany, Europe, the United States and the Arabian Peninsula. The headquarters of our company group is in Gudensberg in the heart of Germany. Since its founding in 1946, the Rudolph Logistics Group has been an owner-run company. Today in the fourth generation of family management, Dr. Torsten Rudolph leads the company as CEO.We develop and implement comprehensive logistics solutions for various industries and are concentrated on the business fields of Automotive, Transportation, Manufacturing and Trade Logistics.As a logistics service provider with nearly 75 years of experience, we are the right part-ner when it comes to outsourcing logistics processes. This can involve partial processes such as procurement or distribution logistics – but also complex outsourcing projects where our task is to handle your entire logistics chain.",
+          "company_type": "Public Company",
+          "status": "active",
+          "year_founded": 1946,
+          "employee_count_range": "1001-5000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 418,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 1.70316301703163,
+            "3m": 0.7228915662650602,
+            "6m": 2.2004889975550124,
+            "12m": 7.179487179487179
+          },
+          "growth_absolute": {
+            "1m": 7,
+            "3m": 3,
+            "6m": 9,
+            "12m": 28
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Gudensberg, Hesse, Germany",
+          "street_address": "Rudolphstraße 1, Gudensberg, Hesse",
+          "city": "Gudensberg",
+          "state": "Hesse",
+          "all_office_addresses": []
+        }
+      },
+      {
+        "crustdata_company_id": 2198577,
+        "basic_info": {
+          "name": "TX Logistik AG",
+          "crustdata_company_id": 2198577,
+          "primary_domain": "txlogistik.eu",
+          "all_domains": [
+            "txlogistik.eu",
+            "txlogistik.de"
+          ],
+          "website": "http://www.txlogistik.de",
+          "professional_network_url": "https://www.linkedin.com/company/tx-logistik-ag",
+          "professional_network_id": "3851145",
+          "profile_name": "TX Logistik AG",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/96a552e8468fb1f7549c3a77dbe51f6189f1c86d58a5a2f24e45f1c5e6e9a481.jpg",
+          "description": "Borders are not our limits.Founded in 1999 in Bad Honnef, TXLOGISTIK AG today is one of the largest rail transport companies in Europe. With our own licences we are operating in eleven European countries (Germany, Italy, Sweden, Denmark, Belgium, Austria, Switzerland, The Netherlands, Luxembourg, Romania and Hungary). We design transport networks without borders, develop freight transport concepts and offer industry-specific customized solutions from A to Z. In the sense of a combined transport model we replace the traditional division of labour in rail transport by modern and lean one-stop shop solutions.The result: We are moving more than 20,000 trains a year from Germany, the hub of the European flow of goods, through Europe - economically and sustainably. We are consistently exploiting the opportunities offered by a rail transport market for container and automobile transport in Europe that opens up more and more. This way we can give new and strong impetus to rail transport within the scope of international transit traffic.Facts & figuresEmployees: 460Trains: > 20.000 per annumRevenue turnover in 2014: > EUR 250 Mio. Foundation: 1999",
+          "company_type": "Public Company",
+          "status": "active",
+          "year_founded": 1999,
+          "employee_count_range": "1001-5000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 329,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": -0.30303030303030304,
+            "3m": 1.2307692307692308,
+            "6m": 2.1739130434782608,
+            "12m": 2.8125
+          },
+          "growth_absolute": {
+            "1m": -1,
+            "3m": 4,
+            "6m": 7,
+            "12m": 9
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Troisdorf, North Rhine-Westphalia, Germany",
+          "street_address": "Junkersring 33, Troisdorf, North Rhine-Westphalia",
+          "city": "Troisdorf",
+          "state": "North Rhine-Westphalia",
+          "all_office_addresses": []
+        }
+      },
+      {
+        "crustdata_company_id": 7611156,
+        "basic_info": {
+          "name": "Seifert Logistics Group",
+          "crustdata_company_id": 7611156,
+          "primary_domain": "seifert-logistics.com",
+          "all_domains": [
+            "seifert-logistics.com"
+          ],
+          "website": "http://www.seifert-logistics.com",
+          "professional_network_url": "https://www.linkedin.com/company/seifert-logistics-group",
+          "professional_network_id": "8531703",
+          "profile_name": "Seifert Logistics Group",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/6ecc8ed414095eb3a12b6efe5d4b717356a98b6160cd93ebc685bc0b43dfcf3e.jpg",
+          "description": "Die Seifert Logistics Group (SLG) mit Sitz in Ulm hat sich seit der Gründung 1947 von einem regionalen Marktführer zu einem international operierenden Transport- und Kontraktlogistikdienstleister mit über 3.500 Mitarbeitenden entwickelt. Der Logistiker bietet intelligente und innovative Dienstleistungskonzepte zur Beschaffung, Produktion und Distribution an. Aktuell bewirtschaftet die SLG mehr als 1 Mio qm Lagerfläche und disponiert täglich mehr als 300.000 Kilometer mit Teil- und Komplettladungstransporten für die Branchen Automotive, Papier,Chemie, Baustoffe, Konsumgüter und Pharma.Impressum: https://www.seifert-logistics.com/agb/impressum/",
+          "company_type": "Public Company",
+          "status": "active",
+          "year_founded": 1947,
+          "employee_count_range": "1001-5000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 443,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 0.6818181818181818,
+            "3m": 1.6055045871559634,
+            "6m": 4.7281323877068555,
+            "12m": 9.382716049382717
+          },
+          "growth_absolute": {
+            "1m": 3,
+            "3m": 7,
+            "6m": 20,
+            "12m": 38
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Ulm, Ulm Jungingen, Baden-Württemberg, Germany",
+          "street_address": "Himmelreich 1, Ulm, Ulm Jungingen, Baden-Württemberg",
+          "city": "Dornstadt",
+          "state": "Baden-Württemberg",
+          "all_office_addresses": [
+            "Auf der Mühlenmasch 1, Alfeld (Leine), Niedersachsen, 31061, DE",
+            "Carl Friedrich Benz Straße 34, Delitzsch, Sachsen, 04509, DE",
+            "Kappeler Straße, Düsseldorf, Nordrhein-Westfalen, 40597, DE",
+            "Rottenackerstraße, Ehingen, Baden-Württemberg, 89584, DE",
+            "Fritz- Müller- Straße 16, Esslingen am Neckar, Baden-Württemberg, 7373, DE",
+            "An der Wachau 1-5, Ehingen, Baden-Württemberg, 89584, DE",
+            "Heinrich-Oelerich- Straße 5, Leipzig, Sachsen, 04158, DE",
+            "Benzstraße, Malsch, Baden-Württemberg, 76316, DE",
+            "Bordeaux Straße 10, Bremen, HB, 28309, DE"
+          ]
+        }
+      },
+      {
+        "crustdata_company_id": 2951618,
+        "basic_info": {
+          "name": "Infraserv Logistics GmbH",
+          "crustdata_company_id": 2951618,
+          "primary_domain": "infraserv-logistics.com",
+          "all_domains": [
+            "infraserv-logistics.com"
+          ],
+          "website": "https://www.infraserv-logistics.com/",
+          "professional_network_url": "https://www.linkedin.com/company/infraserv-logistics-gmbh",
+          "professional_network_id": "8591333",
+          "profile_name": "Infraserv Logistics GmbH",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/74953322ca91c7d9d094ef9152462dacbe3657f20c1c1c5648dc769e74588ee7.jpg",
+          "description": "Intelligente Lösungen mit Standortvorteil entlang Ihrer Supply Chain für die Chemie-, Pharma- und Health-Care-Logistik.",
+          "company_type": "Public Company",
+          "status": "active",
+          "year_founded": null,
+          "employee_count_range": "501-1000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 105,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 0.0,
+            "3m": 0.9615384615384616,
+            "6m": 0.9615384615384616,
+            "12m": 3.9603960396039604
+          },
+          "growth_absolute": {
+            "1m": 0,
+            "3m": 1,
+            "6m": 1,
+            "12m": 4
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Frankfurt, Hessen, Germany",
+          "street_address": "Frankfurt, Hessen, Germany",
+          "city": "Frankfurt am Main",
+          "state": "Hessen",
+          "all_office_addresses": [
+            ", Gersthofen, Bayern, DE"
+          ]
+        }
+      },
+      {
+        "crustdata_company_id": 2378123,
+        "basic_info": {
+          "name": "MBS Logistics",
+          "crustdata_company_id": 2378123,
+          "primary_domain": "mbslogistics.com",
+          "all_domains": [
+            "mbslogistics.com"
+          ],
+          "website": "https://mbslogistics.com",
+          "professional_network_url": "https://www.linkedin.com/company/mbslogistics",
+          "professional_network_id": "14783280",
+          "profile_name": "MBS Logistics",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/6ea70ba0ce6b139ef4e2f945d9113ef804e2c09138f341986c53eab4d8e60b5a.jpg",
+          "description": "Nearly 40 years of logistics expertise. 144 countries. 600+ professionals. But to us, it’s always personal.We provide tailored, end-to-end logistics solutions designed around your unique challenges. By combining our teams across 30 locations with a global network of 900 partner offices, we guarantee flawless execution anywhere in the world.Our Capabilities:Air & Ocean Freight | Land Transport | E-Commerce Logistics | Time-Critical Logistics | Warehousing | Customs | SourcingExperience the difference of #LogisticsMadePersonal. Let's connect and streamline your supply chain today!",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 1987,
+          "employee_count_range": "501-1000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 194,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": -0.5128205128205128,
+            "3m": 1.0416666666666665,
+            "6m": 1.0416666666666665,
+            "12m": 6.593406593406594
+          },
+          "growth_absolute": {
+            "1m": -1,
+            "3m": 2,
+            "6m": 2,
+            "12m": 12
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Köln, North Rhine-Westphalia, Germany",
+          "street_address": "Köln, North Rhine-Westphalia, Germany",
+          "city": "Cologne",
+          "state": "North Rhine-Westphalia",
+          "all_office_addresses": []
+        }
+      },
+      {
+        "crustdata_company_id": 892025,
+        "basic_info": {
+          "name": "ecovium",
+          "crustdata_company_id": 892025,
+          "primary_domain": "ecovium.com",
+          "all_domains": [
+            "ecovium.com"
+          ],
+          "website": "http://ecovium.com",
+          "professional_network_url": "https://www.linkedin.com/company/ecovium",
+          "professional_network_id": "8289006",
+          "profile_name": "ecovium",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/7c1b8ebe157446b3c0472973127058e202f47b01ee85a87df8bc4326c528da40.jpg",
+          "description": "Mobility shapes our lives: people, goods, and data are covering great distances in ever shorter times. Modern logistics IT provides the crucial link.The ecovium group joined forces in 2021 with the aim of setting a strong signal for the industry. We have committed ourselves to setting the course for a new way in logistics. We are just as aware of the responsibility of this task as we are of the fact that there is no alternative to future-oriented and sustainable logistics.For this reason, we bring together experts from the fields of customs, warehousing, shipping, transport and hardware under one roof and offer our customers sustainable and economical solutions for their value-added processes. Based on many years of development, consulting and project management experience from twelve companies, the ecovium team faces the logistical challenges of tomorrow. Always with a common goal in mind: logistics and beyond.",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 2021,
+          "employee_count_range": "201-500",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 117,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": -4.098360655737705,
+            "3m": -7.142857142857142,
+            "6m": -12.030075187969924,
+            "12m": -17.6056338028169
+          },
+          "growth_absolute": {
+            "1m": -5,
+            "3m": -9,
+            "6m": -16,
+            "12m": -25
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Neustadt am Rübenberge, Lower Saxony, Germany",
+          "street_address": "Justus-von-Liebig-Str. 3, Neustadt am Rübenberge, Lower Saxony",
+          "city": "Neustadt am Rübenberge",
+          "state": "Lower Saxony",
+          "all_office_addresses": [
+            "Adlergasse 7, Böbingen, Baden-Württemberg, 73560, DE",
+            "Ludwigstraße 8a, Würzburg, Bayern, 97070 , DE",
+            "Willstätterstraße 10, Düsseldorf, Nordrhein-Westfalen, 40549, DE",
+            "Blücherstr. 32, Pforzheim, Baden-Württemberg, 75177, DE",
+            "Papenreye 31, Hamburg, Hamburg, 22453, DE",
+            "Mazmannstraße 22, Albstadt, Baden-Württemberg, 72458, DE",
+            "Oststraße 104a, Norderstedt, Hamburg, 22844, DE",
+            "Schnatsweg 30, Bielefeld, Nordrhein-Westfalen, 33739, DE"
+          ]
+        }
+      },
+      {
+        "crustdata_company_id": 7587935,
+        "basic_info": {
+          "name": "Meyer Quick Service Logistics GmbH & Co. KG",
+          "crustdata_company_id": 7587935,
+          "primary_domain": "quick-service-logistics.de",
+          "all_domains": [
+            "quick-service-logistics.de"
+          ],
+          "website": "https://www.quick-service-logistics.de",
+          "professional_network_url": "https://www.linkedin.com/company/meyer-quick-service-logistics-gmbh-co-kg",
+          "professional_network_id": "75422185",
+          "profile_name": "Meyer Quick Service Logistics GmbH & Co. KG",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/b162414bc73d0396234d3d2438ad73d6efbc77b4ca64fd5af3ddfe6aed32eadb.jpg",
+          "description": "Auf den Punkt gebracht: wir, die Quick Service Logistics , sind der Full-Service-Logistiker für die anspruchsvolle Systemgastronomie. Als Lebensmittellogistiker mit Handelsfunktion kümmern wir uns um Ihre gesamte Supply Chain und sind der One-Stop-Shop für Ihre Vollversorgung. Ob gekühlt, ungekühlt, gefroren oder alles zusammen – wir liefern, was Sie brauchen. Wir planen und steuern alle Logistikprozesse, organisieren den operativen Einkauf, beschaffen Warenbestände, lagern, distribuieren, kommissionieren und erstellen – wenn gewünscht – die komplette Abrechnung. Unsere leistungsfähigen und skalierbaren Supply-Chain-Management-Konzepte passen wir exakt an Ihre individuellen Anforderungen an und bieten so umfangreichen Mehrwert, in jeder Hinsicht.",
+          "company_type": "Partnership",
+          "status": "active",
+          "year_founded": 2006,
+          "employee_count_range": "501-1000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 120,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": -1.639344262295082,
+            "3m": 0.0,
+            "6m": 3.4482758620689653,
+            "12m": 13.20754716981132
+          },
+          "growth_absolute": {
+            "1m": -2,
+            "3m": 0,
+            "6m": 4,
+            "12m": 14
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Friedrichsdorf, Hesse, Germany",
+          "street_address": "Ludwig-Meyer Straße, Friedrichsdorf, Hesse",
+          "city": "Friedrichsdorf",
+          "state": "Hesse",
+          "all_office_addresses": []
+        }
+      },
+      {
+        "crustdata_company_id": 1908885,
+        "basic_info": {
+          "name": "XTL Gruber Logistics",
+          "crustdata_company_id": 1908885,
+          "primary_domain": "gruber-logistics.com",
+          "all_domains": [
+            "gruber-logistics.com"
+          ],
+          "website": "http://www.gruber-logistics.com",
+          "professional_network_url": "https://www.linkedin.com/company/universaltransport",
+          "professional_network_id": "9311556",
+          "profile_name": "XTL Gruber Logistics",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/7cc77146a251d8310cf1f73064d52e30157ffed4d756a27306b5bc5cc9a4c2f9.jpg",
+          "description": "This is the official account of the XTL Business Unit of Gruber Logistics.We are a solution company, and our XTL Business Unit is here as a solutions supplier for heavy load logisticsworldwide. Due to its longstanding experience Gruber Logistics ranks among the leading companies in the transport & logistics business with more than 2250 employees.With complex heavy load projects every move is important. Gruber Logistics guarantees the optimal and professional realization of your transport on all stages of the world.",
+          "company_type": "Sole Proprietorship",
+          "status": "active",
+          "year_founded": 1953,
+          "employee_count_range": "1001-5000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 107,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": -0.9259259259259258,
+            "3m": -0.9259259259259258,
+            "6m": -2.727272727272727,
+            "12m": -6.140350877192982
+          },
+          "growth_absolute": {
+            "1m": -1,
+            "3m": -1,
+            "6m": -3,
+            "12m": -7
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Paderborn, North Rhine-Westphalia, Germany",
+          "street_address": "Borchener Straße 334, Paderborn, North Rhine-Westphalia",
+          "city": "Paderborn",
+          "state": "North Rhine-Westphalia",
+          "all_office_addresses": []
+        }
+      },
+      {
+        "crustdata_company_id": 1522639,
+        "basic_info": {
+          "name": "Lufthansa Technik Logistik Services",
+          "crustdata_company_id": 1522639,
+          "primary_domain": "ltls.aero",
+          "all_domains": [
+            "ltls.aero",
+            "lufthansa-technik.com"
+          ],
+          "website": "https://www.ltls.aero/en",
+          "professional_network_url": "https://www.linkedin.com/company/lufthansa-technik-logistik-services",
+          "professional_network_id": "518984",
+          "profile_name": "Lufthansa Technik Logistik Services",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/ad9524f51843d9d3929af1deeb54da09ae7bf7895b84fbd93e16198c3e7a5c87.jpg",
+          "description": "Lufthansa Technik Logistik Services (LTLS) offers tailored logistics solutions for the aviation industry. As a company of the Lufthansa Technik Group, LTLS combines its expertise and skills as a global logistics company with an in-depth knowledge of the aviation industry. Its portfolio ranges from the storage and handling of aircraft parts to a wide set of transportation services, including special services such as ad hoc requests (AOG), engine transportations and other oversized items. In the area of transportation the company acts as single transportation provider and manages as well as optimizes the whole transportation needs of its customers in regards to reliability and costs. With around 30 warehousing locations, more than 200 transportation partners and other service companies, Lufthansa Technik Logistik Services ministers a global independent logistics network. Currently, the company offers around 100 000 square meters of storage space, has around 250 000 part numbers in stock and manages around 950 000 transports each year.",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": null,
+          "employee_count_range": "1001-5000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 558,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 1.2704174228675136,
+            "3m": 1.639344262295082,
+            "6m": 4.104477611940299,
+            "12m": 8.13953488372093
+          },
+          "growth_absolute": {
+            "1m": 7,
+            "3m": 9,
+            "6m": 22,
+            "12m": 42
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Hamburg Alsterdorf, Hamburg Ohlsdorf, Hamburg Fuhlsbüttel, Hamburg Groß Borstel, Hamburg, Hamburg, Germany",
+          "street_address": "Weg beim Jäger 193, Hamburg Alsterdorf, Hamburg Ohlsdorf, Hamburg Fuhlsbüttel, Hamburg Groß Borstel, Hamburg, Hamburg",
+          "city": "Hamburg",
+          "state": "Hamburg",
+          "all_office_addresses": [
+            "Airportring Tor 23, Frankfurt, Hesse, 60549, DE",
+            "Cargo City South, Tor 29, Frankfurt, Hesse, 60546, DE",
+            "Wartungsallee 1, Freising, Bavaria, 85356, DE",
+            "Daimlerstraße 22, Frankfurt, Hesse, 60314, DE",
+            "Elly-Beinhorn Ring 4, Schönefeld, Brandenburg, 12529, DE",
+            "Wanheimer Straße 61, Düsseldorf, North Rhine-Westphalia, 40472, DE",
+            "Stuttgart Manfred Rommel Airport, Stuttgart, Baden-Wuerttemberg, 70629, DE",
+            "Vienna Airport, Technische Basis , Vienna, 1300, AT",
+            "390 Orchard Road, Singapore, 238871, SG",
+            "Heinrich-Steinmann Straße, Cologne, North Rhine-Westphalia, 51147, DE"
+          ]
+        }
+      },
+      {
+        "crustdata_company_id": 3594130,
+        "basic_info": {
+          "name": "PAKi Logistics",
+          "crustdata_company_id": 3594130,
+          "primary_domain": "paki-logistics.com",
+          "all_domains": [
+            "paki-logistics.com"
+          ],
+          "website": "https://www.paki-logistics.com",
+          "professional_network_url": "https://www.linkedin.com/company/paki-logistics",
+          "professional_network_id": "3849598",
+          "profile_name": "PAKi Logistics",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/6cb55f53c2d165e1f10da88f63bf3736a7d32f6bb7d504bc2488822eaafc9cf9.jpg",
+          "description": "PAKi Logistics means smart, sustainable and Europe-wide load carrier management in an open pool.Since 1974, we have been supporting companies in transport, retail and industry in managing Euro pallets, box pallets and other standardised load carriers more efficiently, making them available flexibly and ensuring they are where they are needed. With more than 50 years of pooling experience, digital solutions and a strong European network, we make complex supply chains simpler, more transparent and more resource-efficient.Our promise: load carrier management that works. Fast. Reliable. Sustainable.As part of Faber Group, an international family-owned company with roots dating back to 1891, we are jointly driving the circular economy in logistics. The group includes specialised companies for pooling, load carrier services and sustainable wood supply - including PAKi, IPP, PRS, vPOOL and SATIM.At PAKi, we combine long-standing expertise with innovation, team spirit and true customer focus. Every day, our colleagues work to make logistics easier and to further develop sustainable reusable processes across Europe.For companies that want to optimise their load carrier processes.For people who want to make an impact in an international environment.For logistics that conserve resources and carry the future.PAKi Logistics – Open pooling specialists across Europe!",
+          "company_type": "Public Company",
+          "status": "active",
+          "year_founded": 1974,
+          "employee_count_range": "201-500",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 200,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 0.0,
+            "3m": -0.4975124378109453,
+            "6m": -2.4390243902439024,
+            "12m": -2.4390243902439024
+          },
+          "growth_absolute": {
+            "1m": 0,
+            "3m": -1,
+            "6m": -5,
+            "12m": -5
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Ennepetal, North Rhine-Westphalia, Germany",
+          "street_address": "Thüngenfeld 1, Ennepetal, North Rhine-Westphalia",
+          "city": "Ennepetal",
+          "state": "North Rhine-Westphalia",
+          "all_office_addresses": []
+        }
+      },
+      {
+        "crustdata_company_id": 2437321,
+        "basic_info": {
+          "name": "inTime Express Logistik GmbH",
+          "crustdata_company_id": 2437321,
+          "primary_domain": "intime.de",
+          "all_domains": [
+            "intime.de"
+          ],
+          "website": "https://www.intime.de",
+          "professional_network_url": "https://www.linkedin.com/company/in-time-express-logistik-gmbh",
+          "professional_network_id": "2494987",
+          "profile_name": "inTime Express Logistik GmbH",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/273634ec6ebaf69560eff477aefec81244ed907a5ac4db91d17bedc465dbebd7.jpg",
+          "description": "We have developed the concept of AGILE LOGISTICS in order to offer our customers a high level of flexibility and security. We want our customers to be able to face even the unexpected free from any worries.We achieve this by means of a large fleet of vehicles on stand-by and differentiated digital processes that are unique in the industry. With over 600 employees who are responsible for this array of AGILE LOGISTICS processes and ensure that the right vehicle will be outside your door in the shortest time – overall more than 1,800 times a day. And all this for more than 30 years now. As the market leader in AGILE LOGISTICS, inTime offers responsible tasks in a dynamic working environment and many opportunities for professional development. Modern, well-equipped working spaces and the latest technology allow you to utilise your working time effectively and expediently. In our small, agile teams, cohesion is of great importance.",
+          "company_type": "Public Company",
+          "status": "active",
+          "year_founded": 1987,
+          "employee_count_range": "501-1000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 166,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 0.0,
+            "3m": 0.6060606060606061,
+            "6m": -1.1904761904761905,
+            "12m": -4.046242774566474
+          },
+          "growth_absolute": {
+            "1m": 0,
+            "3m": 1,
+            "6m": -2,
+            "12m": -7
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Isernhagen, Lower Saxony, Germany",
+          "street_address": "Am Kirchhorster See 1, Isernhagen, Lower Saxony",
+          "city": "Isernhagen",
+          "state": "Lower Saxony",
+          "all_office_addresses": [
+            "Siemensstraße 3, Röttenbach, Bavaria, 91187, DE",
+            "Sattlerweg 3, Leipzig, Saxony, 04158, DE",
+            "Im Sonnenschein 2-4, 76467 Bietigheim, Bietigheim, Karlsruhe, 76467, DE",
+            "Mönchhofallee 5, Kelsterbach, Hesse, 65451, DE",
+            "Jerzmanowska 17, 54-530 Wrocław, Polen, Wrocław, 54-530, PL",
+            "Diabasgatan 12, 254 68 Helsingborg, Schweden, Helsingborg, 25468, SE",
+            "Strada Barcelona 8, Sibiu 550018, Rumänien, Rumänien, RO",
+            "Győr, Tibormajori út 9, 9027 Ungarn, Győr, 9027, HU",
+            "Unit B2X Skyway 14 Calder Way  SL3 0BQ Colnbrook, Colnbrook, GB"
+          ]
+        }
+      },
+      {
+        "crustdata_company_id": 3248708,
+        "basic_info": {
+          "name": "METRO LOGISTICS",
+          "crustdata_company_id": 3248708,
+          "primary_domain": "metro-logistics.de",
+          "all_domains": [
+            "metro-logistics.de"
+          ],
+          "website": "https://www.metro-logistics.de/",
+          "professional_network_url": "https://www.linkedin.com/company/metro-logistics-germany-gmbh",
+          "professional_network_id": "69510864",
+          "profile_name": "METRO LOGISTICS",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/0f881c0dd5d3c2602224af98130d96c5da955454a3ba48167d5788d3edbf3a3e.jpg",
+          "description": "METRO LOGISTICS is a German service provider for procurement, distribution and contract logistics as well as for logistics fulfilment in e-commerce. METRO LOGISTICS operates eight of its own multi-user logistics centres at geo-optimal hubs in Germany with a storage area of around 500,000 m2. The warehousing and distribution logistics services address various industries including food logistics with all temperature zones. In addition, METRO LOGISTICS also handles the transport management for various retail companies. A wide range of value-added services and consulting services completes the service portfolio. The company is a wholly owned subsidiary of METRO AG.",
+          "company_type": "Public Company",
+          "status": "active",
+          "year_founded": 1995,
+          "employee_count_range": "1001-5000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 296,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 1.023890784982935,
+            "3m": 2.0689655172413794,
+            "6m": 3.8596491228070176,
+            "12m": 7.636363636363637
+          },
+          "growth_absolute": {
+            "1m": 3,
+            "3m": 6,
+            "6m": 11,
+            "12m": 21
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Düsseldorf, North Rhine-Westphalia, Germany",
+          "street_address": "Schlüterstraße 1, Düsseldorf, North Rhine-Westphalia",
+          "city": "Dusseldorf",
+          "state": "North Rhine-Westphalia",
+          "all_office_addresses": []
+        }
+      },
+      {
+        "crustdata_company_id": 7587673,
+        "basic_info": {
+          "name": "ZUFALL logistics group",
+          "crustdata_company_id": 7587673,
+          "primary_domain": "zufall.de",
+          "all_domains": [
+            "zufall.de"
+          ],
+          "website": "https://www.zufall.de/startseite/",
+          "professional_network_url": "https://www.linkedin.com/company/zufall-logistics-group",
+          "professional_network_id": "49139787",
+          "profile_name": "ZUFALL logistics group",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/fa02aeee9b0bfdb734cfd226f60659248560db640bd187d77a54d8fd602b3bd8.jpg",
+          "description": "Die ZUFALL logistics group ist ein familiengeführter Logistikdienstleister mit über 2.000 Mitarbeiter:innen und Auszubildenden. Das Unternehmen wurde 1928 gegründet und ist heute an elf nationalen Standorten vertreten und global aktiv. Das Unternehmen gliedert sich in zwei große Geschäftsbereiche: Transport und Logistik. Zum Transportbereich gehören Landverkehre Deutschland und Europa, Night Star Express, Luft- und Seefracht und unser Zoll-Service. Im Bereich der Logistik bietet das Unternehmen eine Vielzahl individueller Lösungen mit seiner Kontrakt- und Branchenlogistik.Das Unternehmen hat sich auf den Weg gemacht, die Logistik enkeltauglich zu gestalten. Wenn #wirbeiZUFALL von Nachhaltigkeit sprechen, ist damit der Dreiklang aus People, Planet und Profit gemeint. Zukunftsfähige Logistik und langfristiger Unternehmenserfolg sind nur möglich, wenn es gelingt, diese Dimensionen in Einklang bringen. 2019 hat ZUFALL das zufall.lab in Göttingen gegründet. In der Zukunftswerkstatt stehen Forschung und Entwicklung im Vordergrund. Hier testet der Logistikdienstleister neue logistische Ansätze, Prototypen und Prozesse für eine bessere und nachhaltigere Logistik von Morgen. In Deutschland und Europa ist die ZUFALL logistics group zuverlässiger Partner in verschiedenen Transportnetzwerken wie NG.Network, System Alliance Europe, SystemPlus, Cargoline und Night Star Express. Unter dem Dach der ZUFALL logistics group befinden sich die Friedrich Zufall GmbH & Co. KG, Axthelm + Zufall GmbH & Co. KG, Transland Spedition GmbH, LOGISTEC Logistik, Management & Consulting GmbH, Distribo GmbH (74 %), Team Trans Hamburg GmbH und die John Spedition GmbH. Impressum: www.zufall.de/impressumDatenschutz: www.zufall.de/datenschutz/Datenschutz Social Media: www.zufall.de/datenschutz-social-media/",
+          "company_type": "Partnership",
+          "status": "active",
+          "year_founded": 1928,
+          "employee_count_range": "1001-5000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 331,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 1.8461538461538463,
+            "3m": 3.115264797507788,
+            "6m": 2.476780185758514,
+            "12m": 6.430868167202572
+          },
+          "growth_absolute": {
+            "1m": 6,
+            "3m": 10,
+            "6m": 8,
+            "12m": 20
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Göttingen, Lower Saxony, Germany",
+          "street_address": "Robert-Bosch-Breite 11, Göttingen, Lower Saxony",
+          "city": "Göttingen",
+          "state": "Lower Saxony",
+          "all_office_addresses": [
+            "Kalteiche-Ring 47, Haiger, Hessen, 35708, DE",
+            "Erlenbachweg 1, Kandel, Rheinland-Pfalz, 76870, DE",
+            "Otto-Hahn-Straße 22, Unna, Nordrhein-Westfalen, 59423, DE",
+            "Frachtstraße 26, Düsseldorf, Nordrhein-Westfalen, 40474, DE",
+            "Friesenstraße 3, Hamburg, 20097, DE",
+            "Gottlieb-Daimler-Straße 10, Fuldabrück, Hessen, 34123, DE",
+            "Hermann-Muth Straße 4, Fulda, Hessen, 36039, DE",
+            "Eichrodter Weg 141, Eisenach, Thüringen, 99817, DE",
+            "Österholzstraße 14, Nohra, Thüringen, 99428, DE"
+          ]
+        }
+      },
+      {
+        "crustdata_company_id": 2170663,
+        "basic_info": {
+          "name": "NOSTA Group – Logistics to the point",
+          "crustdata_company_id": 2170663,
+          "primary_domain": "nosta-group.com",
+          "all_domains": [
+            "nosta-group.com"
+          ],
+          "website": "https://www.nosta-group.com/?utm_source=LI&utm_medium=BT&utm_campaign=NOSTA",
+          "professional_network_url": "https://www.linkedin.com/company/nosta-group-logistics-to-the-point",
+          "professional_network_id": "17887826",
+          "profile_name": "NOSTA Group – Logistics to the point",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/4d9dec967dd39d94d5031ba6d5dfb068a71cfabdde2843a5b16de5da1c5f2cb8.jpg",
+          "description": "More than 800 employees. Over 40 locations worldwide. Successful in the world of logistics for over 40 years.The NOSTA Group is a family-run, internationally active full-service logistics provider. All of our company's national and product companies are managed under the umbrella of NOSTA Holding GmbH. As a logistics expert, the NOSTA Group accompanies its customers every step of the way - from national and international transport management to individual solutions in warehousing and contract logistics to expansion abroad. High-quality logistics services, reliability and lived customer proximity are the focus alongside the development of individual industry solutions and forward-looking concepts. In 2016, the NOSTA Group founded the NOSTA Academy for the professional qualification and further training of its employees.",
+          "company_type": "Public Company",
+          "status": "active",
+          "year_founded": 1978,
+          "employee_count_range": "501-1000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 252,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 1.2048192771084338,
+            "3m": 2.0242914979757085,
+            "6m": -1.9455252918287937,
+            "12m": -7.352941176470589
+          },
+          "growth_absolute": {
+            "1m": 3,
+            "3m": 5,
+            "6m": -5,
+            "12m": -20
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Osnabrück, Lower Saxony, Germany",
+          "street_address": "Buchenbrink 1, Osnabrück, Lower Saxony",
+          "city": "Osnabrück",
+          "state": "Lower Saxony",
+          "all_office_addresses": [
+            "Lengericher Straße 31, Ladbergen, North Rhine-Westphalia, 49549, DE",
+            "Ernst-Schiess Straße 1, Aschersleben, Saxony-Anhalt, 06449, DE",
+            "Nicolausstraße 10, Günzach, Bavaria, 87634, DE",
+            "Flinschstraße 7, Penig, Saxony, 09322, DE",
+            "Bei den Kämpen 7, Seevetal, Lower Saxony, 21220, DE",
+            "Denkendorfer Straße 11, Leinfelden-Echterdingen, Baden-Württemberg, 70771, DE",
+            "Johannisstraße 40, Bielefeld, North Rhine-Westphalia, 33611, DE",
+            "Wendenstraße 4, Hamburg, HH, 20097, DE",
+            "Ochsenweg 20, Melle, Lower Saxony, 49324, DE",
+            "Ahornstraße 30, Piding, Bavaria, 83451, DE",
+            "Nostastraße 1, Großschirma, Saxony, 09603, DE",
+            "Donaueschinger Straße 18, Titisee-Neustadt, Baden-Württemberg, 79822, DE",
+            "Am Weiher 2, Kelsterbach, Hesse, 65451, DE",
+            "Gustav-Deiters Straße 12, Ibbenbüren, North Rhine-Westphalia, 49479, DE",
+            "Röntgenstraße 22, Rinteln, Lower Saxony, 31737, DE",
+            "Alexander-Fleming Straße 3, Viernheim, Hesse, 68519, DE",
+            "Selkamp 12, Dortmund, North Rhine-Westphalia, 44287, DE",
+            "Elbestraße 55, Osnabrück, Lower Saxony, 49090, DE",
+            "Rosenweg, Schwerte, North Rhine-Westphalia, 58239, DE",
+            "Schoppenkamp 17, Steinfurt, North Rhine-Westphalia, 48565, DE",
+            "Prestwickweg 52, Schiphol, North Holland, 1118 LB, NL",
+            "Waalhaven Oostzijde 83, Rotterdam Havens, South Holland, 3087 BM, NL",
+            "Noorderpoort 17, Venlo, Limburg, 5916 PJ, NL",
+            "Al. Niepodległości 781, Sopot, 81-805, PL",
+            "Al. Zjednoczenia 36, Warschau, 01-830, PL",
+            "Mokronoska 2 , Wrocław, 52-407, PL",
+            "Str. George Cosbuc 4-6, Cluj-Napoca, 400375, RO",
+            "Karolinska 654/2, Prag, 186 00, CZ"
+          ]
+        }
+      },
+      {
+        "crustdata_company_id": 2434261,
+        "basic_info": {
+          "name": "Grieshaber Logistics Group AG",
+          "crustdata_company_id": 2434261,
+          "primary_domain": "grieshaber-group.com",
+          "all_domains": [
+            "grieshaber-group.com"
+          ],
+          "website": "http://www.grieshaber-group.com",
+          "professional_network_url": "https://www.linkedin.com/company/grieshaber-logistics-group-ag",
+          "professional_network_id": "2100145",
+          "profile_name": "Grieshaber Logistics Group AG",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/c57754f8f727d136b20493bf957b4aa2498a6d3ef6f401144ffa04f490e527aa.jpg",
+          "description": "We are a forward-looking international contract logistics services provider in one of the strongest-growing European markets. Our services set standards – worldwide. They stand for quality, innovation and the highest customer satisfaction.We are backed by a skilled, efficient, committed and entrepreneurial-minded team of employees. At nine state-of-the-art logistics centres in the EU, we provide our customers with high-quality, precisely customised logistics and added-value services along the entire value chain, day in and day out.By consistently focusing on the demanding health care and industry solutions sectors and leveraging our long-standing expertise in logistics and project management, we develop and implement tailor-made best practice solutions for our customers.Our Industry Segments are:HEALTH CARE SOLUTIONS - Including Pharma, Dental, Beauty & Care & Med Tech.INDUSTRY SOLUTIONS - Including High Tech, FMCG, Industrial, Sports & Life Style.Impressum: https://www.grieshaber-group.com/de/impressum.html",
+          "company_type": "Public Company",
+          "status": "active",
+          "year_founded": 1951,
+          "employee_count_range": "501-1000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 152,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": -1.2987012987012987,
+            "3m": -1.2987012987012987,
+            "6m": 0.0,
+            "12m": -0.6535947712418301
+          },
+          "growth_absolute": {
+            "1m": -2,
+            "3m": -2,
+            "6m": 0,
+            "12m": -1
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Bad Säckingen, Baden-Württemberg, Germany",
+          "street_address": "Trottäcker 51, Bad Säckingen, Baden-Württemberg",
+          "city": "Bad Säckingen",
+          "state": "Baden-Württemberg",
+          "all_office_addresses": [
+            "Warmbacher Strasse 80, Rheinfelden, Baden-Württemberg, 79618, DE",
+            "Eduard-Fresenius-Str. 4, Biebesheim, Hessen, 64584, DE",
+            "Neuenburger Straße 21, Müllheim/Baden, Baden-Württemberg, 79379, DE",
+            "Zone Industrielle Est, Hombourg, Alsace, 68490, FR",
+            "Trottäcker 25, Bad Säckingen, Baden-Württemberg, 79713, DE",
+            "Eduard-Fresenius-Str. 1, Biebesheim , 64584, DE",
+            "Feldstraße 16 A-C, Weiterstadt, 64331, DE",
+            "Am Schafstein 2, Müllheim, 79379, DE"
+          ]
+        }
+      },
+      {
+        "crustdata_company_id": 678125,
+        "basic_info": {
+          "name": "cargo.one",
+          "crustdata_company_id": 678125,
+          "primary_domain": "cargo.one",
+          "all_domains": [
+            "cargo.one"
+          ],
+          "website": "http://www.cargo.one",
+          "professional_network_url": "https://www.linkedin.com/company/cargoone",
+          "professional_network_id": "27212483",
+          "profile_name": "cargo.one",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/7d94a1cca8ab04983f33b17b4cb1cdcb2e95ba8bd45f796d326dc27768499581.jpg",
+          "description": "cargo.one is the AI partner for the world's logistics leaders.Leading freight forwarders and carriers trust cargo.one's AI-native operating system to centralize and automate their sales and procurement. cargo.one maintains the industry's most comprehensive multimodal rate database, with direct integrations to 75 airlines, top 10 ocean carriers, and GSAs globally — the foundation that makes AI reliable in production.For freight forwarders, this means a unified workspace where teams and AI agents complete end-to-end workflows side by side: rate management, rate procurement, quoting, booking, and customer support. For carriers, it means digital distribution and AI-driven sales and support tools reaching 30,000+ users across 172 countries.Our customers include Kuehne + Nagel, DSV, Hellmann, Dachser, Rhenus, Lufthansa Cargo, United Cargo, Turkish Cargo, Qatar Airways Cargo, and Emirates SkyCargo.Backed by Bessemer Venture Partners, Index Ventures, Creandum, and Point Nine Capital, cargo.one is a remote-first company with 42 nationalities across 24 countries, united by a culture of personal growth, ownership, and meaningful relationships.Learn more at cargo.one.",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 2017,
+          "employee_count_range": "51-200",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 168,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": -1.7543859649122806,
+            "3m": -2.3255813953488373,
+            "6m": -9.67741935483871,
+            "12m": -1.7543859649122806
+          },
+          "growth_absolute": {
+            "1m": -3,
+            "3m": -4,
+            "6m": -18,
+            "12m": -3
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Berlin, Berlin, Germany",
+          "street_address": "Berlin, Berlin, Germany",
+          "city": "Berlin",
+          "state": "Berlin",
+          "all_office_addresses": [
+            ", Hong Kong, HK",
+            ", Chicago, IL, US",
+            ", Singapore, SG"
+          ]
+        }
+      },
+      {
+        "crustdata_company_id": 895919,
+        "basic_info": {
+          "name": "dbh Logistics IT AG",
+          "crustdata_company_id": 895919,
+          "primary_domain": "dbh.de",
+          "all_domains": [
+            "dbh.de"
+          ],
+          "website": "http://www.dbh.de/",
+          "professional_network_url": "https://www.linkedin.com/company/dbh-logistics-it-ag",
+          "professional_network_id": "1686269",
+          "profile_name": "dbh Logistics IT AG",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/eeea7efe6ea16a93a70dde74e1c325d8364f0460c3cd72db47c46c24518a288d.jpg",
+          "description": "Long before digitisation had become a topic in the logistics business, we have already been working on it. We are one of the leading providers of software and consultancy in the field of customs and foreign trade, compliance, transport management, port industries, SAP and cloud services.  Our solutions foresee and reliably break down potential barriers in the global flow of logistics chains. We focus on maximizing the efficiency of all goods flows. Our software is based on the skills and experience we have acquired within over 40 years in business. Our headquarters is located in Bremen, Germany. In addition to that, we are represented all over Germany and in The Netherlands for you. More than 200 member of staff develop products that can make your company even more competitive in the global environment. Our portfolio ranges from consulting, development and implementation to support and hosting in our ISO/IEC27001 certified data centres. Each and every solution is planned and designed in close consulting with you to ensure that it perfectly matches your logistics processes.",
+          "company_type": "Public Company",
+          "status": "active",
+          "year_founded": 1973,
+          "employee_count_range": "201-500",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 207,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": -2.358490566037736,
+            "3m": -1.4285714285714286,
+            "6m": 0.0,
+            "12m": 6.701030927835052
+          },
+          "growth_absolute": {
+            "1m": -5,
+            "3m": -3,
+            "6m": 0,
+            "12m": 13
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Bremen, Bremen, Germany",
+          "street_address": "Martinistrasse 62-66 c/o Clockwise, Bremen, Bremen",
+          "city": "Bremen",
+          "state": "Bremen",
+          "all_office_addresses": [
+            "Nagelsweg 55, Hamburg, Hamburg, 20097, DE",
+            "Lindemannstraße 81, Dortmund, Nordrhein-Westfalen, 44137, DE",
+            "Dornhofstraße 34, Neu-Isenburg, Hessen, 63263, DE",
+            "Seelandstraße 14-16, Lübeck, Schleswig-Holstein, 23569, DE"
+          ]
+        }
+      },
+      {
+        "crustdata_company_id": 6299171,
+        "basic_info": {
+          "name": "Fleet Logistics Group",
+          "crustdata_company_id": 6299171,
+          "primary_domain": "fleetlogistics.com",
+          "all_domains": [
+            "fleetlogistics.com"
+          ],
+          "website": "https://www.fleetlogistics.com/en/",
+          "professional_network_url": "https://www.linkedin.com/company/fleet-logistics",
+          "professional_network_id": "18773",
+          "profile_name": "Fleet Logistics Group",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/2f408d714b7f881a44b790f68c2e0af7b15ed0daddaa385a3af220256e65eb87.jpg",
+          "description": "Fleet Logistics is a leading Fleet Management service provider in Europe, part of TraXall International, with 30 years of experience and 180,000 vehicles serviced across 29 countries. We provide fleet and mobility management services to large corporations, offering a fully outsourced solution that covers a wide range of processes for eligible employees and company needs.",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 1996,
+          "employee_count_range": "201-500",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 333,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 1.524390243902439,
+            "3m": 1.524390243902439,
+            "6m": 2.4615384615384617,
+            "12m": 0.30120481927710846
+          },
+          "growth_absolute": {
+            "1m": 5,
+            "3m": 5,
+            "6m": 8,
+            "12m": 1
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Oberhaching, Bavaria, Germany",
+          "street_address": "Keltenring 13, Oberhaching, Bavaria",
+          "city": "Oberhaching",
+          "state": "Bavaria",
+          "all_office_addresses": [
+            "3500 Parkside, Birmingham, B37 7YG, GB",
+            "Viale Brenta, 18 b, Milan, Lombardy, 20139, IT"
+          ]
+        }
+      },
+      {
+        "crustdata_company_id": 2193314,
+        "basic_info": {
+          "name": "Fr. Meyer's Sohn | FMS",
+          "crustdata_company_id": 2193314,
+          "primary_domain": "fms-logistics.com",
+          "all_domains": [
+            "fms-logistics.com"
+          ],
+          "website": "https://www.fms-logistics.com/",
+          "professional_network_url": "https://www.linkedin.com/company/fr--meyer%27s-sohn-gmbh-&-co-kg",
+          "professional_network_id": "1070964",
+          "profile_name": "Fr. Meyer's Sohn | FMS",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/8f402f308946e20c56ca3a7a989d1db1c22e0fccc722929d97c680ba7ecc5702.jpg",
+          "description": "Fr. Meyer’s Sohn is a family-owned global forwarding company. With our 125 years of experience we get you moving. Personally, digitally, sustainably. As a global freight forwarding company, we are a passionate service provider. We don’t want to be the biggest, but the best in what we do.With our knowledge and experience, you benefit from customized logistics solutions, sustainable services and the analysis and optimization of your supply chains. Tailored customer solutions across all modes of transport are also part of our product portfolio just like our wide range of additional services.More than 1,000 transport and logistics specialists at over 50 locations worldwide gladly take care of your requests and matters. Additionally we apply market leading digital technologies to increase the value of your supply chains in long term.We take you further and make it uncomplicated for you – with our digital solutions and in direct dialog.Data privacy statement: https://www.fms-logistics.com/en/privacy-statement/Imprint: https://www.fms-logistics.com/en/imprint/",
+          "company_type": "Partnership",
+          "status": "active",
+          "year_founded": null,
+          "employee_count_range": "501-1000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 775,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": -0.2574002574002574,
+            "3m": 1.1749347258485638,
+            "6m": 2.3778071334214,
+            "12m": 5.442176870748299
+          },
+          "growth_absolute": {
+            "1m": -2,
+            "3m": 9,
+            "6m": 18,
+            "12m": 40
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Hamburg Klostertor, Hamburg Sankt Georg, Hamburg, Hamburg Hammerbrook, Hamburg, Germany",
+          "street_address": "Grüner Deich 19, Hamburg Klostertor, Hamburg Sankt Georg, Hamburg, Hamburg Hammerbrook, Hamburg",
+          "city": "Hamburg",
+          "state": "Hamburg",
+          "all_office_addresses": [
+            "Am Kaffee-Quartier 3, Bremen, 28217, DE",
+            "Heykenaukamp 10, Hamburg, HH, 21147, DE",
+            "Alter Kühlturm 33, Lübeck, Schleswig-Holstein, 23569, DE",
+            "Lilienthalstr.17A, Hallbergmoos, 85399, DE",
+            "Gutenstetter Straße 2, Nürnberg, Bayern, 90449, DE",
+            "Walter-Krause Straße 11, Mannheim, Baden-Württemberg, 68163, DE",
+            "Gottlieb-Manz Straße 12, Filderstadt, Baden-Württemberg, 70794, DE",
+            "Taborstraße 1-3, Vienna, 1020, AT",
+            "Noorderplaats 5, Antwerpen, Flämische Region, 2000, BE",
+            "Trg kralja Tomislava, Ploče, Gespanschaft Dubrovnik-Neretva, 20340, HR",
+            "Andrije Medulića 6, Rijeka, Gespanschaft Primorje-Gorski kotar, 51000, HR",
+            "Kubánské náměstí 1391/11, Praha 10, Prag, 10000, CZ",
+            "Alkotás utca 50, Budapest, 1123, HU",
+            "Bul. Jane Sandanski 113A/5, Skopje, 1000, MK",
+            "Bulevar Mihaila Pupina 165v, Belgrad, Centralna Srbija, 11070, RS",
+            "Stationsplein 4 P, Zwijndrecht, Südholland, 3331, NL",
+            "Ankaranska cesta 5, Koper, 6000, SI",
+            "Smartinska cesta 53, Ljubljana, Laibach, 1000, SI",
+            "Ronda de Sant Pere 19-21, Barcelona, Cataluña, 08010, ES",
+            "Calle Lersundi, 9, Bilbao, País Vasco, 48009, ES",
+            "Calle de Rodríguez Marín, 88, Madrid, 28016, ES",
+            "Micer Masco 42, Valencia, 46010, ES",
+            "Stelzenstrasse 2, Glattbrugg, Zurich, 8152, CH",
+            "Birsstrasse 320b, Basel, Basel-Stadt, 4052, CH",
+            "Icerenkoy Mh. Erkut Sk. , Istanbul, Atasehir, 34752, TR",
+            "1456 Sk. No:10/1 D:6, Izmir, 35220, TR",
+            "The Old Weighbridge , Bristol , GB",
+            "The Street, Suffolk, NR32 5LT, GB",
+            "Avenida Paulista 2202, São Paulo, 01310-932, BR",
+            "1201 W. Pender Street, Vancouver, British Columbia, V6E 2V2, CA",
+            "Avenida Apoquindo 4001, Las Condes, Santiago Metropolitan Region, 7550162 , CL",
+            "Av. Santa Fe No. 170, Col. Lomas de Santa Fe, 01210, MX",
+            "5 Commerce Drive, Reading, Pennsylvania, 19607, US",
+            "18 Augusta Pines Dr, Spring, Texas, 77389, US",
+            "19 North Road, East 3rd Ring Road, Beijing, Beijing, 100020, CN",
+            "8 Cheung Yue St., Sham Shui Po District, HK",
+            "1350 Si Chuan Bei Road, Shanghai, 200080, CN",
+            "No. 4002 Shennan Road East, Shenzhen, 518001, CN",
+            "6 Shandong Road, Qingdao, Shangdon, 266071, TW",
+            "#147, Old no 115, E.V.R.Periyar Salai, Chennai , 600 084, IN",
+            "Focal Point Road, Ludhiana, Punjab, 141010, IN",
+            "Andheri Kurla Road , Mumbai, Maharashtra, 400059, IN",
+            "MG Road, Gurugram , 122002, IN",
+            "Jl. DR. Ide Anak Agung Gde Agung blok 6.2 , Jakarta , 12950, ID",
+            "Jl Pradah Jaya I, No. 1, Surabaya, 60226, ID",
+            "200 Cantonment Road, Singapur, 089763, SG",
+            "Nonsi Road, Chong Nonsi, Bangkok, 10120, TH",
+            "17 Le Duan Boulevard, Ho Chi Minh City, VN",
+            "UL. Płk. Jana Pałubickiego 6A, Gdańsk, Pomorskie, 80-175, PL",
+            "434 Avenida José Pardo, Miraflores, Lima, 15074, PE",
+            "2 Baker Street, Cape Town, 7441, ZA",
+            "2750 SW 145th Ave, Miramar, Florida, 33027, US",
+            "9 Warrington Road Mobeni , Durban, 4060, ZA",
+            "2 Waterpas Street Islando |  Kempton Park, Johannesburg, 1600, ZA",
+            "77 Newton Street | Netwon Park , Gqeberha, 6001, ZA",
+            "Rua Paraíba, 550, 8o e 9o andares Savassi - 30130-140 Belo Horizonte , Minas Gerias, BR",
+            "Av.Antea 1088- Piso 3, Jurica, Santiago de Queretaro, 76100, MX",
+            "Mirania Horizon Regus 111-1st Floor, 1005 E.M Bypass, Kolokata, West Bengal, 700105, IN",
+            "Graha Pena Building, Bataman, 29461, ID",
+            "Elemengatan 14, Boras, 50464, SE",
+            "Makadamgatan 5, Helsingborg, 25464, SE",
+            "Tornvägen 17, Stockholm, 190 60, SE",
+            "Near Baner Pashan Link Road, Pashan, Pune, 411021 , IN",
+            "No. 464, Shri Krishna Temple Rd, Bengaluru , Indiranagar, IN"
+          ]
+        }
+      },
+      {
+        "crustdata_company_id": 3557519,
+        "basic_info": {
+          "name": "Müller - Die lila Logistik SE",
+          "crustdata_company_id": 3557519,
+          "primary_domain": "lila-logistik.com",
+          "all_domains": [
+            "lila-logistik.com"
+          ],
+          "website": "http://www.lila-logistik.com",
+          "professional_network_url": "https://www.linkedin.com/company/lila-logistik",
+          "professional_network_id": "12994586",
+          "profile_name": "Müller - Die lila Logistik SE",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/16ca4278cc6699c902dbe9e2bf464488b7ce4371bb7f8a99edd7f61d3bdfbb1a.jpg",
+          "description": "Wir bei MÜLLER | DIE LILA LOGISTIK bieten als national und international tätiger Logistikdienstleister alle relevanten Funktionen der Kontraktlogistik. Die Felder Beschaffungslogistik, Produktionslogistik und Distributionslogistik bilden den Kern unserer betrieblichen Tätigkeiten. Seit dem Gründungsjahr 1991 sind wir zu einem börsennotierten Unternehmen mit rund 2.300 Mitarbeitern an über 20 Standorten in Deutschland, Polen und Tschechien gewachsen. Das Prinzip LILAWir tragen Farbe im Namen. Lila entsteht durch die Kombination von Blau und Rot, unser Erfolg als Logistikdienstleister durch das Zusammenwirken von Denken und Handeln bzw. Beratung und Umsetzung.",
+          "company_type": "Public Company",
+          "status": "active",
+          "year_founded": 1991,
+          "employee_count_range": "1001-5000",
+          "markets": [
+            "ETR",
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 294,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 1.3793103448275863,
+            "3m": 2.797202797202797,
+            "6m": 4.25531914893617,
+            "12m": 7.2992700729927
+          },
+          "growth_absolute": {
+            "1m": 4,
+            "3m": 8,
+            "6m": 12,
+            "12m": 20
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Besigheim, Baden-Württemberg, Germany",
+          "street_address": "Ferdinand-Porsche-Straße 6, Besigheim, Baden-Württemberg",
+          "city": "Besigheim",
+          "state": "Baden-Württemberg",
+          "all_office_addresses": [
+            "ul. Zygmuntowska 90, Gliwice, Schlesien, 44-113, PL",
+            "Průmyslová 290, Horšovský Týn , 346 01, CZ",
+            "Eugen-Zeyher-Straße 1, Althengstett, 75382, DE",
+            "Junkersstraße 47 - 59, Bünde-Ennigloh, 32257, DE",
+            "Sachtlebenstraße 1, Dormagen, 41541, DE",
+            "Nordring 50a, Gross-Gerau, 64521, DE",
+            "Am Westhafen 19, Herne, 44653, DE",
+            "Alte B40 Nr. 1, Kirchheimbolanden, 67292, DE",
+            "Carl-Benz-Straße 9, Lorsch, 64653, DE",
+            "Thomas-Alva-Edison Ring 1-3, Marbach am Neckar, 71672, DE",
+            "Preßburger Straße 4, Nürnberg, 90451, DE",
+            "Kehläcker 5, Wemding, 86650, DE",
+            "Zeschwitzerstraße 2, Zwenkau, 04442, DE",
+            "Murrer Str. 1, Freiberg am Neckar , 71691, DE",
+            "Am Buchberg 8   , Blaufelden, 74572, DE",
+            "Krautlose 9, Benningen, 71726, DE",
+            "Egerten 17, Talheim, 74388, DE",
+            "Mainzerstr. 95, Rüsselsheim, 65428, DE",
+            "Daimlerstraße 1, Affalterbach, 71563, DE"
+          ]
+        }
+      },
+      {
+        "crustdata_company_id": 7570786,
+        "basic_info": {
+          "name": "Emons Logistics",
+          "crustdata_company_id": 7570786,
+          "primary_domain": "emons.de",
+          "all_domains": [
+            "emons.de"
+          ],
+          "website": "http://www.emons.de/",
+          "professional_network_url": "https://www.linkedin.com/company/emons-logistics",
+          "professional_network_id": "340960",
+          "profile_name": "Emons Logistics",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/a555280da8b8b28834dbaa0cf4281bdd953980b2d9fdba70b325b7e1f3709139.jpg",
+          "description": "This is the official and main LinkedIn profile of Emons.As a medium-sized, independent acting and family owned company Emons is represented by more than 115 branches in Germany, Bulgaria, China, Czech Republic, Denmark, Italy, Poland, Portugal, Romania, Slovakia, Switzerland, Taiwan, Turkey, USA and VAE. Emons is acting successfully in all sectors of logistics and transport. Tailor made solutions to meet perfect requirements of all our customers and continuous improvement of quality are representing a fundamental corporate target of Emons. Imprint: https://www.emons.com/about-us/imprint.htmlPrivacy Policy: https://www.emons.com/privacy-policy/",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 1928,
+          "employee_count_range": "1001-5000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 401,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 0.7537688442211055,
+            "3m": 1.2626262626262625,
+            "6m": 2.8205128205128207,
+            "12m": 3.0848329048843186
+          },
+          "growth_absolute": {
+            "1m": 3,
+            "3m": 5,
+            "6m": 11,
+            "12m": 12
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Köln, North Rhine-Westphalia, Germany",
+          "street_address": "Poll-Vingster Straße 107a, Köln, North Rhine-Westphalia",
+          "city": "Cologne",
+          "state": "North Rhine-Westphalia",
+          "all_office_addresses": []
+        }
+      },
+      {
+        "crustdata_company_id": 3355021,
+        "basic_info": {
+          "name": "Karl Schmidt Spedition GmbH & Co. KG",
+          "crustdata_company_id": 3355021,
+          "primary_domain": "",
+          "all_domains": [],
+          "website": "http://www.schmidt-heilbronn.de",
+          "professional_network_url": "https://www.linkedin.com/company/karl-schmidt-spedition-gmbh-co-kg",
+          "professional_network_id": "92938712",
+          "profile_name": "Karl Schmidt Spedition GmbH & Co. KG",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/3b4f5da43809e39e589beacff17c0f1e28c09a9ef475c60cd3bbd557e7cb8a2d.jpg",
+          "description": "Das 1948 gegründete Familienunternehmen SCHMIDT zählt im Schüttgutbereich zu den führenden Logistik-Dienstleistern und agiert heute mit über 3.000 Mitarbeiter*innen weltweit an 49 Standorten.Über 1.000 Lkw, rund 8.500 Bulk-Container und knapp 1.500 Lagersilos gehören zum Equipment der SCHMIDT-Gruppe.Ob Beratung, Planung, Bau oder Betreibung von Logistikzentren, Lagerung, Transport oder Handling - SCHMIDT bietet mit langjährigem Know-How den fachgerechten Komplettservice aus einer Hand, der von einem guten Logistik-Experten verlangt wird.",
+          "company_type": "Public Company",
+          "status": "active",
+          "year_founded": 1948,
+          "employee_count_range": "1001-5000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 144,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 1.4084507042253522,
+            "3m": 2.857142857142857,
+            "6m": 5.109489051094891,
+            "12m": 14.285714285714285
+          },
+          "growth_absolute": {
+            "1m": 2,
+            "3m": 4,
+            "6m": 7,
+            "12m": 18
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Heilbronn, Baden-Württemberg, Germany",
+          "street_address": "Rötelstraße 1, Heilbronn, Baden-Württemberg",
+          "city": "Heilbronn",
+          "state": "Baden-Württemberg",
+          "all_office_addresses": []
+        }
+      },
+      {
+        "crustdata_company_id": 3616356,
+        "basic_info": {
+          "name": "logineer",
+          "crustdata_company_id": 3616356,
+          "primary_domain": "logineer.com",
+          "all_domains": [
+            "logineer.com"
+          ],
+          "website": "https://www.logineer.com",
+          "professional_network_url": "https://www.linkedin.com/company/logineer",
+          "professional_network_id": "73044194",
+          "profile_name": "logineer",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/e48c5f9fe23bea49b79aea9b34bf0a2070467a84d5a56ec89e7a246ede14603a.jpg",
+          "description": "logineer is an IT service provider with around 200 IT and logistics experts, digitalising logistics companies across the globe. Freight forwarders receive all IT services securely and from a single source.  The IT service provider also makes sure the data and information flow smoothly across borders and time zones. As a subsidiary of the IT specialist q.beyond, we have outstanding experience in international sea and air freight as well as in contract logistics. Our services include strategy-based IT consulting, product and process consulting, implementation, system integration, operation and our own global 24/7 help desk. The portfolio has a modular structure: The solutions offered include IT infrastructure & workplace, financial accounting, transport management, warehouse management and cyber security.",
+          "company_type": "Public Company",
+          "status": "active",
+          "year_founded": 2021,
+          "employee_count_range": "51-200",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 110,
+          "largest_headcount_country": "IND",
+          "growth_percent": {
+            "1m": -1.7857142857142856,
+            "3m": -4.3478260869565215,
+            "6m": -7.563025210084033,
+            "12m": -7.563025210084033
+          },
+          "growth_absolute": {
+            "1m": -2,
+            "3m": -5,
+            "6m": -9,
+            "12m": -9
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Hamburg Barmbek-Nord, Hamburg Winterhude, Hamburg, Hamburg, Germany",
+          "street_address": "Grasweg 62-66, Hamburg Barmbek-Nord, Hamburg Winterhude, Hamburg, Hamburg",
+          "city": "Hamburg",
+          "state": "Hamburg",
+          "all_office_addresses": [
+            "Svalar Square, Chennai - 600 032, IN",
+            "6047 Tyvola Glen Circle , Charlotte, NC, NC, 28217, US"
+          ]
+        }
+      },
+      {
+        "crustdata_company_id": 6220501,
+        "basic_info": {
+          "name": "DB Cargo Logistics GmbH",
+          "crustdata_company_id": 6220501,
+          "primary_domain": "",
+          "all_domains": [],
+          "website": "https://logistics.dbcargo.com/logistics-de",
+          "professional_network_url": "https://www.linkedin.com/company/db-cargo-logistics-gmbh",
+          "professional_network_id": "80970937",
+          "profile_name": "DB Cargo Logistics GmbH",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/517c8c56c5511d3035c64e15b9a567645faef39ca2862acd2cd2cf67934d7f34.jpg",
+          "description": "DB Cargo Logistics, headquartered in Kelsterbach near Frankfurt am Main, stands for international logistics expertise. Based on an Europe-wide rail network, we develop individual, future-oriented and sustainable rail logistics specifically for the needs of our customers - by rail or across modes of transport. Our more than 300 employees at four locations specialize in the automotive, timber, pulp & paper, and consumer goods sectors.",
+          "company_type": "Public Company",
+          "status": "active",
+          "year_founded": null,
+          "employee_count_range": "201-500",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 137,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": -0.7246376811594203,
+            "3m": -1.4388489208633095,
+            "6m": -3.5211267605633805,
+            "12m": -3.5211267605633805
+          },
+          "growth_absolute": {
+            "1m": -1,
+            "3m": -2,
+            "6m": -5,
+            "12m": -5
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Mainz, Rhineland-Palatinate, Germany",
+          "street_address": "Rheinstraße 2, Mainz, Rhineland-Palatinate",
+          "city": "Mainz",
+          "state": "Rhineland-Palatinate",
+          "all_office_addresses": []
+        }
+      },
+      {
+        "crustdata_company_id": 2690837,
+        "basic_info": {
+          "name": "Lanfer Logistik GmbH",
+          "crustdata_company_id": 2690837,
+          "primary_domain": "lanfer-logistik.com",
+          "all_domains": [
+            "lanfer-logistik.com"
+          ],
+          "website": "http://www.lanfer-logistik.com",
+          "professional_network_url": "https://www.linkedin.com/company/lanfer-logistik-gmbh",
+          "professional_network_id": "6038256",
+          "profile_name": "Lanfer Logistik GmbH",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/def2a68002d586593ccd35969b8f5d23b836731cbf07bcfca578c26b1f8ba950.jpg",
+          "description": "Die Lanfer Logistik GmbH mit Hauptsitz in Meppen ist Ihr kompetenter Ansprechpartner für individuelle Lösungen in den Bereichen Logistik, Kontraktlogistik, Transport, Lagern/Mischen, LKW-Service (Reinigung und Reparatur) sowie Ausbildung und Training in unserer Lanfer Akademie.",
+          "company_type": "Public Company",
+          "status": "active",
+          "year_founded": 1922,
+          "employee_count_range": "501-1000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 134,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": -0.7407407407407408,
+            "3m": 0.0,
+            "6m": 3.076923076923077,
+            "12m": 0.0
+          },
+          "growth_absolute": {
+            "1m": -1,
+            "3m": 0,
+            "6m": 4,
+            "12m": 0
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Meppen, Lower Saxony, Germany",
+          "street_address": "Dieselstraße 10, Meppen, Lower Saxony",
+          "city": "Meppen",
+          "state": "Lower Saxony",
+          "all_office_addresses": []
+        }
+      },
+      {
+        "crustdata_company_id": 3611796,
+        "basic_info": {
+          "name": "TST Gruppe",
+          "crustdata_company_id": 3611796,
+          "primary_domain": "tst-logistics.com",
+          "all_domains": [
+            "tst-logistics.com"
+          ],
+          "website": "http://www.tst-logistics.com",
+          "professional_network_url": "https://www.linkedin.com/company/tst-gruppe",
+          "professional_network_id": "74125240",
+          "profile_name": "TST Gruppe",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/a70d69fc3c556b63256e8ca0b7ad0ea0649cf5bed5b6994b3f51e1db24649df2.jpg",
+          "description": "TST ist ein Familienunternehmen mit Hauptsitz in Worms, das mit viel Herzblut und Teamgeist seit mehr als 3 Jahrzehnten die Welt der Logistik einzigartig macht. „Logistik einfach machen“ - 2 Perspektiven: Wir machen einfach. Und wir machen es unserem Kunden einfach. Wir tauchen in die Wertschöpfungskette unserer Kunden ein, entwickeln individuelle und innovative Logistiklösungen und schaffen so schlanke Prozessabläufe.Dabei setzen wir auf junge Talente und bewährte langjährige Mitarbeiter.",
+          "company_type": "Public Company",
+          "status": "active",
+          "year_founded": 1990,
+          "employee_count_range": "1001-5000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 180,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 0.0,
+            "3m": 0.0,
+            "6m": 1.1235955056179776,
+            "12m": 12.5
+          },
+          "growth_absolute": {
+            "1m": 0,
+            "3m": 0,
+            "6m": 2,
+            "12m": 20
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Worms, Rhineland-Palatinate, Germany",
+          "street_address": "Am Guten Brunnen 1, Worms, Rhineland-Palatinate",
+          "city": "Worms",
+          "state": "Rhineland-Palatinate",
+          "all_office_addresses": []
+        }
+      },
+      {
+        "crustdata_company_id": 7587799,
+        "basic_info": {
+          "name": "Offergeld Logistik",
+          "crustdata_company_id": 7587799,
+          "primary_domain": "offergeld.de",
+          "all_domains": [
+            "haase-nauen.de",
+            "offergeld.de"
+          ],
+          "website": "http://www.offergeld.de",
+          "professional_network_url": "https://www.linkedin.com/company/offergeld-logistik",
+          "professional_network_id": "26175847",
+          "profile_name": "Offergeld Logistik",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/d030b6a885bfa29393779c425abbb6b053db0c528b0b3fbcc04372243de464d7.jpg",
+          "description": "Transportation, Warehousing & Value-Added-Services",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 1924,
+          "employee_count_range": "1001-5000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 178,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 2.8901734104046244,
+            "3m": 3.488372093023256,
+            "6m": 4.705882352941177,
+            "12m": 6.58682634730539
+          },
+          "growth_absolute": {
+            "1m": 5,
+            "3m": 6,
+            "6m": 8,
+            "12m": 11
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Würselen, North Rhine-Westphalia, Germany",
+          "street_address": "Grüner Weg 1-3, Würselen, North Rhine-Westphalia",
+          "city": "Würselen",
+          "state": "North Rhine-Westphalia",
+          "all_office_addresses": []
+        }
+      },
+      {
+        "crustdata_company_id": 7787965,
+        "basic_info": {
+          "name": "Finsterwalder - family of logistics",
+          "crustdata_company_id": 7787965,
+          "primary_domain": "finsterwalder.com",
+          "all_domains": [
+            "finsterwalder.com",
+            "gruber-logistik.de"
+          ],
+          "website": "http://www.finsterwalder.com",
+          "professional_network_url": "https://www.linkedin.com/company/finsterwalder-family-of-logistics",
+          "professional_network_id": "69681937",
+          "profile_name": "Finsterwalder - family of logistics",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/45b8dbd932315d793fa62273730e0f6fd8583050614078329db482ac13814534.jpg",
+          "description": "Transports, Logistics, Warehousing, Railport, Fulfillment, Workforce, Services",
+          "company_type": "Public Company",
+          "status": "active",
+          "year_founded": 1937,
+          "employee_count_range": "1001-5000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 123,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 0.0,
+            "3m": 0.0,
+            "6m": 0.819672131147541,
+            "12m": -4.651162790697675
+          },
+          "growth_absolute": {
+            "1m": 0,
+            "3m": 0,
+            "6m": 1,
+            "12m": -6
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Türkheim, Bavaria, Germany",
+          "street_address": "Silvastraße 1 Businesspark A96, Türkheim, Bavaria",
+          "city": "Türkheim",
+          "state": "Bavaria",
+          "all_office_addresses": [
+            "Inter-Logistik Park 1-3 , Kaufbeuren, Bayern, 87600, DE",
+            "Grenzstraße 15, Halle (Saale), Sachsen-Anhalt, 06112, DE",
+            "Wiesmannstraße 52 , Gelsenkirchen, Nordrhein-Westfalen, DE",
+            "Bau M286, Schkopau, Schkopau, 06258, DE"
+          ]
+        }
+      },
+      {
+        "crustdata_company_id": 780430,
+        "basic_info": {
+          "name": "Transporeon",
+          "crustdata_company_id": 780430,
+          "primary_domain": "transporeon.com",
+          "all_domains": [
+            "transporeon.com",
+            "sixfold.com"
+          ],
+          "website": "https://www.transporeon.com/en/",
+          "professional_network_url": "https://www.linkedin.com/company/transporeon",
+          "professional_network_id": "359927",
+          "profile_name": "Transporeon",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/f52d5e724d16aae1635656fddf616e1b5c26e66b206f7a65ac711533a3cbdd3d.jpg",
+          "description": "At Transporeon, a  Trimble company, our mission is to bring transportation in sync with the world. We power the largest global freight network of more than 1,400 shippers and retailers and more than 150,000 carriers and logistics service providers. Every day they execute more than 110,000 transports on our platform and book more than 100,00 dock appointments for loading and unloading. In the course of one year, roughly €55bn in freight is being processed on our platform. Our leading transportation management platform connects all actors along the supply chain. It facilitates collaboration between the different parties, helps to automate manual processes and provides valuable real-time insights. The modular Application Hubs solve specific logistics challenges and range from freight sourcing over transport execution and dock and yard management to freight audit and payment. Data hubs provide insights into logistics operations, market developments and carbon emissions, next to ensuring transparency in the supply chain through visibility. Our platform works across all geographies and all modes of transportation, empowering logistics teams to move, manage and monitor freight.Transporeon is headquartered in Ulm, Germany, and maintains 18 offices around the globe with over 1,400 employees across 27 countries. For more information, visit: www.transporeon.com",
+          "company_type": "Public Company",
+          "status": "active",
+          "year_founded": 2000,
+          "employee_count_range": "1001-5000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 795,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 0.3787878787878788,
+            "3m": 0.12594458438287154,
+            "6m": -1.8518518518518516,
+            "12m": -12.637362637362637
+          },
+          "growth_absolute": {
+            "1m": 3,
+            "3m": 1,
+            "6m": -15,
+            "12m": -115
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Ulm, Baden-Württemberg, Germany",
+          "street_address": "Heidenheimer Straße 55/1, Ulm, Baden-Württemberg",
+          "city": "Ulm",
+          "state": "Baden-Württemberg",
+          "all_office_addresses": [
+            "Gen. B. Zielińskiego 24 , Kraków, Kraków, 30-320, PL",
+            "Pfarrer-Weiß-Weg 12, Ulm, 89077, DE",
+            "Heisinger Straße 12, Kempten, 87437, DE",
+            "500 Office Center Drive, Fort Washington, PA, 19034, US",
+            "Chausseestraße 103 , Berlin, Mitte, 10115, DE",
+            "76, Route de la Demi-Lune, Paris, Ile-de-France, 75012, FR",
+            "1-y Kazachiy pereulok, Moscow, Moscow City, 119017, RU",
+            "60 Paya Lebar Rd, Singapore, Paya Lebar Square, 409051, SG",
+            "Telliskivi 60a/8 (floor 5), , Tallinn, 10412, EE",
+            "Taborstraße 1 (floor 16),, Vienna, 1020 , AT",
+            "Буд. 23 вул.Евгена Сверстюка Київ, Kiev, 02002, UA"
+          ]
+        }
+      },
+      {
+        "crustdata_company_id": 3445990,
+        "basic_info": {
+          "name": "ITG GmbH Internationale Spedition + Logistik",
+          "crustdata_company_id": 3445990,
+          "primary_domain": "itg.de",
+          "all_domains": [
+            "itg.de"
+          ],
+          "website": "https://www.itg.de",
+          "professional_network_url": "https://www.linkedin.com/company/itg-gmbh",
+          "professional_network_id": "41213770",
+          "profile_name": "ITG GmbH Internationale Spedition + Logistik",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/3c7fac703f0fb976f9c57d6458ea30c38dd670bc392e8b906c89d0389a22a94f.jpg",
+          "description": "The ITG Group, headquartered in Schwaig at Munich Airport, is a global acting logistics and fulfillment service provider with own branches and logistics centers in Germany, Austria and the USA. The range of services includes all fulfillment services that customers require along their entire supply chain from procurement to the end customer. Always with the aim to develop tailor-made solutions and thus added value for the customer.Transport logistics includes air and sea freight services, land transport and complete customs clearance, as well as quality assurance and quality management directly with the product. Ideally, logistics fulfillment combines all sales channels and offers corresponding services up to complete omnichannel solutions. In addition to Pick, Pack & Ship, these also include extensive value-added services, such as quality control, preparation and personalization as well as everything around returns processing. In addition to these classic logistics services, ITG is increasingly focusing on fulfillment services for online retailing. Here, technological solutions are offered in the frontend and backend areas. In this context, ITG develops and operates complementary services such as order management, financial services, customer care or content management. However, the operation and optimization of complete CEP networks for direct delivery to end customers is also part of this portfolio.The performance characteristics of the group are individual service, flexibility and absolute reliability. The logistics service provider has special expertise in the sectors of fashion, sports, cosmetics, lifestyle & luxury goods and merchandising.",
+          "company_type": "Public Company",
+          "status": "active",
+          "year_founded": 1981,
+          "employee_count_range": "501-1000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 137,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": -0.7246376811594203,
+            "3m": 0.7352941176470588,
+            "6m": -2.142857142857143,
+            "12m": 2.2388059701492535
+          },
+          "growth_absolute": {
+            "1m": -1,
+            "3m": 1,
+            "6m": -3,
+            "12m": 3
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Oberding, Bavaria, Germany",
+          "street_address": "Eichenstr. 2, Oberding, Bavaria",
+          "city": "Oberding",
+          "state": "Bavaria",
+          "all_office_addresses": []
+        }
+      },
+      {
+        "crustdata_company_id": 2133906,
+        "basic_info": {
+          "name": "Martrade Group",
+          "crustdata_company_id": 2133906,
+          "primary_domain": "martrade-group.com",
+          "all_domains": [
+            "martrade-group.com"
+          ],
+          "website": "https://martrade-group.com/",
+          "professional_network_url": "https://www.linkedin.com/company/martrade-group",
+          "professional_network_id": "1176106",
+          "profile_name": "Martrade Group",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/b4abab3e6a622eb8a6b69d50d0bca2640d050675c2d896e1066473c2a61b3c4c.jpg",
+          "description": "Martrade Group is a German-headquartered logistics and shipping company delivering end-to-end solutions across Ocean Shipping, Port & Terminal Operations, and Project Logistics.With terminals in Iraq and investments in Ukraine and India, we combine global reach with local expertise serving key trade corridors such as the Black Sea, Persian Gulf, and West Coast of India.",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 1989,
+          "employee_count_range": "201-500",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 105,
+          "largest_headcount_country": "IRQ",
+          "growth_percent": {
+            "1m": 0.0,
+            "3m": 0.9615384615384616,
+            "6m": 1.9417475728155338,
+            "12m": -0.9433962264150944
+          },
+          "growth_absolute": {
+            "1m": 0,
+            "3m": 1,
+            "6m": 2,
+            "12m": -1
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Düsseldorf, North Rhine-Westphalia, Germany",
+          "street_address": "Düsseldorf, North Rhine-Westphalia, Germany",
+          "city": "Dusseldorf",
+          "state": "North Rhine-Westphalia",
+          "all_office_addresses": [
+            ", Dubai, Dubai, AE",
+            ", Khor Al Zubair, Basra, IQ",
+            ", Abu Dhabi, AE",
+            ", Istanbul, TR",
+            ", Dammam, SA",
+            ", Doha, QA",
+            ", Umm Qasr, IQ",
+            ", Abu Dhabi, AE"
+          ]
+        }
+      },
+      {
+        "crustdata_company_id": 2699978,
+        "basic_info": {
+          "name": "Schäflein AG",
+          "crustdata_company_id": 2699978,
+          "primary_domain": "schaeflein.de",
+          "all_domains": [
+            "schaeflein.de"
+          ],
+          "website": "https://www.schaeflein.de",
+          "professional_network_url": "https://www.linkedin.com/company/schaefleinag",
+          "professional_network_id": "14822307",
+          "profile_name": "Schäflein AG",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/2a2ecd866708253e8c8b95b435cfc5c9b2d87d0f45d90c472258d90b81ad6ba2.jpg",
+          "description": "Schäflein bietet Lösungen entlang der gesamten Supply Chain. Wir sind Anpacker, Innovator, Partner, Experte. Ob individuelle Lösung oder effizienter Standardprozess – wir machen Logistik, so wie sie wirklich gebraucht wird. Kurz gesagt: Wir machen ́s einfach!",
+          "company_type": "Public Company",
+          "status": "active",
+          "year_founded": 1939,
+          "employee_count_range": "1001-5000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 236,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 2.1645021645021645,
+            "3m": 2.1645021645021645,
+            "6m": 2.608695652173913,
+            "12m": 9.25925925925926
+          },
+          "growth_absolute": {
+            "1m": 5,
+            "3m": 5,
+            "6m": 6,
+            "12m": 20
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Röthlein, Bavaria, Germany",
+          "street_address": "Am Etzberg 7, Röthlein, Bavaria",
+          "city": "Röthlein",
+          "state": "Bavaria",
+          "all_office_addresses": [
+            "Am Etzberg 7, Röthlein, Bavaria, 97520, DE",
+            "Am Etzberg 1, Röthlein, Bayern, 97520, DE",
+            "Am Etzberg 9, Röthlein, Bayern, 97520, DE",
+            "Am Etzberg 20, Röthlein, Bayern, 97520, DE",
+            "Gewerbepark West 6, Schwebheim, Bayern, 97525, DE",
+            "An der Hohen Straße 3, Schwebheim, Bayern, 97525, DE",
+            "Lilienthalstraße 4, Schweinfurt, Bayern, 97424, DE",
+            ", Gochsheim, Bayern, 97469, DE",
+            "Industriestraße 4, Gochsheim, Bayern, 97469, DE",
+            "Gerolzhöfer Straße 7, Grettstadt, Bayern, 97508, DE",
+            "Am Alten Bahnhof 8, Volkach, Bayern, 97332, DE",
+            ", Kitzingen, Bayern, 97318, DE",
+            "Edisonstraße 26, Nürnberg, Bayern, 90431, DE",
+            "Donaustraße 37, Nürnberg, Bayern, 90451, DE",
+            "Rotterdamer Straße, Nürnberg, Bayern, 90451, DE",
+            "Geßlerstraße 1, Horb am Neckar, Baden-Württemberg, 72160, DE",
+            "Max-Eyth-Straße 2, Empfingen, Baden-Württemberg, 72186, DE",
+            "Carl-Zeiss-Straße 20, Langenau, Baden-Württemberg, 89129, DE",
+            ", Schwerte, Nordrhein-Westfalen, 58239, DE",
+            "Rausinger Straße, Holzwickede, Nordrhein-Westfalen, 59439, DE",
+            "Am Elsholz 4, Kremmen, Brandenburg, 16766, DE",
+            "Salzachtalstraße 51, Hallein, Salzburg, 5400, AT",
+            ", Breslau, Niederschlesien, 52407, PL"
+          ]
+        }
+      },
+      {
+        "crustdata_company_id": 2421623,
+        "basic_info": {
+          "name": "Chemion Logistik GmbH",
+          "crustdata_company_id": 2421623,
+          "primary_domain": "chemion.de",
+          "all_domains": [
+            "chemion.de"
+          ],
+          "website": "https://www.chemion.de",
+          "professional_network_url": "https://www.linkedin.com/company/chemion-logistik-gmbh",
+          "professional_network_id": "8057729",
+          "profile_name": "Chemion Logistik GmbH",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/0ede296f465ed92f5854f28c9347c86d8a6994f0177936a6043f444ee3af6c73.jpg",
+          "description": "Die Chemion Logistik GmbH ist seit 2001 als eigenständiger Standortlogistiker und Spezialist für den Umgang mit Gefahrgut und Gefahrstoffen für ihre Kunden da. Damit ist Chemion besonders für Unternehmen der Chemie- und chemienahen Industrie ein leistungsstarker Partner.An unseren CHEMPARK-Standorten in Leverkusen, Dormagen, Krefeld-Uerdingen und unseren Außenlägern in Krefeld, Duisburg und Monheim am Rhein setzen sich unsere rund 900 geschulten Mitarbeiter*innen täglich dafür ein, dass die Güter unserer Kunden im rechten Moment abgeholt und sicher gelagert werden sowie pünktlich ans Ziel gelangen. Dabei deckt Chemion ein breites Spektrum logistischer Services ab und bieten ihren Kunden als 3PL (Third Party Logistics Provider) spezifische Lager-, Umschlag-, Transport- und Mehrwert-Lösungen für die jeweilige Aufgabenstellung. Hierfür nutzen wir unsere eigene Infrastruktur und entsprechendes Equipment.",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 2001,
+          "employee_count_range": "501-1000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 188,
+          "largest_headcount_country": "DEU",
+          "growth_percent": {
+            "1m": 2.73224043715847,
+            "3m": 2.73224043715847,
+            "6m": 5.617977528089887,
+            "12m": 17.5
+          },
+          "growth_absolute": {
+            "1m": 5,
+            "3m": 5,
+            "6m": 10,
+            "12m": 28
+          }
+        },
+        "locations": {
+          "country": "DEU",
+          "headquarters": "Leverkusen, North Rhine-Westphalia, Germany",
+          "street_address": "Kaiser-Wilhelm Allee CHEMPARK Leverkusen, Geb. G 7, Leverkusen, North Rhine-Westphalia",
+          "city": "Leverkusen",
+          "state": "North Rhine-Westphalia",
+          "all_office_addresses": [
+            "Alte Heerstraße, Dormagen, Nordrhein-Westfalen, 41540, DE",
+            "Rheinuferstraße, Krefeld, Nordrhein-Westfalen, 47829, DE"
+          ]
+        }
+      }
+    ],
+    "next_cursor": "eyJzZXNzaW9uIjoiNjFmNWE2NTdkNTExNGQzZDkwY2IwMmE5MThkZjNiZjEiLCJvZmZzZXQiOjUwLCJxdWVyeSI6IjZmM2UwMzk4YmM2ZjExMDM4NzhlZGEyNmZkZTc3NzJhODdiYmNlMWU1OTg3YmZkZTVjYWM2NjE4M2I2MTgzYWUiLCJ0YWlsX2hhc2giOm51bGx9:1xN2WJ:WzudTxdy9qtS3dp_wtE0dGUBmxvT627qMOP9sf-7srg",
+    "total_count": null
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "company_autocomplete_eba0291a4c",
+  "endpoint": "POST /company/search/autocomplete",
+  "request": {
+    "field": "taxonomy.categories",
+    "query": "Logistics",
+    "limit": 15
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "300",
+    "x-ratelimit-remaining": "299",
+    "x-ratelimit-reset": "60",
+    "x-credits-used": "0"
+  },
+  "retrieved_at_utc": "2026-10-31T06:24:47.539201+00:00",
+  "body": {
+    "suggestions": [
+      {
+        "value": "Logistics"
+      },
+      {
+        "value": "Transportation and logistics"
+      },
+      {
+        "value": "Transportation & Logistics"
+      }
+    ]
+  }
+}
