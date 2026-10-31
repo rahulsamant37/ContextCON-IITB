@@ -28,7 +28,6 @@ from .verifier import VerificationReport, verify_mission
 STEPS = ["A_brief", "B_discovery", "C_enrichment", "E_buyers", "D_competitors", "F_sizing", "G_verification", "H_execution"]
 SEARCH_FIELDS = ["basic_info", "locations", "headcount"]
 ENRICH_FIELDS = ["basic_info", "headcount", "funding", "hiring"]
-SEARCH_SORT = [{"field": "headcount.growth_percent.6m", "order": "desc"}]
 
 
 @dataclass
@@ -267,7 +266,14 @@ class Mission:
             note="sector mapped to Crustdata categories via free autocomplete")]})
         filters = build_company_filters(brief, cats)
         self.emit("B_discovery", f"searching with categories {cats}")
-        raw, total, warn = client.company_search_paged(filters, SEARCH_FIELDS, self.s.max_company_search_results, SEARCH_SORT)
+        # observed count from a cheap filter-only call (ranked search reports total_count = null)
+        cnt = client.company_search(filters, ["basic_info"], 1)
+        total = cnt.body.get("total_count") if cnt.ok and isinstance(cnt.body, dict) else None
+        if total is None:
+            d.warnings.append("B_discovery: provider returned no total_count; observed universe size unknown")
+        query = brief.target_industry
+        raw, _, warn = client.company_search_paged(filters, SEARCH_FIELDS, self.s.max_company_search_results,
+                                                  search={"query": f"{query} companies", "mode": "hybrid"})
         self._pages = list(client.search_pages)
         if warn:
             st.status, st.warning = "warning", warn
@@ -288,8 +294,8 @@ class Mission:
         self._records = recs
         d.universe = UniverseSummary(
             total_count=total, fetched=len(recs), filters_applied=filters, post_filters=post,
-            coverage_note=(f"Fetched {len(recs)} of {total if total is not None else 'unknown'} indexed matches, ordered by 6-month "
-                           f"headcount growth (desc). Counts are Crustdata-indexed companies, not all businesses in the market."),
+            coverage_note=(f"Fetched {len(recs)} of {total if total is not None else 'unknown'} indexed matches, ranked by relevance to "
+                           f"'{query} companies' (hybrid). Counts are Crustdata-indexed companies, not all businesses in the market."),
             retrieved_at=self._pages[0][1] if self._pages else utcnow())
         d.companies = score_and_rank(recs, brief)
         self.emit("B_discovery", f"{len(recs)} candidates, indexed total {total}")

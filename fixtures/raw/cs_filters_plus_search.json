@@ -1,0 +1,381 @@
+{
+  "name": "cs_filters_plus_search",
+  "endpoint": "POST /company/search",
+  "request": {
+    "filters": {
+      "op": "and",
+      "conditions": [
+        {
+          "field": "locations.country",
+          "type": "=",
+          "value": "United Kingdom"
+        },
+        {
+          "field": "taxonomy.categories",
+          "type": "in",
+          "value": [
+            "FinTech"
+          ]
+        },
+        {
+          "field": "headcount.total",
+          "type": "=>",
+          "value": 50
+        },
+        {
+          "field": "headcount.total",
+          "type": "=<",
+          "value": 500
+        }
+      ]
+    },
+    "search": {
+      "query": "financial technology fintech company",
+      "mode": "hybrid"
+    },
+    "fields": [
+      "basic_info",
+      "headcount"
+    ],
+    "limit": 8
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "30",
+    "x-ratelimit-remaining": "29",
+    "x-ratelimit-reset": "60",
+    "x-credits-used": "4.24"
+  },
+  "duration_ms": 2495,
+  "retrieved_at_utc": "2026-10-31T06:19:00.481507+00:00",
+  "body": {
+    "companies": [
+      {
+        "crustdata_company_id": 1043293,
+        "basic_info": {
+          "name": "FinTech Global",
+          "crustdata_company_id": 1043293,
+          "primary_domain": "fintech.global",
+          "all_domains": [
+            "fintech.global"
+          ],
+          "website": "https://fintech.global",
+          "professional_network_url": "https://www.linkedin.com/company/fintech-global",
+          "professional_network_id": "11006768",
+          "profile_name": "FinTech Global",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/da9fee680c52e619d8578dce5d9b61054fa85712c034d92d8f1f994163c46cf9.jpg",
+          "description": "FinTech Global is the world’s leading provider of FinTech information services, B2B media products and industry events. We inform, promote and connect FinTech buyers, sellers, investors and innovators worldwide.We serve a network of over 300,000 FinTech professionals from market-leading organizations – financial institutions, technology innovators, corporate investors, venture firms and expert advisory firms. We enable them to get the information they need to make better business decisions and to connect and engage with the people and organisations they want to do business with. Our services and products include:FINTECH NEWSLETTERS & NEWS WEBSITESBreaking news, exclusive features and leadership insights.FINTECH RESEARCHIndustry reports on markets, sectors and technologies; company profiles, buyer guides, solution provider listings and customised research and consulting.FINTECH DATA & INTELLIGENCESuperior data, independent insights and powerful analytical toolsFINTECH MARKETING SOLUTIONSHigh impact buyer awareness, market promotion and lead generation via unparalleled global distribution channels.FINTECH EVENTSIndustry-leading conferences, forums and webinars and exclusive invitation-only roundtables and briefings in RegTech, InsurTech, WealthTech, CyberTech, PayTech, AI & ML, Financial Crime, Data, CX",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 2016,
+          "employee_count_range": "11-50",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 100,
+          "largest_headcount_country": "GBR",
+          "growth_percent": {
+            "1m": -1.9607843137254901,
+            "3m": -0.9900990099009901,
+            "6m": 1.0101010101010102,
+            "12m": 8.695652173913043
+          },
+          "growth_absolute": {
+            "1m": -2,
+            "3m": -1,
+            "6m": 1,
+            "12m": 8
+          }
+        }
+      },
+      {
+        "crustdata_company_id": 6529886,
+        "basic_info": {
+          "name": "United Fintech",
+          "crustdata_company_id": 6529886,
+          "primary_domain": "unitedfintech.com",
+          "all_domains": [
+            "fairxchange.co.uk",
+            "athenasystems.com",
+            "unitedfintech.com"
+          ],
+          "website": "https://unitedfintech.com/",
+          "professional_network_url": "https://www.linkedin.com/company/united-fintech",
+          "professional_network_id": "72230091",
+          "profile_name": "United Fintech",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/b8d2ba806d93ed8ed466210b13efd38870da0605daa6b0888ca228f07b19cbf5.jpg",
+          "description": "United Fintech connects financial institutions to a curated ecosystem of trusted fintech solutions across markets, banking and wealth.Through a single point of entry, United Fintech enables institutions to adopt, integrate and scale proven B2B fintech more efficiently. Our group of specialist fintech companies delivers technology that drives automation, efficiency and resilience across institutional finance.Founded in 2020 in Copenhagen, United Fintech has grown into an international organisation with offices across Europe, the Americas, the Middle East and Asia. Headquartered in London, the group brings together diverse teams, cultures and expertise, united by a shared focus on delivering measurable value to financial institutions and fintechs.Working closely with leading global institutions and fintech founders, United Fintech supports long-term growth, innovation and operational excellence, helping institutional finance move forward with confidence in an increasingly digital world.For more information, visit unitedfintech.com.",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 2020,
+          "employee_count_range": "201-500",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 184,
+          "largest_headcount_country": "GBR",
+          "growth_percent": {
+            "1m": -7.07070707070707,
+            "3m": -9.803921568627452,
+            "6m": -9.803921568627452,
+            "12m": -11.11111111111111
+          },
+          "growth_absolute": {
+            "1m": -14,
+            "3m": -20,
+            "6m": -20,
+            "12m": -23
+          }
+        }
+      },
+      {
+        "crustdata_company_id": 2167805,
+        "basic_info": {
+          "name": "Origo",
+          "crustdata_company_id": 2167805,
+          "primary_domain": "origo.com",
+          "all_domains": [
+            "origo.com"
+          ],
+          "website": "https://bit.ly/3HMok3o",
+          "professional_network_url": "https://www.linkedin.com/company/origo-services-ltd",
+          "professional_network_id": "294672",
+          "profile_name": "Origo",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/81636b4ec9e8282b76a05c54a34650d74c334486fae63ff223796b95a1bcbf58.jpg",
+          "description": "Origo is the FinTech company dedicated to connecting the financial services marketplace for the benefit of everyone. Boosting efficiencies, improving performance, and reducing integration costs, while significantly improving financial outcomes for consumers. We're a Disability Confident employer, affirming our commitment to promoting equality and diversity by actively supporting the inclusion and employment of individuals with disabilities. We commit to interviewing disabled applicants who meet the essential criteria for a job vacancy.Parent company of Unipass Services.For more information visit our website.",
+          "company_type": "Nonprofit",
+          "status": "active",
+          "year_founded": 1989,
+          "employee_count_range": "51-200",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 167,
+          "largest_headcount_country": "GBR",
+          "growth_percent": {
+            "1m": -1.7647058823529411,
+            "3m": -1.7647058823529411,
+            "6m": -1.183431952662722,
+            "12m": -2.3391812865497075
+          },
+          "growth_absolute": {
+            "1m": -3,
+            "3m": -3,
+            "6m": -2,
+            "12m": -4
+          }
+        }
+      },
+      {
+        "crustdata_company_id": 663944,
+        "basic_info": {
+          "name": "Cushon",
+          "crustdata_company_id": 663944,
+          "primary_domain": "cushon.co.uk",
+          "all_domains": [
+            "cushon.co.uk"
+          ],
+          "website": "https://www.cushon.co.uk",
+          "professional_network_url": "https://www.linkedin.com/company/cushon",
+          "professional_network_id": "66201284",
+          "profile_name": "Cushon",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/2bbfcdbd6fc4291e8324e6de271bd0b8cc235dbdbe4379cb49c7b56ddd196194.jpg",
+          "description": "Cushon by WTW is a fintech workplace savings and pension business, using its world-leading financial technology to bring innovation to workplace savings to help people get comfortable with saving and investing.",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 2014,
+          "employee_count_range": "201-500",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 233,
+          "largest_headcount_country": "GBR",
+          "growth_percent": {
+            "1m": -0.4273504273504274,
+            "3m": -1.6877637130801686,
+            "6m": -5.284552845528456,
+            "12m": -4.11522633744856
+          },
+          "growth_absolute": {
+            "1m": -1,
+            "3m": -4,
+            "6m": -13,
+            "12m": -10
+          }
+        }
+      },
+      {
+        "crustdata_company_id": 1161266,
+        "basic_info": {
+          "name": "Zeal Group",
+          "crustdata_company_id": 1161266,
+          "primary_domain": "zealgroup.global",
+          "all_domains": [
+            "zeal-holdings.com",
+            "zealgroup.global"
+          ],
+          "website": "https://zeal-holdings.com/",
+          "professional_network_url": "https://www.linkedin.com/company/zealholdings",
+          "professional_network_id": "28749764",
+          "profile_name": "Zeal Group",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/be4f8a6fc430437bbf1d18ebefe227e22d62fec6a23942f4a22035066265e4cb.jpg",
+          "description": "Zeal Group is an award-winning FinTech organisation offering a variety of products. Our trading platforms, ZFX and Traze specialise in multi-asset liquidity solutions in regulated markets back by proprietary technology.Founded in 2017, we have grown to a team of 700+ employees across the globe 🌎. Our offices and presence are spread across Europe, Asia, Africa, Middle East and South America, with our Technology hub located in Cyprus 🚀.We are a product and people focused company who are passionate about growth, innovative technology, and collaboration 🙌🏼Zeal Capital Market operates under multiple regulatory licenses worldwide, including authorization by the Financial Services Authority (FSA) in Seychelles, the Financial Sector Conduct Authority (FSCA) in South Africa, and the Commodity Futures Trading Regulatory Agency (BAPPEBTI) in Indonesia, ensuring compliance with international financial standards.",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 2017,
+          "employee_count_range": "501-1000",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 422,
+          "largest_headcount_country": "MYS",
+          "growth_percent": {
+            "1m": -0.7058823529411765,
+            "3m": 0.4761904761904762,
+            "6m": 0.9569377990430622,
+            "12m": -4.524886877828054
+          },
+          "growth_absolute": {
+            "1m": -3,
+            "3m": 2,
+            "6m": 4,
+            "12m": -20
+          }
+        }
+      },
+      {
+        "crustdata_company_id": 705823,
+        "basic_info": {
+          "name": "CFTE - Centre for Finance, Technology and Entrepreneurship",
+          "crustdata_company_id": 705823,
+          "primary_domain": "cfte.education",
+          "all_domains": [
+            "cfte.education"
+          ],
+          "website": "https://courses.cfte.education/",
+          "professional_network_url": "https://www.linkedin.com/company/cfte_edu",
+          "professional_network_id": "11123194",
+          "profile_name": "CFTE - Centre for Finance, Technology and Entrepreneurship",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/7f834552983d1c419365ba8b1d2f1597315194d474b6e90318c10416afbdb66c.jpg",
+          "description": "The Centre for Finance, Technology and Entrepreneurship (CFTE) is a global education company building the infrastructure for AI-readiness and workforce transformation.In an era shaped by artificial intelligence and exponential change, CFTE helps governments, central banks, and leading financial institutions develop the capabilities needed to thrive — not just today, but in the economy of tomorrow. Our mission is to future-proof professionals and organisations through structured learning pathways, diagnostics, and applied programmes that go far beyond tool training.Our programmes cover AI, Fintech, Digital Payments, Blockchain and more — all co-designed with industry experts and grounded in real-world use cases. CFTE’s impact spans over 200,000 learners in 100+ countries, including senior policymakers, regulators, and frontline professionals.We stand apart by combining deep industry insight with scalable transformation tools. Our flagship frameworks — including the Performance Hexagon, SHIME Skills Model, CDE Innovation Prism and AI Capability Engine — help organisations assess readiness, map skill gaps, and implement national or enterprise-wide talent strategies.With over 1,000 expert faculty members and partnerships with institutions like the Asian Development Bank, Arab Monetary Fund, Citi, HSBC, PayPal and regulators worldwide, CFTE is the trusted partner for future-facing learning at scale.📍 We work across Europe, MENA and Asia.🎯 We focus on capability-building, not just courses.🚀 Our belief: In a tech world, we bet on people.Europe: 30 Churchill Pl, London E14 5RE, United Kingdom and Paris, FranceMiddle East: Cloud Spaces, AI Sarab Tower, Al Maryah Island, Abu DhabiAsia: 80 Robinson Road, Singapore and Hong Kong",
+          "company_type": "Educational Institution",
+          "status": "active",
+          "year_founded": 2017,
+          "employee_count_range": "11-50",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 88,
+          "largest_headcount_country": "ARE",
+          "growth_percent": {
+            "1m": -3.296703296703297,
+            "3m": -2.2222222222222223,
+            "6m": 2.3255813953488373,
+            "12m": 3.5294117647058822
+          },
+          "growth_absolute": {
+            "1m": -3,
+            "3m": -2,
+            "6m": 2,
+            "12m": 3
+          }
+        }
+      },
+      {
+        "crustdata_company_id": 892110,
+        "basic_info": {
+          "name": "Icon Solutions",
+          "crustdata_company_id": 892110,
+          "primary_domain": "iconsolutions.com",
+          "all_domains": [
+            "iconsolutions.com"
+          ],
+          "website": "http://iconsolutions.com",
+          "professional_network_url": "https://www.linkedin.com/company/icon-solutions-uk-ltd",
+          "professional_network_id": "549225",
+          "profile_name": "Icon Solutions",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/a0451f5ee91c5bc9d4c6550f41229589bfe05927081e3380b4084209793a0266.jpg",
+          "description": "Icon Solutions is a fintech company that has been designing and implementing state-of-the-art payments systems since 2009.Our core product – the Icon Payments Framework (IPF) – is an internationally proven payments development framework that is trusted by Tier 1 banks across the globe such as Citi, NatWest, UBS and BNP Paribas.IPF gives banks the technology and processes to independently accelerate the transformation of their payments infrastructure, allowing them to build, test and deploy payments processing solutions much faster, while staying in total control of timelines and costs.",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 2009,
+          "employee_count_range": "51-200",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 230,
+          "largest_headcount_country": "GBR",
+          "growth_percent": {
+            "1m": 0.0,
+            "3m": 0.43668122270742354,
+            "6m": 1.3215859030837005,
+            "12m": 1.7699115044247788
+          },
+          "growth_absolute": {
+            "1m": 0,
+            "3m": 1,
+            "6m": 3,
+            "12m": 4
+          }
+        }
+      },
+      {
+        "crustdata_company_id": 816108,
+        "basic_info": {
+          "name": "wamo",
+          "crustdata_company_id": 816108,
+          "primary_domain": "wamo.io",
+          "all_domains": [
+            "wamo.io"
+          ],
+          "website": "http://www.wamo.io",
+          "professional_network_url": "https://www.linkedin.com/company/wamobusiness",
+          "professional_network_id": "18845226",
+          "profile_name": "wamo",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/941bb08f873a42fa7f4a64ac0d125656980384dbca88c445a4af6a94e782b543.jpg",
+          "description": "wamo is a European fintech company focused on making banking, finance, accounts and admin faster, simpler and more human for small businesses.Licensed and regulated by the Finnish Financial Supervisory Authority as a pan-European electronic money institution, wamo delivers the speed and simplicity entrepreneurs demand from a digital bank, plus personalised insight and hands-on human support to make life a little easier when things get complicated.Founded in 2021, wamo has headquarters in Helsinki and London.",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 2021,
+          "employee_count_range": "51-200",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 128,
+          "largest_headcount_country": "MLT",
+          "growth_percent": {
+            "1m": 0.0,
+            "3m": -0.7751937984496124,
+            "6m": 0.7874015748031495,
+            "12m": 31.958762886597935
+          },
+          "growth_absolute": {
+            "1m": 0,
+            "3m": -1,
+            "6m": 1,
+            "12m": 31
+          }
+        }
+      }
+    ],
+    "next_cursor": "eyJzZXNzaW9uIjoiNjQwOGI3ZDRhZjM0NGMzNDhiNDhkNzY2YjQ2ZjViOTUiLCJvZmZzZXQiOjgsInF1ZXJ5IjoiNWIyNDRlYTAzODc1ZjlkZjU3ZTliMTBiY2NmZDcxNWE0OTQ4ODA1ODNjOGNiNmE5M2VhNTNmOTg0YjMzNjYxNyIsInRhaWxfaGFzaCI6bnVsbH0:1xN2Qe:zk95678tbY1CFQ2tedbgE5NSQxS7-tcXdOB1EqQz7cQ",
+    "total_count": null
+  }
+}

@@ -26,7 +26,7 @@ def make_handler(enrich_status=200, search_body=None, categories=("FinTech",), l
             log.append((req.url.path, body))
         if req.url.path.endswith("/autocomplete"):
             return httpx.Response(200, json={"suggestions": [{"value": c} for c in categories]})
-        if req.url.path == "/company/search" and body and "search" in body:
+        if req.url.path == "/company/search" and body and "search" in body and "filters" not in body:
             return httpx.Response(200, json=fixture("cs_ranked_competitors")["body"], headers={"x-credits-used": "1.15"})
         if req.url.path == "/person/search":  # same people returned for every domain: only Auquan may accept them
             return httpx.Response(200, json=fixture("person_search_auquan_any")["body"], headers={"x-credits-used": "0.69"})
@@ -81,12 +81,14 @@ def test_full_flow_offline(tmp_path):
     auq = next(c for c in d.companies if c.company_id == "6507")
     assert auq.enriched and auq.open_roles is not None and auq.identity.method == "company_id"
     sent = [p for p, _ in log]
-    plain_searches = [b for p, b in log if p == "/company/search" and "search" not in b]
-    assert sent.count("/company/enrich") == 1 and len(plain_searches) == 1
+    filtered = [b for p, b in log if p == "/company/search" and "filters" in b]
+    assert sent.count("/company/enrich") == 1 and len(filtered) == 2  # 1-row count call + ranked pool
+    assert filtered[0]["limit"] == 1 and "search" not in filtered[0]
+    assert filtered[1]["search"] == {"query": "FinTech companies", "mode": "hybrid"} and "sorts" not in filtered[1]
     enrich_body = next(b for p, b in log if p == "/company/enrich")
     assert enrich_body["crustdata_company_ids"] and "technographics" not in enrich_body["fields"]
     assert d.sizing.pool == 2410 * 12000 and "2,410 indexed companies × GBP 12,000" in d.sizing.formula_text
-    assert d.credit_used == round(1.29 + 2 + 3 * 0.69 + 1.15 + 1, 2)  # search, enrich, 3 buyer searches, competitors, web
+    assert d.credit_used == round(1.29 * 2 + 2 + 3 * 0.69 + 1.15 + 1, 2)  # count+pool, enrich, 3 buyer searches, competitors, web
     assert d.crm_counts["companies"] == 3 and d.crm_counts["evidence"] == len(d.evidence) > 0
     assert d.crm_counts["tool_runs"] == len(d.tool_runs) >= 8
     assert d.state == "completed_with_warnings"  # verifier not wired yet + buyer_not_found warnings
@@ -148,7 +150,7 @@ def test_search_page_failure_keeps_partial_results(tmp_path):
     def h(req):
         if req.url.path == "/company/search":
             n["i"] += 1
-            if n["i"] > 1:
+            if n["i"] > 2:  # call 1 = count query, call 2 = first pool page, call 3 = second page (fails)
                 return httpx.Response(400, json={"error": {"type": "bad_cursor", "message": "expired"}})
         return base(req)
     d = mission(tmp_path, h).run()
