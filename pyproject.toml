@@ -10,6 +10,8 @@ dependencies = [
   "streamlit>=1.36",
   "python-dotenv>=1.0",
   "weasyprint>=62",
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.30",
   "pytest>=8.0",
 ]
 

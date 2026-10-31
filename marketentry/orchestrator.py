@@ -115,8 +115,9 @@ def dedupe(records: list[CompanyRecord]) -> tuple[list[CompanyRecord], int]:
 class Mission:
     def __init__(self, prompt: str, *, overrides: dict | None = None, settings: Settings | None = None,
                  client: CrustdataClient | None = None, llm: LLMClient | None = None,
-                 on_event: Callable[[dict], None] | None = None, write_crm: bool = True):
-        self.prompt, self.overrides = prompt, overrides
+                 on_event: Callable[[dict], None] | None = None, write_crm: bool = True,
+                 brief: MarketBrief | None = None):
+        self.prompt, self.overrides, self._preparsed = prompt, overrides, brief
         self.s = settings or get_settings()
         self.llm = llm or LLMClient(self.s)
         self._client, self._on_event, self.write_crm = client, on_event, write_crm
@@ -184,7 +185,7 @@ class Mission:
     def run(self) -> MissionData:
         d = self.d
         with self.step("A_brief") as st:
-            brief = parse_brief(self.prompt, self.llm, self.overrides)
+            brief = self._preparsed or parse_brief(self.prompt, self.llm, self.overrides)
             d.brief, d.mission_id = brief, mission_id_for(brief)
             d.ledger = EvidenceLedger(d.mission_id)
             for u in brief.unsupported_constraints:
@@ -197,13 +198,15 @@ class Mission:
             return self._finish(skip_rest=True)
 
         try:
-            self._client = self._client or CrustdataClient(d.mission_id, self.s, on_run=lambda r: self.emit(
-                "tool", f"{r.tool_name} {r.result_status}", credit=r.credit_cost, total=r.total_count, n=r.result_count))
+            self._client = self._client or CrustdataClient(d.mission_id, self.s)
         except Exception as e:
             d.warnings.append(f"client init failed: {e}")
             return self._finish(skip_rest=True)
         client = self._client
         client.mission_id = d.mission_id
+        if client._on_run is None:  # stream every Crustdata call into the trace, whoever built the client
+            client._on_run = lambda r: self.emit("tool", f"{r.tool_name} {r.result_status}", credit=r.credit_cost,
+                                                 total=r.total_count, n=r.result_count, http=r.http_status, error=r.error_type)
 
         with self.step("B_discovery") as st:
             self._discovery(client, st)

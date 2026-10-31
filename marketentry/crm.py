@@ -175,6 +175,32 @@ class CRM:
                 db.execute("INSERT INTO segments(mission_id, name, description) VALUES(?,?,?) "
                            "ON CONFLICT(mission_id, name) DO UPDATE SET description=excluded.description", (mission_id, name, d))
 
+    STAGES = ("New", "Researching", "Contacted", "Meeting", "Won", "Lost")
+    TASK_STATUSES = ("todo", "in_progress", "done", "skipped", "draft_unsent")  # deliberately no "sent"
+
+    def set_company_stage(self, mission_id: str, company_row_id: int, stage: str) -> bool:
+        if stage not in self.STAGES:
+            raise ValueError(f"stage must be one of {self.STAGES}")
+        with self.tx() as db:
+            cur = db.execute("UPDATE companies SET stage=?, updated_at=? WHERE id=? AND mission_id=?",
+                             (stage, utcnow(), company_row_id, mission_id))
+        return cur.rowcount == 1
+
+    def update_task(self, mission_id: str, task_id: int, status: str | None = None, draft_text: str | None = None) -> bool:
+        if status is not None and status not in self.TASK_STATUSES:
+            raise ValueError(f"status must be one of {self.TASK_STATUSES}")
+        row = self.db.execute("SELECT status, task_type FROM crm_tasks WHERE id=? AND mission_id=?", (task_id, mission_id)).fetchone()
+        if row is None:
+            return False
+        if draft_text is not None and row["task_type"] != "outreach_draft":
+            raise ValueError("only outreach drafts have editable text")
+        with self.tx() as db:
+            if status is not None:
+                db.execute("UPDATE crm_tasks SET status=? WHERE id=?", (status, task_id))
+            if draft_text is not None:
+                db.execute("UPDATE crm_tasks SET draft_text=? WHERE id=?", (draft_text[:5000], task_id))
+        return True
+
     # ---- reads ---------------------------------------------------------------
     def counts(self, mission_id: str) -> dict[str, int]:
         out = {}
