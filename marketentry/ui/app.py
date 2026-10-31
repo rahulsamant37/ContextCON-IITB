@@ -2,6 +2,7 @@
 Run: streamlit run marketentry/ui/app.py"""
 from __future__ import annotations
 
+import base64
 import pickle
 from pathlib import Path
 
@@ -92,16 +93,16 @@ with tab_trace:
     c3.metric("Tool calls", len(d.tool_runs))
     c4.metric("Supported claims", f"{d.verified_claim_fraction:.0%}" if d.verified_claim_fraction is not None else "unknown")
     st.subheader("Steps")
-    st.dataframe(df([{"step": s_.name, "status": s_.status, "note": s_.warning or ""} for s_ in d.steps]), hide_index=True, use_container_width=True)
+    st.dataframe(df([{"step": s_.name, "status": s_.status, "note": s_.warning or ""} for s_ in d.steps]), hide_index=True)
     st.subheader("Actual Crustdata calls")
-    st.dataframe(df(tool_run_rows(d)), hide_index=True, use_container_width=True)
+    st.dataframe(df(tool_run_rows(d)), hide_index=True)
     if d.llm_runs:
         st.subheader("LLM calls (parsing / draft wording only)")
-        st.dataframe(df(d.llm_runs), hide_index=True, use_container_width=True)
+        st.dataframe(df(d.llm_runs), hide_index=True)
     if d.warnings:
-        st.subheader("Warnings")
-        for w in d.warnings:
-            st.warning(w)
+        with st.expander(f"Warnings ({len(d.warnings)}): honest gaps, failed or skipped steps", expanded=len(d.warnings) <= 4):
+            for w in d.warnings:
+                st.warning(w)
 
 # ---- intelligence ----------------------------------------------------------------------------
 with tab_intel:
@@ -123,7 +124,7 @@ with tab_intel:
         st.write(d.universe.coverage_note)
         st.write(d.universe.post_filters or "no post-filters applied")
     st.subheader("Ranked target accounts")
-    st.dataframe(df(accounts_rows(d)), hide_index=True, use_container_width=True)
+    st.dataframe(df(accounts_rows(d)), hide_index=True)
     sl = d.companies[: b.max_target_accounts]
     if sl:
         pick = st.selectbox("Score breakdown & audit drill-down for", [c.name for c in sl])
@@ -131,11 +132,11 @@ with tab_intel:
         left, right = st.columns(2)
         with left:
             st.caption(f"fit {c.fit_score if c.fit_score is not None else 'unknown'} over assessable points · coverage {c.data_coverage:.0%} · {c.confidence} confidence")
-            st.dataframe(df(breakdown_rows(c)), hide_index=True, use_container_width=True)
+            st.dataframe(df(breakdown_rows(c)), hide_index=True)
             st.write(c.icp_reasons)
         with right:
             ev_rows = evidence_rows(d, c.company_id or c.name)
-            st.dataframe(df(ev_rows), hide_index=True, use_container_width=True)
+            st.dataframe(df(ev_rows), hide_index=True)
         if ev_rows:
             chosen = st.selectbox("Open evidence record", [r["id"] for r in ev_rows])
             ev = next(e for e in d.evidence if e.evidence_id == chosen)
@@ -146,11 +147,11 @@ with tab_intel:
         if unk:
             st.info(f"Honest unknowns for {c.name}: {', '.join(unk)} (no observed evidence; scored as unknown, not zero)")
     st.subheader("Buyer map")
-    st.dataframe(df(buyer_rows(d)), hide_index=True, use_container_width=True)
+    st.dataframe(df(buyer_rows(d)), hide_index=True)
     st.subheader("Competitive landscape")
-    st.dataframe(df(competitor_rows(d)), hide_index=True, use_container_width=True)
+    st.dataframe(df(competitor_rows(d)), hide_index=True)
     st.subheader("Assumption ledger")
-    st.dataframe(df([a.model_dump() for a in b.assumptions]).astype(str), hide_index=True, use_container_width=True)
+    st.dataframe(df([a.model_dump() for a in b.assumptions]).astype(str), hide_index=True)
     if b.unsupported_constraints:
         st.error("Unsupported constraints: " + "; ".join(b.unsupported_constraints))
 
@@ -164,16 +165,18 @@ with tab_out:
             cols[i % 3].download_button(f"⬇ {name}", p.read_bytes(), file_name=p.name, key=f"dl_{name}")
     if "Market_Entry_Report.html" in d.artifacts and Path(d.artifacts["Market_Entry_Report.html"]).exists():
         with st.expander("Preview report (HTML)"):
-            st.components.v1.html(Path(d.artifacts["Market_Entry_Report.html"]).read_text(), height=700, scrolling=True)
+            # data: URL => opaque origin, so provider-supplied text in the report can never reach the app
+            html_b64 = base64.b64encode(Path(d.artifacts["Market_Entry_Report.html"]).read_bytes()).decode()
+            st.iframe("data:text/html;base64," + html_b64, height=700)
     st.subheader("Local CRM (SQLite): rows written by this mission")
     if d.crm_db_path and Path(d.crm_db_path).exists():
         st.caption(f"{d.crm_db_path} · counts: {d.crm_counts}")
         view = crm_view(d.crm_db_path, d.mission_id)
         t1, t2, t3, t4 = st.tabs(["Companies", "People", "Tasks & unsent drafts", "Segments"])
-        t1.dataframe(df(view["companies"]), hide_index=True, use_container_width=True)
-        t2.dataframe(df(view["people"]), hide_index=True, use_container_width=True)
-        t3.dataframe(df(view["crm_tasks"]), hide_index=True, use_container_width=True)
-        t4.dataframe(df(view["segments"]), hide_index=True, use_container_width=True)
+        t1.dataframe(df(view["companies"]), hide_index=True)
+        t2.dataframe(df(view["people"]), hide_index=True)
+        t3.dataframe(df(view["crm_tasks"]), hide_index=True)
+        t4.dataframe(df(view["segments"]), hide_index=True)
         drafts = [t for t in view["crm_tasks"] if t["status"] == "draft_unsent"]
         if drafts:
             with st.expander(f"{len(drafts)} outreach drafts (UNSENT, stored locally only)"):
