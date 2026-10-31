@@ -1,0 +1,3548 @@
+{
+  "name": "company_enrich_auquan",
+  "endpoint": "POST /company/enrich",
+  "request": {
+    "crustdata_company_ids": [
+      6507
+    ],
+    "fields": [
+      "basic_info",
+      "headcount",
+      "funding",
+      "hiring"
+    ]
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "15",
+    "x-ratelimit-remaining": "14",
+    "x-ratelimit-reset": "60",
+    "x-credits-used": "2"
+  },
+  "duration_ms": 1626,
+  "retrieved_at_utc": "2026-10-31T05:23:16.136423+00:00",
+  "body": [
+    {
+      "matched_on": "6507",
+      "match_type": "crustdata_company_id",
+      "matches": [
+        {
+          "confidence_score": 1.0,
+          "company_data": {
+            "crustdata_company_id": 6507,
+            "funding": {
+              "acquired_by": [],
+              "acquisitions": [],
+              "investors_detailed": [
+                {
+                  "crunchbase_profile_url": "https://www.crunchbase.com/person/charlie-songhurst",
+                  "permalink": "charlie-songhurst",
+                  "name": "Charlie Songhurst",
+                  "uuid": "c8e0c690-e891-4115-bb57-5652199c8aeb",
+                  "type": "person",
+                  "categories": [
+                    "angel"
+                  ]
+                },
+                {
+                  "crunchbase_profile_url": "https://www.crunchbase.com/person/chris-adelsbach",
+                  "permalink": "chris-adelsbach",
+                  "name": "Chris Adelsbach",
+                  "uuid": "11340da3-b2bb-5d51-19bc-c6006d151164",
+                  "type": "person",
+                  "categories": [
+                    "angel",
+                    "investment_partner"
+                  ]
+                },
+                {
+                  "crunchbase_profile_url": "https://www.crunchbase.com/organization/episode",
+                  "permalink": "episode",
+                  "name": "Episode 1",
+                  "uuid": "49cf2639-71dc-1485-0593-fffd18d51d15",
+                  "type": "organization",
+                  "categories": [
+                    "venture_capital"
+                  ]
+                },
+                {
+                  "crunchbase_profile_url": "https://www.crunchbase.com/organization/fin-tech-sandbox",
+                  "permalink": "fin-tech-sandbox",
+                  "name": "FinTech Sandbox",
+                  "uuid": "6bcab664-1ffa-28d7-63cd-a4a18e23a5d6",
+                  "type": "organization",
+                  "categories": [
+                    "accelerator"
+                  ]
+                },
+                {
+                  "crunchbase_profile_url": "https://www.crunchbase.com/person/john-stamler",
+                  "permalink": "john-stamler",
+                  "name": "John Stamler",
+                  "uuid": "2b46cf36-c99b-59e5-b027-eff70b8335b0",
+                  "type": "person",
+                  "categories": [
+                    ""
+                  ]
+                },
+                {
+                  "crunchbase_profile_url": "https://www.crunchbase.com/organization/neotribe-ventures",
+                  "permalink": "neotribe-ventures",
+                  "name": "Neotribe Ventures",
+                  "uuid": "fcfa38c1-5f6b-7765-7fd1-c3381f209f53",
+                  "type": "organization",
+                  "categories": [
+                    "venture_capital"
+                  ]
+                },
+                {
+                  "crunchbase_profile_url": "https://www.crunchbase.com/organization/sentiero-ventures",
+                  "permalink": "sentiero-ventures",
+                  "name": "Sentiero Ventures",
+                  "uuid": "ae8aafe6-85a8-48b6-89a8-482541572568",
+                  "type": "organization",
+                  "categories": [
+                    "venture_capital"
+                  ]
+                },
+                {
+                  "crunchbase_profile_url": "https://www.crunchbase.com/organization/stage-2-capital",
+                  "permalink": "stage-2-capital",
+                  "name": "Stage 2 Capital",
+                  "uuid": "0253f1a6-fa3e-4975-80b3-1a0eb8713ce9",
+                  "type": "organization",
+                  "categories": [
+                    "venture_capital"
+                  ]
+                },
+                {
+                  "crunchbase_profile_url": "https://www.crunchbase.com/organization/surge-ahead",
+                  "permalink": "surge-ahead",
+                  "name": "Surge",
+                  "uuid": "73a3a1f2-5cc3-45aa-9b71-e819dd978b74",
+                  "type": "organization",
+                  "categories": [
+                    "accelerator"
+                  ]
+                },
+                {
+                  "crunchbase_profile_url": "https://www.crunchbase.com/organization/techstars",
+                  "permalink": "techstars",
+                  "name": "Techstars",
+                  "uuid": "3718597a-dd39-6661-3630-09cdd43bcac2",
+                  "type": "organization",
+                  "categories": [
+                    "accelerator",
+                    "venture_capital"
+                  ]
+                },
+                {
+                  "crunchbase_profile_url": "https://www.crunchbase.com/organization/bullet-time-ventures",
+                  "permalink": "bullet-time-ventures",
+                  "name": "Techstars Ventures",
+                  "uuid": "e03b47e0-f25f-1e36-1314-bd65b6d16ee4",
+                  "type": "organization",
+                  "categories": [
+                    "venture_capital"
+                  ]
+                }
+              ],
+              "milestones": [
+                {
+                  "round_type": "seed",
+                  "is_fund": false,
+                  "investors_detailed": [],
+                  "permalink": "auquan-seed--7e260ad5",
+                  "date": "2024-10-22",
+                  "funding_date": "2024-10-22",
+                  "amount_usd": 4500000.0,
+                  "investors": null,
+                  "lead_investors": null
+                },
+                {
+                  "round_type": "seed",
+                  "is_fund": false,
+                  "investors_detailed": [],
+                  "permalink": "auquan-seed--028ddc5a",
+                  "date": "2023-10-18",
+                  "funding_date": "2023-10-18",
+                  "amount_usd": 3500000.0,
+                  "investors": null,
+                  "lead_investors": null
+                },
+                {
+                  "round_type": "seed",
+                  "is_fund": false,
+                  "investors_detailed": [
+                    {
+                      "categories": [
+                        "venture_capital"
+                      ],
+                      "crunchbase_profile_url": "https://www.crunchbase.com/organization/sentiero-ventures",
+                      "name": "Sentiero Ventures",
+                      "permalink": "sentiero-ventures",
+                      "type": "organization",
+                      "uuid": "ae8aafe6-85a8-48b6-89a8-482541572568"
+                    }
+                  ],
+                  "permalink": "auquan-seed--d953139f",
+                  "date": "2022-02-10",
+                  "funding_date": "2022-02-10",
+                  "amount_usd": null,
+                  "investors": "Sentiero Ventures",
+                  "lead_investors": null
+                },
+                {
+                  "round_type": "non_equity_assistance",
+                  "is_fund": false,
+                  "investors_detailed": [
+                    {
+                      "categories": [
+                        "accelerator"
+                      ],
+                      "crunchbase_profile_url": "https://www.crunchbase.com/organization/fin-tech-sandbox",
+                      "name": "FinTech Sandbox",
+                      "permalink": "fin-tech-sandbox",
+                      "type": "organization",
+                      "uuid": "6bcab664-1ffa-28d7-63cd-a4a18e23a5d6"
+                    }
+                  ],
+                  "permalink": "auquan-non-equity-assistance--abc1c267",
+                  "date": "2020-01-01",
+                  "funding_date": "2020-01-01",
+                  "amount_usd": null,
+                  "investors": "FinTech Sandbox",
+                  "lead_investors": "FinTech Sandbox"
+                },
+                {
+                  "round_type": "pre_seed",
+                  "is_fund": false,
+                  "investors_detailed": [
+                    {
+                      "categories": [
+                        "venture_capital"
+                      ],
+                      "crunchbase_profile_url": "https://www.crunchbase.com/organization/episode",
+                      "name": "Episode 1",
+                      "permalink": "episode",
+                      "type": "organization",
+                      "uuid": "49cf2639-71dc-1485-0593-fffd18d51d15"
+                    },
+                    {
+                      "categories": [
+                        "venture_capital"
+                      ],
+                      "crunchbase_profile_url": "https://www.crunchbase.com/organization/bullet-time-ventures",
+                      "name": "Techstars Ventures",
+                      "permalink": "bullet-time-ventures",
+                      "type": "organization",
+                      "uuid": "e03b47e0-f25f-1e36-1314-bd65b6d16ee4"
+                    },
+                    {
+                      "categories": [
+                        ""
+                      ],
+                      "crunchbase_profile_url": "https://www.crunchbase.com/person/john-stamler",
+                      "name": "John Stamler",
+                      "permalink": "john-stamler",
+                      "type": "person",
+                      "uuid": "2b46cf36-c99b-59e5-b027-eff70b8335b0"
+                    },
+                    {
+                      "categories": [
+                        "angel",
+                        "investment_partner"
+                      ],
+                      "crunchbase_profile_url": "https://www.crunchbase.com/person/chris-adelsbach",
+                      "name": "Chris Adelsbach",
+                      "permalink": "chris-adelsbach",
+                      "type": "person",
+                      "uuid": "11340da3-b2bb-5d51-19bc-c6006d151164"
+                    },
+                    {
+                      "categories": [
+                        "angel"
+                      ],
+                      "crunchbase_profile_url": "https://www.crunchbase.com/person/charlie-songhurst",
+                      "name": "Charlie Songhurst",
+                      "permalink": "charlie-songhurst",
+                      "type": "person",
+                      "uuid": "c8e0c690-e891-4115-bb57-5652199c8aeb"
+                    }
+                  ],
+                  "permalink": "auquan-pre-seed--0ea5e69d",
+                  "date": "2019-02-12",
+                  "funding_date": "2019-02-12",
+                  "amount_usd": 1100000.0,
+                  "investors": "Episode 1, Techstars Ventures, John Stamler, Chris Adelsbach, Charlie Songhurst",
+                  "lead_investors": "Episode 1"
+                },
+                {
+                  "round_type": "pre_seed",
+                  "is_fund": false,
+                  "investors_detailed": [
+                    {
+                      "categories": [
+                        "accelerator",
+                        "venture_capital"
+                      ],
+                      "crunchbase_profile_url": "https://www.crunchbase.com/organization/techstars",
+                      "name": "Techstars",
+                      "permalink": "techstars",
+                      "type": "organization",
+                      "uuid": "3718597a-dd39-6661-3630-09cdd43bcac2"
+                    }
+                  ],
+                  "permalink": "auquan-pre-seed--1a1ff505",
+                  "date": "2018-07-16",
+                  "funding_date": "2018-07-16",
+                  "amount_usd": 120000.0,
+                  "investors": "Techstars",
+                  "lead_investors": "Techstars"
+                }
+              ],
+              "contact_email": "info@auquan.com",
+              "is_investor": false,
+              "phone_number": null,
+              "funds_total_usd": null,
+              "last_fund_date": null,
+              "num_funding_rounds": 6,
+              "num_funds": 0,
+              "total_investment_usd": 9220000.0,
+              "last_round_amount_usd": 4500000.0,
+              "last_round_type": "seed",
+              "investors": [
+                "Charlie Songhurst",
+                "Chris Adelsbach",
+                "Episode 1",
+                "FinTech Sandbox",
+                "John Stamler",
+                "Neotribe Ventures",
+                "Sentiero Ventures",
+                "Stage 2 Capital",
+                "Surge",
+                "Techstars",
+                "Techstars Ventures"
+              ],
+              "last_fundraise_date": "2024-10-22"
+            },
+            "headcount": {
+              "by_function_timeseries": {
+                "CURRENT_FUNCTION": {
+                  "Military and Protective Services": [
+                    {
+                      "date": "2024-10-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2024-11-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2024-12-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-01-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-02-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-03-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-04-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-05-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-06-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-07-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-08-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-09-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-10-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-11-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-12-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-01-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-02-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-03-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-04-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-05-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-06-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-07-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-08-01 00:00:00",
+                      "employee_count": 1
+                    }
+                  ],
+                  "Education": [
+                    {
+                      "date": "2024-10-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2024-11-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2024-12-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-01-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-02-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-03-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-04-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-05-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-06-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-07-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-08-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-09-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-10-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-11-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-12-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-01-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-02-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-03-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-04-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-05-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-06-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-07-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-08-01 00:00:00",
+                      "employee_count": 1
+                    }
+                  ],
+                  "Entrepreneurship": [
+                    {
+                      "date": "2024-10-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2024-11-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2024-12-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-01-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-02-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-03-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-04-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-05-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-06-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-07-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-08-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-09-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-10-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-11-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-12-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-01-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-02-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-03-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-04-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-05-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-06-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-07-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-08-01 00:00:00",
+                      "employee_count": 1
+                    }
+                  ],
+                  "Administrative": [
+                    {
+                      "date": "2024-10-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2024-11-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2024-12-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-01-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2025-02-01 00:00:00",
+                      "employee_count": 4
+                    },
+                    {
+                      "date": "2025-03-01 00:00:00",
+                      "employee_count": 4
+                    },
+                    {
+                      "date": "2025-04-01 00:00:00",
+                      "employee_count": 4
+                    },
+                    {
+                      "date": "2025-05-01 00:00:00",
+                      "employee_count": 4
+                    },
+                    {
+                      "date": "2025-06-01 00:00:00",
+                      "employee_count": 4
+                    },
+                    {
+                      "date": "2025-07-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-08-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2025-09-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2025-10-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2025-11-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2025-12-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2026-01-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2026-02-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2026-03-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2026-04-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-05-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-06-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-07-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-08-01 00:00:00",
+                      "employee_count": 1
+                    }
+                  ],
+                  "Sales": [
+                    {
+                      "date": "2024-10-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2024-11-01 00:00:00",
+                      "employee_count": 4
+                    },
+                    {
+                      "date": "2024-12-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2025-01-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2025-02-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2025-03-01 00:00:00",
+                      "employee_count": 4
+                    },
+                    {
+                      "date": "2025-04-01 00:00:00",
+                      "employee_count": 5
+                    },
+                    {
+                      "date": "2025-05-01 00:00:00",
+                      "employee_count": 5
+                    },
+                    {
+                      "date": "2025-06-01 00:00:00",
+                      "employee_count": 5
+                    },
+                    {
+                      "date": "2025-07-01 00:00:00",
+                      "employee_count": 8
+                    },
+                    {
+                      "date": "2025-08-01 00:00:00",
+                      "employee_count": 9
+                    },
+                    {
+                      "date": "2025-09-01 00:00:00",
+                      "employee_count": 9
+                    },
+                    {
+                      "date": "2025-10-01 00:00:00",
+                      "employee_count": 8
+                    },
+                    {
+                      "date": "2025-11-01 00:00:00",
+                      "employee_count": 8
+                    },
+                    {
+                      "date": "2025-12-01 00:00:00",
+                      "employee_count": 4
+                    },
+                    {
+                      "date": "2026-01-01 00:00:00",
+                      "employee_count": 4
+                    },
+                    {
+                      "date": "2026-02-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2026-03-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2026-04-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2026-05-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2026-06-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2026-07-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2026-08-01 00:00:00",
+                      "employee_count": 6
+                    }
+                  ],
+                  "Arts and Design": [
+                    {
+                      "date": "2024-10-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2024-11-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2024-12-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-01-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-02-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-03-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-04-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-05-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-06-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-07-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-08-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-09-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-10-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-11-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-12-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-01-01 00:00:00",
+                      "employee_count": 1
+                    }
+                  ],
+                  "Product Management": [
+                    {
+                      "date": "2024-10-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2024-11-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2024-12-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-01-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-02-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-03-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-04-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-05-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-06-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-07-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-08-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-09-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-10-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-11-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-12-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-01-01 00:00:00",
+                      "employee_count": 1
+                    }
+                  ],
+                  "Marketing": [
+                    {
+                      "date": "2024-10-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2024-11-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2024-12-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-01-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-02-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-03-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-04-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2025-05-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2025-06-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2025-07-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2025-08-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2025-09-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2025-10-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2025-11-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-12-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2026-01-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2026-02-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2026-03-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2026-04-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2026-05-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2026-06-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2026-07-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2026-08-01 00:00:00",
+                      "employee_count": 2
+                    }
+                  ],
+                  "Engineering": [
+                    {
+                      "date": "2024-10-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2024-11-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2024-12-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2025-01-01 00:00:00",
+                      "employee_count": 4
+                    },
+                    {
+                      "date": "2025-02-01 00:00:00",
+                      "employee_count": 4
+                    },
+                    {
+                      "date": "2025-03-01 00:00:00",
+                      "employee_count": 4
+                    },
+                    {
+                      "date": "2025-04-01 00:00:00",
+                      "employee_count": 4
+                    },
+                    {
+                      "date": "2025-05-01 00:00:00",
+                      "employee_count": 5
+                    },
+                    {
+                      "date": "2025-06-01 00:00:00",
+                      "employee_count": 4
+                    },
+                    {
+                      "date": "2025-07-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2025-08-01 00:00:00",
+                      "employee_count": 8
+                    },
+                    {
+                      "date": "2025-09-01 00:00:00",
+                      "employee_count": 8
+                    },
+                    {
+                      "date": "2025-10-01 00:00:00",
+                      "employee_count": 8
+                    },
+                    {
+                      "date": "2025-11-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2025-12-01 00:00:00",
+                      "employee_count": 5
+                    },
+                    {
+                      "date": "2026-01-01 00:00:00",
+                      "employee_count": 5
+                    },
+                    {
+                      "date": "2026-02-01 00:00:00",
+                      "employee_count": 8
+                    },
+                    {
+                      "date": "2026-03-01 00:00:00",
+                      "employee_count": 8
+                    },
+                    {
+                      "date": "2026-04-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2026-05-01 00:00:00",
+                      "employee_count": 8
+                    },
+                    {
+                      "date": "2026-06-01 00:00:00",
+                      "employee_count": 8
+                    },
+                    {
+                      "date": "2026-07-01 00:00:00",
+                      "employee_count": 8
+                    },
+                    {
+                      "date": "2026-08-01 00:00:00",
+                      "employee_count": 9
+                    }
+                  ],
+                  "Research": [
+                    {
+                      "date": "2024-10-01 00:00:00",
+                      "employee_count": 12
+                    },
+                    {
+                      "date": "2024-11-01 00:00:00",
+                      "employee_count": 13
+                    },
+                    {
+                      "date": "2024-12-01 00:00:00",
+                      "employee_count": 12
+                    },
+                    {
+                      "date": "2025-01-01 00:00:00",
+                      "employee_count": 9
+                    },
+                    {
+                      "date": "2025-02-01 00:00:00",
+                      "employee_count": 9
+                    },
+                    {
+                      "date": "2025-03-01 00:00:00",
+                      "employee_count": 11
+                    },
+                    {
+                      "date": "2025-04-01 00:00:00",
+                      "employee_count": 11
+                    },
+                    {
+                      "date": "2025-05-01 00:00:00",
+                      "employee_count": 11
+                    },
+                    {
+                      "date": "2025-06-01 00:00:00",
+                      "employee_count": 8
+                    },
+                    {
+                      "date": "2025-07-01 00:00:00",
+                      "employee_count": 17
+                    },
+                    {
+                      "date": "2025-08-01 00:00:00",
+                      "employee_count": 16
+                    },
+                    {
+                      "date": "2025-09-01 00:00:00",
+                      "employee_count": 16
+                    },
+                    {
+                      "date": "2025-10-01 00:00:00",
+                      "employee_count": 18
+                    },
+                    {
+                      "date": "2025-11-01 00:00:00",
+                      "employee_count": 19
+                    },
+                    {
+                      "date": "2025-12-01 00:00:00",
+                      "employee_count": 15
+                    },
+                    {
+                      "date": "2026-01-01 00:00:00",
+                      "employee_count": 16
+                    },
+                    {
+                      "date": "2026-02-01 00:00:00",
+                      "employee_count": 24
+                    },
+                    {
+                      "date": "2026-03-01 00:00:00",
+                      "employee_count": 22
+                    },
+                    {
+                      "date": "2026-04-01 00:00:00",
+                      "employee_count": 22
+                    },
+                    {
+                      "date": "2026-05-01 00:00:00",
+                      "employee_count": 21
+                    },
+                    {
+                      "date": "2026-06-01 00:00:00",
+                      "employee_count": 21
+                    },
+                    {
+                      "date": "2026-07-01 00:00:00",
+                      "employee_count": 22
+                    },
+                    {
+                      "date": "2026-08-01 00:00:00",
+                      "employee_count": 26
+                    }
+                  ],
+                  "Information Technology": [
+                    {
+                      "date": "2024-10-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2024-11-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2024-12-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-01-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-02-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-03-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-04-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-05-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-06-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2025-07-01 00:00:00",
+                      "employee_count": 4
+                    },
+                    {
+                      "date": "2025-08-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2025-09-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-10-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-11-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-12-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2026-01-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2026-02-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2026-03-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2026-04-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2026-05-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2026-06-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2026-07-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2026-08-01 00:00:00",
+                      "employee_count": 1
+                    }
+                  ],
+                  "Business Development": [
+                    {
+                      "date": "2024-10-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2024-11-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2024-12-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2025-01-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2025-02-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2025-03-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2025-04-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2025-05-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2025-06-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2025-07-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2025-08-01 00:00:00",
+                      "employee_count": 8
+                    },
+                    {
+                      "date": "2025-09-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2025-10-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2025-11-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2025-12-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2026-01-01 00:00:00",
+                      "employee_count": 8
+                    },
+                    {
+                      "date": "2026-02-01 00:00:00",
+                      "employee_count": 9
+                    },
+                    {
+                      "date": "2026-03-01 00:00:00",
+                      "employee_count": 9
+                    },
+                    {
+                      "date": "2026-04-01 00:00:00",
+                      "employee_count": 8
+                    },
+                    {
+                      "date": "2026-05-01 00:00:00",
+                      "employee_count": 8
+                    },
+                    {
+                      "date": "2026-06-01 00:00:00",
+                      "employee_count": 8
+                    },
+                    {
+                      "date": "2026-07-01 00:00:00",
+                      "employee_count": 11
+                    },
+                    {
+                      "date": "2026-08-01 00:00:00",
+                      "employee_count": 10
+                    }
+                  ],
+                  "Operations": [
+                    {
+                      "date": "2024-12-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-01-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-02-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-03-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-04-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-05-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-06-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-07-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-08-01 00:00:00",
+                      "employee_count": 1
+                    },
+                    {
+                      "date": "2025-09-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-10-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-11-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-12-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2026-01-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2026-02-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2026-03-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2026-04-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2026-05-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2026-06-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2026-07-01 00:00:00",
+                      "employee_count": 4
+                    },
+                    {
+                      "date": "2026-08-01 00:00:00",
+                      "employee_count": 4
+                    }
+                  ]
+                },
+                "GEO_REGION": {
+                  "London Area, United Kingdom": [
+                    {
+                      "date": "2025-06-01 00:00:00",
+                      "employee_count": 11
+                    },
+                    {
+                      "date": "2025-07-01 00:00:00",
+                      "employee_count": 11
+                    },
+                    {
+                      "date": "2025-08-01 00:00:00",
+                      "employee_count": 12
+                    },
+                    {
+                      "date": "2025-09-01 00:00:00",
+                      "employee_count": 13
+                    },
+                    {
+                      "date": "2025-10-01 00:00:00",
+                      "employee_count": 13
+                    },
+                    {
+                      "date": "2025-11-01 00:00:00",
+                      "employee_count": 13
+                    },
+                    {
+                      "date": "2025-12-01 00:00:00",
+                      "employee_count": 13
+                    },
+                    {
+                      "date": "2026-01-01 00:00:00",
+                      "employee_count": 14
+                    },
+                    {
+                      "date": "2026-02-01 00:00:00",
+                      "employee_count": 14
+                    },
+                    {
+                      "date": "2026-03-01 00:00:00",
+                      "employee_count": 15
+                    },
+                    {
+                      "date": "2026-04-01 00:00:00",
+                      "employee_count": 15
+                    },
+                    {
+                      "date": "2026-05-01 00:00:00",
+                      "employee_count": 15
+                    },
+                    {
+                      "date": "2026-06-01 00:00:00",
+                      "employee_count": 15
+                    },
+                    {
+                      "date": "2026-07-01 00:00:00",
+                      "employee_count": 14
+                    },
+                    {
+                      "date": "2026-08-01 00:00:00",
+                      "employee_count": 14
+                    },
+                    {
+                      "date": "2026-09-01 00:00:00",
+                      "employee_count": 14
+                    }
+                  ],
+                  "United Kingdom": [
+                    {
+                      "date": "2025-06-01 00:00:00",
+                      "employee_count": 11
+                    },
+                    {
+                      "date": "2025-07-01 00:00:00",
+                      "employee_count": 11
+                    },
+                    {
+                      "date": "2025-08-01 00:00:00",
+                      "employee_count": 12
+                    },
+                    {
+                      "date": "2025-09-01 00:00:00",
+                      "employee_count": 14
+                    },
+                    {
+                      "date": "2025-10-01 00:00:00",
+                      "employee_count": 13
+                    },
+                    {
+                      "date": "2025-11-01 00:00:00",
+                      "employee_count": 13
+                    },
+                    {
+                      "date": "2025-12-01 00:00:00",
+                      "employee_count": 13
+                    },
+                    {
+                      "date": "2026-01-01 00:00:00",
+                      "employee_count": 14
+                    },
+                    {
+                      "date": "2026-02-01 00:00:00",
+                      "employee_count": 14
+                    },
+                    {
+                      "date": "2026-03-01 00:00:00",
+                      "employee_count": 15
+                    },
+                    {
+                      "date": "2026-04-01 00:00:00",
+                      "employee_count": 15
+                    },
+                    {
+                      "date": "2026-05-01 00:00:00",
+                      "employee_count": 15
+                    },
+                    {
+                      "date": "2026-06-01 00:00:00",
+                      "employee_count": 15
+                    },
+                    {
+                      "date": "2026-07-01 00:00:00",
+                      "employee_count": 14
+                    },
+                    {
+                      "date": "2026-08-01 00:00:00",
+                      "employee_count": 14
+                    },
+                    {
+                      "date": "2026-09-01 00:00:00",
+                      "employee_count": 14
+                    }
+                  ],
+                  "Greater Bengaluru Area": [
+                    {
+                      "date": "2025-06-01 00:00:00",
+                      "employee_count": 5
+                    },
+                    {
+                      "date": "2025-07-01 00:00:00",
+                      "employee_count": 5
+                    },
+                    {
+                      "date": "2025-08-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2025-09-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2025-10-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2025-11-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2025-12-01 00:00:00",
+                      "employee_count": 9
+                    },
+                    {
+                      "date": "2026-01-01 00:00:00",
+                      "employee_count": 9
+                    },
+                    {
+                      "date": "2026-02-01 00:00:00",
+                      "employee_count": 9
+                    },
+                    {
+                      "date": "2026-03-01 00:00:00",
+                      "employee_count": 11
+                    },
+                    {
+                      "date": "2026-04-01 00:00:00",
+                      "employee_count": 11
+                    },
+                    {
+                      "date": "2026-05-01 00:00:00",
+                      "employee_count": 12
+                    },
+                    {
+                      "date": "2026-06-01 00:00:00",
+                      "employee_count": 10
+                    },
+                    {
+                      "date": "2026-07-01 00:00:00",
+                      "employee_count": 13
+                    },
+                    {
+                      "date": "2026-08-01 00:00:00",
+                      "employee_count": 16
+                    },
+                    {
+                      "date": "2026-09-01 00:00:00",
+                      "employee_count": 15
+                    }
+                  ],
+                  "Greater London": [
+                    {
+                      "date": "2025-06-01 00:00:00",
+                      "employee_count": 11
+                    },
+                    {
+                      "date": "2025-07-01 00:00:00",
+                      "employee_count": 11
+                    },
+                    {
+                      "date": "2025-08-01 00:00:00",
+                      "employee_count": 12
+                    },
+                    {
+                      "date": "2025-09-01 00:00:00",
+                      "employee_count": 13
+                    },
+                    {
+                      "date": "2025-10-01 00:00:00",
+                      "employee_count": 13
+                    },
+                    {
+                      "date": "2025-11-01 00:00:00",
+                      "employee_count": 13
+                    },
+                    {
+                      "date": "2025-12-01 00:00:00",
+                      "employee_count": 13
+                    },
+                    {
+                      "date": "2026-01-01 00:00:00",
+                      "employee_count": 13
+                    },
+                    {
+                      "date": "2026-02-01 00:00:00",
+                      "employee_count": 13
+                    },
+                    {
+                      "date": "2026-03-01 00:00:00",
+                      "employee_count": 14
+                    },
+                    {
+                      "date": "2026-04-01 00:00:00",
+                      "employee_count": 14
+                    },
+                    {
+                      "date": "2026-05-01 00:00:00",
+                      "employee_count": 14
+                    },
+                    {
+                      "date": "2026-06-01 00:00:00",
+                      "employee_count": 14
+                    },
+                    {
+                      "date": "2026-07-01 00:00:00",
+                      "employee_count": 13
+                    },
+                    {
+                      "date": "2026-08-01 00:00:00",
+                      "employee_count": 13
+                    },
+                    {
+                      "date": "2026-09-01 00:00:00",
+                      "employee_count": 12
+                    }
+                  ],
+                  "Delhi, India": [
+                    {
+                      "date": "2025-12-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2026-01-01 00:00:00",
+                      "employee_count": 5
+                    },
+                    {
+                      "date": "2026-02-01 00:00:00",
+                      "employee_count": 5
+                    },
+                    {
+                      "date": "2026-03-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2026-04-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2026-05-01 00:00:00",
+                      "employee_count": 5
+                    },
+                    {
+                      "date": "2026-06-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2026-07-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2026-08-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2026-09-01 00:00:00",
+                      "employee_count": 7
+                    }
+                  ],
+                  "New York, United States": [
+                    {
+                      "date": "2025-06-01 00:00:00",
+                      "employee_count": 9
+                    },
+                    {
+                      "date": "2025-07-01 00:00:00",
+                      "employee_count": 9
+                    },
+                    {
+                      "date": "2025-08-01 00:00:00",
+                      "employee_count": 9
+                    },
+                    {
+                      "date": "2025-09-01 00:00:00",
+                      "employee_count": 8
+                    },
+                    {
+                      "date": "2025-10-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2025-11-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2025-12-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2026-01-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2026-02-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2026-03-01 00:00:00",
+                      "employee_count": 4
+                    },
+                    {
+                      "date": "2026-04-01 00:00:00",
+                      "employee_count": 4
+                    },
+                    {
+                      "date": "2026-05-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2026-06-01 00:00:00",
+                      "employee_count": 8
+                    },
+                    {
+                      "date": "2026-07-01 00:00:00",
+                      "employee_count": 8
+                    },
+                    {
+                      "date": "2026-08-01 00:00:00",
+                      "employee_count": 10
+                    },
+                    {
+                      "date": "2026-09-01 00:00:00",
+                      "employee_count": 12
+                    }
+                  ],
+                  "Bengaluru": [
+                    {
+                      "date": "2025-06-01 00:00:00",
+                      "employee_count": 5
+                    },
+                    {
+                      "date": "2025-07-01 00:00:00",
+                      "employee_count": 5
+                    },
+                    {
+                      "date": "2025-08-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2025-09-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2025-10-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2025-11-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2025-12-01 00:00:00",
+                      "employee_count": 9
+                    },
+                    {
+                      "date": "2026-01-01 00:00:00",
+                      "employee_count": 9
+                    },
+                    {
+                      "date": "2026-02-01 00:00:00",
+                      "employee_count": 9
+                    },
+                    {
+                      "date": "2026-03-01 00:00:00",
+                      "employee_count": 11
+                    },
+                    {
+                      "date": "2026-04-01 00:00:00",
+                      "employee_count": 11
+                    },
+                    {
+                      "date": "2026-05-01 00:00:00",
+                      "employee_count": 12
+                    },
+                    {
+                      "date": "2026-06-01 00:00:00",
+                      "employee_count": 10
+                    },
+                    {
+                      "date": "2026-07-01 00:00:00",
+                      "employee_count": 13
+                    },
+                    {
+                      "date": "2026-08-01 00:00:00",
+                      "employee_count": 16
+                    },
+                    {
+                      "date": "2026-09-01 00:00:00",
+                      "employee_count": 15
+                    }
+                  ],
+                  "Tamil Nadu, India": [
+                    {
+                      "date": "2025-10-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-11-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-12-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2026-01-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2026-02-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2026-03-01 00:00:00",
+                      "employee_count": 4
+                    },
+                    {
+                      "date": "2026-04-01 00:00:00",
+                      "employee_count": 4
+                    },
+                    {
+                      "date": "2026-05-01 00:00:00",
+                      "employee_count": 4
+                    }
+                  ],
+                  "New York, NY": [
+                    {
+                      "date": "2025-06-01 00:00:00",
+                      "employee_count": 8
+                    },
+                    {
+                      "date": "2025-07-01 00:00:00",
+                      "employee_count": 8
+                    },
+                    {
+                      "date": "2025-08-01 00:00:00",
+                      "employee_count": 8
+                    },
+                    {
+                      "date": "2025-09-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2025-10-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2025-11-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2025-12-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2026-01-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2026-02-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2026-03-01 00:00:00",
+                      "employee_count": 4
+                    },
+                    {
+                      "date": "2026-04-01 00:00:00",
+                      "employee_count": 4
+                    },
+                    {
+                      "date": "2026-05-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2026-06-01 00:00:00",
+                      "employee_count": 8
+                    },
+                    {
+                      "date": "2026-07-01 00:00:00",
+                      "employee_count": 8
+                    },
+                    {
+                      "date": "2026-08-01 00:00:00",
+                      "employee_count": 9
+                    },
+                    {
+                      "date": "2026-09-01 00:00:00",
+                      "employee_count": 11
+                    }
+                  ],
+                  "Rajasthan, India": [
+                    {
+                      "date": "2025-07-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-08-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-09-01 00:00:00",
+                      "employee_count": 2
+                    }
+                  ],
+                  "Maharashtra, India": [
+                    {
+                      "date": "2025-06-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2025-07-01 00:00:00",
+                      "employee_count": 3
+                    },
+                    {
+                      "date": "2025-08-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-09-01 00:00:00",
+                      "employee_count": 2
+                    }
+                  ],
+                  "India": [
+                    {
+                      "date": "2025-06-01 00:00:00",
+                      "employee_count": 12
+                    },
+                    {
+                      "date": "2025-07-01 00:00:00",
+                      "employee_count": 17
+                    },
+                    {
+                      "date": "2025-08-01 00:00:00",
+                      "employee_count": 21
+                    },
+                    {
+                      "date": "2025-09-01 00:00:00",
+                      "employee_count": 22
+                    },
+                    {
+                      "date": "2025-10-01 00:00:00",
+                      "employee_count": 22
+                    },
+                    {
+                      "date": "2025-11-01 00:00:00",
+                      "employee_count": 22
+                    },
+                    {
+                      "date": "2025-12-01 00:00:00",
+                      "employee_count": 26
+                    },
+                    {
+                      "date": "2026-01-01 00:00:00",
+                      "employee_count": 27
+                    },
+                    {
+                      "date": "2026-02-01 00:00:00",
+                      "employee_count": 27
+                    },
+                    {
+                      "date": "2026-03-01 00:00:00",
+                      "employee_count": 34
+                    },
+                    {
+                      "date": "2026-04-01 00:00:00",
+                      "employee_count": 34
+                    },
+                    {
+                      "date": "2026-05-01 00:00:00",
+                      "employee_count": 33
+                    },
+                    {
+                      "date": "2026-06-01 00:00:00",
+                      "employee_count": 34
+                    },
+                    {
+                      "date": "2026-07-01 00:00:00",
+                      "employee_count": 38
+                    },
+                    {
+                      "date": "2026-08-01 00:00:00",
+                      "employee_count": 42
+                    },
+                    {
+                      "date": "2026-09-01 00:00:00",
+                      "employee_count": 42
+                    }
+                  ],
+                  "Algeria": [
+                    {
+                      "date": "2025-06-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-07-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-08-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-09-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-10-01 00:00:00",
+                      "employee_count": 2
+                    }
+                  ],
+                  "Pune": [
+                    {
+                      "date": "2025-06-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-07-01 00:00:00",
+                      "employee_count": 2
+                    }
+                  ],
+                  "England, United Kingdom": [
+                    {
+                      "date": "2025-06-01 00:00:00",
+                      "employee_count": 11
+                    },
+                    {
+                      "date": "2025-07-01 00:00:00",
+                      "employee_count": 11
+                    },
+                    {
+                      "date": "2025-08-01 00:00:00",
+                      "employee_count": 12
+                    },
+                    {
+                      "date": "2025-09-01 00:00:00",
+                      "employee_count": 14
+                    },
+                    {
+                      "date": "2025-10-01 00:00:00",
+                      "employee_count": 13
+                    },
+                    {
+                      "date": "2025-11-01 00:00:00",
+                      "employee_count": 13
+                    },
+                    {
+                      "date": "2025-12-01 00:00:00",
+                      "employee_count": 13
+                    },
+                    {
+                      "date": "2026-01-01 00:00:00",
+                      "employee_count": 14
+                    },
+                    {
+                      "date": "2026-02-01 00:00:00",
+                      "employee_count": 14
+                    },
+                    {
+                      "date": "2026-03-01 00:00:00",
+                      "employee_count": 15
+                    },
+                    {
+                      "date": "2026-04-01 00:00:00",
+                      "employee_count": 15
+                    },
+                    {
+                      "date": "2026-05-01 00:00:00",
+                      "employee_count": 15
+                    },
+                    {
+                      "date": "2026-06-01 00:00:00",
+                      "employee_count": 15
+                    },
+                    {
+                      "date": "2026-07-01 00:00:00",
+                      "employee_count": 14
+                    },
+                    {
+                      "date": "2026-08-01 00:00:00",
+                      "employee_count": 14
+                    },
+                    {
+                      "date": "2026-09-01 00:00:00",
+                      "employee_count": 14
+                    }
+                  ],
+                  "Greater Delhi Area": [
+                    {
+                      "date": "2025-10-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-11-01 00:00:00",
+                      "employee_count": 2
+                    },
+                    {
+                      "date": "2025-12-01 00:00:00",
+                      "employee_count": 4
+                    },
+                    {
+                      "date": "2026-01-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2026-02-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2026-03-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2026-04-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2026-05-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2026-06-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2026-07-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2026-08-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2026-09-01 00:00:00",
+                      "employee_count": 8
+                    }
+                  ],
+                  "United States": [
+                    {
+                      "date": "2025-06-01 00:00:00",
+                      "employee_count": 12
+                    },
+                    {
+                      "date": "2025-07-01 00:00:00",
+                      "employee_count": 13
+                    },
+                    {
+                      "date": "2025-08-01 00:00:00",
+                      "employee_count": 13
+                    },
+                    {
+                      "date": "2025-09-01 00:00:00",
+                      "employee_count": 12
+                    },
+                    {
+                      "date": "2025-10-01 00:00:00",
+                      "employee_count": 9
+                    },
+                    {
+                      "date": "2025-11-01 00:00:00",
+                      "employee_count": 9
+                    },
+                    {
+                      "date": "2025-12-01 00:00:00",
+                      "employee_count": 9
+                    },
+                    {
+                      "date": "2026-01-01 00:00:00",
+                      "employee_count": 8
+                    },
+                    {
+                      "date": "2026-02-01 00:00:00",
+                      "employee_count": 8
+                    },
+                    {
+                      "date": "2026-03-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2026-04-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2026-05-01 00:00:00",
+                      "employee_count": 8
+                    },
+                    {
+                      "date": "2026-06-01 00:00:00",
+                      "employee_count": 10
+                    },
+                    {
+                      "date": "2026-07-01 00:00:00",
+                      "employee_count": 11
+                    },
+                    {
+                      "date": "2026-08-01 00:00:00",
+                      "employee_count": 12
+                    },
+                    {
+                      "date": "2026-09-01 00:00:00",
+                      "employee_count": 14
+                    }
+                  ],
+                  "New Delhi": [
+                    {
+                      "date": "2026-01-01 00:00:00",
+                      "employee_count": 4
+                    },
+                    {
+                      "date": "2026-02-01 00:00:00",
+                      "employee_count": 4
+                    },
+                    {
+                      "date": "2026-03-01 00:00:00",
+                      "employee_count": 4
+                    },
+                    {
+                      "date": "2026-04-01 00:00:00",
+                      "employee_count": 4
+                    },
+                    {
+                      "date": "2026-05-01 00:00:00",
+                      "employee_count": 4
+                    },
+                    {
+                      "date": "2026-06-01 00:00:00",
+                      "employee_count": 5
+                    },
+                    {
+                      "date": "2026-07-01 00:00:00",
+                      "employee_count": 5
+                    },
+                    {
+                      "date": "2026-08-01 00:00:00",
+                      "employee_count": 5
+                    },
+                    {
+                      "date": "2026-09-01 00:00:00",
+                      "employee_count": 6
+                    }
+                  ],
+                  "Karnataka, India": [
+                    {
+                      "date": "2025-06-01 00:00:00",
+                      "employee_count": 5
+                    },
+                    {
+                      "date": "2025-07-01 00:00:00",
+                      "employee_count": 5
+                    },
+                    {
+                      "date": "2025-08-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2025-09-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2025-10-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2025-11-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2025-12-01 00:00:00",
+                      "employee_count": 9
+                    },
+                    {
+                      "date": "2026-01-01 00:00:00",
+                      "employee_count": 9
+                    },
+                    {
+                      "date": "2026-02-01 00:00:00",
+                      "employee_count": 9
+                    },
+                    {
+                      "date": "2026-03-01 00:00:00",
+                      "employee_count": 11
+                    },
+                    {
+                      "date": "2026-04-01 00:00:00",
+                      "employee_count": 11
+                    },
+                    {
+                      "date": "2026-05-01 00:00:00",
+                      "employee_count": 12
+                    },
+                    {
+                      "date": "2026-06-01 00:00:00",
+                      "employee_count": 11
+                    },
+                    {
+                      "date": "2026-07-01 00:00:00",
+                      "employee_count": 13
+                    },
+                    {
+                      "date": "2026-08-01 00:00:00",
+                      "employee_count": 16
+                    },
+                    {
+                      "date": "2026-09-01 00:00:00",
+                      "employee_count": 15
+                    }
+                  ],
+                  "New York City Metropolitan Area": [
+                    {
+                      "date": "2025-06-01 00:00:00",
+                      "employee_count": 10
+                    },
+                    {
+                      "date": "2025-07-01 00:00:00",
+                      "employee_count": 10
+                    },
+                    {
+                      "date": "2025-08-01 00:00:00",
+                      "employee_count": 10
+                    },
+                    {
+                      "date": "2025-09-01 00:00:00",
+                      "employee_count": 9
+                    },
+                    {
+                      "date": "2025-10-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2025-11-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2025-12-01 00:00:00",
+                      "employee_count": 7
+                    },
+                    {
+                      "date": "2026-01-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2026-02-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2026-03-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2026-04-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2026-05-01 00:00:00",
+                      "employee_count": 6
+                    },
+                    {
+                      "date": "2026-06-01 00:00:00",
+                      "employee_count": 8
+                    },
+                    {
+                      "date": "2026-07-01 00:00:00",
+                      "employee_count": 8
+                    },
+                    {
+                      "date": "2026-08-01 00:00:00",
+                      "employee_count": 10
+                    },
+                    {
+                      "date": "2026-09-01 00:00:00",
+                      "employee_count": 12
+                    }
+                  ]
+                }
+              },
+              "largest_headcount_country": "IND",
+              "total": 74,
+              "growth_percent": {
+                "mom": 2.7777777777777777,
+                "qoq": 8.823529411764707,
+                "six_months": 10.44776119402985,
+                "yoy": 21.311475409836063,
+                "two_years": 42.30769230769231
+              },
+              "growth_absolute": {
+                "mom": 2,
+                "qoq": 6,
+                "six_months": 7,
+                "yoy": 13,
+                "two_years": 22
+              },
+              "by_role_absolute": {
+                "Business Development": 10,
+                "Engineering": 9,
+                "Marketing": 2,
+                "Sales": 6,
+                "Operations": 4,
+                "Research": 26
+              },
+              "by_role_percent": {
+                "Business Development": 13.513513513513514,
+                "Engineering": 12.162162162162163,
+                "Marketing": 2.7027027027027026,
+                "Sales": 8.108108108108109,
+                "Operations": 5.405405405405405,
+                "Research": 35.13513513513514
+              },
+              "by_role_growth_6m_pct": {
+                "Administrative": -50.0,
+                "Legal": 0.0,
+                "Sales": -14.285714285714285,
+                "Research": 8.333333333333332,
+                "Business Development": 11.11111111111111,
+                "Arts and Design": 0.0,
+                "Engineering": 12.5,
+                "Finance": 0.0,
+                "Information Technology": -66.66666666666666,
+                "Product Management": 0.0,
+                "Operations": 100.0,
+                "Entrepreneurship": 0.0,
+                "Consulting": 0.0,
+                "Human Resources": 0.0,
+                "Marketing": 0.0,
+                "Military and Protective Services": 0.0,
+                "Education": 0.0
+              },
+              "by_role_growth_yoy_pct": {
+                "Administrative": -66.66666666666666,
+                "Sales": -33.33333333333333,
+                "Research": 62.5,
+                "Business Development": 25.0,
+                "Arts and Design": 0.0,
+                "Engineering": 12.5,
+                "Finance": -50.0,
+                "Information Technology": -66.66666666666666,
+                "Product Management": 0.0,
+                "Operations": 300.0,
+                "Entrepreneurship": 0.0,
+                "Marketing": -33.33333333333333,
+                "Military and Protective Services": 0.0,
+                "Education": 0.0
+              },
+              "by_region_absolute": {
+                "New York City Metropolitan Area": 12,
+                "India": 42,
+                "Greater Delhi Area": 8,
+                "United States": 14,
+                "New York, United States": 12,
+                "England, United Kingdom": 14,
+                "London Area, United Kingdom": 14,
+                "New York, NY": 11,
+                "Greater Bengaluru Area": 15,
+                "United Kingdom": 14,
+                "Delhi, India": 7,
+                "Karnataka, India": 15,
+                "Bengaluru": 15,
+                "Greater London": 12,
+                "New Delhi": 6
+              },
+              "by_region_percent": {
+                "New York City Metropolitan Area": 16.216216216216218,
+                "India": 56.75675675675676,
+                "Greater Delhi Area": 10.81081081081081,
+                "United States": 18.91891891891892,
+                "New York, United States": 16.216216216216218,
+                "England, United Kingdom": 18.91891891891892,
+                "London Area, United Kingdom": 18.91891891891892,
+                "New York, NY": 14.864864864864865,
+                "Greater Bengaluru Area": 20.27027027027027,
+                "United Kingdom": 18.91891891891892,
+                "Delhi, India": 9.45945945945946,
+                "Karnataka, India": 20.27027027027027,
+                "Bengaluru": 20.27027027027027,
+                "Greater London": 16.216216216216218,
+                "New Delhi": 8.108108108108109
+              },
+              "by_skill_absolute": {
+                "Data Visualization": 10,
+                "Research Skills": 16,
+                "Marketing": 11,
+                "Market Research": 14,
+                "Teamwork": 14,
+                "Problem Solving": 19,
+                "Project Management": 12,
+                "Data Analysis": 22,
+                "Analytical Skills": 24,
+                "Financial Modeling": 11,
+                "Communication": 22,
+                "Management": 10,
+                "Finance": 16,
+                "Environmental, Social, and Governance (ESG)": 10,
+                "Microsoft Power BI": 11,
+                "Due Diligence": 9,
+                "Corporate Finance": 12,
+                "Leadership": 20,
+                "Microsoft PowerPoint": 12,
+                "Microsoft Office": 21,
+                "Microsoft Word": 11,
+                "SQL": 11,
+                "Sales": 9,
+                "Sales Management": 5,
+                "Customer Service": 7,
+                "Public Speaking": 8,
+                "Financial Analysis": 21,
+                "Microsoft Excel": 33,
+                "Business Strategy": 10,
+                "English": 16,
+                "Business Development": 8,
+                "Python (Programming Language)": 24,
+                "New Business Development": 6
+              },
+              "by_skill_percent": {
+                "Data Visualization": 13.513513513513514,
+                "Research Skills": 21.62162162162162,
+                "Marketing": 14.864864864864865,
+                "Market Research": 18.91891891891892,
+                "Teamwork": 18.91891891891892,
+                "Problem Solving": 25.675675675675674,
+                "Project Management": 16.216216216216218,
+                "Data Analysis": 29.72972972972973,
+                "Analytical Skills": 32.432432432432435,
+                "Financial Modeling": 14.864864864864865,
+                "Communication": 29.72972972972973,
+                "Management": 13.513513513513514,
+                "Finance": 21.62162162162162,
+                "Environmental, Social, and Governance (ESG)": 13.513513513513514,
+                "Microsoft Power BI": 14.864864864864865,
+                "Due Diligence": 12.162162162162163,
+                "Corporate Finance": 16.216216216216218,
+                "Leadership": 27.027027027027028,
+                "Microsoft PowerPoint": 16.216216216216218,
+                "Microsoft Office": 28.37837837837838,
+                "Microsoft Word": 14.864864864864865,
+                "SQL": 14.864864864864865,
+                "Sales": 12.162162162162163,
+                "Sales Management": 6.756756756756757,
+                "Customer Service": 9.45945945945946,
+                "Public Speaking": 10.81081081081081,
+                "Financial Analysis": 28.37837837837838,
+                "Microsoft Excel": 44.5945945945946,
+                "Business Strategy": 13.513513513513514,
+                "English": 21.62162162162162,
+                "Business Development": 10.81081081081081,
+                "Python (Programming Language)": 32.432432432432435,
+                "New Business Development": 8.108108108108109
+              },
+              "timeseries": [
+                {
+                  "date": "2023-02-27",
+                  "employee_count": 29
+                },
+                {
+                  "date": "2023-03-06",
+                  "employee_count": 29
+                },
+                {
+                  "date": "2023-03-13",
+                  "employee_count": 29
+                },
+                {
+                  "date": "2023-03-20",
+                  "employee_count": 29
+                },
+                {
+                  "date": "2023-03-27",
+                  "employee_count": 29
+                },
+                {
+                  "date": "2023-04-03",
+                  "employee_count": 29
+                },
+                {
+                  "date": "2023-04-10",
+                  "employee_count": 29
+                },
+                {
+                  "date": "2023-04-17",
+                  "employee_count": 29
+                },
+                {
+                  "date": "2023-04-24",
+                  "employee_count": 29
+                },
+                {
+                  "date": "2023-05-01",
+                  "employee_count": 29
+                },
+                {
+                  "date": "2023-05-08",
+                  "employee_count": 29
+                },
+                {
+                  "date": "2023-05-15",
+                  "employee_count": 29
+                },
+                {
+                  "date": "2023-05-22",
+                  "employee_count": 29
+                },
+                {
+                  "date": "2023-05-29",
+                  "employee_count": 32
+                },
+                {
+                  "date": "2023-06-05",
+                  "employee_count": 32
+                },
+                {
+                  "date": "2023-06-12",
+                  "employee_count": 32
+                },
+                {
+                  "date": "2023-06-19",
+                  "employee_count": 32
+                },
+                {
+                  "date": "2023-06-26",
+                  "employee_count": 37
+                },
+                {
+                  "date": "2023-07-03",
+                  "employee_count": 37
+                },
+                {
+                  "date": "2023-07-10",
+                  "employee_count": 37
+                },
+                {
+                  "date": "2023-07-17",
+                  "employee_count": 37
+                },
+                {
+                  "date": "2023-07-24",
+                  "employee_count": 37
+                },
+                {
+                  "date": "2023-07-31",
+                  "employee_count": 35
+                },
+                {
+                  "date": "2023-08-07",
+                  "employee_count": 35
+                },
+                {
+                  "date": "2023-08-14",
+                  "employee_count": 35
+                },
+                {
+                  "date": "2023-08-21",
+                  "employee_count": 35
+                },
+                {
+                  "date": "2023-08-28",
+                  "employee_count": 32
+                },
+                {
+                  "date": "2023-09-04",
+                  "employee_count": 32
+                },
+                {
+                  "date": "2023-09-11",
+                  "employee_count": 32
+                },
+                {
+                  "date": "2023-09-18",
+                  "employee_count": 32
+                },
+                {
+                  "date": "2023-09-25",
+                  "employee_count": 32
+                },
+                {
+                  "date": "2023-10-02",
+                  "employee_count": 34
+                },
+                {
+                  "date": "2023-10-09",
+                  "employee_count": 34
+                },
+                {
+                  "date": "2023-10-16",
+                  "employee_count": 34
+                },
+                {
+                  "date": "2023-10-23",
+                  "employee_count": 34
+                },
+                {
+                  "date": "2023-10-30",
+                  "employee_count": 34
+                },
+                {
+                  "date": "2023-11-06",
+                  "employee_count": 35
+                },
+                {
+                  "date": "2023-11-13",
+                  "employee_count": 35
+                },
+                {
+                  "date": "2023-11-20",
+                  "employee_count": 35
+                },
+                {
+                  "date": "2023-11-27",
+                  "employee_count": 35
+                },
+                {
+                  "date": "2023-12-04",
+                  "employee_count": 34
+                },
+                {
+                  "date": "2023-12-11",
+                  "employee_count": 34
+                },
+                {
+                  "date": "2023-12-18",
+                  "employee_count": 34
+                },
+                {
+                  "date": "2023-12-25",
+                  "employee_count": 34
+                },
+                {
+                  "date": "2024-01-01",
+                  "employee_count": 34
+                },
+                {
+                  "date": "2024-01-08",
+                  "employee_count": 34
+                },
+                {
+                  "date": "2024-01-15",
+                  "employee_count": 34
+                },
+                {
+                  "date": "2024-01-22",
+                  "employee_count": 34
+                },
+                {
+                  "date": "2024-01-29",
+                  "employee_count": 34
+                },
+                {
+                  "date": "2024-02-05",
+                  "employee_count": 35
+                },
+                {
+                  "date": "2024-02-12",
+                  "employee_count": 35
+                },
+                {
+                  "date": "2024-02-19",
+                  "employee_count": 35
+                },
+                {
+                  "date": "2024-02-26",
+                  "employee_count": 35
+                },
+                {
+                  "date": "2024-03-04",
+                  "employee_count": 35
+                },
+                {
+                  "date": "2024-03-11",
+                  "employee_count": 35
+                },
+                {
+                  "date": "2024-03-18",
+                  "employee_count": 35
+                },
+                {
+                  "date": "2024-03-25",
+                  "employee_count": 35
+                },
+                {
+                  "date": "2024-04-01",
+                  "employee_count": 40
+                },
+                {
+                  "date": "2024-04-08",
+                  "employee_count": 40
+                },
+                {
+                  "date": "2024-04-15",
+                  "employee_count": 40
+                },
+                {
+                  "date": "2024-04-22",
+                  "employee_count": 40
+                },
+                {
+                  "date": "2024-04-29",
+                  "employee_count": 40
+                },
+                {
+                  "date": "2024-05-06",
+                  "employee_count": 41
+                },
+                {
+                  "date": "2024-05-13",
+                  "employee_count": 41
+                },
+                {
+                  "date": "2024-05-20",
+                  "employee_count": 41
+                },
+                {
+                  "date": "2024-05-27",
+                  "employee_count": 41
+                },
+                {
+                  "date": "2024-06-03",
+                  "employee_count": 50
+                },
+                {
+                  "date": "2024-06-10",
+                  "employee_count": 50
+                },
+                {
+                  "date": "2024-06-17",
+                  "employee_count": 50
+                },
+                {
+                  "date": "2024-06-24",
+                  "employee_count": 50
+                },
+                {
+                  "date": "2024-07-01",
+                  "employee_count": 50
+                },
+                {
+                  "date": "2024-07-08",
+                  "employee_count": 50
+                },
+                {
+                  "date": "2024-07-15",
+                  "employee_count": 50
+                },
+                {
+                  "date": "2024-07-22",
+                  "employee_count": 50
+                },
+                {
+                  "date": "2024-07-29",
+                  "employee_count": 50
+                },
+                {
+                  "date": "2024-08-05",
+                  "employee_count": 52
+                },
+                {
+                  "date": "2024-08-12",
+                  "employee_count": 52
+                },
+                {
+                  "date": "2024-08-19",
+                  "employee_count": 52
+                },
+                {
+                  "date": "2024-08-26",
+                  "employee_count": 52
+                },
+                {
+                  "date": "2024-09-02",
+                  "employee_count": 52
+                },
+                {
+                  "date": "2024-09-09",
+                  "employee_count": 52
+                },
+                {
+                  "date": "2024-09-16",
+                  "employee_count": 52
+                },
+                {
+                  "date": "2024-09-23",
+                  "employee_count": 52
+                },
+                {
+                  "date": "2024-09-30",
+                  "employee_count": 52
+                },
+                {
+                  "date": "2024-10-07",
+                  "employee_count": 52
+                },
+                {
+                  "date": "2024-10-14",
+                  "employee_count": 52
+                },
+                {
+                  "date": "2024-10-21",
+                  "employee_count": 52
+                },
+                {
+                  "date": "2024-10-28",
+                  "employee_count": 52
+                },
+                {
+                  "date": "2024-11-04",
+                  "employee_count": 55
+                },
+                {
+                  "date": "2024-11-11",
+                  "employee_count": 55
+                },
+                {
+                  "date": "2024-11-18",
+                  "employee_count": 55
+                },
+                {
+                  "date": "2024-11-25",
+                  "employee_count": 55
+                },
+                {
+                  "date": "2024-12-02",
+                  "employee_count": 53
+                },
+                {
+                  "date": "2024-12-09",
+                  "employee_count": 53
+                },
+                {
+                  "date": "2024-12-16",
+                  "employee_count": 53
+                },
+                {
+                  "date": "2024-12-23",
+                  "employee_count": 53
+                },
+                {
+                  "date": "2024-12-30",
+                  "employee_count": 53
+                },
+                {
+                  "date": "2025-01-06",
+                  "employee_count": 48
+                },
+                {
+                  "date": "2025-01-13",
+                  "employee_count": 48
+                },
+                {
+                  "date": "2025-01-20",
+                  "employee_count": 48
+                },
+                {
+                  "date": "2025-01-27",
+                  "employee_count": 48
+                },
+                {
+                  "date": "2025-02-03",
+                  "employee_count": 49
+                },
+                {
+                  "date": "2025-02-10",
+                  "employee_count": 49
+                },
+                {
+                  "date": "2025-02-17",
+                  "employee_count": 49
+                },
+                {
+                  "date": "2025-02-24",
+                  "employee_count": 49
+                },
+                {
+                  "date": "2025-03-03",
+                  "employee_count": 52
+                },
+                {
+                  "date": "2025-03-10",
+                  "employee_count": 52
+                },
+                {
+                  "date": "2025-03-17",
+                  "employee_count": 52
+                },
+                {
+                  "date": "2025-03-24",
+                  "employee_count": 52
+                },
+                {
+                  "date": "2025-03-31",
+                  "employee_count": 52
+                },
+                {
+                  "date": "2025-04-07",
+                  "employee_count": 54
+                },
+                {
+                  "date": "2025-04-14",
+                  "employee_count": 54
+                },
+                {
+                  "date": "2025-04-21",
+                  "employee_count": 54
+                },
+                {
+                  "date": "2025-04-28",
+                  "employee_count": 54
+                },
+                {
+                  "date": "2025-05-05",
+                  "employee_count": 54
+                },
+                {
+                  "date": "2025-05-12",
+                  "employee_count": 54
+                },
+                {
+                  "date": "2025-05-19",
+                  "employee_count": 54
+                },
+                {
+                  "date": "2025-05-26",
+                  "employee_count": 54
+                },
+                {
+                  "date": "2025-06-02",
+                  "employee_count": 53
+                },
+                {
+                  "date": "2025-06-09",
+                  "employee_count": 53
+                },
+                {
+                  "date": "2025-06-16",
+                  "employee_count": 53
+                },
+                {
+                  "date": "2025-06-23",
+                  "employee_count": 53
+                },
+                {
+                  "date": "2025-06-30",
+                  "employee_count": 53
+                },
+                {
+                  "date": "2025-07-07",
+                  "employee_count": 58
+                },
+                {
+                  "date": "2025-07-14",
+                  "employee_count": 58
+                },
+                {
+                  "date": "2025-07-21",
+                  "employee_count": 58
+                },
+                {
+                  "date": "2025-07-28",
+                  "employee_count": 58
+                },
+                {
+                  "date": "2025-08-04",
+                  "employee_count": 60
+                },
+                {
+                  "date": "2025-08-11",
+                  "employee_count": 60
+                },
+                {
+                  "date": "2025-08-18",
+                  "employee_count": 60
+                },
+                {
+                  "date": "2025-08-25",
+                  "employee_count": 60
+                },
+                {
+                  "date": "2025-09-01",
+                  "employee_count": 58
+                },
+                {
+                  "date": "2025-09-08",
+                  "employee_count": 58
+                },
+                {
+                  "date": "2025-09-15",
+                  "employee_count": 58
+                },
+                {
+                  "date": "2025-09-22",
+                  "employee_count": 58
+                },
+                {
+                  "date": "2025-09-29",
+                  "employee_count": 58
+                },
+                {
+                  "date": "2025-10-06",
+                  "employee_count": 61
+                },
+                {
+                  "date": "2025-10-13",
+                  "employee_count": 61
+                },
+                {
+                  "date": "2025-10-20",
+                  "employee_count": 61
+                },
+                {
+                  "date": "2025-10-27",
+                  "employee_count": 61
+                },
+                {
+                  "date": "2025-11-03",
+                  "employee_count": 61
+                },
+                {
+                  "date": "2025-11-10",
+                  "employee_count": 61
+                },
+                {
+                  "date": "2025-11-17",
+                  "employee_count": 61
+                },
+                {
+                  "date": "2025-11-24",
+                  "employee_count": 61
+                },
+                {
+                  "date": "2025-12-01",
+                  "employee_count": 62
+                },
+                {
+                  "date": "2025-12-08",
+                  "employee_count": 62
+                },
+                {
+                  "date": "2025-12-15",
+                  "employee_count": 62
+                },
+                {
+                  "date": "2025-12-22",
+                  "employee_count": 62
+                },
+                {
+                  "date": "2025-12-29",
+                  "employee_count": 62
+                },
+                {
+                  "date": "2026-01-05",
+                  "employee_count": 66
+                },
+                {
+                  "date": "2026-01-12",
+                  "employee_count": 66
+                },
+                {
+                  "date": "2026-01-19",
+                  "employee_count": 66
+                },
+                {
+                  "date": "2026-01-26",
+                  "employee_count": 66
+                },
+                {
+                  "date": "2026-02-02",
+                  "employee_count": 70
+                },
+                {
+                  "date": "2026-02-09",
+                  "employee_count": 70
+                },
+                {
+                  "date": "2026-02-16",
+                  "employee_count": 70
+                },
+                {
+                  "date": "2026-02-23",
+                  "employee_count": 70
+                },
+                {
+                  "date": "2026-03-02",
+                  "employee_count": 66
+                },
+                {
+                  "date": "2026-03-09",
+                  "employee_count": 66
+                },
+                {
+                  "date": "2026-03-16",
+                  "employee_count": 66
+                },
+                {
+                  "date": "2026-03-23",
+                  "employee_count": 66
+                },
+                {
+                  "date": "2026-03-30",
+                  "employee_count": 66
+                },
+                {
+                  "date": "2026-04-06",
+                  "employee_count": 67
+                },
+                {
+                  "date": "2026-04-13",
+                  "employee_count": 67
+                },
+                {
+                  "date": "2026-04-20",
+                  "employee_count": 67
+                },
+                {
+                  "date": "2026-04-27",
+                  "employee_count": 67
+                },
+                {
+                  "date": "2026-05-04",
+                  "employee_count": 69
+                },
+                {
+                  "date": "2026-05-11",
+                  "employee_count": 69
+                },
+                {
+                  "date": "2026-05-18",
+                  "employee_count": 69
+                },
+                {
+                  "date": "2026-05-25",
+                  "employee_count": 69
+                },
+                {
+                  "date": "2026-06-01",
+                  "employee_count": 67
+                },
+                {
+                  "date": "2026-06-08",
+                  "employee_count": 67
+                },
+                {
+                  "date": "2026-06-15",
+                  "employee_count": 67
+                },
+                {
+                  "date": "2026-06-22",
+                  "employee_count": 67
+                },
+                {
+                  "date": "2026-06-29",
+                  "employee_count": 67
+                },
+                {
+                  "date": "2026-07-06",
+                  "employee_count": 68
+                },
+                {
+                  "date": "2026-07-13",
+                  "employee_count": 68
+                },
+                {
+                  "date": "2026-07-20",
+                  "employee_count": 68
+                },
+                {
+                  "date": "2026-07-27",
+                  "employee_count": 68
+                },
+                {
+                  "date": "2026-08-03",
+                  "employee_count": 68
+                },
+                {
+                  "date": "2026-08-10",
+                  "employee_count": 68
+                },
+                {
+                  "date": "2026-08-17",
+                  "employee_count": 68
+                },
+                {
+                  "date": "2026-08-24",
+                  "employee_count": 68
+                },
+                {
+                  "date": "2026-08-31",
+                  "employee_count": 68
+                },
+                {
+                  "date": "2026-09-11",
+                  "employee_count": 72
+                },
+                {
+                  "date": "2026-10-01",
+                  "employee_count": 74
+                },
+                {
+                  "date": "2026-10-10",
+                  "employee_count": 74
+                }
+              ]
+            },
+            "basic_info": {
+              "status": "active",
+              "name": "Auquan",
+              "primary_domain": "auquan.com",
+              "all_domains": [
+                "auquan.com"
+              ],
+              "website": "http://auquan.com",
+              "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/9be83f7b8ed39aa3a4e8cd9941af9ee36ae9486624e206a5de9339ce57ceb09b.jpg",
+              "description": "Auquan is the market leader in agentic AI for institutional finance.We're redefining how finance works by eliminating the manual effort involved in complex, knowledge-intensive workflows—from credit analysis to portfolio monitoring, from ESG reporting to compliance.Here's what makes Auquan different: Other tools make manual research and reporting tasks more efficient. Auquan’s AI agents eliminate manual effort by autonomously completing entire workflows end-to-end, delivering outputs that meet your standards and templates, ready for review.40% of the top 50 global firms trust Auquan to handle mission-critical work, and they’ve collectively saved more than 100,000 hours of manual work.Why finance professionals choose Auquan:Private credit teams evaluate 2-3x more deals without adding headcount. A European bank with 2,700 active credits turned a week-long portfolio review into a 30-minute task. Investment teams save 1-2 days per memo while maintaining thorough analysis.Our agents operate across front, middle, and back office operations. They process both internal and external data on any private or public company sourced from more than two million data sources in 76+ languages. Auquan covers credit and investment analysis, sustainability, risk, investor relations, and compliance. Our mission. We believe brilliant people do their best work when it's inspiring, challenging, and impactful. But your best people are too often buried under the worst work. We're changing that by liberating them to bring meaning back to their roles.Named a 2025 Gartner Cool Vendor in Agentic AI for Banking and Investment Services. Headquartered in London with offices in New York and Bangalore. Backed by Peak XV, Neotribe Ventures, Episode 1, and Stage 2 Capital.Visit auquan.com to see how AI agents are changing institutional finance.",
+              "company_type": "Privately Held",
+              "year_founded": 2018,
+              "employee_count_range": "11-50",
+              "markets": [
+                "PRIVATE"
+              ],
+              "crustdata_company_id": 6507,
+              "professional_network_id": "13238839",
+              "professional_network_url": "https://www.linkedin.com/company/auquan",
+              "profile_name": "Auquan"
+            },
+            "hiring": {
+              "recent_titles_csv": "AI Applied Engineer - New York, AI Applied Engineer - London",
+              "openings_count": 2,
+              "openings_growth_percent": {
+                "mom": 0.0,
+                "qoq": -0.7142857142857143,
+                "yoy": 0.0
+              },
+              "by_function_qoq_pct": {
+                "Accounting": null,
+                "Art and Design": null,
+                "Business Development": null,
+                "Engineering": 1.0,
+                "Finance": null,
+                "Human Resource": null,
+                "Information Technology": null,
+                "Marketing": null,
+                "Media and Communication": null,
+                "Operations": 0.0,
+                "Research": null,
+                "Sales": 0.0,
+                "Product Management": null
+              },
+              "by_function_6m_pct": {
+                "Accounting": null,
+                "Art and Design": null,
+                "Business Development": null,
+                "Engineering": 0.0,
+                "Finance": null,
+                "Human Resource": null,
+                "Information Technology": null,
+                "Marketing": null,
+                "Media and Communication": null,
+                "Operations": 0.0,
+                "Research": null,
+                "Sales": 0.0,
+                "Product Management": null
+              },
+              "open_jobs_timeseries": [
+                {
+                  "date": "2025-06-01T00:00:00.000Z",
+                  "open_jobs": 2
+                },
+                {
+                  "date": "2025-09-01T00:00:00.000Z",
+                  "open_jobs": 2
+                },
+                {
+                  "date": "2025-10-01T00:00:00.000Z",
+                  "open_jobs": 2
+                },
+                {
+                  "date": "2025-11-01T00:00:00.000Z",
+                  "open_jobs": 1
+                },
+                {
+                  "date": "2025-12-01T00:00:00.000Z",
+                  "open_jobs": 2
+                },
+                {
+                  "date": "2026-01-01T00:00:00.000Z",
+                  "open_jobs": 2
+                },
+                {
+                  "date": "2026-05-01T00:00:00.000Z",
+                  "open_jobs": 5
+                },
+                {
+                  "date": "2026-06-01T00:00:00.000Z",
+                  "open_jobs": 3
+                },
+                {
+                  "date": "2026-07-01T00:00:00.000Z",
+                  "open_jobs": 7
+                },
+                {
+                  "date": "2026-08-01T00:00:00.000Z",
+                  "open_jobs": 2
+                },
+                {
+                  "date": "2026-10-01T00:00:00.000Z",
+                  "open_jobs": 2
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

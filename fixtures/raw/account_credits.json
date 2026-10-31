@@ -1,0 +1,42 @@
+{
+  "name": "account_credits",
+  "endpoint": "GET /account/credits",
+  "request": null,
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json"
+  },
+  "duration_ms": 1053,
+  "retrieved_at_utc": "2026-10-31T05:22:48.922937+00:00",
+  "body": {
+    "account": {
+      "credits": 15200.0,
+      "recurring_credits": 0,
+      "recurring_credits_frequency": null,
+      "recurring_credits_refresh_date": null,
+      "wallets": [
+        {
+          "type": "recurring",
+          "credits": 15000.0,
+          "next_refresh_date": null,
+          "expires_at": null
+        },
+        {
+          "type": "topup",
+          "credits": 200.0,
+          "next_refresh_date": null,
+          "expires_at": "2026-11-14T04:28:07.712032+00:00"
+        }
+      ],
+      "credit_topups": [
+        {
+          "type": "granted",
+          "granted_credits": 200.0,
+          "remaining_credits": 200.0,
+          "granted_at": "2026-10-31T04:28:07.712032+00:00",
+          "expires_at": "2026-11-14T04:28:07.712032+00:00"
+        }
+      ]
+    }
+  }
+}

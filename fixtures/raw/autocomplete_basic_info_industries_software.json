@@ -1,0 +1,44 @@
+{
+  "name": "autocomplete_basic_info_industries_software",
+  "endpoint": "POST /company/search/autocomplete",
+  "request": {
+    "field": "basic_info.industries",
+    "query": "software",
+    "limit": 15
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "300",
+    "x-ratelimit-remaining": "298",
+    "x-ratelimit-reset": "59",
+    "x-credits-used": "0"
+  },
+  "duration_ms": 933,
+  "retrieved_at_utc": "2026-10-31T05:22:50.952814+00:00",
+  "body": {
+    "suggestions": [
+      {
+        "value": "Software Development"
+      },
+      {
+        "value": "IT System Custom Software Development"
+      },
+      {
+        "value": "Mobile Computing Software Products"
+      },
+      {
+        "value": "Embedded Software Products"
+      },
+      {
+        "value": "Desktop Computing Software Products"
+      },
+      {
+        "value": "Data Security Software Products"
+      },
+      {
+        "value": "Computer Software"
+      }
+    ]
+  }
+}

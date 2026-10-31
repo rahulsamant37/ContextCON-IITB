@@ -1,0 +1,762 @@
+{
+  "name": "company_identify_name_ambig",
+  "endpoint": "POST /company/identify",
+  "request": {
+    "names": [
+      "Bits"
+    ]
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "30",
+    "x-ratelimit-remaining": "28",
+    "x-ratelimit-reset": "59",
+    "x-credits-used": "0"
+  },
+  "duration_ms": 1541,
+  "retrieved_at_utc": "2026-10-31T05:23:14.438486+00:00",
+  "body": [
+    {
+      "matched_on": "Bits",
+      "match_type": "name",
+      "matches": [
+        {
+          "confidence_score": 1.0,
+          "company_data": {
+            "crustdata_company_id": 13640980,
+            "basic_info": {
+              "name": "BITS",
+              "crustdata_company_id": 13640980,
+              "primary_domain": "bits-pilani.ac.in",
+              "all_domains": [
+                "bits-pilani.ac.in"
+              ],
+              "website": "http://www.bits-pilani.ac.in",
+              "professional_network_url": "https://www.linkedin.com/company/bits",
+              "professional_network_id": "162721",
+              "profile_name": "BITS",
+              "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/61741a1a28e4fe727efb117ba0877728d5f5eaac5615016c4744a459a4053b0f.jpg",
+              "description": "A reputed Deemed Private University located in Pilani, Rajasthan, India. BITS Pilani consists of 15 academic departments with a focus on education in engineering and the sciences.The institute was established in its present form in 1964 with a vision to realize Jawaharlal Nehru’s project of nation-building with its emphasis on \"science, technology and modernization\" . At that time, its transformation from a regional engineering college to a national university was backed by the Ford Foundation and G.D.Birla. MIT provided the technical assistance that was required for this transformation.The institute has developed and administers the all-India computerized entrance test BITSAT (BITS Admission Test), which is the first of its kind in India. The admission is on the basis of merit (as assessed by the BITSAT Examination) and not through any kind of reservation. The institute is privately supported and fully residential.The institute has strong linkages with industry, as can be seen by its off-campus Work Integrated Learning Program(WILP) which enrolled 19,000 students from corporate enterprises in 2009. Practical experience in the industry is in the curriculum as a \"Practice School\" program, where students work with companies throughout India.BITS has campuses in Pilani (India - Main Campus), Dubai (United Arab Emirates) , Goa (India), Hyderabad (India) and an extension center in Bangalore (India). BITS also has BITSoM (BITS School of Management) and BITS Law School in Mumbai.",
+              "company_type": "Privately Held",
+              "year_founded": 1964,
+              "employee_count_range": "501-1000",
+              "markets": [
+                "PRIVATE"
+              ],
+              "industries": [
+                "Higher Education",
+                "Education"
+              ]
+            },
+            "social_profiles": null
+          }
+        },
+        {
+          "confidence_score": 1.0,
+          "company_data": {
+            "crustdata_company_id": 713,
+            "basic_info": {
+              "name": "Bits",
+              "crustdata_company_id": 713,
+              "primary_domain": "getbits.app",
+              "all_domains": [
+                "getbits.app"
+              ],
+              "website": "http://www.getbits.app",
+              "professional_network_url": "https://www.linkedin.com/company/getsbit",
+              "professional_network_id": "14066230",
+              "profile_name": "Bits",
+              "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/c5143f41726d02990222324a40fb05fb10a78a1ca67a54858b2c3c71e27155cc.jpg",
+              "description": "Bits is a Y Combinator backed startup based in London, UK, that offers a host of consumer financial products, such as the Bits Credit Card, Store Card and more.",
+              "company_type": "Privately Held",
+              "year_founded": 2018,
+              "employee_count_range": "11-50",
+              "markets": [
+                "BSE"
+              ],
+              "industries": [
+                "Financial Services"
+              ]
+            },
+            "social_profiles": null
+          }
+        },
+        {
+          "confidence_score": 1.0,
+          "company_data": {
+            "crustdata_company_id": 3413672,
+            "basic_info": {
+              "name": "BITS",
+              "crustdata_company_id": 3413672,
+              "primary_domain": "bitsathome.be",
+              "all_domains": [
+                "bitsathome.be"
+              ],
+              "website": "http://www.bitsathome.be",
+              "professional_network_url": "https://www.linkedin.com/company/bits_3",
+              "professional_network_id": "1012559",
+              "profile_name": "BITS",
+              "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/cf4a94d3c1bb89a081e77c2c77f10dbab50755dffa1be6a8adeed0a6f5811352.jpg",
+              "description": "IT services and consultancy",
+              "company_type": "Self-Employed",
+              "year_founded": null,
+              "employee_count_range": "myself only",
+              "markets": [
+                "PRIVATE"
+              ],
+              "industries": [
+                "IT Services and IT Consulting",
+                "Professional Services"
+              ]
+            },
+            "social_profiles": null
+          }
+        },
+        {
+          "confidence_score": 1.0,
+          "company_data": {
+            "crustdata_company_id": 4434651,
+            "basic_info": {
+              "name": "BITS",
+              "crustdata_company_id": 4434651,
+              "primary_domain": "foryourbits.com",
+              "all_domains": [
+                "foryourbits.com"
+              ],
+              "website": "http://www.foryourbits.com",
+              "professional_network_url": "https://www.linkedin.com/company/for-your-bits",
+              "professional_network_id": "67496111",
+              "profile_name": "BITS",
+              "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/faaa33a44f126ebde1f9c3d931561b193393c125eba94173ed6605467d954b91.jpg",
+              "description": "Launched in January 2021, BITS was a multi-brand eCommerce platform with a modern and inclusive take on the intimates category - created by co-founders Sophie Hopkins and Bianca Robortaccio.BITS received significant media, industry and customer recognition, most notably being identified by global trend forecaster The Future Laboratory for our customer-centric approach.Learn more about BITS by reading our features in:💄 The MECCA Memo: https://www.mecca.com.au/the-mecca-memo/the-in-tray/bits-intimates.html🗞️ Sydney Morning Herald: https://www.smh.com.au/lifestyle/fashion/shopping-for-undies-is-tedious-consider-this-the-new-guidebook-20210114-p56tzu.html📰 Broadsheet: https://www.broadsheet.com.au/national/fashion/article/new-aussie",
+              "company_type": "Privately Held",
+              "year_founded": 2020,
+              "employee_count_range": "2-10",
+              "markets": [
+                "PRIVATE"
+              ],
+              "industries": [
+                "Retail"
+              ]
+            },
+            "social_profiles": null
+          }
+        },
+        {
+          "confidence_score": 1.0,
+          "company_data": {
+            "crustdata_company_id": 5586811,
+            "basic_info": {
+              "name": "BITS",
+              "crustdata_company_id": 5586811,
+              "primary_domain": "bits.nz",
+              "all_domains": [
+                "bits.nz"
+              ],
+              "website": "https://www.bits.nz/",
+              "professional_network_url": "https://www.linkedin.com/company/business-it-solutions-nz",
+              "professional_network_id": "19214040",
+              "profile_name": "BITS",
+              "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/922f75aedd99ce1c4d249af43d2426d13d9c42611aca44326a099ccc80e3a791.jpg",
+              "description": "BITS is a leading Managed IT Services provider of innovative, reliable and secure technology solutions that help businesses achieve their goals. We are a full-service company with over a decade of experience in delivering bespoke IT solutions that meet the unique needs of our clients. Our team of experts have the knowledge and expertise to help your business grow and succeed. We provide a wide range of services, including:- Network design, installation and support- Data backup and recovery- Cybersecurity- Cloud services- Business continuity planningAnd much more! We work with you to understand your specific needs and deliver custom IT solutions that solve your problems and help you achieve your goals. Contact us today to learn more about how we can help your business!",
+              "company_type": "Privately Held",
+              "year_founded": 2005,
+              "employee_count_range": "2-10",
+              "markets": [
+                "PRIVATE"
+              ],
+              "industries": [
+                "Information Technology & Services"
+              ]
+            },
+            "social_profiles": null
+          }
+        },
+        {
+          "confidence_score": 1.0,
+          "company_data": {
+            "crustdata_company_id": 6080741,
+            "basic_info": {
+              "name": "Bits",
+              "crustdata_company_id": 6080741,
+              "primary_domain": "bitscrypto.com",
+              "all_domains": [
+                "bitscrypto.com"
+              ],
+              "website": "https://www.bitscrypto.com",
+              "professional_network_url": "https://www.linkedin.com/company/bitscrypto",
+              "professional_network_id": "78389790",
+              "profile_name": "Bits",
+              "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/f11ba85ff941880cc66f56dbf7294f1762a1444f405471249ea85c348735fc4f.jpg",
+              "description": "Bits automatically rounds your everyday purchases to the next dollar to buy cryptocurrency. Bits customers benefit from the proven fin-tech strategy of dollar-cost averaging (DCA) through round-up purchases and recurring payments via our user-friendly iOS and Android applications.",
+              "company_type": "Partnership",
+              "year_founded": 2021,
+              "employee_count_range": "2-10",
+              "markets": [
+                "PRIVATE"
+              ],
+              "industries": [
+                "Financial Services"
+              ]
+            },
+            "social_profiles": null
+          }
+        },
+        {
+          "confidence_score": 1.0,
+          "company_data": {
+            "crustdata_company_id": 14577454,
+            "basic_info": {
+              "name": "bits",
+              "crustdata_company_id": 14577454,
+              "primary_domain": "bitsit.co.in",
+              "all_domains": [
+                "bitsit.co.in"
+              ],
+              "website": "http://www.bitsit.co.in",
+              "professional_network_url": "https://www.linkedin.com/company/bitsit",
+              "professional_network_id": "13609754",
+              "profile_name": "bits",
+              "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/bcdd58b18806e5a4b903f70f8e5591ec2403d39ff1bf1852a64f86fb53db61a1.jpg",
+              "description": "Let us put our sincere and best efforts towards eradicating unemployment among youths",
+              "company_type": "Educational Institution",
+              "year_founded": 2013,
+              "employee_count_range": "2-10",
+              "markets": [
+                "PRIVATE"
+              ],
+              "industries": [
+                "Computer and Network Security",
+                "IT Services and IT Consulting",
+                "Professional Services"
+              ]
+            },
+            "social_profiles": null
+          }
+        },
+        {
+          "confidence_score": 1.0,
+          "company_data": {
+            "crustdata_company_id": 4195204,
+            "basic_info": {
+              "name": "BITS",
+              "crustdata_company_id": 4195204,
+              "primary_domain": "bitstores.shop",
+              "all_domains": [
+                "bitstores.shop"
+              ],
+              "website": "http://www.bitstores.shop",
+              "professional_network_url": "https://www.linkedin.com/company/bitstores",
+              "professional_network_id": "104605089",
+              "profile_name": "BITS",
+              "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/80e2176791055b24b412154ff9e0108443fe8f533b15f4fb5021348353bb5cb1.jpg",
+              "description": "We help RSA exporters receive international payments with Bitcoin lightning, while staying 100% complaint with SARB regulations.",
+              "company_type": "Privately Held",
+              "year_founded": 2023,
+              "employee_count_range": "2-10",
+              "markets": [
+                "PRIVATE"
+              ],
+              "industries": [
+                "Software Development",
+                "Technology, Information and Internet",
+                "Technology, Information and Media"
+              ]
+            },
+            "social_profiles": null
+          }
+        },
+        {
+          "confidence_score": 1.0,
+          "company_data": {
+            "crustdata_company_id": 6037278,
+            "basic_info": {
+              "name": "Bits",
+              "crustdata_company_id": 6037278,
+              "primary_domain": "thebits.club",
+              "all_domains": [
+                "thebits.club"
+              ],
+              "website": "https://thebits.club",
+              "professional_network_url": "https://www.linkedin.com/company/the-bits",
+              "professional_network_id": "40749907",
+              "profile_name": "Bits",
+              "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/341cf916239b8d165de9f4783f0e689c06adc46e5657e624aa4089e5048b2003.jpg",
+              "description": "Empowering comedians of all backgrounds. The innovative app supports aspiring stand-up talents in honing their craft, overcoming obstacles, and sharing laughter. Join Bits community as we celebrate personal growth, inclusivity, and the transformative power of comedy. 🎤🌟",
+              "company_type": "Self-Employed",
+              "year_founded": 2019,
+              "employee_count_range": "myself only",
+              "markets": [
+                "PRIVATE"
+              ],
+              "industries": [
+                "Technology, Information and Internet",
+                "Technology, Information and Media"
+              ]
+            },
+            "social_profiles": null
+          }
+        },
+        {
+          "confidence_score": 1.0,
+          "company_data": {
+            "crustdata_company_id": 13613240,
+            "basic_info": {
+              "name": "BITS",
+              "crustdata_company_id": 13613240,
+              "primary_domain": null,
+              "all_domains": [],
+              "website": null,
+              "professional_network_url": "https://www.linkedin.com/company/bitsatvt",
+              "professional_network_id": "108548010",
+              "profile_name": "BITS",
+              "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/03283834216f8e1a286e82bbdf9d4efad0fac33525daab0785581bed54871d0e.jpg",
+              "description": null,
+              "company_type": "Nonprofit",
+              "year_founded": null,
+              "employee_count_range": "11-50",
+              "markets": [
+                "PRIVATE"
+              ],
+              "industries": [
+                "Software Development",
+                "Technology, Information and Internet",
+                "Technology, Information and Media"
+              ]
+            },
+            "social_profiles": null
+          }
+        },
+        {
+          "confidence_score": 1.0,
+          "company_data": {
+            "crustdata_company_id": 14183646,
+            "basic_info": {
+              "name": "BITS",
+              "crustdata_company_id": 14183646,
+              "primary_domain": "bitsb2b.com",
+              "all_domains": [
+                "bitsb2b.com"
+              ],
+              "website": "http://www.bitsb2b.com",
+              "professional_network_url": "https://www.linkedin.com/company/bitsb2b",
+              "professional_network_id": "98641449",
+              "profile_name": "BITS",
+              "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/3112f3830d952cf56f81a108ca38f35d46e7f652edadee731e7a13caa4e6e66e.jpg",
+              "description": "At BITS, we operate as an AI infrastructure orchestration platform, working with businesses, data centres, and investors across the full lifecycle of compute deployment from procurement through to deployment, scale, and long-term utilisation.We focus on aligning compute, capacity, capital, and workload into real, executable infrastructure deployments.",
+              "company_type": "Privately Held",
+              "year_founded": 2023,
+              "employee_count_range": "2-10",
+              "markets": [
+                "PRIVATE"
+              ],
+              "industries": [
+                "IT Services and IT Consulting",
+                "Professional Services"
+              ]
+            },
+            "social_profiles": null
+          }
+        },
+        {
+          "confidence_score": 1.0,
+          "company_data": {
+            "crustdata_company_id": 14453982,
+            "basic_info": {
+              "name": "BITS",
+              "crustdata_company_id": 14453982,
+              "primary_domain": "bits.inf.br",
+              "all_domains": [
+                "bits.inf.br"
+              ],
+              "website": "http://www.bits.inf.br",
+              "professional_network_url": "https://www.linkedin.com/company/bits_5",
+              "professional_network_id": "1129561",
+              "profile_name": "BITS",
+              "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/5ff6a39c7ac6abf4764564c70a5fe94b1a56fc9797255c7ac4c13526260f409f.jpg",
+              "description": "A Bits é uma agência digital fullservice focada em consultoria e planejamento estratégico digital,  baseando sua metodologia de trabalho em análise e demonstração efetiva de indicadores de marketing  de resultado. Transformamos a internet em um grande canal de novos negócios para nossos clientes. Fortalecemos suas marcas , vendemos seus produtos, melhoramos seus processos e aumentamos seus faturamentos tendo como norteador principal de nossas ações a nossa expertise, que alia tecnologia e marketing em sinergia total.",
+              "company_type": "Privately Held",
+              "year_founded": 2008,
+              "employee_count_range": "11-50",
+              "markets": [
+                "PRIVATE"
+              ],
+              "industries": [
+                "Technology, Information and Internet",
+                "Technology, Information and Media"
+              ]
+            },
+            "social_profiles": null
+          }
+        },
+        {
+          "confidence_score": 1.0,
+          "company_data": {
+            "crustdata_company_id": 14613013,
+            "basic_info": {
+              "name": "BITS",
+              "crustdata_company_id": 14613013,
+              "primary_domain": "bitsofit.com",
+              "all_domains": [
+                "bitsofit.com"
+              ],
+              "website": "http://www.bitsofit.com",
+              "professional_network_url": "https://www.linkedin.com/company/bits-llc",
+              "professional_network_id": "10383162",
+              "profile_name": "BITS",
+              "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/00aa698e16d09bd16a3501827e80df08b90916f5a2b2176569d407ed84a340eb.jpg",
+              "description": "Proactive Business IT solutions to keep your business running as efficiently as possible. Complete Medical IT solutions utilizing standards from HIPAA, HITEC, and the ACA.",
+              "company_type": "Sole Proprietorship",
+              "year_founded": 2011,
+              "employee_count_range": "2-10",
+              "markets": [
+                "PRIVATE"
+              ],
+              "industries": [
+                "Computer and Network Security",
+                "IT Services and IT Consulting",
+                "Professional Services"
+              ]
+            },
+            "social_profiles": null
+          }
+        },
+        {
+          "confidence_score": 1.0,
+          "company_data": {
+            "crustdata_company_id": 25024007,
+            "basic_info": {
+              "name": "BITS",
+              "crustdata_company_id": 25024007,
+              "primary_domain": null,
+              "all_domains": [],
+              "website": null,
+              "professional_network_url": "https://www.linkedin.com/company/trybitsapp",
+              "professional_network_id": "81323285",
+              "profile_name": "BITS",
+              "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/cb3f9a70c6f52a8279a9e94caf972a2fc477ef84217c252ff1488497dcf3a1d7.jpg",
+              "description": "Value proposition to be revealed",
+              "company_type": "Privately Held",
+              "year_founded": null,
+              "employee_count_range": "myself only",
+              "markets": [
+                "PRIVATE"
+              ],
+              "industries": [
+                "Construction"
+              ]
+            },
+            "social_profiles": null
+          }
+        },
+        {
+          "confidence_score": 1.0,
+          "company_data": {
+            "crustdata_company_id": 25378207,
+            "basic_info": {
+              "name": "BITS",
+              "crustdata_company_id": 25378207,
+              "primary_domain": null,
+              "all_domains": [],
+              "website": null,
+              "professional_network_url": "https://www.linkedin.com/company/bitspoland",
+              "professional_network_id": "78359838",
+              "profile_name": "BITS",
+              "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/075c8b99a1bf4575842e497874c775279301c783644efcc8ef638c0f5cb78366.jpg",
+              "description": "At BITS, we are dedicated to providing unparalleled IT support services tailored to meet the unique needs of your business. With a focus on excellence and innovation, we specialize in working with Microsoft products.",
+              "company_type": "Self-Employed",
+              "year_founded": null,
+              "employee_count_range": "myself only",
+              "markets": [
+                "PRIVATE"
+              ],
+              "industries": [
+                "IT Services and IT Consulting",
+                "Professional Services"
+              ]
+            },
+            "social_profiles": null
+          }
+        },
+        {
+          "confidence_score": 1.0,
+          "company_data": {
+            "crustdata_company_id": 25500029,
+            "basic_info": {
+              "name": "Bits",
+              "crustdata_company_id": 25500029,
+              "primary_domain": null,
+              "all_domains": [],
+              "website": "https://instagram.com/bitsbfest?igshid=MzRlODBiNWFlZA==",
+              "professional_network_url": "https://www.linkedin.com/company/bitszerowaste",
+              "professional_network_id": "97853082",
+              "profile_name": "Bits",
+              "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/67b3b7078cd49cbbe853fff830f30f870787d82ffbb087151b965a35aab0537b.jpg",
+              "description": "We make daily routines better for your body and better for our planet — because small changes can make a big impact.",
+              "company_type": "Partnership",
+              "year_founded": null,
+              "employee_count_range": "2-10",
+              "markets": [
+                "PRIVATE"
+              ],
+              "industries": [
+                "Retail Health and Personal Care Products",
+                "Retail"
+              ]
+            },
+            "social_profiles": null
+          }
+        },
+        {
+          "confidence_score": 1.0,
+          "company_data": {
+            "crustdata_company_id": 27209271,
+            "basic_info": {
+              "name": "BITS",
+              "crustdata_company_id": 27209271,
+              "primary_domain": null,
+              "all_domains": [],
+              "website": null,
+              "professional_network_url": "https://www.linkedin.com/company/bitssweden",
+              "professional_network_id": "20983448",
+              "profile_name": "BITS",
+              "logo_permalink": null,
+              "description": null,
+              "company_type": null,
+              "year_founded": null,
+              "employee_count_range": null,
+              "markets": [
+                "PRIVATE"
+              ],
+              "industries": []
+            },
+            "social_profiles": null
+          }
+        },
+        {
+          "confidence_score": 1.0,
+          "company_data": {
+            "crustdata_company_id": 61514627,
+            "basic_info": {
+              "name": "BITS.",
+              "crustdata_company_id": 61514627,
+              "primary_domain": null,
+              "all_domains": [],
+              "website": "https://www.facebook.com/bitsofficialpage/",
+              "professional_network_url": "https://www.linkedin.com/company/officialbits",
+              "professional_network_id": "14639386",
+              "profile_name": "BITS.",
+              "logo_permalink": null,
+              "description": null,
+              "company_type": "Nonprofit",
+              "year_founded": null,
+              "employee_count_range": "51-200",
+              "markets": [],
+              "industries": [
+                "Fundraising",
+                "Administrative and Support Services"
+              ]
+            },
+            "social_profiles": null
+          }
+        },
+        {
+          "confidence_score": 1.0,
+          "company_data": {
+            "crustdata_company_id": 69814362,
+            "basic_info": {
+              "name": "BITS",
+              "crustdata_company_id": 69814362,
+              "primary_domain": "bitechqa.com",
+              "all_domains": [
+                "bitechqa.com"
+              ],
+              "website": "https://www.bitechqa.com/",
+              "professional_network_url": "https://www.linkedin.com/company/bitechqa",
+              "professional_network_id": "110372126",
+              "profile_name": "BITS",
+              "logo_permalink": null,
+              "description": "Providing custom solutions for Real estate",
+              "company_type": "Public Company",
+              "year_founded": null,
+              "employee_count_range": "2-10",
+              "markets": [],
+              "industries": [
+                "Real Estate",
+                "Real Estate and Equipment Rental Services"
+              ]
+            },
+            "social_profiles": null
+          }
+        },
+        {
+          "confidence_score": 1.0,
+          "company_data": {
+            "crustdata_company_id": 70086785,
+            "basic_info": {
+              "name": "BITS",
+              "crustdata_company_id": 70086785,
+              "primary_domain": null,
+              "all_domains": [],
+              "website": null,
+              "professional_network_url": "https://www.linkedin.com/company/bethlehemits",
+              "professional_network_id": "100466125",
+              "profile_name": "BITS",
+              "logo_permalink": null,
+              "description": "Het uitvoeren van IT-Projecten",
+              "company_type": "Sole Proprietorship",
+              "year_founded": 2023,
+              "employee_count_range": "myself only",
+              "markets": [],
+              "industries": [
+                "IT Services and IT Consulting",
+                "Professional Services"
+              ]
+            },
+            "social_profiles": null
+          }
+        },
+        {
+          "confidence_score": 1.0,
+          "company_data": {
+            "crustdata_company_id": 60115833,
+            "basic_info": {
+              "name": "BITS",
+              "crustdata_company_id": 60115833,
+              "primary_domain": "bitsnv.be",
+              "all_domains": [
+                "bitsnv.be"
+              ],
+              "website": "https://bitsnv.be",
+              "professional_network_url": "https://www.linkedin.com/company/bitsnv-be",
+              "professional_network_id": "106543938",
+              "profile_name": "BITS",
+              "logo_permalink": null,
+              "description": "BITS is gespecialiseerd in uitzetwerken en technische of juridische metingen. Al meer dan 20 jaar ontzorgen we B2B-klanten in heel Vlaanderen met geotechnische oplossingen op maat. Om daarbij een maximale planningscapaciteit en onberispelijke kwaliteit te garanderen, investeren we voortdurend in innovatieve technologieën en nieuwe expertise bij ons brede team van erkende landmeter-experten. Contacteer ons voor een verkennend gesprek over jouw project!",
+              "company_type": "Privately Held",
+              "year_founded": 1988,
+              "employee_count_range": "11-50",
+              "markets": [],
+              "industries": [
+                "Construction"
+              ]
+            },
+            "social_profiles": null
+          }
+        },
+        {
+          "confidence_score": 1.0,
+          "company_data": {
+            "crustdata_company_id": 62447024,
+            "basic_info": {
+              "name": "BITS",
+              "crustdata_company_id": 62447024,
+              "primary_domain": null,
+              "all_domains": [],
+              "website": null,
+              "professional_network_url": "https://www.linkedin.com/company/bitspl1",
+              "professional_network_id": "105949047",
+              "profile_name": "BITS",
+              "logo_permalink": null,
+              "description": null,
+              "company_type": "Privately Held",
+              "year_founded": null,
+              "employee_count_range": "2-10",
+              "markets": [],
+              "industries": [
+                "Financial Services"
+              ]
+            },
+            "social_profiles": null
+          }
+        },
+        {
+          "confidence_score": 1.0,
+          "company_data": {
+            "crustdata_company_id": 72111503,
+            "basic_info": {
+              "name": "Bits",
+              "crustdata_company_id": 72111503,
+              "primary_domain": "madebybits.com",
+              "all_domains": [
+                "madebybits.com"
+              ],
+              "website": "http://www.madebybits.com",
+              "professional_network_url": "https://www.linkedin.com/company/madebybits",
+              "professional_network_id": "77168892",
+              "profile_name": "Bits",
+              "logo_permalink": null,
+              "description": "We aim to bring an intelligent mind to the society by leveraging the power of IoT and Big Data to help cities be more efficient, and livable.",
+              "company_type": "Privately Held",
+              "year_founded": 2021,
+              "employee_count_range": "2-10",
+              "markets": [],
+              "industries": [
+                "Software Development",
+                "Technology, Information and Internet",
+                "Technology, Information and Media"
+              ]
+            },
+            "social_profiles": null
+          }
+        },
+        {
+          "confidence_score": 1.0,
+          "company_data": {
+            "crustdata_company_id": 74837742,
+            "basic_info": {
+              "name": "BITS",
+              "crustdata_company_id": 74837742,
+              "primary_domain": "bits3.com",
+              "all_domains": [
+                "bits3.com"
+              ],
+              "website": "http://www.bits3.com",
+              "professional_network_url": "https://www.linkedin.com/company/bits3",
+              "professional_network_id": "135534002",
+              "profile_name": "BITS",
+              "logo_permalink": null,
+              "description": "Because software without creativity can feel robotic. Creativity without technology can remain just a great idea. At BITS, we make sure the two actually meet.At BITS, we believe great technology should do more than work. It should think intelligently, feel intuitive and occasionally make people say, “That’s actually pretty cool.”Our team brings deep expertise in software development, digital products, intelligent systems and business transformation. But we are not only engineers, architects and product thinkers. We are also creators who appreciate design, storytelling and the art of making complex technology feel beautifully simple.We build intelligent digital experiences that are technically strong, visually engaging and designed around real human needs. From platforms and applications to automation and emerging technologies, we approach every challenge with equal parts logic, creativity and curiosity.And yah, we go Old-school every now and then..",
+              "company_type": "Privately Held",
+              "year_founded": null,
+              "employee_count_range": "2-10",
+              "markets": [],
+              "industries": [
+                "Technology, Information and Media"
+              ]
+            },
+            "social_profiles": null
+          }
+        },
+        {
+          "confidence_score": 1.0,
+          "company_data": {
+            "crustdata_company_id": 66273182,
+            "basic_info": {
+              "name": "BiTS",
+              "crustdata_company_id": 66273182,
+              "primary_domain": null,
+              "all_domains": [],
+              "website": null,
+              "professional_network_url": "https://www.linkedin.com/company/b1tstech",
+              "professional_network_id": "108091830",
+              "profile_name": "BiTS",
+              "logo_permalink": null,
+              "description": null,
+              "company_type": "Privately Held",
+              "year_founded": null,
+              "employee_count_range": "2-10",
+              "markets": [],
+              "industries": [
+                "IT Services and IT Consulting",
+                "Professional Services"
+              ]
+            },
+            "social_profiles": null
+          }
+        }
+      ]
+    }
+  ]
+}

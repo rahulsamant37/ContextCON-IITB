@@ -1,0 +1,302 @@
+{
+  "name": "person_search_auquan_any",
+  "endpoint": "POST /person/search",
+  "request": {
+    "filters": {
+      "field": "experience.employment_details.current.company_website_domain",
+      "type": "=",
+      "value": "auquan.com"
+    },
+    "fields": [
+      "basic_profile",
+      "experience.employment_details.current"
+    ],
+    "limit": 3
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "30",
+    "x-ratelimit-remaining": "28",
+    "x-ratelimit-reset": "51",
+    "x-credits-used": "0.69"
+  },
+  "duration_ms": 963,
+  "retrieved_at_utc": "2026-10-31T05:23:25.998673+00:00",
+  "body": {
+    "profiles": [
+      {
+        "crustdata_person_id": 96842,
+        "basic_profile": {
+          "current_title": "Chief Executive Officer",
+          "headline": "Chief Executive Officer at Auquan",
+          "location": {
+            "city": "London",
+            "continent": "Europe",
+            "country": "United Kingdom",
+            "full_location": "London, England, United Kingdom",
+            "raw": "London, England, United Kingdom",
+            "state": "England"
+          },
+          "name": "Chandini Jain",
+          "professional_network_name": "Chandini Jain",
+          "profile_picture_permalink": "",
+          "normalized_title": null
+        },
+        "experience": {
+          "employment_details": {
+            "current": [
+              {
+                "business_email_verified": true,
+                "company_headcount_latest": 74,
+                "company_headcount_range": "11-50",
+                "company_headquarters_country": "United Kingdom",
+                "company_hq_location": "London, England, United Kingdom",
+                "company_hq_location_address_components": [
+                  "London",
+                  "London",
+                  "Greater London",
+                  "England",
+                  "United Kingdom"
+                ],
+                "company_industries": [
+                  "Financial Services"
+                ],
+                "company_professional_network_industry": "Financial Services",
+                "company_professional_network_profile_url": "https://www.linkedin.com/company/auquan",
+                "company_profile_picture_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/9be83f7b8ed39aa3a4e8cd9941af9ee36ae9486624e206a5de9339ce57ceb09b.jpg",
+                "company_status": "active",
+                "company_type": "Privately Held",
+                "company_website": "http://auquan.com",
+                "crustdata_company_id": 6507,
+                "description": "",
+                "employment_type": "",
+                "end_date": null,
+                "function_category": "",
+                "is_default": true,
+                "name": "Auquan",
+                "position_id": 1709201809,
+                "professional_network_id": "13238839",
+                "seniority_level": "CXO",
+                "start_date": null,
+                "title": "Chief Executive Officer",
+                "years_at_company": "",
+                "years_at_company_raw": 0
+              }
+            ]
+          }
+        }
+      },
+      {
+        "crustdata_person_id": 267111,
+        "basic_profile": {
+          "current_title": "Founder & CTO",
+          "headline": "Founder & CTO @ Auquan",
+          "location": {
+            "city": "London",
+            "continent": "Europe",
+            "country": "United Kingdom",
+            "full_location": "London Area, United Kingdom",
+            "raw": "London Area, United Kingdom",
+            "state": "England"
+          },
+          "name": "Shub Jain",
+          "normalized_title": {
+            "confident": true,
+            "department": "Executive Leadership",
+            "matched_title": "Cofounder/CTO",
+            "similarity": 0.9934,
+            "sub_department": "Founder & Entrepreneurship Leadership"
+          },
+          "professional_network_name": "Shub Jain",
+          "profile_picture_permalink": ""
+        },
+        "experience": {
+          "employment_details": {
+            "current": [
+              {
+                "business_email_verified": true,
+                "company_headcount_latest": 74,
+                "company_headcount_range": "11-50",
+                "company_headquarters_country": "United Kingdom",
+                "company_hq_location": "London, England, United Kingdom",
+                "company_hq_location_address_components": [
+                  "London",
+                  "London",
+                  "Greater London",
+                  "England",
+                  "United Kingdom"
+                ],
+                "company_industries": [
+                  "Financial Services"
+                ],
+                "company_professional_network_industry": "Financial Services",
+                "company_professional_network_profile_url": "https://www.linkedin.com/company/auquan",
+                "company_profile_picture_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/9be83f7b8ed39aa3a4e8cd9941af9ee36ae9486624e206a5de9339ce57ceb09b.jpg",
+                "company_status": "active",
+                "company_type": "Privately Held",
+                "company_website": "http://auquan.com",
+                "crustdata_company_id": 6507,
+                "description": "AI Agents for Finance.",
+                "employment_type": "",
+                "end_date": null,
+                "function_category": "",
+                "is_default": true,
+                "location": {
+                  "raw": "London, United Kingdom"
+                },
+                "name": "Auquan",
+                "position_id": 1374012430,
+                "professional_network_id": "13238839",
+                "seniority_level": "CXO",
+                "start_date": "2018-01-01T00:00:00",
+                "title": "Founder & CTO",
+                "years_at_company": "6 to 10 years",
+                "years_at_company_raw": 8
+              }
+            ]
+          }
+        }
+      },
+      {
+        "crustdata_person_id": 267112,
+        "basic_profile": {
+          "current_title": "Chief Executive Officer",
+          "headline": "Founder/CEO @ Auquan",
+          "location": {
+            "city": "New York",
+            "continent": "North America",
+            "country": "United States",
+            "full_location": "New York, New York, United States",
+            "raw": "New York, New York, United States",
+            "state": "New York"
+          },
+          "name": "Chandini Jain",
+          "normalized_title": {
+            "confident": true,
+            "department": "Executive Leadership",
+            "matched_title": "Chief Executive Officer",
+            "similarity": 0.9999,
+            "sub_department": "Executive & C-Suite Leadership"
+          },
+          "professional_network_name": "Chandini Jain",
+          "profile_picture_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/person/1fd4835ce198c2e873e298de910d50197c9dadf56ab58e6edcf512011e314201.jpg"
+        },
+        "experience": {
+          "employment_details": {
+            "current": [
+              {
+                "business_email_verified": false,
+                "company_headcount_latest": 0,
+                "company_headcount_range": "",
+                "company_headquarters_country": "",
+                "company_hq_location": "",
+                "company_hq_location_address_components": [],
+                "company_industries": [],
+                "company_professional_network_industry": "",
+                "company_professional_network_profile_url": "",
+                "company_profile_picture_permalink": "",
+                "company_status": null,
+                "company_type": "",
+                "company_website": "",
+                "crustdata_company_id": 0,
+                "description": "",
+                "employment_type": "",
+                "end_date": null,
+                "function_category": "",
+                "is_default": true,
+                "location": {
+                  "raw": "New York, United States"
+                },
+                "name": "ALFA",
+                "position_id": 3037282671,
+                "professional_network_id": "143959149",
+                "seniority_level": "CXO",
+                "start_date": "2026-10-01T00:00:00",
+                "title": "Chief Executive Officer",
+                "years_at_company": "Less than 1 year",
+                "years_at_company_raw": 0
+              },
+              {
+                "business_email_verified": false,
+                "company_headcount_latest": 0,
+                "company_headcount_range": "",
+                "company_headquarters_country": "",
+                "company_hq_location": "",
+                "company_hq_location_address_components": [],
+                "company_industries": [],
+                "company_professional_network_industry": "",
+                "company_professional_network_profile_url": "",
+                "company_profile_picture_permalink": "",
+                "company_status": null,
+                "company_type": "",
+                "company_website": "",
+                "crustdata_company_id": 0,
+                "description": "",
+                "employment_type": "",
+                "end_date": null,
+                "function_category": "",
+                "is_default": false,
+                "location": {
+                  "raw": "New York, United States"
+                },
+                "name": "Alternate Factor",
+                "position_id": 3037285540,
+                "professional_network_id": "143946945",
+                "seniority_level": "Owner / Partner",
+                "start_date": "2026-10-01T00:00:00",
+                "title": "Founder",
+                "years_at_company": "Less than 1 year",
+                "years_at_company_raw": 0
+              },
+              {
+                "business_email_verified": true,
+                "company_headcount_latest": 74,
+                "company_headcount_range": "11-50",
+                "company_headquarters_country": "United Kingdom",
+                "company_hq_location": "London, England, United Kingdom",
+                "company_hq_location_address_components": [
+                  "London",
+                  "London",
+                  "Greater London",
+                  "England",
+                  "United Kingdom"
+                ],
+                "company_industries": [
+                  "Financial Services"
+                ],
+                "company_professional_network_industry": "Financial Services",
+                "company_professional_network_profile_url": "https://www.linkedin.com/company/auquan",
+                "company_profile_picture_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/9be83f7b8ed39aa3a4e8cd9941af9ee36ae9486624e206a5de9339ce57ceb09b.jpg",
+                "company_status": "active",
+                "company_type": "Privately Held",
+                "company_website": "http://auquan.com",
+                "crustdata_company_id": 6507,
+                "description": "",
+                "employment_type": "",
+                "end_date": null,
+                "function_category": "",
+                "is_default": false,
+                "location": {
+                  "raw": "New York, United States"
+                },
+                "name": "Auquan",
+                "position_id": 1273311141,
+                "professional_network_id": "13238839",
+                "seniority_level": "CXO",
+                "start_date": "2018-06-01T00:00:00",
+                "title": "Founder/CEO",
+                "years_at_company": "6 to 10 years",
+                "years_at_company_raw": 8
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "next_cursor": "H4sIAE175WoC_xXMMQrDMAxA0asEzR0sObLlXqWUoNoWGUpNE2cIJXdPuv4H_wffrS77NOs6w30AHNF7UmYpKupqTIXJ1SxZzGJBn0jsxd6QnQjVVM1jCgHjqErs4DbA2pZ-vR4UIiI9r9Jb1_eU2_b5g7jjBLHP_t13AAAA",
+    "total_count": 80,
+    "total_count_relation": null,
+    "remarks": []
+  }
+}

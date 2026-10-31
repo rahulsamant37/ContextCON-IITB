@@ -1,0 +1,43 @@
+{
+  "name": "person_search_auquan",
+  "endpoint": "POST /person/search",
+  "request": {
+    "filters": {
+      "op": "and",
+      "conditions": [
+        {
+          "field": "experience.employment_details.current.company_website_domain",
+          "type": "=",
+          "value": "auquan.com"
+        },
+        {
+          "field": "experience.employment_details.current.title",
+          "type": "(.)",
+          "value": "compliance"
+        }
+      ]
+    },
+    "fields": [
+      "basic_profile",
+      "experience.employment_details.current"
+    ],
+    "limit": 3
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "30",
+    "x-ratelimit-remaining": "29",
+    "x-ratelimit-reset": "60",
+    "x-credits-used": "0"
+  },
+  "duration_ms": 966,
+  "retrieved_at_utc": "2026-10-31T05:23:17.183223+00:00",
+  "body": {
+    "profiles": [],
+    "next_cursor": null,
+    "total_count": 0,
+    "total_count_relation": null,
+    "remarks": []
+  }
+}

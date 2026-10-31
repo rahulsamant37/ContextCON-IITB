@@ -1,0 +1,201 @@
+{
+  "name": "company_search_uk_fin",
+  "endpoint": "POST /company/search",
+  "request": {
+    "filters": {
+      "op": "and",
+      "conditions": [
+        {
+          "field": "locations.country",
+          "type": "=",
+          "value": "United Kingdom"
+        },
+        {
+          "field": "basic_info.industries",
+          "type": "in",
+          "value": [
+            "Financial Services"
+          ]
+        },
+        {
+          "field": "headcount.total",
+          "type": "=>",
+          "value": 50
+        },
+        {
+          "field": "headcount.total",
+          "type": "=<",
+          "value": 500
+        }
+      ]
+    },
+    "fields": [
+      "basic_info",
+      "locations",
+      "headcount"
+    ],
+    "limit": 3
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "30",
+    "x-ratelimit-remaining": "29",
+    "x-ratelimit-reset": "60",
+    "x-credits-used": "1.29"
+  },
+  "duration_ms": 1045,
+  "retrieved_at_utc": "2026-10-31T05:22:59.259077+00:00",
+  "body": {
+    "companies": [
+      {
+        "crustdata_company_id": 713,
+        "basic_info": {
+          "name": "Bits",
+          "crustdata_company_id": 713,
+          "primary_domain": "getbits.app",
+          "all_domains": [
+            "getbits.app"
+          ],
+          "website": "http://www.getbits.app",
+          "professional_network_url": "https://www.linkedin.com/company/getsbit",
+          "professional_network_id": "14066230",
+          "profile_name": "Bits",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/c5143f41726d02990222324a40fb05fb10a78a1ca67a54858b2c3c71e27155cc.jpg",
+          "description": "Bits is a Y Combinator backed startup based in London, UK, that offers a host of consumer financial products, such as the Bits Credit Card, Store Card and more.",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 2018,
+          "employee_count_range": "11-50",
+          "markets": [
+            "BSE"
+          ]
+        },
+        "headcount": {
+          "total": 50,
+          "largest_headcount_country": "IND",
+          "growth_percent": {
+            "1m": -1.9607843137254901,
+            "3m": 2.0408163265306123,
+            "6m": 6.382978723404255,
+            "12m": -1.9607843137254901
+          },
+          "growth_absolute": {
+            "1m": -1,
+            "3m": 1,
+            "6m": 3,
+            "12m": -1
+          }
+        },
+        "locations": {
+          "country": "GBR",
+          "headquarters": "Euston, Euston Square, Regent's Park, Somers Town, Mornington Crescent, Camden Lock, St Pancras, Camden Town, Regents Park, Marylebone, Baker Street, England, United Kingdom",
+          "street_address": "349 Royal College Street, Euston, Euston Square, Regent's Park, Somers Town, Mornington Crescent, Camden Lock, St Pancras, Camden Town, Regents Park, Marylebone, Baker Street, England",
+          "city": "London",
+          "state": "England",
+          "all_office_addresses": []
+        }
+      },
+      {
+        "crustdata_company_id": 6507,
+        "basic_info": {
+          "name": "Auquan",
+          "crustdata_company_id": 6507,
+          "primary_domain": "auquan.com",
+          "all_domains": [
+            "auquan.com"
+          ],
+          "website": "http://auquan.com",
+          "professional_network_url": "https://www.linkedin.com/company/auquan",
+          "professional_network_id": "13238839",
+          "profile_name": "Auquan",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/9be83f7b8ed39aa3a4e8cd9941af9ee36ae9486624e206a5de9339ce57ceb09b.jpg",
+          "description": "Auquan is the market leader in agentic AI for institutional finance.We're redefining how finance works by eliminating the manual effort involved in complex, knowledge-intensive workflows—from credit analysis to portfolio monitoring, from ESG reporting to compliance.Here's what makes Auquan different: Other tools make manual research and reporting tasks more efficient. Auquan’s AI agents eliminate manual effort by autonomously completing entire workflows end-to-end, delivering outputs that meet your standards and templates, ready for review.40% of the top 50 global firms trust Auquan to handle mission-critical work, and they’ve collectively saved more than 100,000 hours of manual work.Why finance professionals choose Auquan:Private credit teams evaluate 2-3x more deals without adding headcount. A European bank with 2,700 active credits turned a week-long portfolio review into a 30-minute task. Investment teams save 1-2 days per memo while maintaining thorough analysis.Our agents operate across front, middle, and back office operations. They process both internal and external data on any private or public company sourced from more than two million data sources in 76+ languages. Auquan covers credit and investment analysis, sustainability, risk, investor relations, and compliance. Our mission. We believe brilliant people do their best work when it's inspiring, challenging, and impactful. But your best people are too often buried under the worst work. We're changing that by liberating them to bring meaning back to their roles.Named a 2025 Gartner Cool Vendor in Agentic AI for Banking and Investment Services. Headquartered in London with offices in New York and Bangalore. Backed by Peak XV, Neotribe Ventures, Episode 1, and Stage 2 Capital.Visit auquan.com to see how AI agents are changing institutional finance.",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 2018,
+          "employee_count_range": "11-50",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 74,
+          "largest_headcount_country": "IND",
+          "growth_percent": {
+            "1m": 2.7777777777777777,
+            "3m": 8.823529411764707,
+            "6m": 10.44776119402985,
+            "12m": 21.311475409836063
+          },
+          "growth_absolute": {
+            "1m": 2,
+            "3m": 6,
+            "6m": 7,
+            "12m": 13
+          }
+        },
+        "locations": {
+          "country": "GBR",
+          "headquarters": "London, England, United Kingdom",
+          "street_address": "London, England, United Kingdom",
+          "city": "London",
+          "state": "England",
+          "all_office_addresses": [
+            "Indira Nagar Road, Bengaluru, Karnataka, IN"
+          ]
+        }
+      },
+      {
+        "crustdata_company_id": 11031,
+        "basic_info": {
+          "name": "Synapse",
+          "crustdata_company_id": 11031,
+          "primary_domain": "overseaspayments.com",
+          "all_domains": [
+            "overseaspayments.com"
+          ],
+          "website": "https://overseaspayments.com",
+          "professional_network_url": "https://www.linkedin.com/company/synapsepay1",
+          "professional_network_id": "10688731",
+          "profile_name": "Synapse",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/360d1e07de3d977a29af3d67136944e014ab7f980a94543abccd321a4b0318f6.jpg",
+          "description": "The Launchpad for Financial InnovationWe are the only regulated embedded finance platform provider that enables companies across the globe to launch feature complete deposit, payment, and credit products at scale.Synapse’s unified banking-as-a-service platform provides industry compliant payment, card issuance, deposit, lending, credit, and investment products through simple APIs.We are hiring! Check out our open positions at: www.synapsefi.com/careers",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 2014,
+          "employee_count_range": "11-50",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 117,
+          "largest_headcount_country": "USA",
+          "growth_percent": {
+            "1m": 2.631578947368421,
+            "3m": 2.631578947368421,
+            "6m": 3.5398230088495577,
+            "12m": 6.363636363636363
+          },
+          "growth_absolute": {
+            "1m": 3,
+            "3m": 3,
+            "6m": 4,
+            "12m": 7
+          }
+        },
+        "locations": {
+          "country": "GBR",
+          "headquarters": "London, England, United Kingdom",
+          "street_address": "471-473, The Arches, Dereham Place, London, England",
+          "city": "London",
+          "state": "England",
+          "all_office_addresses": []
+        }
+      }
+    ],
+    "next_cursor": "H4sIADN75WoC_xXMMQ7CMAwAwK9UnhnsxkkMX0GoiomtDoiINh0Q4u9t1xvuB5_Nlu80l3WG2wCS0TWnFKhG90TVazCTICyJi2GOVzQz96icQ9ViFZFU46gsmRwuA6xt6cd1J8JAjwN66-U1Pdv2Pn1kwv8OPTLMRngAAAA=",
+    "total_count": 2410
+  }
+}

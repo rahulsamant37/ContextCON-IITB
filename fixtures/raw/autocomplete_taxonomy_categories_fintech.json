@@ -1,0 +1,26 @@
+{
+  "name": "autocomplete_taxonomy_categories_fintech",
+  "endpoint": "POST /company/search/autocomplete",
+  "request": {
+    "field": "taxonomy.categories",
+    "query": "fintech",
+    "limit": 15
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "300",
+    "x-ratelimit-remaining": "297",
+    "x-ratelimit-reset": "52",
+    "x-credits-used": "0"
+  },
+  "duration_ms": 949,
+  "retrieved_at_utc": "2026-10-31T05:22:58.133288+00:00",
+  "body": {
+    "suggestions": [
+      {
+        "value": "FinTech"
+      }
+    ]
+  }
+}

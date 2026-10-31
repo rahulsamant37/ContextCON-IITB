@@ -1,0 +1,57 @@
+{
+  "name": "company_identify_domain",
+  "endpoint": "POST /company/identify",
+  "request": {
+    "domains": [
+      "auquan.com"
+    ]
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "30",
+    "x-ratelimit-remaining": "29",
+    "x-ratelimit-reset": "60",
+    "x-credits-used": "0"
+  },
+  "duration_ms": 953,
+  "retrieved_at_utc": "2026-10-31T05:23:12.823839+00:00",
+  "body": [
+    {
+      "matched_on": "auquan.com",
+      "match_type": "domain",
+      "matches": [
+        {
+          "confidence_score": 1.0,
+          "company_data": {
+            "crustdata_company_id": 6507,
+            "basic_info": {
+              "name": "Auquan",
+              "crustdata_company_id": 6507,
+              "primary_domain": "auquan.com",
+              "all_domains": [
+                "auquan.com"
+              ],
+              "website": "http://auquan.com",
+              "professional_network_url": "https://www.linkedin.com/company/auquan",
+              "professional_network_id": "13238839",
+              "profile_name": "Auquan",
+              "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/9be83f7b8ed39aa3a4e8cd9941af9ee36ae9486624e206a5de9339ce57ceb09b.jpg",
+              "description": "Auquan is the market leader in agentic AI for institutional finance.We're redefining how finance works by eliminating the manual effort involved in complex, knowledge-intensive workflows—from credit analysis to portfolio monitoring, from ESG reporting to compliance.Here's what makes Auquan different: Other tools make manual research and reporting tasks more efficient. Auquan’s AI agents eliminate manual effort by autonomously completing entire workflows end-to-end, delivering outputs that meet your standards and templates, ready for review.40% of the top 50 global firms trust Auquan to handle mission-critical work, and they’ve collectively saved more than 100,000 hours of manual work.Why finance professionals choose Auquan:Private credit teams evaluate 2-3x more deals without adding headcount. A European bank with 2,700 active credits turned a week-long portfolio review into a 30-minute task. Investment teams save 1-2 days per memo while maintaining thorough analysis.Our agents operate across front, middle, and back office operations. They process both internal and external data on any private or public company sourced from more than two million data sources in 76+ languages. Auquan covers credit and investment analysis, sustainability, risk, investor relations, and compliance. Our mission. We believe brilliant people do their best work when it's inspiring, challenging, and impactful. But your best people are too often buried under the worst work. We're changing that by liberating them to bring meaning back to their roles.Named a 2025 Gartner Cool Vendor in Agentic AI for Banking and Investment Services. Headquartered in London with offices in New York and Bangalore. Backed by Peak XV, Neotribe Ventures, Episode 1, and Stage 2 Capital.Visit auquan.com to see how AI agents are changing institutional finance.",
+              "company_type": "Privately Held",
+              "year_founded": 2018,
+              "employee_count_range": "11-50",
+              "markets": [
+                "PRIVATE"
+              ],
+              "industries": [
+                "Financial Services"
+              ]
+            },
+            "social_profiles": null
+          }
+        }
+      ]
+    }
+  ]
+}

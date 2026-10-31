@@ -1,0 +1,103 @@
+{
+  "name": "web_search_competitors",
+  "endpoint": "POST /web/search/live",
+  "request": {
+    "query": "security compliance automation software for fintech companies UK",
+    "location": "GB",
+    "sources": [
+      "web"
+    ]
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "10",
+    "x-ratelimit-remaining": "9",
+    "x-ratelimit-reset": "60",
+    "x-credits-used": "1"
+  },
+  "duration_ms": 4798,
+  "retrieved_at_utc": "2026-10-31T05:23:39.665199+00:00",
+  "body": {
+    "success": true,
+    "query": "security compliance automation software for fintech companies UK",
+    "timestamp": 1793424219326,
+    "results": [
+      {
+        "source": "web",
+        "title": "Top 25 Crypto compliance software providers based in ...",
+        "url": "https://www.google.com/goto?url=CAESjwEB6zswFYTAUGLUAx-a-1pPMnKx7OjIXewtNFeRrkACYqwL4eZDK2-zcHMIgBpc7UO4yCiz77-9EcYHSW7X0NoxqP8bXySnBJgb720b2GS8JjjUxDubcVEJ_3tJcctVjrHsq3DyVrmGUtObMpumNmjkQQCgMpmbDR6lfH_9hoW9hpEotaVugzICd97NMSfYEA",
+        "snippet": "“Ripjar is a UK-based financial crime compliance technology company providing AML screening, adverse media monitoring and threat investigation software to over ...Read more",
+        "position": 1
+      },
+      {
+        "source": "web",
+        "title": "Best Compliance Platforms for Fintech",
+        "url": "https://www.google.com/goto?url=CAESiQEB6zswFb7DCPkar43e4q0bzDoQVEQtZtE9_s4sEzND9hL3_h1rPX70Qvx9y_vF2ofH0VNyjk2rYIoSUjeazy8xYof60bCA-4x6mOyxSH73P7YWbFRxykqFh8l7nYCdF7tkacWujcMA8c9nuJUQUZVCGkvpLjLfvLL8ESbY6A-Lm_SE5TcT-RxRkw",
+        "snippet": "Compare 60 trusted compliance platforms for fintech. Curated by ISMS Directory to help you find the right compliance partner.",
+        "position": 2
+      },
+      {
+        "source": "web",
+        "title": "Top 25 Compliance monitoring platforms based in the ...",
+        "url": "https://revenuebase.ai/companies/compliance-monitoring-platforms/united-kingdom",
+        "snippet": "The top 25 of 86 company matches for compliance monitoring platforms based in the United Kingdom, ordered by contacts tracked, with recorded descriptions, ...",
+        "position": 3
+      },
+      {
+        "source": "web",
+        "title": "Top Security Compliance Software in the UK in 2026",
+        "url": "https://www.google.com/goto?url=CAEScwHrOzAVYDdy78nLRr0FBy8lG8ZXhLX8R2mp9URTcNz394dmQaspsJQZmX3LkCmj2biWlQvKzek8cRR4iC7-1wrvmxARcppPAmI9Xru9wIakT1idQAdAxOA8fwW6-ZnFWYZ_wAqKwg9lUykGQ94CONfxd5M",
+        "snippet": "Delve is an innovative compliance platform powered by AI, aimed at simplifying and automating the acquisition and upkeep of crucial certifications like SOC 2, ...Read more",
+        "position": 4
+      },
+      {
+        "source": "web",
+        "title": "Top 25 Fintech compliance software companies Worldwide",
+        "url": "https://www.google.com/goto?url=CAESiAEB6zswFWZCdUCaAV4prn5-NxtRZmDac8LCRag7kawlc-2opmhpLEI-cNCNsZVxq7odESoANdQ7-m3ZBrgRRqGbE6HnSzYkGASvOFSM7k-60YNDjpOxtpY6D_V0X9eU0DX8Y8mX8N6YIU3Y2eCotIimXbAynBEz48jc8eOFaBBuayJVe8sXEl12",
+        "snippet": "Sep 28, 2026 — The top 25 of 1598 company matches for fintech compliance software companies worldwide, ordered by contacts tracked, with recorded ...",
+        "position": 5
+      },
+      {
+        "source": "web",
+        "title": "62 Top Compliance Companies in United Kingdom",
+        "url": "https://www.google.com/goto?url=CAESdQHrOzAVaTbmjrciyCkYJiQ_MzjOb01Zm2_eAUmgiHmOL794jdoxWlGUdVa9ihaR2jgvxRN0ueENigT7h50pfJoqcnKPv1hU6T-UBbuFL1b6Og6-46RsIMfP8ahmFo9iE_A25fs5ReB1XrQyNb5A_K3gddjBaw",
+        "snippet": "Oct 2, 2026 — Detailed info and reviews on 62 top Compliance companies and startups in United Kingdom in 2026. Get the latest updates on their products, ...",
+        "position": 6
+      },
+      {
+        "source": "web",
+        "title": "Top 25 Regulatory compliance software companies for ...",
+        "url": "https://www.google.com/goto?url=CAESsQEB6zswFbZbmYuMXYe0gNP2AQnmRTB5xFH6glvapJcsmIwDmkORqhnmfvJJrP5BUgtTFEbcVOh1YCHPpBYKKxYar6_6psy5kcq1n_DOpc8JMa5-ib5LqlawjueUumk9jUcaJ-7tl5ZIeXu_f8yMfgT2hloAPTs4YL3MCbmbee7iMB_UsfnFTRGQzgEiUlCkYaRuOYczUXvvo1MhUWRc8MTeu_9PILwq7oMecQ0QUabXXlU",
+        "snippet": "Sep 29, 2026 — The top 25 of 178 company matches for regulatory compliance software companies for financial services based in London, United Kingdom, ...",
+        "position": 7
+      },
+      {
+        "source": "web",
+        "title": "Page 4 | Top RegTech Software in the UK in 2026",
+        "url": "https://www.google.com/goto?url=CAESbgHrOzAVlsTq0TS0Vl9aTBaF-3BZSuM3iDKC3NrFP4B2wnksq6Ge7zgG7flAZrrdUxYFCkfEnZh5RNnvHeskMjvyouFM1CItL_Hrk1aYnGgtn5cVoxmrr6Dk36-MW8Oh1_90mOSPr_dkoglCBM8D",
+        "snippet": "RegTechONE is an innovative no-code platform designed to enhance compliance with AML regulations, as well as governance, risk, and compliance needs.",
+        "position": 8
+      },
+      {
+        "source": "web",
+        "title": "Top 25 Cybersecurity compliance software companies ...",
+        "url": "https://www.google.com/goto?url=CAESlgEB6zswFcoRbCSQ5ZXpmtoX5_MjAzDs3ygGJEtmdgTm9emk8GJumCKdoYgAsqiSHeP58iRorsbUgu_GSamtK7w3muhSEPsTeoYJtSV5VEdMF6hdaKilzgXTsUTugsek7bu2UZO6E-b5vQT-Zv-Wzj2fUowSPO-tHQkwsEg3387KMXOEpgfr5yGsvkBTmgBe6ECKl5O-7A8",
+        "snippet": "Sep 28, 2026 — The top 25 of 644 company matches for cybersecurity compliance software companies based in the United Kingdom, ordered by contacts tracked, ...",
+        "position": 9
+      },
+      {
+        "source": "web",
+        "title": "Irish firm builds software to tackle compliance market",
+        "url": "https://www.siliconrepublic.com/enterprise/irish-firm-builds-software-to-tackle-compliance-market",
+        "snippet": "An Irish-owned company is targeting the regulatory compliance market with corporate governance and risk assessment software tools aimed at helping companies ...",
+        "position": 10
+      }
+    ],
+    "metadata": {
+      "total_results": 10,
+      "failed_pages": [],
+      "empty_pages": []
+    }
+  }
+}
