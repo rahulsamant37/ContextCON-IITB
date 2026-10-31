@@ -162,6 +162,17 @@ class Mission:
         self.d.warnings.append(f"{name} skipped: {why}")
         self.emit(name, "skipped", warning=why)
 
+    def _rank(self, recs: list[CompanyRecord], brief: MarketBrief) -> list[CompanyRecord]:
+        """Score + rank. With an unverified sector no account may reach Wave 1 (the target segment is not confirmed)."""
+        out = score_and_rank(recs, brief, sector_matched_by_filter=self.sector_by_filter)
+        if not self.sector_by_filter:
+            for c in out:
+                if c.wave == "Wave 1":
+                    c.wave = "Wave 2"
+                if "sector_unverified" not in c.flags:
+                    c.flags.append("sector_unverified")
+        return out
+
     def _record_source(self, idx: int) -> tuple[str | None, str | None]:
         ref = None
         for p in self._pages:
@@ -245,7 +256,7 @@ class Mission:
             if c.company_id in status:
                 c = c.model_copy(update={"buyer_status": status[c.company_id]})
             updated.append(c)
-        d.companies = score_and_rank(updated, brief, sector_matched_by_filter=self.sector_by_filter)  # buyer availability is part of the rubric
+        d.companies = self._rank(updated, brief)  # buyer availability is part of the rubric
         self.emit("E_buyers", f"{len(people)}/{len(status)} searched accounts have verified buyers, "
                               f"{sum(len(v) for v in people.values())} contacts")
 
@@ -314,7 +325,7 @@ class Mission:
             coverage_note=(f"Fetched {len(recs)} of {total if total is not None else 'unknown'} indexed matches, ranked by relevance to "
                            f"'{query} companies' (hybrid). Counts are Crustdata-indexed companies, not all businesses in the market."),
             retrieved_at=self._count_ref[1])
-        d.companies = score_and_rank(recs, brief, sector_matched_by_filter=self.sector_by_filter)
+        d.companies = self._rank(recs, brief)
         self.emit("B_discovery", f"{len(recs)} candidates, indexed total {total}")
         if not recs:
             st.status, st.warning = "warning", "search returned no companies"
@@ -347,7 +358,7 @@ class Mission:
             m.identity = ident
             by_id[base.company_id] = m
             merged += 1
-        d.companies = score_and_rank(list(by_id.values()), brief, sector_matched_by_filter=self.sector_by_filter)
+        d.companies = self._rank(list(by_id.values()), brief)
         self._records = list(by_id.values())
         self.emit("C_enrichment", f"enriched {merged}/{len(targets)} accounts")
 
@@ -355,7 +366,8 @@ class Mission:
         d, brief = self.d, self.d.brief
         assert brief is not None
         shortlist = d.companies[: brief.max_target_accounts]
-        d.sizing = compute_sizing(brief, d.universe.total_count, shortlist, d.universe.post_filters)
+        d.sizing = compute_sizing(brief, d.universe.total_count, shortlist, d.universe.post_filters,
+                                  sector_verified=self.sector_by_filter)
         if d.universe.total_count is not None and d.ledger is not None:
             ref = self._count_ref[0]  # the count query's own response, not the ranked pool (its total_count is null)
             d.ledger.add(subject_type="market", subject_id=d.mission_id,

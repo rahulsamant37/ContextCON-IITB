@@ -9,7 +9,7 @@ def _money(cur: str | None, v: float) -> str:
 
 
 def compute_sizing(brief: MarketBrief, observed_count: int | None, shortlist: list[CompanyRecord],
-                   post_filters: list[str] | None = None) -> SizingResult:
+                   post_filters: list[str] | None = None, sector_verified: bool = True) -> SizingResult:
     """observed_count = provider total_count for the server-side filters (an indexed count, not the whole market).
     pipeline pool counts only shortlisted accounts with a resolved identity inside the ICP."""
     caveats = ["Observed count is Crustdata's indexed company count for these filters; it may under-cover the market.",
@@ -19,6 +19,11 @@ def compute_sizing(brief: MarketBrief, observed_count: int | None, shortlist: li
     acv, cur = brief.annual_contract_value, brief.currency
     eligible = [c for c in shortlist if c.wave in ("Wave 1", "Wave 2", "Research Needed")
                 and c.identity.method != "unresolved" and c.icp_match is not False]
+    if not sector_verified:
+        caveats.append("Sector could not be mapped to a Crustdata category: the shortlist is relevance-ranked and UNVERIFIED, "
+                       "so no universe size or money figure is computed.")
+        return SizingResult(observed_count=None, acv=acv, currency=cur, caveats=caveats, formula_text=(
+            "Sector unverified: no observed universe count and no ACV-based pool or pipeline figure are computed."))
     if observed_count is None:
         caveats.append("Provider returned no total_count; observed universe size is unknown.")
     if acv is None:
@@ -40,6 +45,8 @@ def compute_sizing(brief: MarketBrief, observed_count: int | None, shortlist: li
 def verify_sizing(s: SizingResult, shortlist_eligible: int) -> list[str]:
     """Independent recomputation used by the verifier. Returns a list of discrepancies (empty = OK)."""
     bad = []
+    if s.acv is not None and s.pool is None and s.pipeline_pool is None:
+        return bad  # no money figure was claimed (e.g. sector unverified), so nothing to recompute
     if s.acv is None:
         if s.pool is not None or s.pipeline_pool is not None:
             bad.append("money figure present without ACV")

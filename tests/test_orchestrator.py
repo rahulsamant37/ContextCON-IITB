@@ -145,7 +145,9 @@ def test_unmappable_sector_falls_back_to_semantic_ranking_with_unknown_universe(
     assert all(c.score_breakdown["icp_sector"] is None and "unknown:icp_sector" in c.flags for c in d.companies)
     assert any("No Crustdata taxonomy category" in w for w in d.warnings)
     assert any(a.field == "taxonomy.categories" and a.value is None for a in d.brief.assumptions)
-    assert d.verification.score_mismatches == []
+    assert d.verification.score_mismatches == [] and d.verification.arithmetic_errors == []
+    assert d.sizing.pool is None and d.sizing.pipeline_pool is None and "Sector unverified" in d.sizing.formula_text
+    assert all(c.wave != "Wave 1" for c in d.companies) and all("sector_unverified" in c.flags for c in d.companies)
 
 
 def test_unrecognised_prompt_fails_before_any_network(tmp_path):
