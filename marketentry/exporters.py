@@ -84,7 +84,7 @@ def export_all(d, out_root: Path | str) -> dict[str, str]:
                 "employee_range", "headcount_growth_6m_pct", "open_roles", "total_funding_usd", "fit_score", "data_coverage",
                 "confidence", "wave", "buyer_status", "identity_method", "verification_status", "unknown_fields", "flags",
                 "evidence_refs"],
-               [[i, c.name, _v(c.company_id), _v(c.domain), _v(c.country), f"matched by search filter: {d.brief.target_industry}",
+               [[i, c.name, _v(c.company_id), _v(c.domain), _v(c.country), d.sector_basis,
                  _v(c.employee_count), _v(c.employee_range),
                  _v(None if c.headcount_growth_6m is None else round(c.headcount_growth_6m, 2)), _v(c.open_roles),
                  _v(c.funding_total), _v(c.fit_score), c.data_coverage, c.confidence, _v(c.wave), c.buyer_status,

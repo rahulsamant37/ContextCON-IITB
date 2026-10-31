@@ -21,7 +21,7 @@
 <h2>2. Segmentation and account shortlist</h2>
 <p>Target customer: <b>{{ brief.target_industry }}</b> companies in <b>{{ brief.target_country }}</b>,
  {% if brief.employee_min is not none or brief.employee_max is not none %}{{ brief.employee_min if brief.employee_min is not none else "any" }}–{{ brief.employee_max if brief.employee_max is not none else "any" }} employees{% else %}any size{% endif %}.
- Sector, country and size are applied as Crustdata search filters. Scores use only observed values; missing values are shown as <span class="unk">unknown</span> and lower <i>coverage</i>, not the score.</p>
+ Sector basis: <b>{{ d.sector_basis }}</b>. Country and size are applied as Crustdata search filters. Scores use only observed values; missing values are shown as <span class="unk">unknown</span> and lower <i>coverage</i>, not the score.</p>
 <table><tr><th>Segment</th><th>Accounts</th><th>Meaning</th></tr>
 {% for k, desc in [("Wave 1","High fit with a verified buyer: launch first"),("Wave 2","Fit confirmed; buyer or data still pending"),("Research Needed","Low fit, thin data or unresolved identity")] %}
 <tr><td>{{ k }}</td><td>{{ waves[k]|length }}</td><td>{{ desc }}</td></tr>{% endfor %}</table>

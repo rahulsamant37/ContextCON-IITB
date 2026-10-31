@@ -156,7 +156,7 @@ def rollup(ids: list[str], by_id: dict[str, Evidence]) -> str:
 
 def verify_mission(brief: MarketBrief, ledger: EvidenceLedger, companies: list[CompanyRecord],
                    people: dict[str, list[PersonRecord]], sizing: SizingResult, shortlist_eligible: int,
-                   *, max_age_hours: float = MAX_AGE_HOURS) -> VerificationReport:
+                   *, max_age_hours: float = MAX_AGE_HOURS, sector_by_filter: bool = True) -> VerificationReport:
     rep = VerificationReport()
     cache: dict[str, Any] = {}
     for ev in ledger.items:
@@ -174,7 +174,7 @@ def verify_mission(brief: MarketBrief, ledger: EvidenceLedger, companies: list[C
                    status="unsupported" if rep.arithmetic_errors else "supported",
                    notes="recomputed from observed count x client-supplied ACV" + (f"; errors: {rep.arithmetic_errors}" if rep.arithmetic_errors else ""))
     for c in companies:
-        again = score_company(c, brief)
+        again = score_company(c, brief, sector_matched_by_filter=sector_by_filter)
         if again.fit_score != c.fit_score:
             rep.score_mismatches.append(f"{c.name}: stored {c.fit_score} vs recomputed {again.fit_score}")
     keys = [c.company_id or c.domain or c.name.lower() for c in companies]

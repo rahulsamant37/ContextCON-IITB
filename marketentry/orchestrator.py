@@ -49,6 +49,7 @@ class MissionData:
     warnings: list[str] = field(default_factory=list)
     verified_claim_fraction: float | None = None
     verification: VerificationReport | None = None
+    sector_basis: str = "matched by search filter"
     artifacts: dict[str, str] = field(default_factory=dict)
     crm_counts: dict[str, int] = field(default_factory=dict)
     crm_db_path: str | None = None
@@ -87,8 +88,9 @@ def pick_categories(industry: str, suggestions: list[str], limit: int = 4) -> li
 
 
 def build_company_filters(brief: MarketBrief, categories: list[str]) -> dict:
-    conds: list[dict] = [{"field": "locations.country", "type": "=", "value": brief.target_country},
-                         {"field": "taxonomy.categories", "type": "in", "value": categories}]
+    conds: list[dict] = [{"field": "locations.country", "type": "=", "value": brief.target_country}]
+    if categories:
+        conds.append({"field": "taxonomy.categories", "type": "in", "value": categories})
     if brief.employee_min is not None:
         conds.append({"field": "headcount.total", "type": "=>", "value": brief.employee_min})
     if brief.employee_max is not None:
@@ -122,6 +124,7 @@ class Mission:
         self._records: list[CompanyRecord] = []
         self._pages: list[tuple[str | None, str, int]] = []
         self._count_ref: tuple[str | None, str] = (None, utcnow())
+        self.sector_by_filter = True  # False => sector could not be mapped to a taxonomy category (semantic fallback)
 
     # ---- infrastructure ----------------------------------------------------------------------
     def emit(self, step: str, msg: str, **extra) -> None:
@@ -212,7 +215,7 @@ class Mission:
         assert brief is not None and d.ledger is not None
         shortlist = d.companies[: brief.max_target_accounts]
         eligible = sum(1 for c in shortlist if c.wave is not None and c.identity.method != "unresolved" and c.icp_match is not False)
-        rep = verify_mission(brief, d.ledger, shortlist, d.people, d.sizing, eligible)
+        rep = verify_mission(brief, d.ledger, shortlist, d.people, d.sizing, eligible, sector_by_filter=self.sector_by_filter)
         # competitors' own evidence was verified above; roll their status into nothing else (no record-level status field)
         d.verified_claim_fraction = rep.verified_fraction
         d.verification = rep
@@ -242,7 +245,7 @@ class Mission:
             if c.company_id in status:
                 c = c.model_copy(update={"buyer_status": status[c.company_id]})
             updated.append(c)
-        d.companies = score_and_rank(updated, brief)  # buyer availability is part of the rubric
+        d.companies = score_and_rank(updated, brief, sector_matched_by_filter=self.sector_by_filter)  # buyer availability is part of the rubric
         self.emit("E_buyers", f"{len(people)}/{len(status)} searched accounts have verified buyers, "
                               f"{sum(len(v) for v in people.values())} contacts")
 
@@ -261,21 +264,30 @@ class Mission:
         d, brief = self.d, self.d.brief
         assert brief is not None
         cats = pick_categories(brief.target_industry, client.autocomplete("taxonomy.categories", brief.target_industry))
-        if not cats:
-            st.status, st.warning = "failed", f"no Crustdata category matches sector '{brief.target_industry}'"
-            d.warnings.append(f"B_discovery: {st.warning}")
-            return
-        d.brief = brief = brief.model_copy(update={"assumptions": brief.assumptions + [Assumption(
-            field="taxonomy.categories", value=cats, source="inferred",
-            note="sector mapped to Crustdata categories via free autocomplete")]})
+        if cats:
+            d.brief = brief = brief.model_copy(update={"assumptions": brief.assumptions + [Assumption(
+                field="taxonomy.categories", value=cats, source="inferred",
+                note="sector mapped to Crustdata categories via free autocomplete")]})
+            d.sector_basis = f"matched by search filter: {', '.join(cats)}"
+        else:
+            self.sector_by_filter = False
+            d.sector_basis = f"unverified: relevance-ranked by query '{brief.target_industry}' (no taxonomy category)"
+            note = (f"No Crustdata taxonomy category matches '{brief.target_industry}'. Falling back to relevance ranking within "
+                    f"country/size filters; sector fit is UNVERIFIED and the observed universe size is unknown.")
+            d.warnings.append(f"B_discovery: {note}")
+            d.brief = brief = brief.model_copy(update={"assumptions": brief.assumptions + [Assumption(
+                field="taxonomy.categories", value=None, source="defaulted", note=note)]})
+            st.status, st.warning = "warning", note
         filters = build_company_filters(brief, cats)
         self.emit("B_discovery", f"searching with categories {cats}")
         # observed count from a cheap filter-only call (ranked search reports total_count = null)
-        cnt = client.company_search(filters, ["basic_info"], 1)
-        total = cnt.body.get("total_count") if cnt.ok and isinstance(cnt.body, dict) else None
-        self._count_ref = (cnt.run.raw_path, cnt.retrieved_at) if cnt.ok else (None, utcnow())
-        if total is None:
-            d.warnings.append("B_discovery: provider returned no total_count; observed universe size unknown")
+        total = None
+        if self.sector_by_filter:
+            cnt = client.company_search(filters, ["basic_info"], 1)
+            total = cnt.body.get("total_count") if cnt.ok and isinstance(cnt.body, dict) else None
+            self._count_ref = (cnt.run.raw_path, cnt.retrieved_at) if cnt.ok else (None, utcnow())
+            if total is None:
+                d.warnings.append("B_discovery: provider returned no total_count; observed universe size unknown")
         query = brief.target_industry
         raw, _, warn = client.company_search_paged(filters, SEARCH_FIELDS, self.s.max_company_search_results,
                                                   search={"query": f"{query} companies", "mode": "hybrid"})
@@ -302,7 +314,7 @@ class Mission:
             coverage_note=(f"Fetched {len(recs)} of {total if total is not None else 'unknown'} indexed matches, ranked by relevance to "
                            f"'{query} companies' (hybrid). Counts are Crustdata-indexed companies, not all businesses in the market."),
             retrieved_at=self._count_ref[1])
-        d.companies = score_and_rank(recs, brief)
+        d.companies = score_and_rank(recs, brief, sector_matched_by_filter=self.sector_by_filter)
         self.emit("B_discovery", f"{len(recs)} candidates, indexed total {total}")
         if not recs:
             st.status, st.warning = "warning", "search returned no companies"
@@ -335,7 +347,7 @@ class Mission:
             m.identity = ident
             by_id[base.company_id] = m
             merged += 1
-        d.companies = score_and_rank(list(by_id.values()), brief)
+        d.companies = score_and_rank(list(by_id.values()), brief, sector_matched_by_filter=self.sector_by_filter)
         self._records = list(by_id.values())
         self.emit("C_enrichment", f"enriched {merged}/{len(targets)} accounts")
 

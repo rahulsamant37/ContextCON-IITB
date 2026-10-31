@@ -134,9 +134,18 @@ def test_empty_universe_is_honest(tmp_path):
     assert d.crm_counts == {}  # nothing fabricated, nothing written
 
 
-def test_unmappable_sector_stops_without_guessing(tmp_path):
-    d = mission(tmp_path, make_handler(categories=())).run()
-    assert d.state == "failed" and any("no Crustdata category" in w for w in d.warnings) and d.companies == []
+def test_unmappable_sector_falls_back_to_semantic_ranking_with_unknown_universe(tmp_path):
+    log = []
+    d = mission(tmp_path, make_handler(categories=(), log=log)).run()
+    assert d.state != "failed" and len(d.companies) == 3
+    assert d.universe.total_count is None and d.sizing.pool is None  # no sector-specific count => no money pool
+    assert "UNVERIFIED" in d.universe.coverage_note or "unverified" in d.sector_basis
+    filtered = [b for p, b in log if p == "/company/search" and "filters" in b]
+    assert len(filtered) == 1 and all(c["field"] != "taxonomy.categories" for c in filtered[0]["filters"]["conditions"])
+    assert all(c.score_breakdown["icp_sector"] is None and "unknown:icp_sector" in c.flags for c in d.companies)
+    assert any("No Crustdata taxonomy category" in w for w in d.warnings)
+    assert any(a.field == "taxonomy.categories" and a.value is None for a in d.brief.assumptions)
+    assert d.verification.score_mismatches == []
 
 
 def test_unrecognised_prompt_fails_before_any_network(tmp_path):
