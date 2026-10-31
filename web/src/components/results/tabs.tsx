@@ -132,7 +132,7 @@ export function Downloads({ m }: { m: Mission }) {
       <Card className="p-5">
         <div className="text-sm font-semibold">Your sales pipeline</div>
         <p className="mt-1 text-[13px] text-muted">{m.crm_counts.companies ?? 0} companies, {m.crm_counts.people ?? 0} decision-makers and {m.crm_counts.unsent_drafts ?? 0} draft messages are ready. Nothing has been sent.</p>
-        <LinkButton href={`/missions/${m.mission_id}/crm`} className="mt-4 w-full" variant="secondary">Open pipeline</LinkButton>
+        <LinkButton href={`/research/${m.mission_id}/pipeline`} className="mt-4 w-full" variant="secondary">Open pipeline</LinkButton>
       </Card>
     </div>
   );

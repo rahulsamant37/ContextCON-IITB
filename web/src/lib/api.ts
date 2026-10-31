@@ -1,6 +1,7 @@
-import type { Options, AccountDetail, Crm, Evidence, Mission, Preview, PublicSettings, SourceExcerpt, Summary, ToolRun } from "./types";
+import type { Options, User, AccountDetail, Crm, Evidence, Mission, Preview, PublicSettings, SourceExcerpt, Summary, ToolRun } from "./types";
 
-export const API = process.env.NEXT_PUBLIC_API_URL ?? "http://127.0.0.1:8000";
+// Same-origin: Next.js proxies /api/* to the FastAPI server (see next.config.ts), so the session cookie just works.
+export const API = "";
 
 export class ApiError extends Error {
   constructor(public status: number, message: string) { super(message); }
@@ -24,6 +25,7 @@ async function req<T>(path: string, init?: RequestInit): Promise<T> {
 export interface RunOptions { replay: boolean; simulate_failure: boolean; use_llm: boolean; caps?: Record<string, number> }
 
 export const api = {
+  me: () => req<{ user: User }>("/api/auth/me"),
   settings: () => req<PublicSettings>("/api/settings"),
   options: () => req<Options>("/api/options"),
   preview: (prompt: string, use_llm = true) => req<Preview>("/api/briefs/preview", { method: "POST", body: JSON.stringify({ prompt, use_llm }) }),

@@ -21,32 +21,32 @@ export default function ResultsPage() {
   const q = useQuery({ queryKey: ["mission", id], queryFn: () => api.mission(id), retry: false });
   const rerun = useMutation({
     mutationFn: () => api.create(q.data!.brief!.raw_prompt, { replay: false, simulate_failure: false, use_llm: true }),
-    onSuccess: (r) => router.push(`/missions/${r.mission_id}/run`),
+    onSuccess: (r) => router.push(`/research/${r.mission_id}/run`),
   });
-  useEffect(() => { if (q.error instanceof ApiError && q.error.status === 409) router.replace(`/missions/${id}/run`); }, [q.error, id, router]);
+  useEffect(() => { if (q.error instanceof ApiError && q.error.status === 409) router.replace(`/research/${id}/run`); }, [q.error, id, router]);
 
   if (q.isLoading) return <div className="space-y-4"><Skeleton className="h-8 w-80" /><Skeleton className="h-20" /><Skeleton className="h-28" /><Skeleton className="h-72" /></div>;
-  if (q.error || !q.data) return <Notice tone="bad" title="Couldn't load this research" action={<LinkButton href="/" size="sm" variant="secondary">Back to research</LinkButton>}>{(q.error as Error | null)?.message}</Notice>;
+  if (q.error || !q.data) return <Notice tone="bad" title="Couldn't load this research" action={<LinkButton href="/research" size="sm" variant="secondary">Back to research</LinkButton>}>{(q.error as Error | null)?.message}</Notice>;
   const m = q.data; const b = m.brief;
 
   if (!b || m.state === "failed") return (
     <div className="mx-auto max-w-2xl">
-      <PageHeader crumbs={[{ href: "/", label: "Research" }, { label: "Could not complete" }]} title="This research couldn't be completed" description="We stop rather than fill gaps with guesses. Here's what happened:" />
+      <PageHeader crumbs={[{ href: "/research", label: "Research" }, { label: "Could not complete" }]} title="This research couldn't be completed" description="We stop rather than fill gaps with guesses. Here's what happened:" />
       <ul className="mb-6 list-disc space-y-1.5 pl-5 text-sm text-ink-2" data-testid="failure-reasons">{m.warnings.map((w, i) => <li key={i}>{w}</li>)}</ul>
-      <LinkButton href="/new">Try again with a clearer brief</LinkButton>
+      <LinkButton href="/research/new">Try again with a clearer brief</LinkButton>
     </div>);
 
   const people = Object.values(m.people).reduce((n, v) => n + v.length, 0);
   const st = STATE[m.state];
   return (
     <>
-      <PageHeader crumbs={[{ href: "/", label: "Research" }, { label: `${b.target_industry} in ${b.target_country}` }]}
+      <PageHeader crumbs={[{ href: "/research", label: "Research" }, { label: `${b.target_industry} in ${b.target_country}` }]}
         title={<span data-testid="mission-title">{b.target_industry} in {b.target_country}</span>}
         meta={<Pill tone={st.tone}>{st.label}</Pill>}
         description={`${b.product_description} · ${b.employee_min != null || b.employee_max != null ? `${b.employee_min ?? "any"}–${b.employee_max ?? "any"} employees` : "any company size"} · ${ago(m.finished_at ?? m.started_at)}`}
         actions={<>
           <Button variant="ghost" size="sm" disabled={rerun.isPending} onClick={() => rerun.mutate()} title="Run again with fresh data"><RefreshCw size={14} />Refresh data</Button>
-          <LinkButton href={`/missions/${id}/crm`} variant="secondary" data-testid="open-crm">Open pipeline</LinkButton>
+          <LinkButton href={`/research/${id}/pipeline`} variant="secondary" data-testid="open-crm">Open pipeline</LinkButton>
           {m.artifacts.includes("Market_Entry_Report.pdf") && <a href={api.artifactUrl(id, "Market_Entry_Report.pdf")} download className="inline-flex h-9 items-center gap-1.5 rounded-md bg-primary px-3.5 text-sm font-medium text-primary-ink hover:opacity-90"><Download size={15} />Download report</a>}
         </>} />
       <Tabs<Tab> value={tab} onChange={setTab} tabs={[

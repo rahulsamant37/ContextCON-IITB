@@ -37,6 +37,8 @@ tool_runs, **unsent** outreach drafts).
 
 A web app (`web/`, Next.js 16 + TypeScript + Tailwind) on top of a FastAPI backend (`marketentry/api.py`):
 
+- **Landing page** (`/`): what the product does, how it works, how every number is checked, FAQ.
+- **No sign-in:** each browser automatically gets a private guest workspace (HttpOnly session cookie, like a chat app). Research, pipeline and files are visible only to that guest; the same brief from two guests is two separate projects.
 - **New mission:** describe the market in plain English, optionally review and edit what was understood (country, sector, size, ACV, buyer roles, assumption ledger) with a credit estimate, then run. No further questions.
 - **Live run:** step-by-step progress, plain-language activity feed and every Crustdata call with its credit cost, streamed live (Server-Sent Events).
 - **Results:** verdict, KPIs, sizing (observed count × your ACV), launch segments, fit landscape, risks and launch plan; sortable accounts with a "why this score" drawer; buyers; competitors; assumptions; a searchable evidence explorer that shows the value found in the saved source.
@@ -52,7 +54,7 @@ cp .env.example .env                 # CRUSTDATA_API_KEY, optional GROQ_API_KEY 
 (cd web && pnpm install)
 scripts/dev.sh                       # API http://127.0.0.1:8000 (docs at /docs) + app http://localhost:3000
 ```
-Open **http://localhost:3000**. Set `NEXT_PUBLIC_API_URL` if the API runs elsewhere. Keys stay on the server.
+Open **http://localhost:3000**. The app proxies `/api/*` to the API (set `API_ORIGIN` if it runs elsewhere). Keys stay on the server.
 
 Tests:
 ```bash

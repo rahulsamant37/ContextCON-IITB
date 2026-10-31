@@ -32,10 +32,10 @@ export default function RunPage() {
     const t = setInterval(() => { t0.current ??= Date.now(); setElapsed(Math.round((Date.now() - t0.current) / 1000)); }, 1000);
     return () => clearInterval(t);
   }, [ended]);
-  useEffect(() => { if (ended && !error) { const t = setTimeout(() => router.replace(`/missions/${id}`), 1500); return () => clearTimeout(t); } }, [ended, error, id, router]);
+  useEffect(() => { if (ended && !error) { const t = setTimeout(() => router.replace(`/research/${id}`), 1500); return () => clearTimeout(t); } }, [ended, error, id, router]);
 
   if (status.error) return (
-    <Notice tone="bad" title="We couldn't find this research" action={<LinkButton href="/new" size="sm">New research</LinkButton>}>
+    <Notice tone="bad" title="We couldn't find this research" action={<LinkButton href="/research/new" size="sm">New research</LinkButton>}>
       It may have been interrupted by a server restart. Start it again; nothing is lost from earlier research.
     </Notice>);
 
@@ -48,7 +48,7 @@ export default function RunPage() {
 
   return (
     <div className="mx-auto max-w-2xl">
-      <PageHeader crumbs={[{ href: "/", label: "Research" }, { label: ended ? "Finished" : "In progress" }]}
+      <PageHeader crumbs={[{ href: "/research", label: "Research" }, { label: ended ? "Finished" : "In progress" }]}
         title={failed ? "The research couldn't be completed" : ended ? "Your research is ready" : "Researching your market"}
         description={status.data?.prompt ?? undefined} />
 
@@ -82,7 +82,7 @@ export default function RunPage() {
       {retried && !ended && <div className="mt-4"><Notice tone="info" title="A request failed and was retried automatically">Your research continues; temporary errors are handled for you.</Notice></div>}
       {connection === "lost" && !ended && <div className="mt-4"><Notice tone="warn" title="Connection interrupted">The research keeps running on the server. Refresh this page to reconnect.</Notice></div>}
       {error && <div className="mt-4"><Notice tone="bad" title="Something went wrong on the server">{error}</Notice></div>}
-      {ended && <div className="mt-4 flex justify-end"><LinkButton href={`/missions/${id}`} data-testid="open-results">{failed ? "See what happened" : "View results"}<ArrowRight size={15} /></LinkButton></div>}
+      {ended && <div className="mt-4 flex justify-end"><LinkButton href={`/research/${id}`} data-testid="open-results">{failed ? "See what happened" : "View results"}<ArrowRight size={15} /></LinkButton></div>}
 
       <div className="mt-6">
         <button onClick={() => setShowLog(!showLog)} className="flex items-center gap-1.5 text-[13px] font-medium text-muted hover:text-ink" aria-expanded={showLog}>

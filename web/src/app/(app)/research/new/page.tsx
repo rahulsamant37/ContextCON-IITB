@@ -68,7 +68,7 @@ function NewResearchInner() {
   const runOpts = { replay: demo, simulate_failure: simulate, use_llm: demo ? false : aiWording && !!settings.data?.llm_key_set };
   const run = useMutation({
     mutationFn: () => (mode === "guided" ? api.create(prompt, runOpts, overrides) : api.create(text, runOpts)),
-    onSuccess: (r) => router.push(`/missions/${r.mission_id}/run`),
+    onSuccess: (r) => router.push(`/research/${r.mission_id}/run`),
   });
   const preview = useMutation<Preview>({ mutationFn: () => api.preview(text, runOpts.use_llm) });
   const noKey = settings.data && !settings.data.crustdata_key_set && !demo;
@@ -77,7 +77,7 @@ function NewResearchInner() {
 
   return (
     <>
-      <PageHeader crumbs={[{ href: "/", label: "Research" }, { label: "New research" }]} title="New research"
+      <PageHeader crumbs={[{ href: "/research", label: "Research" }, { label: "New research" }]} title="New research"
         description="Tell us what you sell and where. We find the companies, the people and the numbers, and show the source for each one." />
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_340px]">
         <div className="space-y-5">

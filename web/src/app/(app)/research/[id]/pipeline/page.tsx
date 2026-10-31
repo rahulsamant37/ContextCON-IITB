@@ -61,7 +61,7 @@ export default function PipelinePage() {
 
   return (
     <>
-      <PageHeader crumbs={[{ href: "/", label: "Research" }, { href: `/missions/${id}`, label: market }, { label: "Pipeline" }]} title="Pipeline"
+      <PageHeader crumbs={[{ href: "/research", label: "Research" }, { href: `/research/${id}`, label: market }, { label: "Pipeline" }]} title="Pipeline"
         description="Track each company from first look to won. Drag cards between stages or open one to read and edit its draft message. Nothing is ever sent for you." />
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
         <Segmented label="Priority filter" value={seg} onChange={setSeg} options={[{ id: "all", label: `All (${crm.companies.length})` }, { id: "Wave 1", label: "Contact first" }, { id: "Wave 2", label: "Next in line" }, { id: "Research Needed", label: "Needs research" }]} />

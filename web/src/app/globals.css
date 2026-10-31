@@ -2,48 +2,62 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --page: #f8f9fb;
+  --page: #f5f6fa;
   --surface: #ffffff;
-  --subtle: #f3f4f6;
-  --line: #e5e7eb;
-  --line-strong: #d1d5db;
-  --ink: #111827;
-  --ink-2: #374151;
-  --muted: #6b7280;
-  --primary: #111827;
+  --subtle: #f1f3f8;
+  --line: #e3e6ee;
+  --line-strong: #cdd2de;
+  --ink: #0f1629;
+  --ink-2: #2b3446;
+  --muted: #4f5a6e;
+  --primary: #4f46e5;
+  --primary-strong: #4338ca;
   --primary-ink: #ffffff;
-  --accent: #0f766e;
-  --accent-soft: #ecfdf8;
-  --ok: #15803d;
-  --ok-soft: #f0fdf4;
+  --primary-soft: #eef0ff;
+  --accent: #4f46e5;
+  --accent-soft: #eef0ff;
+  --ok: #059669;
+  --ok-soft: #ecfdf5;
   --warn: #b45309;
   --warn-soft: #fffbeb;
-  --bad: #b91c1c;
+  --bad: #dc2626;
   --bad-soft: #fef2f2;
-  --info: #1d4ed8;
-  --info-soft: #eff6ff;
+  --info: #0369a1;
+  --info-soft: #e0f2fe;
+  --side: #0b1220;
+  --side-2: #131c30;
+  --side-line: #1d2740;
+  --side-ink: #f1f3f9;
+  --side-muted: #b3bbcd;
 }
 .dark {
-  --page: #0b0d10;
-  --surface: #121519;
-  --subtle: #1a1e24;
-  --line: #262b33;
-  --line-strong: #353c47;
-  --ink: #f3f4f6;
-  --ink-2: #d1d5db;
-  --muted: #9ca3af;
-  --primary: #f3f4f6;
-  --primary-ink: #111827;
-  --accent: #2dd4bf;
-  --accent-soft: #0f2a27;
-  --ok: #4ade80;
-  --ok-soft: #10261a;
+  --page: #080c16;
+  --surface: #0f1524;
+  --subtle: #151d30;
+  --line: #222c42;
+  --line-strong: #303b55;
+  --ink: #e8ebf4;
+  --ink-2: #d4d9e4;
+  --muted: #a7b0c4;
+  --primary: #6366f1;
+  --primary-strong: #818cf8;
+  --primary-ink: #ffffff;
+  --primary-soft: #1c2147;
+  --accent: #818cf8;
+  --accent-soft: #1c2147;
+  --ok: #34d399;
+  --ok-soft: #0e2a22;
   --warn: #fbbf24;
-  --warn-soft: #2a1f0b;
+  --warn-soft: #2a2008;
   --bad: #f87171;
-  --bad-soft: #2b1313;
-  --info: #93c5fd;
-  --info-soft: #0f1d33;
+  --bad-soft: #2d1414;
+  --info: #7dd3fc;
+  --info-soft: #0c2235;
+  --side: #060a13;
+  --side-2: #0f1626;
+  --side-line: #18213a;
+  --side-ink: #f1f3f9;
+  --side-muted: #b3bbcd;
 }
 
 @theme inline {
@@ -57,6 +71,13 @@
   --color-muted: var(--muted);
   --color-primary: var(--primary);
   --color-primary-ink: var(--primary-ink);
+  --color-primary-strong: var(--primary-strong);
+  --color-primary-soft: var(--primary-soft);
+  --color-side: var(--side);
+  --color-side-2: var(--side-2);
+  --color-side-line: var(--side-line);
+  --color-side-ink: var(--side-ink);
+  --color-side-muted: var(--side-muted);
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
   --color-ok: var(--ok);
@@ -71,7 +92,7 @@
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
-html { color-scheme: light; }
+html { color-scheme: light; scroll-behavior: smooth; }
 html.dark { color-scheme: dark; }
 body { background: var(--page); color: var(--ink); font-family: var(--font-sans); font-size: 14px; line-height: 1.5;
   -webkit-font-smoothing: antialiased; font-feature-settings: "cv11", "ss01"; }
@@ -79,3 +100,12 @@ body { background: var(--page); color: var(--ink); font-family: var(--font-sans)
 .tabular { font-variant-numeric: tabular-nums; }
 .bar-unknown { background-image: repeating-linear-gradient(-45deg, transparent 0 3px, var(--line-strong) 3px 4px); }
 input::placeholder, textarea::placeholder { color: var(--muted); opacity: .8; }
+
+/* landing page */
+.hero-bg { background: radial-gradient(60rem 30rem at 15% -10%, rgba(99,102,241,.35), transparent 60%),
+  radial-gradient(50rem 28rem at 95% 10%, rgba(20,184,166,.18), transparent 60%), #070b17; }
+.grid-lines { background-image: linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+  background-size: 44px 44px; mask-image: radial-gradient(ellipse at 50% 0%, black 40%, transparent 75%); }
+.text-gradient { background: linear-gradient(90deg, #a5b4fc, #5eead4); -webkit-background-clip: text; background-clip: text; color: transparent; }
+/* Hero copy renders at full contrast immediately (no fade-in). */
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

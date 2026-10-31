@@ -5,7 +5,7 @@ test.skip(!process.env.LIVE, "set LIVE=1 to run a real mission");
 
 test("live mission through the web app (real Crustdata + LLM)", async ({ page }) => {
   test.setTimeout(420_000);
-  await page.goto("/new?example=germany");
+  await page.goto("/research/new?example=germany");
   await page.getByText("Options").click();
   await page.getByTestId("option-replay").uncheck();
   await page.getByText("Simulate a temporary outage").click(); // also exercise retry handling live
@@ -15,7 +15,7 @@ test("live mission through the web app (real Crustdata + LLM)", async ({ page })
   await expect(page.getByTestId("stepper")).toBeVisible();
   await page.waitForTimeout(8000);
   await page.screenshot({ path: "shots/live-1-running.png", fullPage: true });
-  await page.waitForURL(/\/missions\/mission_[0-9a-f]{10}$/, { timeout: 360_000 });
+  await page.waitForURL(/\/research\/mission_[0-9a-f]{10}$/, { timeout: 360_000 });
   const secs = Math.round((Date.now() - t0) / 1000);
   console.log(`live mission finished in ${secs}s`);
   await expect(page.getByTestId("mission-title")).toContainText("Logistics in Germany");

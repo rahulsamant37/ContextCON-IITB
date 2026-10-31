@@ -1,5 +1,6 @@
 """FastAPI backend for the web app. Thin: all logic lives in the engine modules.
-Accounts: cookie session (HttpOnly, SameSite=Lax). Every research endpoint is scoped to its owner."""
+No sign-in: each browser gets an automatic guest account through an HttpOnly session cookie (SameSite=Lax).
+Every research endpoint is scoped to its owner."""
 from __future__ import annotations
 
 import json
@@ -11,7 +12,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from pydantic import BaseModel, Field
 
-from .auth import AuthError, AuthStore, User
+from .auth import AuthStore, User
 from .brief_parser import COUNTRY_ALIASES
 from .config import Settings, get_settings
 from .contracts import CompanyRecord, Evidence
@@ -23,18 +24,6 @@ from .serialize import list_summaries, load_json, valid_mission_id
 
 MAX_PROMPT = 4000
 COOKIE = "me_session"
-
-
-class SignupIn(BaseModel):
-    name: str = Field(min_length=1, max_length=80)
-    email: str = Field(min_length=3, max_length=200)
-    password: str = Field(min_length=1, max_length=200)
-    company: str | None = Field(default=None, max_length=120)
-
-
-class LoginIn(BaseModel):
-    email: str = Field(min_length=3, max_length=200)
-    password: str = Field(min_length=1, max_length=200)
 
 
 class PreviewIn(BaseModel):
@@ -77,39 +66,17 @@ def create_app(settings: Settings | None = None,
     auth = AuthStore(out / "app.db", s.session_days)
     app.state.jobs, app.state.settings, app.state.auth = jobs, s, auth
 
-    # ---- auth ------------------------------------------------------------------------------------
-    def current_user(request: Request) -> User:
+    # ---- guest sessions --------------------------------------------------------------------------
+    GUEST_DAYS = 365
+
+    def current_user(request: Request, response: Response) -> User:
+        """The caller's account; a first-time visitor silently gets a guest account and a session cookie."""
         user = auth.user_for_token(request.cookies.get(COOKIE))
         if user is None:
-            raise HTTPException(401, "Please sign in.")
+            user = auth.create_guest()
+            response.set_cookie(COOKIE, auth.create_session(user.id, GUEST_DAYS), httponly=True, samesite="lax",
+                                secure=s.cookie_secure, max_age=GUEST_DAYS * 86400, path="/")
         return user
-
-    def start_session(resp: Response, user: User) -> dict:
-        resp.set_cookie(COOKIE, auth.create_session(user.id), httponly=True, samesite="lax", secure=s.cookie_secure,
-                        max_age=s.session_days * 86400, path="/")
-        return {"user": user.public()}
-
-    @app.post("/api/auth/signup", status_code=201)
-    def signup(body: SignupIn, resp: Response) -> dict:
-        try:
-            user = auth.create_user(body.email, body.name, body.password, body.company)
-        except AuthError as e:
-            raise HTTPException(e.status, str(e))
-        return start_session(resp, user)
-
-    @app.post("/api/auth/login")
-    def login(body: LoginIn, resp: Response) -> dict:
-        try:
-            user = auth.authenticate(body.email, body.password)
-        except AuthError as e:
-            raise HTTPException(e.status, str(e))
-        return start_session(resp, user)
-
-    @app.post("/api/auth/logout")
-    def logout(request: Request, resp: Response) -> dict:
-        auth.delete_session(request.cookies.get(COOKIE))
-        resp.delete_cookie(COOKIE, path="/")
-        return {"ok": True}
 
     @app.get("/api/auth/me")
     def me(user: User = Depends(current_user)) -> dict:

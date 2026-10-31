@@ -9,10 +9,10 @@ export type Tone = "ok" | "warn" | "bad" | "info" | "neutral" | "accent";
 const btn = (variant: string, size: string) => clsx(
   "inline-flex items-center justify-center gap-1.5 rounded-md font-medium transition-colors disabled:pointer-events-none disabled:opacity-50 whitespace-nowrap",
   size === "sm" ? "h-8 px-3 text-[13px]" : size === "lg" ? "h-11 px-5 text-[15px]" : "h-9 px-3.5 text-sm",
-  variant === "primary" && "bg-primary text-primary-ink hover:opacity-90",
+  variant === "primary" && "bg-primary text-primary-ink shadow-sm hover:bg-primary-strong",
   variant === "secondary" && "border border-line-strong bg-surface text-ink hover:bg-subtle",
   variant === "ghost" && "text-ink-2 hover:bg-subtle hover:text-ink",
-  variant === "accent" && "bg-accent text-white hover:opacity-90 dark:text-[#0b0d10]",
+  variant === "accent" && "bg-accent text-white hover:opacity-90",
 );
 type BtnProps = { variant?: "primary" | "secondary" | "ghost" | "accent"; size?: "sm" | "md" | "lg" };
 export function Button({ variant = "primary", size = "md", className, ...p }: ButtonHTMLAttributes<HTMLButtonElement> & BtnProps) {
@@ -28,7 +28,7 @@ export function Card({ className, children, ...p }: { className?: string; childr
 export function CardHeader({ title, description, action }: { title: ReactNode; description?: ReactNode; action?: ReactNode }) {
   return (
     <div className="flex items-start justify-between gap-4 border-b border-line px-5 py-4">
-      <div className="min-w-0"><h2 className="text-[15px] font-semibold text-ink">{title}</h2>{description && <p className="mt-0.5 text-[13px] text-muted">{description}</p>}</div>
+      <div className="min-w-0"><h2 className="text-[15px] font-semibold text-ink">{title}</h2>{description && <p className="mt-0.5 text-[13px] text-ink-2">{description}</p>}</div>
       {action && <div className="shrink-0">{action}</div>}
     </div>
   );
@@ -40,8 +40,8 @@ export function PageHeader({ title, description, actions, crumbs, meta }: { titl
       {crumbs && <nav aria-label="Breadcrumb" className="mb-2 flex items-center gap-1.5 text-[13px] text-muted">{crumbs.map((c, i) => (
         <span key={i} className="flex items-center gap-1.5">{i > 0 && <span aria-hidden>/</span>}{c.href ? <Link className="hover:text-ink" href={c.href}>{c.label}</Link> : <span className="text-ink-2">{c.label}</span>}</span>))}</nav>}
       <div className="flex flex-wrap items-start justify-between gap-4">
-        <div className="min-w-0"><div className="flex flex-wrap items-center gap-2.5"><h1 className="text-[22px] font-semibold tracking-tight text-ink">{title}</h1>{meta}</div>
-          {description && <p className="mt-1 max-w-3xl text-sm text-muted">{description}</p>}</div>
+        <div className="min-w-0"><div className="flex flex-wrap items-center gap-2.5"><h1 className="text-2xl font-semibold tracking-tight text-ink">{title}</h1>{meta}</div>
+          {description && <p className="mt-1 max-w-3xl text-sm text-ink-2">{description}</p>}</div>
         {actions && <div className="flex flex-wrap items-center gap-2">{actions}</div>}
       </div>
     </div>
@@ -74,7 +74,7 @@ export function Bar({ value, max = 100, unknown, tone = "accent", className }: {
 export function Metric({ label, value, help, sub }: { label: string; value: ReactNode; help?: string; sub?: ReactNode }) {
   return (
     <div className="px-5 py-4">
-      <div className="flex items-center gap-1 text-[13px] text-muted">{label}{help && <InfoTip text={help} />}</div>
+      <div className="flex items-center gap-1 text-[13px] font-medium text-ink-2">{label}{help && <InfoTip text={help} />}</div>
       <div className="tabular mt-1 text-2xl font-semibold tracking-tight text-ink">{value}</div>
       {sub && <div className="mt-0.5 text-xs text-muted">{sub}</div>}
     </div>
@@ -90,7 +90,7 @@ export function Tabs<T extends string>({ tabs, value, onChange }: { tabs: { id: 
     <div role="tablist" className="-mb-px flex gap-6 overflow-x-auto border-b border-line">
       {tabs.map((t) => (
         <button key={t.id} role="tab" aria-selected={value === t.id} data-testid={`tab-${t.id}`} onClick={() => onChange(t.id)}
-          className={clsx("flex items-center gap-1.5 whitespace-nowrap border-b-2 pb-2.5 pt-1 text-sm font-medium transition-colors", value === t.id ? "border-ink text-ink" : "border-transparent text-muted hover:text-ink")}>
+          className={clsx("flex items-center gap-1.5 whitespace-nowrap border-b-2 pb-2.5 pt-1 text-sm font-medium transition-colors", value === t.id ? "border-primary text-ink" : "border-transparent text-ink-2 hover:text-ink")}>
           {t.label}{t.count != null && <span className="tabular rounded bg-subtle px-1.5 text-xs text-muted">{t.count}</span>}
         </button>
       ))}
@@ -207,5 +207,5 @@ export function ToastProvider({ children }: { children: ReactNode }) {
   );
 }
 
-export const th = "px-4 py-2.5 text-left text-xs font-medium text-muted";
+export const th = "px-4 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-ink-2";
 export const td = "px-4 py-3 align-middle";

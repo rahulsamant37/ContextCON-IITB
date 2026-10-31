@@ -17,7 +17,7 @@ export function CompanyPanel({ missionId, companyId, onClose }: { missionId: str
   return (
     <SidePanel open={!!companyId} onClose={onClose} title={a?.name ?? "Company"}
       subtitle={a && <span className="flex items-center gap-2">{a.domain && <a className="inline-flex items-center gap-1 hover:text-ink" href={`https://${a.domain}`} target="_blank" rel="noreferrer noopener">{a.domain}<ExternalLink size={11} /></a>}{p && <Pill tone={p.tone}>{p.label}</Pill>}</span>}
-      footer={<div className="flex justify-end"><LinkButton href={`/missions/${missionId}/crm`} variant="secondary" size="sm">Open in pipeline</LinkButton></div>}>
+      footer={<div className="flex justify-end"><LinkButton href={`/research/${missionId}/pipeline`} variant="secondary" size="sm">Open in pipeline</LinkButton></div>}>
       {q.isLoading && <Skeleton className="h-72" />}
       {q.data && a && (
         <div className="space-y-7" data-testid="account-detail">

@@ -1,5 +1,6 @@
-"""Accounts and sessions. scrypt password hashes, opaque session tokens stored hashed server-side (revocable),
-simple per-email login throttling. SQLite, separate from the CRM database."""
+"""Accounts and sessions. Visitors get an automatic guest account (no sign-in, like a chat app): an opaque session
+token in an HttpOnly cookie, stored hashed server-side. Password accounts (scrypt) are kept for a future sign-in
+option. SQLite, separate from the CRM database."""
 from __future__ import annotations
 
 import hashlib
@@ -16,6 +17,7 @@ from pathlib import Path
 
 EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 MAX_FAILURES, FAILURE_WINDOW_S = 5, 600
+GUEST_DOMAIN = "@guest.local"
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS users(
@@ -40,8 +42,13 @@ class User:
     company: str | None
     created_at: str
 
+    @property
+    def is_guest(self) -> bool:
+        return self.email.endswith(GUEST_DOMAIN)
+
     def public(self) -> dict:
-        return {"id": self.id, "email": self.email, "name": self.name, "company": self.company, "created_at": self.created_at}
+        return {"id": self.id, "name": self.name, "guest": self.is_guest, "created_at": self.created_at,
+                **({} if self.is_guest else {"email": self.email, "company": self.company})}
 
 
 def _hash_pw(password: str, salt: bytes) -> bytes:
@@ -89,6 +96,17 @@ class AuthStore:
                 raise AuthError("An account with this email already exists. Sign in instead.", 409)
         return User(uid, email, name, (company or "").strip()[:120] or None, created)
 
+    def create_guest(self) -> User:
+        """Anonymous account for a browser. It has no usable password; access is only through its session cookie."""
+        uid = "usr_" + secrets.token_hex(8)
+        salt = os.urandom(16)
+        created = datetime.now(timezone.utc).isoformat()
+        with self.lock:
+            self.db.execute("INSERT INTO users(id, email, name, company, pw_hash, salt, created_at) VALUES(?,?,?,?,?,?,?)",
+                            (uid, f"guest+{uid}{GUEST_DOMAIN}", "Guest", None, _hash_pw(secrets.token_urlsafe(24), salt), salt, created))
+            self.db.commit()
+        return User(uid, f"guest+{uid}{GUEST_DOMAIN}", "Guest", None, created)
+
     def _throttled(self, email: str) -> bool:
         now = time.time()
         recent = [t for t in self._failures.get(email, []) if now - t < FAILURE_WINDOW_S]
@@ -108,12 +126,12 @@ class AuthStore:
         self._failures.pop(email, None)
         return self._user(row)  # type: ignore[return-value]
 
-    def create_session(self, user_id: str) -> str:
+    def create_session(self, user_id: str, days: int | None = None) -> str:
         token = secrets.token_urlsafe(32)
         with self.lock:
             self.db.execute("INSERT INTO sessions(token_hash, user_id, created_at, expires_at) VALUES(?,?,?,?)",
                             (_token_hash(token), user_id, datetime.now(timezone.utc).isoformat(),
-                             time.time() + timedelta(days=self.session_days).total_seconds()))
+                             time.time() + timedelta(days=days or self.session_days).total_seconds()))
             self.db.commit()
         return token
 

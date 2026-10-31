@@ -22,7 +22,7 @@ def build(tmp_path, handler=None, **kw):
     h = handler or make_handler()
     app = create_app(s, client_factory=lambda st: CrustdataClient("tmp", st, transport=httpx.MockTransport(h), sleep=lambda x: None))
     c = TestClient(app)
-    assert c.post("/api/auth/signup", json={"name": "Ada", "email": "ada@example.com", "password": "correct horse"}).status_code == 201
+    assert c.get("/api/auth/me").json()["user"]["guest"] is True  # first visit creates the guest account
     return c, s
 
 
@@ -184,7 +184,6 @@ def test_unrecognised_prompt_yields_failed_mission_not_a_crash(tmp_path):
 def test_missing_key_is_a_clear_400_unless_replay(tmp_path):
     s = Settings(_env_file=None, crustdata_api_key=None, out_dir=tmp_path, llm_disabled=True)
     c = TestClient(create_app(s))
-    c.post("/api/auth/signup", json={"name": "Bo", "email": "bo@example.com", "password": "correct horse"})
     r = c.post("/api/missions", json={"prompt": PROMPT})
     assert r.status_code == 400 and "CRUSTDATA_API_KEY" in r.json()["detail"]
 
@@ -214,57 +213,42 @@ def test_structured_overrides_set_exact_values(tmp_path):
     assert b["product_name"] == "ComplianceCloud" and b["target_buyer_roles"] == ["CEO", "CTO"]
 
 
-# ---- accounts ---------------------------------------------------------------------------------------
-def test_signup_login_logout_and_me(tmp_path):
-    c, _ = build(tmp_path)
-    me = c.get("/api/auth/me").json()["user"]
-    assert me["email"] == "ada@example.com" and me["name"] == "Ada" and "password" not in str(me)
-    assert c.post("/api/auth/logout").json() == {"ok": True}
-    assert c.get("/api/auth/me").status_code == 401
-    assert c.post("/api/auth/login", json={"email": "ADA@example.com ", "password": "wrong pass"}).status_code == 401
-    r = c.post("/api/auth/login", json={"email": "ADA@example.com ", "password": "correct horse"})
-    assert r.status_code == 200 and "httponly" in r.headers["set-cookie"].lower() and "samesite=lax" in r.headers["set-cookie"].lower()
-    assert c.get("/api/auth/me").status_code == 200
-
-
-def test_signup_validation_and_duplicates(tmp_path):
-    c, _ = build(tmp_path)
-    assert c.post("/api/auth/signup", json={"name": "Ada", "email": "ada@example.com", "password": "another pw1"}).status_code == 409
-    assert c.post("/api/auth/signup", json={"name": "X", "email": "not-an-email", "password": "longenough"}).status_code == 400
-    assert c.post("/api/auth/signup", json={"name": "X", "email": "x@example.com", "password": "short"}).status_code == 400
-
-
-def test_password_is_hashed_and_login_is_throttled(tmp_path):
-    c, s = build(tmp_path)
+# ---- guest accounts ---------------------------------------------------------------------------------
+def test_first_visit_creates_a_private_guest_session(tmp_path):
+    s = Settings(_env_file=None, crustdata_api_key=KEY, out_dir=tmp_path, llm_disabled=True)
+    c = TestClient(create_app(s))
+    r = c.get("/api/auth/me")
+    cookie = r.headers["set-cookie"].lower()
+    assert r.json()["user"]["guest"] is True and r.json()["user"]["name"] == "Guest" and "email" not in r.json()["user"]
+    assert "httponly" in cookie and "samesite=lax" in cookie and "max-age=31536000" in cookie
+    again = c.get("/api/auth/me")
+    assert again.json()["user"]["id"] == r.json()["user"]["id"] and "set-cookie" not in again.headers  # same guest, no new session
     import sqlite3
-    raw = sqlite3.connect(tmp_path / "app.db").execute("SELECT pw_hash FROM users").fetchone()[0]
-    assert b"correct horse" not in raw and len(raw) == 32
-    c.post("/api/auth/logout")
-    codes = [c.post("/api/auth/login", json={"email": "ada@example.com", "password": "nope nope"}).status_code for _ in range(6)]
-    assert codes[:5] == [401] * 5 and codes[5] == 429
+    assert sqlite3.connect(tmp_path / "app.db").execute("SELECT COUNT(*) FROM users").fetchone()[0] == 1
 
 
-def test_research_endpoints_require_sign_in(tmp_path):
+def test_no_sign_in_endpoints_exist(tmp_path):
     c, _ = build(tmp_path)
-    c.post("/api/auth/logout")
-    for method, path in [("get", "/api/missions"), ("post", "/api/missions"), ("get", "/api/settings"),
-                         ("post", "/api/briefs/preview"), ("get", "/api/missions/mission_0123456789")]:
-        r = getattr(c, method)(path, json={"prompt": PROMPT}) if method == "post" else getattr(c, method)(path)
-        assert r.status_code == 401, path
-    assert c.get("/api/options").status_code == 200 and c.get("/api/health").status_code == 200
+    for path in ("/api/auth/signup", "/api/auth/login", "/api/auth/logout"):
+        assert c.post(path, json={}).status_code in (404, 405), path
 
 
-def test_users_cannot_see_each_others_research(tmp_path):
+def test_guest_sessions_are_server_side_and_invalid_cookies_get_a_fresh_guest(tmp_path):
     c, _ = build(tmp_path)
+    first = c.get("/api/auth/me").json()["user"]["id"]
+    forged = TestClient(c.app, cookies={"me_session": "forged-token"})
+    assert forged.get("/api/auth/me").json()["user"]["id"] != first  # a forged token never maps to an existing account
+
+
+def test_guests_cannot_see_each_others_research(tmp_path):
+    c, s = build(tmp_path)
     mid = c.post("/api/missions", json={"prompt": PROMPT}).json()["mission_id"]
     assert wait_done(c, mid)["status"] == "done"
-    c.post("/api/auth/logout")
-    c.post("/api/auth/signup", json={"name": "Eve", "email": "eve@example.com", "password": "correct horse"})
-    assert c.get("/api/missions").json()["missions"] == []
+    other = TestClient(c.app)  # a different browser = a different guest
+    assert other.get("/api/missions").json()["missions"] == []
     for path in (f"/api/missions/{mid}", f"/api/missions/{mid}/crm", f"/api/missions/{mid}/status",
                  f"/api/missions/{mid}/artifacts/Market_Entry_Report.pdf", f"/api/missions/{mid}/events"):
-        assert c.get(path).status_code == 404, path
-    assert c.patch(f"/api/missions/{mid}/crm/companies/1", json={"stage": "Won"}).status_code == 404
-    # the same brief run by another user is a separate research project
-    mid2 = c.post("/api/missions", json={"prompt": PROMPT}).json()["mission_id"]
-    assert mid2 != mid
+        assert other.get(path).status_code == 404, path
+    assert other.patch(f"/api/missions/{mid}/crm/companies/1", json={"stage": "Won"}).status_code == 404
+    mid2 = other.post("/api/missions", json={"prompt": PROMPT}).json()["mission_id"]
+    assert mid2 != mid  # the same brief from another guest is a separate research
