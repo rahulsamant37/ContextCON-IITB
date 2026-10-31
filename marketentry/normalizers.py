@@ -224,6 +224,9 @@ _ABBREV = {"ciso": "chief information security officer", "cto": "chief technolog
            "cio": "chief information officer", "cro": "chief risk officer", "vp": "vice president",
            "svp": "senior vice president", "evp": "executive vice president"}
 _STOP = {"of", "the", "and", "for", "&", "at"}
+# Titles that mention a role without HOLDING it ("Executive Assistant to CTO", "Deputy CTO", "Former CTO").
+_NOT_THE_ROLE = {"assistant", "assistante", "assistent", "intern", "associate", "secretary", "former", "ex", "deputy",
+                 "aspiring", "advisor", "adviser", "candidate", "student"}
 
 
 def _seq(text: str) -> list[str]:
@@ -240,6 +243,8 @@ def match_role(title: str | None, roles: list[str]) -> str | None:
     if not title:
         return None
     t = _seq(title)
+    if _NOT_THE_ROLE & set(t):
+        return None
     for role in roles:
         r = _seq(role)
         if r and any(t[i:i + len(r)] == r for i in range(len(t) - len(r) + 1)):
