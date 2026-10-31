@@ -16,7 +16,7 @@ from .competitors import find_competitors
 from .config import Settings, get_settings
 from .contracts import (Assumption, CompanyRecord, CompetitorRecord, Evidence, MarketBrief, MissionResult, PersonRecord,
                         SizingResult, StepStatus, ToolRun, UniverseSummary)
-from .crm import CRM, account_key, mission_id_for
+from .crm import CRM, account_key, mission_id_for, person_key
 from .crustdata_client import ConfigError, CrustdataClient
 from .drafts import plan_tasks
 from .evidence import EvidenceLedger, utcnow
@@ -363,12 +363,18 @@ class Mission:
             crm.upsert_mission(d.mission_id, brief.raw_prompt, brief, d.state, d.started_at, utcnow(), d.warnings)
             shortlist = d.companies[: brief.max_target_accounts]
             row_ids = {account_key(c): crm.upsert_company(d.mission_id, c) for c in shortlist}
+            person_keys = []
             for c in shortlist:
                 for p in d.people.get(c.company_id or account_key(c), []):
                     crm.upsert_person(d.mission_id, p, row_ids[account_key(c)])
+                    person_keys.append(person_key(p))
             ev = {e.evidence_id: e for e in d.ledger.items}
-            for t in plan_tasks(shortlist, d.people, brief, ev, self.llm):
+            specs = plan_tasks(shortlist, d.people, brief, ev, self.llm)
+            for t in specs:
                 crm.upsert_task(d.mission_id, t.task_key, row_ids.get(t.account_key), t.task_type, t.title, t.status, t.draft_text)
+            pruned = crm.prune_mission(d.mission_id, row_ids.keys(), person_keys, [t.task_key for t in specs])
+            if any(pruned.values()):
+                self.emit("H_execution", f"re-run: removed stale rows from the previous run {pruned}")
             crm.replace_evidence(d.mission_id, d.ledger.items)
             crm.replace_tool_runs(d.mission_id, d.tool_runs)
             crm.sync_segments(d.mission_id)

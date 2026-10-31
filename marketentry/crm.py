@@ -151,6 +151,22 @@ class CRM:
                 [(mission_id, r.run_id, r.tool_name, r.endpoint, r.request_hash, r.request_summary, r.result_status,
                   r.http_status, r.attempt, r.duration_ms, r.credit_cost, r.error_type, r.started_at_utc) for r in runs])
 
+    def prune_mission(self, mission_id: str, account_keys: Iterable[str], person_keys: Iterable[str],
+                      task_keys: Iterable[str]) -> dict[str, int]:
+        """Remove this mission's rows that the latest run no longer produced, so a re-run mirrors the current result
+        (children first because of foreign keys). Rows still produced are untouched, preserving manual stage/status."""
+        out = {}
+        for table, col, keep in (("crm_tasks", "task_key", list(task_keys)), ("people", "person_key", list(person_keys)),
+                                 ("companies", "account_key", list(account_keys))):
+            with self.tx() as db:
+                if keep:  # (an empty NOT IN list would match nothing in SQL, so the empty case is handled explicitly)
+                    cur = db.execute(f"DELETE FROM {table} WHERE mission_id=? AND {col} NOT IN ({','.join('?' * len(keep))})",
+                                     (mission_id, *keep))
+                else:
+                    cur = db.execute(f"DELETE FROM {table} WHERE mission_id=?", (mission_id,))
+            out[table] = cur.rowcount
+        return out
+
     def sync_segments(self, mission_id: str) -> None:
         desc = {"Wave 1": "High fit, verified buyer: launch first", "Wave 2": "Fit confirmed, buyer/data pending",
                 "Research Needed": "Insufficient evidence or identity: complete research before outreach"}

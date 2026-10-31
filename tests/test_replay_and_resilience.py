@@ -100,3 +100,18 @@ def test_idempotent_crm_across_three_runs_and_key_never_in_outputs(tmp_path):
     for p in tmp_path.rglob("*"):
         if p.is_file() and p.suffix in {".json", ".csv", ".html", ".db"}:
             assert b"test-key" not in p.read_bytes(), p
+
+
+def test_rerun_with_changed_data_mirrors_latest_result_without_stale_rows(tmp_path):
+    from .conftest import fixture
+    full = fixture("company_search_uk_fin")["body"]
+    first = mission(tmp_path, make_handler(search_body={**full, "next_cursor": None})).run()
+    assert first.crm_counts["companies"] == 3
+    fewer = {**full, "next_cursor": None, "companies": full["companies"][:2]}
+    second = mission(tmp_path, make_handler(search_body=fewer)).run()
+    assert second.mission_id == first.mission_id and second.crm_counts["companies"] == 2
+    crm = CRM(tmp_path / "marketentry.db")
+    assert crm.db.execute("SELECT COUNT(*) FROM companies").fetchone()[0] == 2
+    assert crm.db.execute("SELECT COUNT(*) FROM crm_tasks t LEFT JOIN companies c ON c.id=t.company_id "
+                          "WHERE t.company_id IS NOT NULL AND c.id IS NULL").fetchone()[0] == 0  # no orphan tasks
+    crm.close()

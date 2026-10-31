@@ -155,3 +155,17 @@ def test_llm_polish_rejected_when_it_adds_numbers_or_links():
     good = f"Hi Chandini, a quick note about compliance tooling for Auquan. {FOOTER}"
     out = {s.task_key: s for s in plan_tasks(comps, {"6507": [ceo]}, brief(), ev, _llm(good))}
     assert out[key].draft_text == good
+
+
+def test_prune_removes_rows_a_rerun_no_longer_produces_but_keeps_manual_progress():
+    ledger, comps, ceo = build()
+    crm = CRM(":memory:")
+    save(crm, "m1", ledger, comps, ceo)
+    crm.db.execute("UPDATE companies SET stage='Contacted' WHERE account_key='id:6507'")
+    crm.db.commit()
+    keep = [account_key(c) for c in comps if c.company_id == "6507"]
+    pruned = crm.prune_mission("m1", keep, [], [])
+    assert pruned["companies"] == 1 and pruned["people"] == 1 and pruned["crm_tasks"] >= 1
+    assert crm.counts("m1")["companies"] == 1
+    assert crm.db.execute("SELECT stage FROM companies").fetchone()[0] == "Contacted"
+    assert crm.prune_mission("m1", ["nothing"], [], [])["companies"] == 1 and crm.counts("m1")["companies"] == 0
