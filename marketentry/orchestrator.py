@@ -34,6 +34,7 @@ ENRICH_FIELDS = ["basic_info", "headcount", "funding", "hiring"]
 @dataclass
 class MissionData:
     mission_id: str = ""
+    owner: str | None = None
     brief: MarketBrief | None = None
     companies: list[CompanyRecord] = field(default_factory=list)
     people: dict[str, list[PersonRecord]] = field(default_factory=dict)  # keyed by company_id
@@ -115,12 +116,12 @@ class Mission:
     def __init__(self, prompt: str, *, overrides: dict | None = None, settings: Settings | None = None,
                  client: CrustdataClient | None = None, llm: LLMClient | None = None,
                  on_event: Callable[[dict], None] | None = None, write_crm: bool = True,
-                 brief: MarketBrief | None = None):
+                 brief: MarketBrief | None = None, owner: str | None = None):
         self.prompt, self.overrides, self._preparsed = prompt, overrides, brief
         self.s = settings or get_settings()
         self.llm = llm or LLMClient(self.s)
         self._client, self._on_event, self.write_crm = client, on_event, write_crm
-        self.d = MissionData(started_at=utcnow())
+        self.d = MissionData(started_at=utcnow(), owner=owner)
         self._records: list[CompanyRecord] = []
         self._pages: list[tuple[str | None, str, int]] = []
         self._count_ref: tuple[str | None, str] = (None, utcnow())
@@ -185,7 +186,7 @@ class Mission:
         d = self.d
         with self.step("A_brief") as st:
             brief = self._preparsed or parse_brief(self.prompt, self.llm, self.overrides)
-            d.brief, d.mission_id = brief, mission_id_for(brief)
+            d.brief, d.mission_id = brief, mission_id_for(brief, d.owner)
             d.ledger = EvidenceLedger(d.mission_id)
             for u in brief.unsupported_constraints:
                 d.warnings.append(f"brief: {u}")

@@ -22,7 +22,7 @@ def mission_payload(d) -> dict[str, Any]:
     waves = {k: sum(c.wave == k for c in sl) for k in ("Wave 1", "Wave 2", "Research Needed")}
     rec = recommendation(d) if b else {"verdict": "No brief", "text": ""}
     return {
-        "mission_id": d.mission_id, "state": d.state, "started_at": d.started_at, "finished_at": d.finished_at,
+        "mission_id": d.mission_id, "owner": d.owner, "state": d.state, "started_at": d.started_at, "finished_at": d.finished_at,
         "brief": b.model_dump(mode="json") if b else None,
         "steps": [s.model_dump(mode="json") for s in d.steps],
         "universe": d.universe.model_dump(mode="json"), "sizing": d.sizing.model_dump(mode="json"),
@@ -44,7 +44,7 @@ def mission_payload(d) -> dict[str, Any]:
 
 def summary_card(d) -> dict[str, Any]:
     b = d.brief
-    return {"mission_id": d.mission_id, "state": d.state, "created_at": d.started_at,
+    return {"mission_id": d.mission_id, "owner": d.owner, "state": d.state, "created_at": d.started_at,
             "prompt": b.raw_prompt if b else "", "country": b.target_country if b else None,
             "industry": b.target_industry if b else None, "product": b.product_description if b else None,
             "accounts": len(d.companies[: b.max_target_accounts]) if b else 0,
@@ -75,11 +75,14 @@ def load_json(out_dir: Path | str, mission_id: str, name: str) -> Any | None:
         return None
 
 
-def list_summaries(out_dir: Path | str) -> list[dict]:
+def list_summaries(out_dir: Path | str, owner: str | None = None) -> list[dict]:
+    """Summaries of saved missions; with `owner`, only that user's missions."""
     out = []
     for p in Path(out_dir).glob("mission_*/summary.json"):
         try:
-            out.append(json.loads(p.read_text()))
+            s = json.loads(p.read_text())
         except (OSError, ValueError):
             continue
+        if owner is None or s.get("owner") == owner:
+            out.append(s)
     return sorted(out, key=lambda s: s.get("created_at") or "", reverse=True)

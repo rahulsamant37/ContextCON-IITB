@@ -44,9 +44,12 @@ CREATE TABLE IF NOT EXISTS crm_tasks(
 """
 
 
-def mission_id_for(brief: MarketBrief) -> str:
-    """Deterministic: the same normalized brief always maps to the same mission, so re-runs upsert."""
+def mission_id_for(brief: MarketBrief, owner: str | None = None) -> str:
+    """Deterministic: the same normalized brief (for the same owner) always maps to the same mission, so re-runs
+    upsert. Different users never share a mission."""
     core = brief.model_dump(exclude={"raw_prompt", "assumptions"})
+    if owner:
+        core["_owner"] = owner
     return "mission_" + hashlib.sha1(json.dumps(core, sort_keys=True).encode()).hexdigest()[:10]
 
 

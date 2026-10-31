@@ -25,6 +25,7 @@ ALLOWED_CAPS = {"max_company_enrichments": (1, 25), "max_credits_per_mission": (
 class Job:
     mission_id: str
     prompt: str
+    owner: str | None = None
     status: str = "queued"  # queued | running | done | failed
     state: str | None = None  # engine state once finished (completed / completed_with_warnings / partial / failed)
     error: str | None = None
@@ -61,15 +62,15 @@ class JobManager:
         return parse_brief(prompt, llm, overrides), llm
 
     def submit(self, prompt: str, *, overrides: dict | None = None, replay: bool = False, simulate: bool = False,
-               use_llm: bool = True, caps: dict | None = None) -> Job:
+               use_llm: bool = True, caps: dict | None = None, owner: str | None = None) -> Job:
         s = self.run_settings(replay=replay, simulate=simulate, use_llm=use_llm, caps=caps)
         brief, llm = self.parse(prompt, s, overrides)
-        mid = mission_id_for(brief)
+        mid = mission_id_for(brief, owner)
         with self.lock:
             existing = self.jobs.get(mid)
             if existing and existing.status in ("queued", "running"):
                 return existing  # same brief already in flight: attach instead of paying twice
-            job = Job(mission_id=mid, prompt=prompt)
+            job = Job(mission_id=mid, prompt=prompt, owner=owner)
             self.jobs[mid] = job
         self.pool.submit(self._run, job, s, brief, llm)
         return job
@@ -84,7 +85,7 @@ class JobManager:
         self._emit(job, {"type": "status", "status": "running", "ts": utcnow()})
         try:
             client = self.client_factory(s) if self.client_factory else None
-            m = Mission(job.prompt, settings=s, client=client, llm=llm, brief=brief,
+            m = Mission(job.prompt, settings=s, client=client, llm=llm, brief=brief, owner=job.owner,
                         on_event=lambda e: self._emit(job, {"type": "event", **e}))
             d = m.run()
             job.state = d.state

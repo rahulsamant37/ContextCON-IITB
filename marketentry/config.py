@@ -44,6 +44,10 @@ class Settings(BaseSettings):
     out_dir: Path = ROOT / "out"
     record_raw: bool = True
 
+    # web app
+    cookie_secure: bool = False  # set True behind HTTPS
+    session_days: int = 14
+
     @property
     def crm_path(self) -> Path:
         return Path(self.out_dir) / "marketentry.db"
