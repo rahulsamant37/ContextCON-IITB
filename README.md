@@ -33,35 +33,38 @@ tool_runs, **unsent** outreach drafts).
 - **Resilience:** cached per mission, bounded retries with backoff, safe error parsing, credit and web-query caps, partial results preserved, honest warnings. `SIMULATE_TRANSIENT_FAILURE=1` demonstrates it live.
 - **Idempotent:** mission id = hash of the normalised brief; re-runs upsert (manual CRM stage/task status is preserved).
 
-## Product (web app)
+## The application
 
-`marketentry/api.py` (FastAPI) + `web/` (Next.js 16, TypeScript, Tailwind) turn the engine into a product:
-guided new-mission flow with an optional "review understanding" step and cost estimate, a live run page (SSE stepper,
-activity feed, per-call credits), a results dashboard (verdict, sizing, charts, sortable accounts with a "why this score"
-drawer, buyers, competitors, assumptions, searchable evidence with a source viewer), exports, mission history, and a CRM
-board (drag-and-drop stages, editable **unsent** drafts that survive re-runs).
+A web app (`web/`, Next.js 16 + TypeScript + Tailwind) on top of a FastAPI backend (`marketentry/api.py`):
 
-```bash
-cp .env.example .env                      # CRUSTDATA_API_KEY (+ optional GROQ_API_KEY / LLM_API_KEY)
-cd web && pnpm install && cd ..
-scripts/dev.sh                            # API http://127.0.0.1:8000 , app http://localhost:3000
-cd web && pnpm exec playwright install chromium && pnpm exec playwright test   # e2e, offline replay: 0 credits
-```
-Set `NEXT_PUBLIC_API_URL` if the API is not on 127.0.0.1:8000. The Streamlit UI (`marketentry/ui/app.py`) still works.
-API docs: http://127.0.0.1:8000/docs. Keys never leave the server; `/api/settings` reports only whether they are set.
+- **New mission:** describe the market in plain English, optionally review and edit what was understood (country, sector, size, ACV, buyer roles, assumption ledger) with a credit estimate, then run. No further questions.
+- **Live run:** step-by-step progress, plain-language activity feed and every Crustdata call with its credit cost, streamed live (Server-Sent Events).
+- **Results:** verdict, KPIs, sizing (observed count × your ACV), launch segments, fit landscape, risks and launch plan; sortable accounts with a "why this score" drawer; buyers; competitors; assumptions; a searchable evidence explorer that shows the value found in the saved source.
+- **Exports:** PDF/HTML report, accounts, buyer map, competitor CSVs and the evidence log.
+- **CRM board:** drag-and-drop pipeline stages, task checklist and editable outreach drafts that are never sent and survive re-runs.
+- **Missions and settings:** history of every run; key status (never the keys) and cost caps.
 
 ## Run
 
 ```bash
 uv venv --python 3.11 .venv && uv pip install --python .venv/bin/python -e .
-cp .env.example .env            # add CRUSTDATA_API_KEY (and optionally LLM_API_KEY from console.groq.com)
-.venv/bin/streamlit run marketentry/ui/app.py                  # UI
-.venv/bin/python scripts/run_mission.py "<your request>"        # CLI
-.venv/bin/python -m pytest -q                                   # 110+ tests, no network needed
+cp .env.example .env                 # CRUSTDATA_API_KEY, optional GROQ_API_KEY (free LLM for wording only)
+(cd web && pnpm install)
+scripts/dev.sh                       # API http://127.0.0.1:8000 (docs at /docs) + app http://localhost:3000
 ```
+Open **http://localhost:3000**. Set `NEXT_PUBLIC_API_URL` if the API runs elsewhere. Keys stay on the server.
+
+Tests:
+```bash
+.venv/bin/python -m pytest -q                                    # engine + API, no network
+cd web && pnpm exec playwright install chromium && pnpm exec playwright test        # browser e2e in offline replay: 0 credits
+LIVE=1 pnpm exec playwright test e2e/live.spec.ts                                   # one real mission (~80 credits)
+```
+CLI (same engine, results also appear in the app's history): `.venv/bin/python scripts/run_mission.py "<request>"`.
 
 Offline replay: `python scripts/save_fixtures.py <mission_id>` copies a live run's raw responses into `fixtures/raw/`;
-then `REPLAY=1` re-runs the same request with zero network and zero credits (a missing fixture is an honest `replay_miss`, never invented data).
+then tick **Offline replay** in the app (or `REPLAY=1`) to re-run that request with zero network and zero credits
+(a missing fixture is an honest `replay_miss`, never invented data).
 
 ## Honest limitations
 

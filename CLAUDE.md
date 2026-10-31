@@ -14,7 +14,8 @@ Specs: docs/MarketEntryOS_Hackathon_Spec.md, docs/ContextCon PS - CrustData.md
 - Scope discipline: ONE orchestrator + python functions. No multi-agent chatter.
 
 ## Stack
-Python 3.11, pydantic, httpx, FastAPI (optional), SQLite, Streamlit, pytest, jinja2 (HTML report -> PDF fallback).
+Python 3.11, pydantic, httpx, FastAPI, SQLite, pytest, jinja2 + weasyprint (HTML/PDF report).
+Web app: Next.js 16 (App Router, TypeScript, Tailwind) in `web/`, Playwright e2e. No Streamlit.
 
 ## Workflow
 Small commits per milestone. Run pytest before commit. Keep fixtures for offline replay mode (REPLAY=1).

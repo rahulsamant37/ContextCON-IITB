@@ -2,10 +2,8 @@
 mission to partial/warnings but never discards results already gathered."""
 from __future__ import annotations
 
-import pickle
 import re
 import traceback
-from pathlib import Path
 from contextlib import contextmanager
 from dataclasses import dataclass, field
 from typing import Callable
@@ -24,6 +22,7 @@ from .exporters import export_all
 from .llm import LLMClient
 from .normalizers import (country_matches, merge_company, normalize_company, resolve_identify_entry, unwrap_envelope)
 from .scoring import score_and_rank
+from .serialize import save_mission
 from .sizing import compute_sizing
 from .verifier import VerificationReport, verify_mission
 
@@ -410,8 +409,8 @@ class Mission:
             crm.close()
         d.artifacts = export_all(d, self.s.out_dir)
         d.artifacts["marketentry.db"] = d.crm_db_path
-        try:  # lets the UI / scripts re-open this exact run without spending credits
-            (Path(self.s.out_dir) / d.mission_id / "mission.pkl").write_bytes(pickle.dumps(d))
+        try:  # JSON snapshot: the web app (and CLI runs) can re-open this exact run without spending credits
+            save_mission(d, self.s.out_dir)
         except Exception as e:
             d.warnings.append(f"could not save mission snapshot: {type(e).__name__}")
 

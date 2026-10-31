@@ -16,7 +16,7 @@ from .crm import CRM, mission_id_for
 from .crustdata_client import CrustdataClient
 from .jobs import JobManager
 from .serialize import list_summaries, load_json, valid_mission_id
-from .ui.helpers import breakdown_rows, source_excerpt
+from .presenters import breakdown_rows, source_excerpt
 
 MAX_PROMPT = 4000
 
