@@ -190,3 +190,11 @@ def test_role_match_requires_contiguous_words_not_scattered_ones():
     assert match_role("Co-Founder & CTO", ["CTO"]) == "CTO"
     assert match_role("Head of Compliance and MLRO", ["Head of Compliance"]) == "Head of Compliance"
     assert match_role("Compliance Head", ["Head of Compliance"]) is None
+
+
+def test_role_match_rejects_people_who_do_not_hold_the_role():
+    # live false positive: an assistant was accepted as a CTO and would have received an outreach draft
+    for t in ("Executive Assistant to CTO", "Deputy CTO", "Former CTO", "Associate Director of Compliance", "CTO Intern"):
+        roles = ["Head of Compliance"] if "Compliance" in t else ["CTO"]
+        assert match_role(t, roles) is None, t
+    assert match_role("Chief Technology Officer", ["CTO"]) == "CTO"

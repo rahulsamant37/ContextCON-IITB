@@ -39,7 +39,8 @@ CREATE TABLE IF NOT EXISTS tool_runs(
   duration_ms INTEGER, credit_cost REAL, error_type TEXT, started_at TEXT, UNIQUE(mission_id, run_id));
 CREATE TABLE IF NOT EXISTS crm_tasks(
   id INTEGER PRIMARY KEY, mission_id TEXT NOT NULL, task_key TEXT NOT NULL, company_id INTEGER REFERENCES companies(id),
-  task_type TEXT, title TEXT, status TEXT, draft_text TEXT, UNIQUE(mission_id, task_key));
+  task_type TEXT, title TEXT, status TEXT, draft_text TEXT, draft_edited INTEGER NOT NULL DEFAULT 0,
+  UNIQUE(mission_id, task_key));
 """
 
 
@@ -70,6 +71,10 @@ class CRM:
         self.db.row_factory = sqlite3.Row
         self.db.execute("PRAGMA foreign_keys=ON")
         self.db.executescript(SCHEMA)
+        cols = {r[1] for r in self.db.execute("PRAGMA table_info(crm_tasks)")}
+        if "draft_edited" not in cols:  # databases created before human edits were supported
+            self.db.execute("ALTER TABLE crm_tasks ADD COLUMN draft_edited INTEGER NOT NULL DEFAULT 0")
+            self.db.commit()
 
     @contextmanager
     def tx(self):
@@ -125,12 +130,13 @@ class CRM:
 
     def upsert_task(self, mission_id: str, task_key: str, company_row_id: int | None, task_type: str, title: str,
                     status: str, draft_text: str | None = None) -> None:
-        """Existing task status is kept (a human may have progressed it); title/draft are refreshed."""
+        """Existing task status is kept (a human may have progressed it); a human-edited draft is never overwritten."""
         with self.tx() as db:
             db.execute(
                 """INSERT INTO crm_tasks(mission_id, task_key, company_id, task_type, title, status, draft_text)
                    VALUES(?,?,?,?,?,?,?) ON CONFLICT(mission_id, task_key) DO UPDATE SET company_id=excluded.company_id,
-                   task_type=excluded.task_type, title=excluded.title, draft_text=excluded.draft_text""",
+                   task_type=excluded.task_type, title=excluded.title,
+                   draft_text=CASE WHEN crm_tasks.draft_edited=1 THEN crm_tasks.draft_text ELSE excluded.draft_text END""",
                 (mission_id, task_key, company_row_id, task_type, title, status, draft_text))
 
     def replace_evidence(self, mission_id: str, items: Iterable[Evidence]) -> None:
@@ -198,7 +204,7 @@ class CRM:
             if status is not None:
                 db.execute("UPDATE crm_tasks SET status=? WHERE id=?", (status, task_id))
             if draft_text is not None:
-                db.execute("UPDATE crm_tasks SET draft_text=? WHERE id=?", (draft_text[:5000], task_id))
+                db.execute("UPDATE crm_tasks SET draft_text=?, draft_edited=1 WHERE id=?", (draft_text[:5000], task_id))
         return True
 
     # ---- reads ---------------------------------------------------------------

@@ -60,7 +60,7 @@ def risks(d) -> list[str]:
     if nb:
         out.append(f"{nb} searched account(s) have no verified buyer in the target roles (buyer_not_found).")
     if ns:
-        out.append(f"{ns} shortlisted account(s) were not searched for buyers (cost cap: top {d.brief.max_buyer_accounts} only).")
+        out.append(f"{ns} shortlisted account(s) were not searched for buyers (the search stops once {d.brief.max_buyer_accounts} accounts have verified buyers, to cap cost).")
     unk = sum(1 for c in sl if "unknown:hiring" in c.flags)
     if unk:
         out.append(f"Hiring signal is unknown for {unk} account(s): the provider reports no tracked postings, which is not the same as zero openings.")

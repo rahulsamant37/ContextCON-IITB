@@ -33,6 +33,23 @@ tool_runs, **unsent** outreach drafts).
 - **Resilience:** cached per mission, bounded retries with backoff, safe error parsing, credit and web-query caps, partial results preserved, honest warnings. `SIMULATE_TRANSIENT_FAILURE=1` demonstrates it live.
 - **Idempotent:** mission id = hash of the normalised brief; re-runs upsert (manual CRM stage/task status is preserved).
 
+## Product (web app)
+
+`marketentry/api.py` (FastAPI) + `web/` (Next.js 16, TypeScript, Tailwind) turn the engine into a product:
+guided new-mission flow with an optional "review understanding" step and cost estimate, a live run page (SSE stepper,
+activity feed, per-call credits), a results dashboard (verdict, sizing, charts, sortable accounts with a "why this score"
+drawer, buyers, competitors, assumptions, searchable evidence with a source viewer), exports, mission history, and a CRM
+board (drag-and-drop stages, editable **unsent** drafts that survive re-runs).
+
+```bash
+cp .env.example .env                      # CRUSTDATA_API_KEY (+ optional GROQ_API_KEY / LLM_API_KEY)
+cd web && pnpm install && cd ..
+scripts/dev.sh                            # API http://127.0.0.1:8000 , app http://localhost:3000
+cd web && pnpm exec playwright install chromium && pnpm exec playwright test   # e2e, offline replay: 0 credits
+```
+Set `NEXT_PUBLIC_API_URL` if the API is not on 127.0.0.1:8000. The Streamlit UI (`marketentry/ui/app.py`) still works.
+API docs: http://127.0.0.1:8000/docs. Keys never leave the server; `/api/settings` reports only whether they are set.
+
 ## Run
 
 ```bash
