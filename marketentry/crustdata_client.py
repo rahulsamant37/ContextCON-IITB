@@ -98,6 +98,7 @@ class CrustdataClient:
         self._simulated = False
         self._last_call = 0.0
         self.tool_runs: list[ToolRun] = []
+        self.search_pages: list[tuple[str | None, str, int]] = []
         self.warnings: list[str] = []
         self.credits_used = 0.0
         self._calls: dict[str, int] = {}
@@ -305,19 +306,31 @@ class CrustdataClient:
             body["sorts"] = sorts
         return self.request("company_search", "POST", "/company/search", body)
 
+    def autocomplete(self, field: str, query: str, limit: int = 15) -> list[str]:
+        """Free. Valid filter values for a company field; [] on any failure (caller decides what that means)."""
+        r = self.request("company_autocomplete", "POST", "/company/search/autocomplete",
+                         {"field": field, "query": query, "limit": limit})
+        if not r.ok or not isinstance(r.body, dict):
+            return []
+        return [s["value"] for s in r.body.get("suggestions", []) if isinstance(s, dict) and isinstance(s.get("value"), str)]
+
     def company_search_paged(self, filters: dict, fields: Iterable[str] | None = None,
-                             max_results: int | None = None) -> tuple[list[dict], int | None, str | None]:
+                             max_results: int | None = None, sorts: list[dict] | None = None
+                             ) -> tuple[list[dict], int | None, str | None]:
         """Follow next_cursor up to max_results. Returns (companies, total_count, warning).
-        Partial pages are preserved if a later page fails."""
+        Partial pages are preserved if a later page fails. `search_pages` records (raw_path, retrieved_at, first_index)
+        per page so each record can cite the response file it came from."""
         cap = max_results or self.s.max_company_search_results
         out: list[dict] = []
         total: int | None = None
         cursor: str | None = None
+        self.search_pages = []
         while len(out) < cap:
-            r = self.company_search(filters, fields, min(self.s.search_page_size, cap - len(out)), cursor)
+            r = self.company_search(filters, fields, min(self.s.search_page_size, cap - len(out)), cursor, sorts)
             if not r.ok:
                 return out, total, f"company_search page failed after {len(out)} results: {r.error_type}"
             total = r.body.get("total_count", total)
+            self.search_pages.append((r.run.raw_path, r.retrieved_at, len(out)))
             out.extend(r.body.get("companies") or [])
             cursor = r.body.get("next_cursor")
             if not cursor:

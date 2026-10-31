@@ -44,6 +44,10 @@ class Settings(BaseSettings):
     out_dir: Path = ROOT / "out"
     record_raw: bool = True
 
+    @property
+    def crm_path(self) -> Path:
+        return Path(self.out_dir) / "marketentry.db"
+
     # LLM = parsing + prose only. Any OpenAI-compatible endpoint (default: Groq free tier).
     llm_base_url: str = "https://api.groq.com/openai/v1"
     llm_model: str = "llama-3.3-70b-versatile"

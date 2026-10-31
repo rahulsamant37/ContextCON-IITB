@@ -1,0 +1,180 @@
+{
+  "name": "cs_sort_growth",
+  "endpoint": "POST /company/search",
+  "request": {
+    "filters": {
+      "op": "and",
+      "conditions": [
+        {
+          "field": "locations.country",
+          "type": "=",
+          "value": "United Kingdom"
+        },
+        {
+          "field": "taxonomy.categories",
+          "type": "in",
+          "value": [
+            "FinTech"
+          ]
+        },
+        {
+          "field": "headcount.total",
+          "type": "=>",
+          "value": 50
+        },
+        {
+          "field": "headcount.total",
+          "type": "=<",
+          "value": 500
+        }
+      ]
+    },
+    "fields": [
+      "basic_info",
+      "headcount"
+    ],
+    "sorts": [
+      {
+        "field": "headcount.growth_percent.6m",
+        "order": "desc"
+      }
+    ],
+    "limit": 3
+  },
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit": "30",
+    "x-ratelimit-remaining": "29",
+    "x-ratelimit-reset": "60",
+    "x-credits-used": "1.59"
+  },
+  "duration_ms": 1009,
+  "retrieved_at_utc": "2026-10-31T06:09:50.218601+00:00",
+  "body": {
+    "companies": [
+      {
+        "crustdata_company_id": 989021,
+        "basic_info": {
+          "name": "Rimbal",
+          "crustdata_company_id": 989021,
+          "primary_domain": "rimbal.com",
+          "all_domains": [
+            "rimbal.com"
+          ],
+          "website": "http://www.rimbal.com",
+          "professional_network_url": "https://www.linkedin.com/company/rimbal",
+          "professional_network_id": "3607546",
+          "profile_name": "Rimbal",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/019acee72cc877cc917c85e433ae7870e307cb3cb406a7e3fff82566d903b043.jpg",
+          "description": "Rimbal is a national platform for independent financial advice firms.  Through our branded service propositions, independent firms run on our infrastructure and leverage our technology and resources to enhance their local operations, grow and deliver better client outcomes. Our mission is to build the operating system and intelligent infrastructure that enables independent financial advice firms to deliver better client outcomes — compliantly, efficiently and at scale — now and into the future.",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 2013,
+          "employee_count_range": "51-200",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 54,
+          "largest_headcount_country": "GBR",
+          "growth_percent": {
+            "1m": 157.14285714285714,
+            "3m": 157.14285714285714,
+            "6m": 170.0,
+            "12m": 200.0
+          },
+          "growth_absolute": {
+            "1m": 33,
+            "3m": 33,
+            "6m": 34,
+            "12m": 36
+          }
+        }
+      },
+      {
+        "crustdata_company_id": 1310374,
+        "basic_info": {
+          "name": "Clearing",
+          "crustdata_company_id": 1310374,
+          "primary_domain": "clearing.com",
+          "all_domains": [
+            "clearing.com"
+          ],
+          "website": "http://clearing.com",
+          "professional_network_url": "https://www.linkedin.com/company/clearinghq",
+          "professional_network_id": "72011070",
+          "profile_name": "Clearing",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/74a705eb6b66da52eed0d44f401bd4644532952615e6a94c0a4fe337b338c126.jpg",
+          "description": "Clearing is a licensed and regulated payments institution operating across the UK, Singapore, and Canada.We move money across borders and currencies — fiat and digital — without the friction of traditional banking infrastructure. Built by financial services and technology experts, Clearing delivers compliant cross-border payment processing for businesses that operate globally.Regulated by the FCA (UK), MAS (Singapore), and FINTRAC (Canada). Built for scale.",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": null,
+          "employee_count_range": "11-50",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 56,
+          "largest_headcount_country": "GBR",
+          "growth_percent": {
+            "1m": 14.285714285714285,
+            "3m": 24.444444444444443,
+            "6m": 51.35135135135135,
+            "12m": 64.70588235294117
+          },
+          "growth_absolute": {
+            "1m": 7,
+            "3m": 11,
+            "6m": 19,
+            "12m": 22
+          }
+        }
+      },
+      {
+        "crustdata_company_id": 881216,
+        "basic_info": {
+          "name": "Solve Intelligence",
+          "crustdata_company_id": 881216,
+          "primary_domain": "solveintelligence.com",
+          "all_domains": [
+            "solveintelligence.com"
+          ],
+          "website": "https://www.solveintelligence.com/",
+          "professional_network_url": "https://www.linkedin.com/company/solve-intelligence",
+          "professional_network_id": "98020599",
+          "profile_name": "Solve Intelligence",
+          "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/88018922ebc7b284c774930a0282d1e061017972a19a0042126b0e7050ce18f9.jpg",
+          "description": "Solve Intelligence is the leading AI patent solution for IP teams and legal professionals globally. Over 700+ IP teams across 6 continents use Solve Intelligence’s AI patent software for patent application drafting, prosecution, claim charts, and invention harvesting.Backed by leading investors including Y Combinator, Thomson Reuters, Microsoft, 20VC and Visionaries, Solve Intelligence has raised a total of $55m in funding to build the world’s leading AI patent tools to support the end-to-end workflows of IP teams and legal professionals.Our goal is simple: if it touches patents, you should be able to do it faster, better, and more collaboratively in Solve Intelligence.With a growing team of world-leading engineers and patent attorneys, Solve Intelligence is actively hiring across a number of roles: https://jobs.ashbyhq.com/solveintelligenceIf you are a patent practitioner, we would love to hear from you: https://www.solveintelligence.com/contact-us",
+          "company_type": "Privately Held",
+          "status": "active",
+          "year_founded": 2023,
+          "employee_count_range": "11-50",
+          "markets": [
+            "PRIVATE"
+          ]
+        },
+        "headcount": {
+          "total": 67,
+          "largest_headcount_country": "GBR",
+          "growth_percent": {
+            "1m": 4.6875,
+            "3m": 19.642857142857142,
+            "6m": 48.888888888888886,
+            "12m": 116.12903225806453
+          },
+          "growth_absolute": {
+            "1m": 3,
+            "3m": 11,
+            "6m": 22,
+            "12m": 36
+          }
+        }
+      }
+    ],
+    "next_cursor": "H4sIAC6G5WoC_xWMQQrDIBAAvyKeQ1mNrtt-JZSwuyo5lEoTcyilf6-d6wzzsa-z7O9142OzN2MrV01Z3CyhOuCQwCsGKpElZ6lQAnBEJ0F5RoSESJIUPVUtDDnaydij7X28lkAXGlwnQ-S8w_twvXV-rNrO5z-JLn1_5gjXhoIAAAA=",
+    "total_count": 517
+  }
+}
