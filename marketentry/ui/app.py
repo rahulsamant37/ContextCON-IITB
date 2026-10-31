@@ -32,7 +32,12 @@ S = get_settings()
 
 
 def df(rows: list[dict]) -> pd.DataFrame:
-    return pd.DataFrame(rows) if rows else pd.DataFrame()
+    """Columns mixing numbers and the word 'unknown' are shown as text (Arrow cannot hold both in one column)."""
+    frame = pd.DataFrame(rows) if rows else pd.DataFrame()
+    for col in frame.columns:
+        if frame[col].dtype == object:
+            frame[col] = frame[col].astype(str)
+    return frame
 
 
 def latest_saved() -> Path | None:
